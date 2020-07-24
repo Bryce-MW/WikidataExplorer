@@ -79,3 +79,10 @@ I was interested in making this program, many people may wish to learn about
 Wikidata's structured data system to see if they can incorporate it into their
 own projects and systems so this program is a good way to get an overview to see
 how data is organized.
+
+## User stories
+* As a user, I want to be able to query information about an entity.
+* As a user, I want to view statements and save those which I am interested in.
+* As a user, I want to add multiple downstream entities to my view.
+* As a user, I want to search for an entity by name.
+* As a user, I want to ask simple questions and validate statements.
