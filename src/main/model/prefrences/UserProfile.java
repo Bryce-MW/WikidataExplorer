@@ -1,5 +1,7 @@
 package model.prefrences;
 
-public class UserProfile {
+import ui.MenuBarItem;
+
+public class UserProfile implements MenuBarItem {
     //TODO: Implement
 }

@@ -1,5 +1,5 @@
 package model.data;
 
-public class Statement extends Value {
+public class ScopedSearch {
     //TODO: Implement
 }

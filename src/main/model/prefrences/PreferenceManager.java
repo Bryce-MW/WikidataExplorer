@@ -1,5 +1,7 @@
 package model.prefrences;
 
-public class PreferenceManager {
+import ui.MenuBarItem;
+
+public class PreferenceManager implements MenuBarItem {
     //TODO: Implement
 }
