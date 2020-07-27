@@ -1,10 +1,11 @@
 package ui;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ItemViewController {
     //TODO: Implement
-    private ArrayList<ItemView> items;
+    private final ArrayList<ItemView> items;
 
     public ItemViewController(ItemView initial) {
         items = new ArrayList<>(10);
@@ -26,6 +27,12 @@ public class ItemViewController {
 
     public int size() {
         return items.size();
+    }
+
+    public List<StringBuilder> toStringArray() {
+        ArrayList<StringBuilder> result = new ArrayList<>(10 * items.size());
+        items.stream().map(ItemView::toStringArray).forEach(result::addAll);
+        return result;
     }
 
     //TODO: Rendering stuff

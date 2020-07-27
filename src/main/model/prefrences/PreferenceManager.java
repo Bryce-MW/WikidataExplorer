@@ -20,4 +20,10 @@ public class PreferenceManager implements MenuBarItem {
     }
 
     //TODO: Rendering stuff
+
+
+    @Override
+    public String toString() {
+        return "E: Preferences";
+    }
 }

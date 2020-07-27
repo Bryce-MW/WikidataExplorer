@@ -25,4 +25,8 @@ public class SearchBar implements MenuBarItem {
     }
 
     //TODO: Rendering Stuff
+
+    public String toString() {
+        return "S: Search";
+    }
 }
