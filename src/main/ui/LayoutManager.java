@@ -56,8 +56,7 @@ public class LayoutManager {
 
         int startHeight = result.size() + separationWidth - 1; // Start separationWidth from menuBar
 
-        StringBuilder blank = new StringBuilder(0);
-        IntStream.range(0, height - result.size()).mapToObj((i) -> blank).forEach(result::add);
+        IntStream.range(0, height - result.size()).mapToObj((i) -> new StringBuilder(100)).forEach(result::add);
 
         for (ItemViewController controller : controllers.subList(leftIndex, controllers.size())) {
             int height = startHeight;

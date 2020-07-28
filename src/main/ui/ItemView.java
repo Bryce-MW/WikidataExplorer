@@ -55,7 +55,7 @@ public class ItemView {
         StringBuilder topLine = new StringBuilder(maxLength);
         StringBuilderUtil.pad(topLine, '━', maxLength);
         topLine.setCharAt(0, '┏');
-        topLine.setCharAt(topLine.length() - 1, '┏');
+        topLine.setCharAt(topLine.length() - 1, '┓');
         result.add(0, topLine);
 
         StringBuilder midLine = new StringBuilder(maxLength);
