@@ -17,7 +17,7 @@ import java.util.Map;
 
 @SuppressWarnings({"unchecked", "ConstantConditions"})
 public class WebCollector implements Collector {
-    private ScriptEngine engine;
+    private final ScriptEngine engine;
 
     public WebCollector() {
         ScriptEngineManager manager = new ScriptEngineManager();
@@ -47,16 +47,7 @@ public class WebCollector implements Collector {
 
         String finalName = tree.get(2);
 
-        for (Map<String, Object> statement : statements) {
-            Map<String, Object> mainSnak = (Map<String, Object>) statement.get("mainsnak");
-            Map<String, Object> dataValue = (Map<String, Object>) mainSnak.get("datavalue");
-            Map<String, String> value = (Map<String, String>) dataValue.get("value");
-            String id = value.get("id");
-            if (id.equals(finalName)) {
-                result = statement;
-                break;
-            }
-        }
+        result = getStatement(statements, result, finalName);
 
         if (result == null) {
             //Something bad happened. Will probably crash
@@ -71,6 +62,22 @@ public class WebCollector implements Collector {
         ArrayList<Qualifier> qualifiers = new ArrayList<>(10);
 
         return qualifiers; // TODO: Implement later, not needed now
+    }
+
+    private Map<String, Object> getStatement(List<Map<String, Object>> statements,
+                                             Map<String, Object> result,
+                                             String finalName) {
+        for (Map<String, Object> statement : statements) {
+            Map<String, Object> mainSnak = (Map<String, Object>) statement.get("mainsnak");
+            Map<String, Object> dataValue = (Map<String, Object>) mainSnak.get("datavalue");
+            Map<String, String> value = (Map<String, String>) dataValue.get("value");
+            String id = value.get("id");
+            if (id.equals(finalName)) {
+                result = statement;
+                break;
+            }
+        }
+        return result;
     }
 
     @Override
@@ -102,16 +109,9 @@ public class WebCollector implements Collector {
         }
 
         StringBuilder json = new StringBuilder(1000);
-        json.append("Java.asJSONCompatible(");
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
-            String line;
-            while ((line = in.readLine()) != null) {
-                json.append(line).append('\n');
-            }
-        } catch (IOException e) {
+        if (createJsonString(connection, json)) {
             return null;
         }
-        json.append(")");
 
         Map<String, Object> result;
         try {
@@ -121,5 +121,19 @@ public class WebCollector implements Collector {
         } // Something very bad happened!
 
         return result;
+    }
+
+    private boolean createJsonString(URLConnection connection, StringBuilder json) {
+        json.append("Java.asJSONCompatible(");
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+            String line;
+            while ((line = in.readLine()) != null) {
+                json.append(line).append('\n');
+            }
+        } catch (IOException e) {
+            return true;
+        }
+        json.append(")");
+        return false;
     }
 }

@@ -24,9 +24,9 @@ public final class CLInterface {
     private static MenuBar menuBar;
     private static SearchBar mainSearch;
 
-    private static UserProfile profile;
-    private static LayoutProfileManager profileLayouts;
-    private static PreferenceManager preferences;
+    private static final UserProfile profile;
+    private static final LayoutProfileManager profileLayouts;
+    private static final PreferenceManager preferences;
 
     private static final Scanner CLInput = new Scanner(System.in);
 
@@ -34,11 +34,14 @@ public final class CLInterface {
         throw new Error("CLInterface contains only static methods");
     }
 
-    public static void main(String[] args) {
-        // Start point for CLI interface
+    static {
         profile = new UserProfile("Default", layout); //Not going to bother localizing this
         profileLayouts = profile.getLayout();
         preferences = profile.getPreferences();
+    }
+
+    public static void main(String[] args) {
+        // Start point for CLI interface
 
         ArrayList<MenuBarItem> menuItems = new ArrayList<>(3);
         menuItems.add(profileLayouts);

@@ -6,7 +6,6 @@ import model.data.Value;
 import model.util.StringBuilderUtil;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class ItemView {
@@ -14,13 +13,13 @@ public class ItemView {
     private final Value item; // Q42, P137, L23 . . .
 
     // The following will need language support!
-    private String title; // Douglas Addams
-    private String description; // English writer and humorist
+    private final String title; // Douglas Addams
+    private final String description; // English writer and humorist
 
     private String photoRef; // May not implement depending on time
-    private SearchBar searchBar; // Only present for Datum! TODO: (add needsSearchBar() to Value, true for Datum,
+    private final SearchBar searchBar; // Only present for Datum! TODO: (add needsSearchBar() to Value, true for Datum,
     // false otherwise.)
-    private StatementList statements;
+    private final StatementList statements;
 
     public ItemView(Datum value) {
         this.item = value;
@@ -51,6 +50,12 @@ public class ItemView {
         StringBuilderUtil.padAll(result, ' ', 0);
         result.forEach((i) -> i.append('┃'));
 
+        addLines(result);
+
+        return result;
+    }
+
+    private void addLines(ArrayList<StringBuilder> result) {
         int maxLength = result.get(0).length();
         StringBuilder topLine = new StringBuilder(maxLength);
         StringBuilderUtil.pad(topLine, '━', maxLength);
@@ -70,8 +75,6 @@ public class ItemView {
         botLine.setCharAt(0, '┗');
         botLine.setCharAt(botLine.length() - 1, '┛');
         result.add(botLine);
-
-        return result;
     }
 
     //TODO: Rendering Stuff

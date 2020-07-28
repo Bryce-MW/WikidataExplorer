@@ -53,12 +53,7 @@ public class MenuBar {
             line3.setCharAt(line2.length() - 1, '┷');
         }
         String search = searchBar.toString();
-        IntStream.range(0, (width - line2.length() - search.length() - 2)).mapToObj(i -> ' ').forEach(line2::append);
-        line2.append('┃');
-        line1.setCharAt(line2.length(), '┯');
-        line3.setCharAt(line2.length(), '┷');
-        line2.append(search);
-        line2.append('┃');
+        addLines(line1, line3, line2, search);
 
         line3.setCharAt(0, '┗');
         line3.setCharAt(line3.length() - 1, '┛');
@@ -68,5 +63,14 @@ public class MenuBar {
         output.add(line3);
 
         return output;
+    }
+
+    private void addLines(StringBuilder line1, StringBuilder line3, StringBuilder line2, String search) {
+        IntStream.range(0, (width - line2.length() - search.length() - 2)).mapToObj(i -> ' ').forEach(line2::append);
+        line2.append('┃');
+        line1.setCharAt(line2.length(), '┯');
+        line3.setCharAt(line2.length(), '┷');
+        line2.append(search);
+        line2.append('┃');
     }
 }
