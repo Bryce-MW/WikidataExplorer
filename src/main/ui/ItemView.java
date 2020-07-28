@@ -30,7 +30,8 @@ public class ItemView {
         statements = item.getStatements();
     }
 
-    public void updateLanguage(String lang) {}
+    public void updateLanguage(String lang) {
+    } // TODO: Languages!
 
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(16);

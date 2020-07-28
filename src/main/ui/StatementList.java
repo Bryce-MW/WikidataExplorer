@@ -8,8 +8,8 @@ import java.util.List;
 
 public class StatementList {
     //TODO: Implement
-    private ArrayList<Value> statements;
-    private Value entity; // Entity this statement list refers to.
+    private final ArrayList<Value> statements;
+    private final Value entity; // Entity this statement list refers to.
 
     public StatementList(Value entity) {
         this.entity = entity;
@@ -17,7 +17,8 @@ public class StatementList {
         getBasicStatements();
     }
 
-    private void getBasicStatements() {} //TODO: Implement
+    private void getBasicStatements() {
+    } //TODO: Implement
 
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(statements.size());
@@ -25,9 +26,10 @@ public class StatementList {
         for (Value statement : statements) {
             String name = statement.getTitle();
             StringBuilder line = new StringBuilder(maxID + name.length() + 1);
-            line.append('◄').append(statement.getID()).append(':');
+            line.append("◄ ").append(statement.getID()).append(':');
             StringBuilderUtil.pad(line, ' ', maxID);
             line.append(name);
+            result.add(line);
         }
 
         return result;

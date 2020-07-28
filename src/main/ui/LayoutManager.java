@@ -1,17 +1,16 @@
 package ui;
 
 import model.util.StringBuilderUtil;
+import org.jetbrains.annotations.TestOnly;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class LayoutManager {
     //TODO: Implement
-    private ArrayList<ItemViewController> controllers;
+    private final ArrayList<ItemViewController> controllers;
     private final int width;
     private final int height;
-    private int defaultWidth;
     private int separationWidth;
 
     private final MenuBar menuBar;
@@ -42,15 +41,12 @@ public class LayoutManager {
         return controllers.size();
     }
 
-    public void setDefaultWidth(int width) {
-        defaultWidth = width;
-    }
-
     public void setSepWidth(int sepWidth) {
         separationWidth = sepWidth;
     }
 
-    public void print() {
+    @TestOnly
+    public ArrayList<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(height);
         result.addAll(menuBar.toStringArray());
 
@@ -67,6 +63,12 @@ public class LayoutManager {
             StringBuilderUtil.padAll(result.subList(startHeight, result.size()), ' ', separationWidth);
             // TODO: Render connections
         }
+
+        return result;
+    }
+
+    public void print() {
+        ArrayList<StringBuilder> result = toStringArray();
 
         result.forEach(System.out::println);
     }

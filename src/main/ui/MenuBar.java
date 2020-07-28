@@ -68,8 +68,8 @@ public class MenuBar {
     private void addLines(StringBuilder line1, StringBuilder line3, StringBuilder line2, String search) {
         IntStream.range(0, (width - line2.length() - search.length() - 2)).mapToObj(i -> ' ').forEach(line2::append);
         line2.append('┃');
-        line1.setCharAt(line2.length(), '┯');
-        line3.setCharAt(line2.length(), '┷');
+        line1.setCharAt(line2.length() - 1, '┯');
+        line3.setCharAt(line2.length() - 1, '┷');
         line2.append(search);
         line2.append('┃');
     }

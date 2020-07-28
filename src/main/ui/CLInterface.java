@@ -28,7 +28,7 @@ public final class CLInterface {
     private static final LayoutProfileManager profileLayouts;
     private static final PreferenceManager preferences;
 
-    private static final Scanner CLInput = new Scanner(System.in);
+    private static Scanner CLInput;
 
     public CLInterface() {
         throw new Error("CLInterface contains only static methods");
@@ -53,24 +53,32 @@ public final class CLInterface {
         mainSearch = new SearchBar(queryService.getScopedSearch(null));
         menuBar = new MenuBar(menuItems, mainSearch, WIDTH);
         layout = new LayoutManager(117, 70, menuBar);
-        layout.setDefaultWidth(20);
         layout.setSepWidth(3);
 
         Datum startingPoint = new Item("Q42", queryService);
 
         layout.add(new ItemViewController(new ItemView(startingPoint)));
 
+        loop(args);
+    }
+
+    private static void loop(String[] args) {
         layout.print();
 
         String command;
         System.out.print("Data $ ");
-        if (args.length == 0) {
-            while (!(command = CLInput.nextLine()).equals("exit")) {
-                parse(command);
-                layout.print();
-
-                System.out.print("Data $ ");
+        CLInput = new Scanner(System.in);
+        if (args.length != 0) {
+            if (args[0].equals("exit")) {
+                CLInput = new Scanner("test\nexit");
             }
+        }
+
+        while (!(command = CLInput.nextLine()).equals("exit")) {
+            parse(command);
+            layout.print();
+
+            System.out.print("Data $ ");
         }
     }
 
