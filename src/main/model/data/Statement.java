@@ -2,13 +2,11 @@ package model.data;
 
 import ui.StatementList;
 
-import java.util.ArrayList;
-
 public class Statement extends Value {
-    private String id;
-    private String name;
-    private StatementList statements;
-    private Datum about;
+    private final String id;
+    private final String name;
+    private final StatementList statements;
+    private final Datum about;
 
     public Statement(Datum item, String property, DatumQueryService queryService) {
         super(queryService);

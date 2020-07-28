@@ -5,24 +5,27 @@ import model.data.Value;
 import ui.StatementList;
 
 public class LiteralString extends Value {
-    protected LiteralString(DatumQueryService queryService) {
+    private final String value;
+
+    public LiteralString(String value, DatumQueryService queryService) {
         super(queryService);
+        this.value = value;
     }
     // TODO: These are not needed yet
 
     @Override
     public String getTitle() {
-        return null;
+        return value;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return value;
     }
 
     @Override
     public String getID() {
-        return null;
+        return value;
     }
 
     @Override
