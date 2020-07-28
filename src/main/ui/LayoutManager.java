@@ -1,7 +1,6 @@
 package ui;
 
 import model.util.StringBuilderUtil;
-import org.jetbrains.annotations.TestOnly;
 
 import java.util.ArrayList;
 import java.util.stream.IntStream;
@@ -45,8 +44,7 @@ public class LayoutManager {
         separationWidth = sepWidth;
     }
 
-    @TestOnly
-    public ArrayList<StringBuilder> toStringArray() {
+    private ArrayList<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(height);
         result.addAll(menuBar.toStringArray());
 
