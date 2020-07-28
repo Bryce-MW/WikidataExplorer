@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@SuppressWarnings({"unchecked", "ConstantConditions"})
+@SuppressWarnings("ConstantConditions")
 public class WebCollector implements Collector {
     private final ScriptEngine engine;
 
@@ -82,7 +82,7 @@ public class WebCollector implements Collector {
 
     @Override
     public ArrayList<Reference> getReferences(List<String> tree) {
-        return new ArrayList<>(); // TODO: Implement later, not needed now
+        return new ArrayList<>(0); // TODO: Implement later, not needed now
     }
 
     @Override
@@ -100,12 +100,12 @@ public class WebCollector implements Collector {
     }
 
     private Map<String, Object> getJson(String urlStr) {
-        URLConnection connection;
+        URLConnection connection = null;
         try {
             URL url = new URL(formatURL(urlStr));
             connection = url.openConnection();
-        } catch (IOException e) {
-            return null; // Maybe no internet?
+        } catch (IOException ignored) {
+            //ignored
         }
 
         StringBuilder json = new StringBuilder(1000);
@@ -113,11 +113,11 @@ public class WebCollector implements Collector {
             return null;
         }
 
-        Map<String, Object> result;
+        Map<String, Object> result = null;
         try {
             result = (Map<String, Object>) engine.eval(json.toString());
-        } catch (ScriptException | ClassCastException e) {
-            return null;
+        } catch (ScriptException | ClassCastException ignored) {
+            //ignored
         } // Something very bad happened!
 
         return result;
