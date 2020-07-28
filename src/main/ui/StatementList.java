@@ -4,7 +4,6 @@ import model.data.Value;
 import model.util.StringBuilderUtil;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class StatementList {
@@ -18,7 +17,7 @@ public class StatementList {
         getBasicStatements();
     }
 
-    private void getBasicStatements() {}
+    private void getBasicStatements() {} //TODO: Implement
 
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(statements.size());

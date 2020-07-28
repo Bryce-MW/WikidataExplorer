@@ -28,6 +28,7 @@ public class ItemView {
         title = item.getTitle();
         description = item.getDescription();
         searchBar = new SearchBar(new ScopedSearch(item));
+        statements = item.getStatements();
     }
 
     public void updateLanguage(String lang) {}

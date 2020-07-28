@@ -45,12 +45,13 @@ public final class CLInterface {
         menuItems.add(profile);
         menuItems.add(preferences);
 
+        queryService = new DatumQueryService(new WebCollector());
+
+        mainSearch = new SearchBar(queryService.getScopedSearch(null));
         menuBar = new MenuBar(menuItems, mainSearch, WIDTH);
         layout = new LayoutManager(117, 70, menuBar);
         layout.setDefaultWidth(20);
         layout.setSepWidth(3);
-
-        queryService = new DatumQueryService(new WebCollector());
 
         Datum startingPoint = new Item("Q42", queryService);
 

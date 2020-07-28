@@ -1,7 +1,8 @@
 package model.data;
 
 import model.data.source.Collector;
-import model.data.source.WebCollector;
+
+import java.util.ArrayList;
 
 public class DatumQueryService {
     //TODO: Implement
@@ -11,7 +12,31 @@ public class DatumQueryService {
         this.collector = collector;
     }
 
-    public ScopedSearch getScopedSearch() {
-        return null;
+    public ScopedSearch getScopedSearch(Value item) {
+        return new ScopedSearch(item);
+    }
+
+    public String getNameByID(String property) {
+        return collector.getEntityName(property);
+    }
+
+    public ArrayList<Qualifier> getQualifiersByStatement(Statement property, Value value) {
+        ArrayList<String> tree = new ArrayList<>(3);
+        tree.add(property.getParentID());
+        tree.add(property.getID());
+        tree.add(value.getID());
+        return collector.getQualifiers(tree);
+    }
+
+    public ArrayList<Reference> getReferencesByStatement(Statement property, Value value) {
+        ArrayList<String> tree = new ArrayList<>(3);
+        tree.add(property.getParentID());
+        tree.add(property.getID());
+        tree.add(value.getID());
+        return collector.getReferences(tree);
+    }
+
+    public String getDescriptionByID(String id) {
+        return collector.getEntityDescription(id);
     }
 }

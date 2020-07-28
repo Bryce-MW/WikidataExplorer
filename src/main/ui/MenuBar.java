@@ -49,8 +49,8 @@ public class MenuBar {
         for (MenuBarItem item : items) {
             line2.append(item.toString());
             line2.append('│');
-            line1.setCharAt(line2.length() - 1, '┯');
-            line3.setCharAt(line2.length() - 1, '┷');
+            line1.setCharAt(line1.length() - 1, '┯');
+            line3.setCharAt(line3.length() - 1, '┷');
         }
         String search = searchBar.toString();
         IntStream.range(0, (width - line2.length() - search.length() - 2)).map(i -> ' ').forEach(line2::append);

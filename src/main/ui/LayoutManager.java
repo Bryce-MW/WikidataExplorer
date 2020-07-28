@@ -22,6 +22,7 @@ public class LayoutManager {
         this.width = width;
         this.height = height;
         this.menuBar = menuBar;
+        controllers = new ArrayList<>(5);
     }
 
     public void add(ItemViewController newView) {
