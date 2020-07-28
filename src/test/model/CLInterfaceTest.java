@@ -18,4 +18,9 @@ class CLInterfaceTest {
         CLInterface.main(new String[]{"exit"});
         // The only way this should fail is by an exception
     }
+
+    @Test
+    public void testCLInterface() {
+        assertThrows(Error.class, CLInterface::new);
+    }
 }
