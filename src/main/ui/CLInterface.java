@@ -61,11 +61,13 @@ public final class CLInterface {
 
         String command;
         System.out.print("Data $ ");
-        while (!(command = CLInput.nextLine()).equals("exit")) {
-            parse(command);
-            layout.print();
+        if (args.length == 0) {
+            while (!(command = CLInput.nextLine()).equals("exit")) {
+                parse(command);
+                layout.print();
 
-            System.out.print("Data $ ");
+                System.out.print("Data $ ");
+            }
         }
     }
 
