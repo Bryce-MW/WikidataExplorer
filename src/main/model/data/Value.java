@@ -2,6 +2,8 @@ package model.data;
 
 import ui.StatementList;
 
+import java.util.List;
+
 public abstract class Value {
     protected DatumQueryService queryService;
 
@@ -16,5 +18,7 @@ public abstract class Value {
     public abstract String getID();
 
     public abstract StatementList getStatements();
+
+    public abstract Boolean parse(List<String> subList);
     //TODO: Implement
 }

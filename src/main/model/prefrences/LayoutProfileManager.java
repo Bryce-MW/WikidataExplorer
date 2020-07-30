@@ -3,11 +3,12 @@ package model.prefrences;
 import ui.MenuBarItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LayoutProfileManager implements MenuBarItem {
     //TODO: Implement
-    private ArrayList<LayoutProfile> profiles;
-    private LayoutProfile current;
+    private final ArrayList<LayoutProfile> profiles;
+    private final LayoutProfile current;
 
     public LayoutProfileManager(LayoutProfile defaultProfile) {
         profiles = new ArrayList<>(5);
@@ -29,5 +30,15 @@ public class LayoutProfileManager implements MenuBarItem {
     @Override
     public String toString() {
         return "L: " + current.getName();
+    }
+
+    @Override
+    public String getCommandString() {
+        return "L";
+    }
+
+    @Override
+    public Boolean parse(List<String> subList) {
+        return true;
     }
 }

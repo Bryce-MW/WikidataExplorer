@@ -39,4 +39,12 @@ public class DatumQueryService {
     public String getDescriptionByID(String id) {
         return collector.getEntityDescription(id);
     }
+
+    public ArrayList<String> getStatementListByID(String id) {
+        return collector.getStatementList(id);
+    }
+
+    public Value getStatementByTree(ArrayList<String> tree, Datum item) {
+        return collector.getSingleStatement(tree, item, this);
+    }
 }

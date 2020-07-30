@@ -40,6 +40,16 @@ class MenuBarTest {
         assertFalse(searchLine.toString().contains("hi"));
         menuBar.addItem(new MenuBarItem() {
             @Override
+            public String getCommandString() {
+                return "null";
+            }
+
+            @Override
+            public Boolean parse(List<String> subList) {
+                return false;
+            }
+
+            @Override
             public String toString() {
                 return "hi";
             }
@@ -51,6 +61,16 @@ class MenuBarTest {
     @Test
     void removeItem() {
         MenuBarItem toAdd = new MenuBarItem() {
+            @Override
+            public String getCommandString() {
+                return "null";
+            }
+
+            @Override
+            public Boolean parse(List<String> subList) {
+                return false;
+            }
+
             @Override
             public String toString() {
                 return "hi";

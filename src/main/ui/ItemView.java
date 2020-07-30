@@ -33,6 +33,10 @@ public class ItemView {
     public void updateLanguage(String lang) {
     } // TODO: Languages!
 
+    public Value getItem() {
+        return item;
+    }
+
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(16);
 
@@ -45,7 +49,7 @@ public class ItemView {
         // Light line
         List<StringBuilder> statementLines = statements.toStringArray();
         statementLines.forEach((i) -> i.insert(0, '┃'));
-        result.addAll(statements.toStringArray());
+        result.addAll(statementLines);
         // Last solid line
 
         StringBuilderUtil.padAll(result, ' ', 0);
@@ -76,6 +80,19 @@ public class ItemView {
         botLine.setCharAt(0, '┗');
         botLine.setCharAt(botLine.length() - 1, '┛');
         result.add(botLine);
+    }
+
+    public boolean parse(List<String> subList) {
+        ArrayList<String> command = new ArrayList<>(subList);
+        if (command.size() == 0) {
+            return true; // Item does not do anything by itself yet.
+        }
+        if (command.get(0).length() == 1) {
+            if (subList.get(0).equals(searchBar.getCommandString())) {
+                return searchBar.parse(command.subList(1, command.size()));
+            } // Leaving this open for more components in the future
+        }
+        return statements.parse(command);
     }
 
     //TODO: Rendering Stuff

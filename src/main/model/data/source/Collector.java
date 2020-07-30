@@ -1,7 +1,6 @@
 package model.data.source;
 
-import model.data.Qualifier;
-import model.data.Reference;
+import model.data.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,4 +14,7 @@ public interface Collector {
 
     String getEntityDescription(String id);
 
+    ArrayList<String> getStatementList(String id);
+
+    Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService);
 }

@@ -1,10 +1,9 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import model.data.Value;
 import ui.StatementList;
 
-public class Time extends Value {
+public class Time extends AbstractAdditional {
     protected Time(DatumQueryService queryService) {
         super(queryService);
     }

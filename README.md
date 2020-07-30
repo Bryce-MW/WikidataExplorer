@@ -53,12 +53,12 @@ It gets a lot more complex than this. There are many other datatypes, properties
 and relationships which can be encoded with this system. I won't get into all of
 it but one of the nice things about this system is that it allows you to take
 human language statements and turn them into values that you can look up. For
-example, the English statement
+example, the English statement:
 
 * "Mount Everest is the highest mountain in the
 world"
 
-can be transformed into the statement
+can be transformed into the statement:
 
 * "**Earth**
 (<sub><sup>**Q2**</sup></sub>)

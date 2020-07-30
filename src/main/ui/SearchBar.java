@@ -8,8 +8,8 @@ import java.util.List;
 
 public class SearchBar implements MenuBarItem {
     //TODO: Implement
-    private ScopedSearch searchService;
-    private ArrayList<Value> results;
+    private final ScopedSearch searchService;
+    private final ArrayList<Value> results;
 
     public SearchBar(ScopedSearch searchService) {
         this.searchService = searchService;
@@ -28,5 +28,15 @@ public class SearchBar implements MenuBarItem {
 
     public String toString() {
         return "S: Search";
+    }
+
+    @Override
+    public Boolean parse(List<String> subList) {
+        return true;
+    }
+
+    @Override
+    public String getCommandString() {
+        return "S";
     }
 }

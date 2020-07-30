@@ -3,6 +3,7 @@ package ui;
 import model.util.StringBuilderUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.IntStream;
 
 public class LayoutManager {
@@ -54,7 +55,14 @@ public class LayoutManager {
 
         for (ItemViewController controller : controllers.subList(leftIndex, controllers.size())) {
             int height = startHeight;
+            int lastLength = 0;
             for (StringBuilder line : controller.toStringArray()) {
+                if (height >= result.size()) {
+                    StringBuilder toAdd = new StringBuilder(100);
+                    StringBuilderUtil.pad(toAdd, ' ', lastLength);
+                    result.add(toAdd);
+                }
+                lastLength = result.get(height).length();
                 result.get(height++).append(line);
             }
 
@@ -69,6 +77,10 @@ public class LayoutManager {
         ArrayList<StringBuilder> result = toStringArray();
 
         result.forEach(System.out::println);
+    }
+
+    public Boolean parse(List<String> instructions) {
+        return controllers.stream().anyMatch((i) -> i.parse(instructions));
     }
 
     //TODO: Rendering stuff

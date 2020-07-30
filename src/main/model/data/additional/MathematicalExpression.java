@@ -1,10 +1,9 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import model.data.Value;
 import ui.StatementList;
 
-public class MathematicalExpression extends Value {
+public class MathematicalExpression extends AbstractAdditional {
     protected MathematicalExpression(DatumQueryService queryService) {
         super(queryService);
     }

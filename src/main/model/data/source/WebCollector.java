@@ -1,7 +1,6 @@
 package model.data.source;
 
-import model.data.Qualifier;
-import model.data.Reference;
+import model.data.*;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -11,9 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @SuppressWarnings("ConstantConditions")
 public class WebCollector implements Collector {
@@ -59,9 +56,7 @@ public class WebCollector implements Collector {
             return new ArrayList<>();
         }
 
-        ArrayList<Qualifier> qualifiers = new ArrayList<>(10);
-
-        return qualifiers; // TODO: Implement later, not needed now
+        return new ArrayList<>(10); // TODO: Implement later, not needed now
     }
 
     private Map<String, Object> getStatement(List<Map<String, Object>> statements,
@@ -93,6 +88,31 @@ public class WebCollector implements Collector {
         Map<String, Object> labels = (Map<String, Object>) entity.get("descriptions");
         Map<String, String> label = (Map<String, String>) labels.get("en"); // TODO: Languages!
         return label.get("value");
+    }
+
+    @Override
+    public ArrayList<String> getStatementList(String id) {
+        Map<String, Object> statements =
+                ((Map<String, Map<String, Map<String, Object>>>) getJson(id)
+                        .get("entities"))
+                        .get(id)
+                        .get("claims");
+        Set<String> keys = statements.keySet();
+        ArrayList<String> keyList = new ArrayList<>(keys);
+        keyList.sort(Comparator.comparingInt((i) -> Integer.parseInt(i.substring(1))));
+        return keyList;
+    }
+
+    @Override
+    public Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService) {
+        String id = tree.get(0);
+        Map<String, Object> statements =
+                ((Map<String, Map<String, Map<String, Object>>>) getJson(id)
+                        .get("entities"))
+                        .get(id)
+                        .get("claims");
+
+        return new Statement(item, tree.get(1), statementService);
     }
 
     private String formatURL(String id) {

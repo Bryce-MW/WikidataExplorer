@@ -1,10 +1,9 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import model.data.Value;
 import ui.StatementList;
 
-public class MusicalNotation extends Value {
+public class MusicalNotation extends AbstractAdditional {
     protected MusicalNotation(DatumQueryService queryService) {
         super(queryService);
     }

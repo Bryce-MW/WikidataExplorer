@@ -4,6 +4,7 @@ import model.data.DatumQueryService;
 import model.data.Value;
 import model.data.pages.Item;
 import model.data.source.WebCollector;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,11 +16,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StatementListTest {
     private StatementList statementList;
+    private static DatumQueryService queryService;
+
+    @BeforeAll
+    static void init() {
+        queryService = new DatumQueryService(new WebCollector());
+    }
 
     @BeforeEach
     void setUp() {
         statementList = new StatementList(
-                new Item("Q42", new DatumQueryService(new WebCollector())));
+                new Item("Q42", queryService), queryService);
     }
 
     @Test

@@ -1,10 +1,9 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import model.data.Value;
 import ui.StatementList;
 
-public class LiteralString extends Value {
+public class LiteralString extends AbstractAdditional {
     private final String value;
 
     public LiteralString(String value, DatumQueryService queryService) {

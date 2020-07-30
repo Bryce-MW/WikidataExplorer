@@ -1,7 +1,9 @@
 package ui;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.IntStream;
 
 public class MenuBar {
@@ -39,7 +41,7 @@ public class MenuBar {
 
         StringBuilder line1 = new StringBuilder(width);
         IntStream.range(0, width).forEach((i) -> line1.append('━'));
-        StringBuilder line3 = new StringBuilder(line1.toString());
+        StringBuilder line3 = new StringBuilder(line1);
 
         line1.setCharAt(0, '┏');
         line1.setCharAt(width - 1, '┓');
@@ -58,6 +60,7 @@ public class MenuBar {
         line3.setCharAt(0, '┗');
         line3.setCharAt(line3.length() - 1, '┛');
 
+
         output.add(line1);
         output.add(line2);
         output.add(line3);
@@ -67,10 +70,23 @@ public class MenuBar {
 
     private void addLines(StringBuilder line1, StringBuilder line3, StringBuilder line2, String search) {
         IntStream.range(0, (width - line2.length() - search.length() - 2)).mapToObj(i -> ' ').forEach(line2::append);
-        line2.append('┃');
+        line2.append('│');
         line1.setCharAt(line2.length() - 1, '┯');
         line3.setCharAt(line2.length() - 1, '┷');
         line2.append(search);
         line2.append('┃');
+    }
+
+    public Boolean parse(List<String> subList) {
+        ArrayList<String> command = new ArrayList<>(subList);
+        HashMap<String, Function<List<String>, Boolean>> parsers = new HashMap<>(items.size());
+        items.forEach((i) -> parsers.put(i.getCommandString(), i.getParser()));
+        parsers.put(searchBar.getCommandString(), searchBar.getParser());
+
+        if (!parsers.containsKey(command.get(0))) {
+            return false;
+        }
+
+        return parsers.get(command.get(0)).apply(command.subList(1, command.size()));
     }
 }

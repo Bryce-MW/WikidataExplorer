@@ -1,10 +1,9 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import model.data.Value;
 import ui.StatementList;
 
-public class CommonsMedia extends Value {
+public class CommonsMedia extends AbstractAdditional {
     protected CommonsMedia(DatumQueryService queryService) {
         super(queryService);
     }

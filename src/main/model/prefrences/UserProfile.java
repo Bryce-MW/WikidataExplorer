@@ -4,13 +4,14 @@ import ui.LayoutManager;
 import ui.MenuBarItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserProfile implements MenuBarItem {
     //TODO: Implement
-    private PreferenceManager preferences;
-    private LayoutProfileManager layout;
+    private final PreferenceManager preferences;
+    private final LayoutProfileManager layout;
 
-    private String name;
+    private final String name;
 
     public UserProfile(String name, LayoutManager defaultLayout) {
         preferences = new PreferenceManager(new ArrayList<>(1)); // For now, there are no preferences.
@@ -33,5 +34,15 @@ public class UserProfile implements MenuBarItem {
     @Override
     public String toString() {
         return "P: " + name;
+    }
+
+    @Override
+    public String getCommandString() {
+        return "P";
+    }
+
+    @Override
+    public Boolean parse(List<String> subList) {
+        return true;
     }
 }

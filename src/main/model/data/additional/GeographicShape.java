@@ -1,10 +1,9 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import model.data.Value;
 import ui.StatementList;
 
-public class GeographicShape extends Value {
+public class GeographicShape extends AbstractAdditional {
     protected GeographicShape(DatumQueryService queryService) {
         super(queryService);
     }

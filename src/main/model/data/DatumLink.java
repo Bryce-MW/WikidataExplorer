@@ -3,16 +3,17 @@ package model.data;
 import ui.StatementList;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatumLink extends Value {
     private Statement property;
     private Value value;
-    private ArrayList<Qualifier> qualifiers;
-    private ArrayList<Reference> references;
+    private final ArrayList<Qualifier> qualifiers;
+    private final ArrayList<Reference> references;
 
-    private String id;
-    private String name;
-    private String description;
+    private final String id;
+    private final String name;
+    private final String description;
 
     protected DatumLink(DatumQueryService queryService, Statement property, Value value) {
         super(queryService);
@@ -41,6 +42,11 @@ public class DatumLink extends Value {
     @Override
     public StatementList getStatements() {
         return null;
+    }
+
+    @Override
+    public Boolean parse(List<String> subList) {
+        return false; // Not implementing this quite yet either
     }
     //TODO: Implement
 }

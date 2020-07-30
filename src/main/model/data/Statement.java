@@ -2,6 +2,8 @@ package model.data;
 
 import ui.StatementList;
 
+import java.util.List;
+
 public class Statement extends Value {
     private final String id;
     private final String name;
@@ -13,7 +15,7 @@ public class Statement extends Value {
         this.queryService = queryService;
         this.id = property;
         this.name = queryService.getNameByID(property);
-        this.statements = new StatementList(this);
+        this.statements = new StatementList(this, queryService);
         this.about = item;
     }
 
@@ -35,6 +37,11 @@ public class Statement extends Value {
     @Override
     public StatementList getStatements() {
         return statements;
+    }
+
+    @Override
+    public Boolean parse(List<String> subList) {
+        return false; // Not implementing this quite yet
     }
     //TODO: Implement
 

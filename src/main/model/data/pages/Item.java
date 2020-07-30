@@ -8,11 +8,13 @@ public class Item extends Datum {
     //TODO: Implement
     private final String id;
     private final DatumQueryService queryService;
+    private final StatementList statements;
 
     public Item(String id, DatumQueryService queryService) {
         super(queryService);
         this.id = id;
         this.queryService = queryService;
+        this.statements = new StatementList(this, queryService);
     }
 
     @Override
@@ -32,6 +34,6 @@ public class Item extends Datum {
 
     @Override
     public StatementList getStatements() {
-        return new StatementList(this);
+        return statements;
     }
 }

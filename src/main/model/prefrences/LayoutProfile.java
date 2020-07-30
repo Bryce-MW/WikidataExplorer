@@ -1,6 +1,5 @@
 package model.prefrences;
 
-import ui.ItemViewController;
 import ui.LayoutManager;
 
 public class LayoutProfile {

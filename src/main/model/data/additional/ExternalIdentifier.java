@@ -1,10 +1,9 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import model.data.Value;
 import ui.StatementList;
 
-public class ExternalIdentifier extends Value {
+public class ExternalIdentifier extends AbstractAdditional {
     protected ExternalIdentifier(DatumQueryService queryService) {
         super(queryService);
     }

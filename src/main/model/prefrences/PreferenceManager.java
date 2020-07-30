@@ -25,4 +25,14 @@ public class PreferenceManager implements MenuBarItem {
     public String toString() {
         return "E: Preferences";
     }
+
+    @Override
+    public String getCommandString() {
+        return "E";
+    }
+
+    @Override
+    public Boolean parse(List<String> subList) {
+        return true;
+    }
 }

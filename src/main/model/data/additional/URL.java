@@ -1,10 +1,9 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import model.data.Value;
 import ui.StatementList;
 
-public class URL extends Value {
+public class URL extends AbstractAdditional {
     protected URL(DatumQueryService queryService) {
         super(queryService);
     }

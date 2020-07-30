@@ -32,6 +32,6 @@ public class Property extends Datum {
 
     @Override
     public StatementList getStatements() {
-        return new StatementList(this);
+        return new StatementList(this, queryService);
     }
 }

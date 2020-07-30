@@ -1,10 +1,9 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import model.data.Value;
 import ui.StatementList;
 
-public class GlobeCoordinate extends Value {
+public class GlobeCoordinate extends AbstractAdditional {
     protected GlobeCoordinate(DatumQueryService queryService) {
         super(queryService);
     }
