@@ -47,9 +47,6 @@ public final class CLInterface {
 
 
         ArrayList<MenuBarItem> menuItems = new ArrayList<>(3);
-        menuItems.add(profileLayouts);
-        menuItems.add(profile);
-        menuItems.add(preferences);
 
         queryService = new DatumQueryService(new WebCollector());
 
@@ -61,6 +58,10 @@ public final class CLInterface {
         profile = new UserProfile("Default", layout); //Not going to bother localizing this
         profileLayouts = profile.getLayout();
         preferences = profile.getPreferences();
+
+        menuItems.add(profileLayouts);
+        menuItems.add(profile);
+        menuItems.add(preferences);
 
         Datum startingPoint = new Item("Q42", queryService);
 
