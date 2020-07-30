@@ -52,6 +52,14 @@ title __PROJECT-STARTER's Class Diagram__\n
 
   namespace model.data {
     namespace additional {
+      abstract class model.data.additional.AbstractAdditional {
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace additional {
       class model.data.additional.CommonsMedia {
       }
     }
@@ -326,20 +334,23 @@ title __PROJECT-STARTER's Class Diagram__\n
   model.data.Statement o-- model.data.Datum : about
   model.data.Statement o-- ui.StatementList : statements
   model.data.Value o-- model.data.DatumQueryService : queryService
-  model.data.additional.CommonsMedia -up-|> model.data.Value
-  model.data.additional.ExternalIdentifier -up-|> model.data.Value
-  model.data.additional.GeographicShape -up-|> model.data.Value
-  model.data.additional.GlobeCoordinate -up-|> model.data.Value
-  model.data.additional.LiteralString -up-|> model.data.Value
-  model.data.additional.MathematicalExpression -up-|> model.data.Value
-  model.data.additional.MonolingualText -up-|> model.data.Value
-  model.data.additional.MusicalNotation -up-|> model.data.Value
-  model.data.additional.Quantity -up-|> model.data.Value
-  model.data.additional.TabularData -up-|> model.data.Value
-  model.data.additional.Time -up-|> model.data.Value
-  model.data.additional.URL -up-|> model.data.Value
+  model.data.Value o-- ui.ItemView : view
+  model.data.additional.AbstractAdditional -up-|> model.data.Value
+  model.data.additional.CommonsMedia -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.ExternalIdentifier -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.GeographicShape -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.GlobeCoordinate -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.LiteralString -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.MathematicalExpression -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.MonolingualText -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.MusicalNotation -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.Quantity -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.TabularData -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.Time -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.URL -up-|> model.data.additional.AbstractAdditional
   model.data.pages.Item -up-|> model.data.Datum
   model.data.pages.Item o-- model.data.DatumQueryService : queryService
+  model.data.pages.Item o-- ui.StatementList : statements
   model.data.pages.Property -up-|> model.data.Datum
   model.data.pages.Property o-- model.data.DatumQueryService : queryService
   model.data.pages.language.Form o-- model.data.DatumQueryService : queryService
@@ -353,14 +364,17 @@ title __PROJECT-STARTER's Class Diagram__\n
   model.prefrences.UserProfile .up.|> ui.MenuBarItem
   model.prefrences.UserProfile o-- model.prefrences.LayoutProfileManager : layout
   model.prefrences.UserProfile o-- model.prefrences.PreferenceManager : preferences
+  ui.ItemView o-- ui.ItemViewController : controller
   ui.ItemView o-- model.data.Value : item
   ui.ItemView o-- ui.SearchBar : searchBar
   ui.ItemView o-- ui.StatementList : statements
+  ui.ItemViewController o-- ui.LayoutManager : manager
   ui.LayoutManager o-- ui.MenuBar : menuBar
   ui.MenuBar o-- ui.SearchBar : searchBar
   ui.SearchBar .up.|> ui.MenuBarItem
   ui.SearchBar o-- model.data.ScopedSearch : searchService
   ui.StatementList o-- model.data.Value : entity
+  ui.StatementList o-- model.data.DatumQueryService : queryService
 
 
 right footer

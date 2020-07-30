@@ -18,7 +18,9 @@ title __PREFRENCES's Class Diagram__\n
         - profiles : ArrayList<LayoutProfile>
         + LayoutProfileManager()
         + addProfile()
+        + getCommandString()
         + getProfiles()
+        + parse()
         + toString()
     }
   }
@@ -28,7 +30,9 @@ title __PREFRENCES's Class Diagram__\n
     class model.prefrences.PreferenceManager {
         - preferences : ArrayList<UserPreference>
         + PreferenceManager()
+        + getCommandString()
         + getPreferences()
+        + parse()
         + toString()
     }
   }
@@ -50,8 +54,10 @@ title __PREFRENCES's Class Diagram__\n
     class model.prefrences.UserProfile {
         - name : String
         + UserProfile()
+        + getCommandString()
         + getLayout()
         + getPreferences()
+        + parse()
         + toString()
     }
   }

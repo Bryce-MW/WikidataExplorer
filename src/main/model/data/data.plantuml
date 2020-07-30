@@ -4,6 +4,8 @@ title __DATA's Class Diagram__\n
 
   namespace model.data {
     abstract class model.data.Datum {
+        + parse()
+        + toggleLeft()
         # Datum()
     }
   }
@@ -20,6 +22,7 @@ title __DATA's Class Diagram__\n
         + getID()
         + getStatements()
         + getTitle()
+        + parse()
         # DatumLink()
     }
   }
@@ -33,6 +36,8 @@ title __DATA's Class Diagram__\n
         + getQualifiersByStatement()
         + getReferencesByStatement()
         + getScopedSearch()
+        + getStatementByTree()
+        + getStatementListByID()
     }
   }
   
@@ -71,6 +76,7 @@ title __DATA's Class Diagram__\n
         + getParentID()
         + getStatements()
         + getTitle()
+        + parse()
     }
   }
   
@@ -81,6 +87,8 @@ title __DATA's Class Diagram__\n
         {abstract} + getID()
         {abstract} + getStatements()
         {abstract} + getTitle()
+        {abstract} + parse()
+        + setView()
         # Value()
     }
   }
@@ -98,6 +106,7 @@ title __DATA's Class Diagram__\n
   model.data.Statement o-- model.data.Datum : about
   model.data.Statement o-- ui.StatementList : statements
   model.data.Value o-- model.data.DatumQueryService : queryService
+  model.data.Value o-- ui.ItemView : view
 
 
 right footer
