@@ -1,7 +1,7 @@
 package ui;
 
-import model.data.Datum;
 import model.data.ScopedSearch;
+import model.data.Statement;
 import model.data.Value;
 import model.util.StringBuilderUtil;
 
@@ -21,8 +21,11 @@ public class ItemView {
     // false otherwise.)
     private final StatementList statements;
 
-    public ItemView(Datum value) {
+    private ItemViewController controller = null;
+
+    public ItemView(Value value) {
         this.item = value;
+        this.item.setView(this);
         // TODO: Probably won't add language support in first round (Just use english or first language listed)
         title = item.getTitle();
         description = item.getDescription();
@@ -93,6 +96,17 @@ public class ItemView {
             } // Leaving this open for more components in the future
         }
         return statements.parse(command);
+    }
+
+    public boolean toggleLeft(Statement statement) {
+        if (controller == null) {
+            return false;
+        }
+        return controller.toggleLeft(statement);
+    }
+
+    public void setController(ItemViewController controller) {
+        this.controller = controller;
     }
 
     //TODO: Rendering Stuff

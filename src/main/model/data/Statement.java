@@ -41,7 +41,10 @@ public class Statement extends Value {
 
     @Override
     public Boolean parse(List<String> subList) {
-        return false; // Not implementing this quite yet
+        if (subList.size() == 0) {
+            return about.toggleLeft(this);
+        }
+        return false;
     }
     //TODO: Implement
 

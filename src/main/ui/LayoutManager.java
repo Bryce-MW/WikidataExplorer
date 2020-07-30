@@ -1,5 +1,6 @@
 package ui;
 
+import model.data.Statement;
 import model.util.StringBuilderUtil;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class LayoutManager {
 
     public void add(ItemViewController newView) {
         controllers.add(newView);
+        newView.setManager(this);
     }
 
     public boolean remove(ItemViewController toRemove) { // true if ItemViewController is now empty
@@ -80,7 +82,22 @@ public class LayoutManager {
     }
 
     public Boolean parse(List<String> instructions) {
-        return controllers.stream().anyMatch((i) -> i.parse(instructions));
+        ArrayList<ItemViewController> toCheck = new ArrayList<>(controllers);
+        return toCheck.stream().anyMatch((i) -> i.parse(instructions));
+    }
+
+    public boolean toggleLeft(Statement statement, ItemViewController itemViewController) {
+        int index = controllers.indexOf(itemViewController);
+        if (index == -1) {
+            return false;
+        }
+        if (index == 0) {
+            controllers.add(0, new ItemViewController(new ItemView(statement)));
+        } else {
+            ItemViewController left = controllers.get(index - 1);
+            left.toggle(statement);
+        }
+        return true;
     }
 
     //TODO: Rendering stuff

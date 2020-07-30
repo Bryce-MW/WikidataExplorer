@@ -13,8 +13,7 @@ public class MenuBar {
     private final int width;
 
     public MenuBar(ArrayList<MenuBarItem> items, SearchBar searchBar, int width) {
-        this.items = new ArrayList<>(5);
-        this.items.addAll(items);
+        this.items = items;
         this.searchBar = searchBar;
         this.width = width;
     }

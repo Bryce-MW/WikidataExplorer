@@ -11,5 +11,12 @@ public abstract class Datum extends Value {
     public Boolean parse(List<String> subList) {
         return false;
     }
+
+    public boolean toggleLeft(Statement statement) {
+        if (this.view == null) {
+            return false;
+        }
+        return view.toggleLeft(statement);
+    }
     //TODO: Implement
 }

@@ -112,12 +112,16 @@ public final class CLInterface {
 
     private static void parse(String command) {
         List<String> instructions = Arrays.asList(command.split("\\s"));
+        boolean result;
         if (instructions.size() == 0) {
-            return;
+            result = false;
+        } else if (instructions.get(0).length() == 1) {
+            result = menuBar.parse(instructions);
+        } else {
+            result = layout.parse(instructions);
         }
-        if (instructions.get(0).length() == 1) {
-            menuBar.parse(instructions);
+        if (!result) {
+            System.out.println("Failed");
         }
-        layout.parse(instructions);
     }
 }
