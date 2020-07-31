@@ -56,6 +56,7 @@ title __UI's Class Diagram__\n
         + toStringArray()
         + toggle()
         + toggleLeft()
+        + toggleRight()
     }
   }
   
@@ -69,6 +70,7 @@ title __UI's Class Diagram__\n
         - width : int
         + LayoutManager()
         + add()
+        + add()
         + isEmpty()
         + parse()
         + print()
@@ -76,6 +78,7 @@ title __UI's Class Diagram__\n
         + setSepWidth()
         + size()
         + toggleLeft()
+        + toggleRight()
         - toStringArray()
     }
   }
@@ -122,6 +125,7 @@ title __UI's Class Diagram__\n
     class ui.StatementList {
         - statements : ArrayList<Value>
         + StatementList()
+        + add()
         + parse()
         + toStringArray()
         - getBasicStatements()

@@ -5,11 +5,8 @@ title __PAGES's Class Diagram__\n
   namespace model.data {
     namespace pages {
       class model.data.pages.Item {
-          - id : String
           + Item()
           + getDescription()
-          + getID()
-          + getStatements()
           + getTitle()
       }
     }
@@ -19,11 +16,8 @@ title __PAGES's Class Diagram__\n
   namespace model.data {
     namespace pages {
       class model.data.pages.Property {
-          - id : String
           + Property()
           + getDescription()
-          + getID()
-          + getStatements()
           + getTitle()
       }
     }
@@ -32,7 +26,6 @@ title __PAGES's Class Diagram__\n
 
   model.data.pages.Item -up-|> model.data.Datum
   model.data.pages.Item o-- model.data.DatumQueryService : queryService
-  model.data.pages.Item o-- ui.StatementList : statements
   model.data.pages.Property -up-|> model.data.Datum
   model.data.pages.Property o-- model.data.DatumQueryService : queryService
 

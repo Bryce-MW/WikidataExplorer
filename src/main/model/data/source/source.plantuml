@@ -5,6 +5,7 @@ title __SOURCE's Class Diagram__\n
   namespace model.data {
     namespace source {
       interface model.data.source.Collector {
+          {abstract} + getDatumLinkListByTree()
           {abstract} + getEntityDescription()
           {abstract} + getEntityName()
           {abstract} + getQualifiers()
@@ -35,18 +36,18 @@ title __SOURCE's Class Diagram__\n
   namespace model.data {
     namespace source {
       class model.data.source.WebCollector {
-          - engine : ScriptEngine
+          - gson : Gson
+          {static} - seen : ArrayList<Entities>
           + WebCollector()
+          + getDatumLinkListByTree()
           + getEntityDescription()
           + getEntityName()
           + getQualifiers()
           + getReferences()
           + getSingleStatement()
           + getStatementList()
-          - createJsonString()
           - formatURL()
           - getJson()
-          - getStatement()
       }
     }
   }

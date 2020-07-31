@@ -146,11 +146,12 @@ title __ADDITIONAL's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.Time {
+          # time : String
+          + Time()
           + getDescription()
           + getID()
           + getStatements()
           + getTitle()
-          # Time()
       }
     }
   }

@@ -232,6 +232,116 @@ title __PROJECT-STARTER's Class Diagram__\n
   }
   
 
+  namespace model.data {
+    namespace source {
+      namespace template {
+        class model.data.source.template.Alias {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace source {
+      namespace template {
+        class model.data.source.template.Claim {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace source {
+      namespace template {
+        class model.data.source.template.DataValue {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace source {
+      namespace template {
+        class model.data.source.template.Description {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace source {
+      namespace template {
+        class model.data.source.template.Entities {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace source {
+      namespace template {
+        class model.data.source.template.Entity {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace source {
+      namespace template {
+        class model.data.source.template.Label {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace source {
+      namespace template {
+        class model.data.source.template.Qualifier {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace source {
+      namespace template {
+        class model.data.source.template.Reference {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace source {
+      namespace template {
+        class model.data.source.template.SiteLink {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace source {
+      namespace template {
+        class model.data.source.template.Snak {
+        }
+      }
+    }
+  }
+  
+
   namespace model.prefrences {
     class model.prefrences.LayoutProfile {
     }
@@ -323,13 +433,21 @@ title __PROJECT-STARTER's Class Diagram__\n
   
 
   model.data.Datum -up-|> model.data.Value
+  model.data.Datum o-- ui.StatementList : statements
   model.data.DatumLink -up-|> model.data.Value
   model.data.DatumLink o-- model.data.Statement : property
+  model.data.DatumLink o-- ui.StatementList : statementList
   model.data.DatumLink o-- model.data.Value : value
   model.data.DatumQueryService o-- model.data.source.Collector : collector
+  model.data.Qualifier -up-|> model.data.Value
   model.data.Qualifier o-- model.data.pages.Property : property
   model.data.Qualifier o-- model.data.Value : value
+  model.data.Reference -up-|> model.data.Value
+  model.data.Reference o-- model.data.pages.Property : property
+  model.data.Reference o-- model.data.Value : value
+  model.data.ScopedSearch o-- ui.ItemViewController : controller
   model.data.ScopedSearch o-- model.data.Value : item
+  model.data.ScopedSearch o-- model.data.DatumQueryService : queryService
   model.data.Statement -up-|> model.data.Value
   model.data.Statement o-- model.data.Datum : about
   model.data.Statement o-- ui.StatementList : statements
@@ -350,13 +468,15 @@ title __PROJECT-STARTER's Class Diagram__\n
   model.data.additional.URL -up-|> model.data.additional.AbstractAdditional
   model.data.pages.Item -up-|> model.data.Datum
   model.data.pages.Item o-- model.data.DatumQueryService : queryService
-  model.data.pages.Item o-- ui.StatementList : statements
   model.data.pages.Property -up-|> model.data.Datum
   model.data.pages.Property o-- model.data.DatumQueryService : queryService
   model.data.pages.language.Form o-- model.data.DatumQueryService : queryService
   model.data.pages.language.Lexeme o-- model.data.DatumQueryService : queryService
   model.data.pages.language.Sense o-- model.data.DatumQueryService : queryService
   model.data.source.WebCollector .up.|> model.data.source.Collector
+  model.data.source.template.Claim o-- model.data.source.template.Snak : mainsnak
+  model.data.source.template.Qualifier o-- model.data.source.template.DataValue : datavalue
+  model.data.source.template.Snak o-- model.data.source.template.DataValue : datavalue
   model.prefrences.LayoutProfile o-- ui.LayoutManager : layout
   model.prefrences.LayoutProfileManager .up.|> ui.MenuBarItem
   model.prefrences.LayoutProfileManager o-- model.prefrences.LayoutProfile : current
