@@ -16,6 +16,7 @@ import java.util.*;
 @SuppressWarnings("ConstantConditions")
 public class WebCollector implements Collector {
     private final Gson gson;
+    private static final ArrayList<Entities> seen = new ArrayList<>(30);
 
     public WebCollector() {
         gson = new Gson();
@@ -97,6 +98,12 @@ public class WebCollector implements Collector {
     }
 
     private Entities getJson(String urlStr) {
+        for (Entities entities : seen) {
+            if (entities.entities.containsKey(urlStr)) {
+                return entities;
+            }
+        }
+        System.out.println(urlStr);
 
         URLConnection connection = null;
         try {
@@ -113,6 +120,7 @@ public class WebCollector implements Collector {
             //ignored
         }
 
+        seen.add(newResult);
         return newResult;
     }
 }

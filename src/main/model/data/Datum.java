@@ -54,5 +54,15 @@ public abstract class Datum extends Value {
         return id;
     }
 
+    @Override
+    public boolean needsSearchBar() {
+        return true;
+    }
+
+    @Override
+    public boolean needsRightArrow() {
+        return false;
+    }
+
     //TODO: Implement
 }

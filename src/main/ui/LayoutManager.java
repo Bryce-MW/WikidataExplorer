@@ -1,6 +1,6 @@
 package ui;
 
-import model.data.Statement;
+import model.data.Value;
 import model.util.StringBuilderUtil;
 
 import java.util.ArrayList;
@@ -27,6 +27,11 @@ public class LayoutManager {
 
     public void add(ItemViewController newView) {
         controllers.add(newView);
+        newView.setManager(this);
+    }
+
+    public void add(int index, ItemViewController newView) {
+        controllers.add(index, newView);
         newView.setManager(this);
     }
 
@@ -86,15 +91,29 @@ public class LayoutManager {
         return toCheck.stream().anyMatch((i) -> i.parse(instructions));
     }
 
-    public boolean toggleLeft(Statement statement, ItemViewController itemViewController) {
+    public boolean toggleLeft(Value statement, ItemViewController itemViewController) {
         int index = controllers.indexOf(itemViewController);
         if (index == -1) {
             return false;
         }
         if (index == 0) {
-            controllers.add(0, new ItemViewController(new ItemView(statement)));
+            add(0, new ItemViewController(new ItemView(statement)));
         } else {
             ItemViewController left = controllers.get(index - 1);
+            left.toggle(statement);
+        }
+        return true;
+    }
+
+    public boolean toggleRight(Value statement, ItemViewController itemViewController) {
+        int index = controllers.indexOf(itemViewController);
+        if (index == -1) {
+            return false;
+        }
+        if (index == controllers.size()) {
+            add(new ItemViewController(new ItemView(statement)));
+        } else {
+            ItemViewController left = controllers.get(index + 1);
             left.toggle(statement);
         }
         return true;

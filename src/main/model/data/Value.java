@@ -26,5 +26,39 @@ public abstract class Value {
     public void setView(ItemView view) {
         this.view = view;
     }
+
+    public boolean needsSearchBar() {
+        return false;
+    }
+
+    public boolean needsRightArrow() {
+        return true;
+    }
+
+    public DatumQueryService getQuery() {
+        return queryService;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Value)) {
+            return false;
+        }
+
+        Value value = (Value) o;
+
+        return getID().equals(value.getID());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getDescription().hashCode();
+        result = 31 * result;
+        return result;
+    }
+
     //TODO: Implement
 }

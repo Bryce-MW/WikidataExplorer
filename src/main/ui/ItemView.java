@@ -3,6 +3,7 @@ package ui;
 import model.data.ScopedSearch;
 import model.data.Statement;
 import model.data.Value;
+import model.data.pages.Item;
 import model.util.StringBuilderUtil;
 
 import java.util.ArrayList;
@@ -44,11 +45,14 @@ public class ItemView {
         ArrayList<StringBuilder> result = new ArrayList<>(16);
 
         // First solid line
-        result.add(new StringBuilder(item.getID()).insert(0, '┃'));
+        StringBuilder itemLine = new StringBuilder(item.getID()).insert(0, '┃');
+        result.add(itemLine);
         result.add(new StringBuilder(title).insert(0, '┃'));
         result.add(new StringBuilder(description).insert(0, '┃')); // Will we want to format multi-line?
         // Light line
-        result.add(new StringBuilder(searchBar.toString()).insert(0, '┃'));
+        if (item.needsSearchBar()) {
+            result.add(new StringBuilder(searchBar.toString()).insert(0, '┃'));
+        }
         // Light line
         List<StringBuilder> statementLines = statements.toStringArray();
         statementLines.forEach((i) -> i.insert(0, '┃'));
@@ -57,6 +61,9 @@ public class ItemView {
 
         StringBuilderUtil.padAll(result, ' ', 0);
         result.forEach((i) -> i.append('┃'));
+        if (item.needsRightArrow() && itemLine.length() >= 2) {
+            itemLine.setCharAt(itemLine.length() - 2, '►');
+        }
 
         addLines(result);
 
@@ -88,7 +95,12 @@ public class ItemView {
     public boolean parse(List<String> subList) {
         ArrayList<String> command = new ArrayList<>(subList);
         if (command.size() == 0) {
-            return true; // Item does not do anything by itself yet.
+            if (item.needsRightArrow()) {
+                if (controller != null) {
+                    return controller.toggleRight(new Item(item.getID(), item.getQuery()));
+                }
+            }
+            return false;
         }
         if (command.get(0).length() == 1) {
             if (subList.get(0).equals(searchBar.getCommandString())) {

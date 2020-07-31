@@ -1,6 +1,6 @@
 package ui;
 
-import model.data.Statement;
+import model.data.Value;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,30 +41,44 @@ public class ItemViewController {
     }
 
     public Boolean parse(List<String> instructions) {
+        boolean found = false;
         ArrayList<String> command = new ArrayList<>(instructions);
-        return items.stream().filter((i) -> i.getItem().getID().equals(command.get(0)))
-                .anyMatch((i) -> i.parse(command.subList(1, command.size())));
+        String id = command.get(0);
+        for (ItemView item : items) {
+            if (item.getItem().getID().equals(id)) {
+                found |= item.parse(command.subList(1, command.size()));
+            }
+        }
+        return found;
     }
 
-    public boolean toggleLeft(Statement statement) {
+    public boolean toggleLeft(Value statement) {
         if (manager == null) {
             return false;
         }
         return manager.toggleLeft(statement, this);
     }
 
+    public boolean toggleRight(Value statement) {
+        if (manager == null) {
+            return false;
+        }
+        return manager.toggleRight(statement, this);
+    }
+
     public void setManager(LayoutManager manager) {
         this.manager = manager;
     }
 
-    public void toggle(Statement statement) {
-        if (items.stream().anyMatch((i) -> i.getItem() == statement)) {
-            ItemView found = items.stream().filter((i) -> i.getItem() == statement).findAny().orElseThrow(Error::new);
+    public void toggle(Value statement) {
+        if (items.stream().anyMatch((i) -> i.getItem().equals(statement))) {
+            ItemView found =
+                    items.stream().filter((i) -> i.getItem().equals(statement)).findAny().orElseThrow(Error::new);
             // I should probably make my own exception class but the idea is that this can't happen. I suppose it's
             // not thread-safe but I don't have anything that is thread-safe.
             items.remove(found);
         } else {
-            items.add(new ItemView(statement));
+            add(new ItemView(statement));
         }
     }
 
