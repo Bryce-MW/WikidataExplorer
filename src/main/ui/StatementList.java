@@ -14,11 +14,10 @@ public class StatementList {
     private final Value entity; // Entity this statement list refers to.
     private final DatumQueryService queryService;
 
-    public StatementList(Value entity, DatumQueryService queryService) {
+    public StatementList(Value entity, DatumQueryService queryService, ArrayList<Value> statements) {
         this.queryService = queryService;
         this.entity = entity;
-        statements = new ArrayList<>(10);
-        getBasicStatements();
+        this.statements = statements;
     }
 
     private void getBasicStatements() {

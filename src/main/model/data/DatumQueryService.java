@@ -25,7 +25,7 @@ public class DatumQueryService {
         tree.add(property.getParentID());
         tree.add(property.getID());
         tree.add(value.getID());
-        return collector.getQualifiers(tree);
+        return collector.getQualifiers(tree, this);
     }
 
     public ArrayList<Reference> getReferencesByStatement(Statement property, Value value) {
@@ -46,5 +46,12 @@ public class DatumQueryService {
 
     public Value getStatementByTree(ArrayList<String> tree, Datum item) {
         return collector.getSingleStatement(tree, item, this);
+    }
+
+    public ArrayList<Value> getDatumLinkListByStatement(Statement property) {
+        ArrayList<String> tree = new ArrayList<>(3);
+        tree.add(property.getParentID());
+        tree.add(property.getID());
+        return collector.getDatumLinkListByTree(tree, property, this);
     }
 }

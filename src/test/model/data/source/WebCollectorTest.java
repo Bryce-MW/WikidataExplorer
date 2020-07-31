@@ -1,5 +1,6 @@
 package model.data.source;
 
+import model.data.DatumQueryService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -10,10 +11,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class WebCollectorTest {
     private static WebCollector webCollector;
+    private static DatumQueryService queryService;
 
     @BeforeAll
     static void setUp() {
         webCollector = new WebCollector();
+        queryService = new DatumQueryService(webCollector);
     }
 
     @Test
@@ -28,19 +31,19 @@ class WebCollectorTest {
         tree.add("Q42");
         tree.add("P119");
         tree.add("Q533697");
-        assertEquals(0, webCollector.getQualifiers(tree).size()); // 0 because qualifiers not implemented
+        assertEquals(0, webCollector.getQualifiers(tree, queryService).size()); // 0 because qualifiers not implemented
 
         tree = new ArrayList<>(3);
         tree.add("Q2");
         tree.add("P361");
         tree.add("Q18589965");
-        assertEquals(0, webCollector.getQualifiers(tree).size()); // 0 because qualifiers not implemented
+        assertEquals(0, webCollector.getQualifiers(tree, queryService).size()); // 0 because qualifiers not implemented
 
         tree = new ArrayList<>(3);
         tree.add("Q2");
         tree.add("P361");
         tree.add("Q18589966");
-        assertEquals(0, webCollector.getQualifiers(tree).size()); // 0 because qualifiers not implemented
+        assertEquals(0, webCollector.getQualifiers(tree, queryService).size()); // 0 because qualifiers not implemented
 
     }
 

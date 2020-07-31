@@ -4,6 +4,16 @@ title __ADDITIONAL's Class Diagram__\n
 
   namespace model.data {
     namespace additional {
+      abstract class model.data.additional.AbstractAdditional {
+          + parse()
+          # AbstractAdditional()
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace additional {
       class model.data.additional.CommonsMedia {
           + getDescription()
           + getID()
@@ -159,18 +169,19 @@ title __ADDITIONAL's Class Diagram__\n
   }
   
 
-  model.data.additional.CommonsMedia -up-|> model.data.Value
-  model.data.additional.ExternalIdentifier -up-|> model.data.Value
-  model.data.additional.GeographicShape -up-|> model.data.Value
-  model.data.additional.GlobeCoordinate -up-|> model.data.Value
-  model.data.additional.LiteralString -up-|> model.data.Value
-  model.data.additional.MathematicalExpression -up-|> model.data.Value
-  model.data.additional.MonolingualText -up-|> model.data.Value
-  model.data.additional.MusicalNotation -up-|> model.data.Value
-  model.data.additional.Quantity -up-|> model.data.Value
-  model.data.additional.TabularData -up-|> model.data.Value
-  model.data.additional.Time -up-|> model.data.Value
-  model.data.additional.URL -up-|> model.data.Value
+  model.data.additional.AbstractAdditional -up-|> model.data.Value
+  model.data.additional.CommonsMedia -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.ExternalIdentifier -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.GeographicShape -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.GlobeCoordinate -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.LiteralString -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.MathematicalExpression -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.MonolingualText -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.MusicalNotation -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.Quantity -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.TabularData -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.Time -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.URL -up-|> model.data.additional.AbstractAdditional
 
 
 right footer

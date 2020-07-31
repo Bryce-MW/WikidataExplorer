@@ -1,11 +1,12 @@
 package model.data.source;
 
+import com.google.gson.Gson;
 import model.data.*;
+import model.data.pages.Item;
+import model.data.pages.Property;
+import model.data.source.template.Claim;
+import model.data.source.template.Entities;
 
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -14,62 +15,36 @@ import java.util.*;
 
 @SuppressWarnings("ConstantConditions")
 public class WebCollector implements Collector {
-    private final ScriptEngine engine;
+    private final Gson gson;
 
     public WebCollector() {
-        ScriptEngineManager manager = new ScriptEngineManager();
-        engine = manager.getEngineByName("javascript");
+        gson = new Gson();
     }
 
     @Override
     public String getEntityName(String property) {
-        Map<String, Object> entities = (Map<String, Object>) getJson(property).get("entities"); // If I start getting
-        // exceptions then so be it!
-        Map<String, Object> entity = (Map<String, Object>) entities.get(property);
-        Map<String, Object> labels = (Map<String, Object>) entity.get("labels");
-        Map<String, String> label = (Map<String, String>) labels.get("en"); // TODO: Languages!
-        return label.get("value");
+        return getJson(property).entities.get(property).labels.get("en").value;
     }
 
     @Override
-    public ArrayList<Qualifier> getQualifiers(List<String> tree) {
-        Map<String, Object> finalObject = (Map<String, Object>) getJson(tree.get(0)).get("entities"); // If I
-        // start
-        // getting
-        // exceptions then so be it!
-        finalObject = (Map<String, Object>) finalObject.get(tree.get(0));
-        finalObject = (Map<String, Object>) finalObject.get("claims");
-        List<Map<String, Object>> statements = (List<Map<String, Object>>) finalObject.get(tree.get(1));
-        Map<String, Object> result = null;
-
-        String finalName = tree.get(2);
-
-        result = getStatement(statements, result, finalName);
-
-        if (result == null) {
-            //Something bad happened. Will probably crash
-            return new ArrayList<>();
+    public ArrayList<Qualifier> getQualifiers(List<String> tree, DatumQueryService qualifierQuery) {
+        ArrayList<Qualifier> result = new ArrayList<>(5);
+        String id = tree.get(0);
+        String claim = tree.get(1);
+        String item = tree.get(2);
+        Map<String, List<model.data.source.template.Qualifier>> qualifiers = getJson(id).entities.get(id)
+                .claims.get(claim).stream()
+                .filter((i) -> ((Map<String, String>) i.mainsnak.datavalue.value).get("id").equals(item))
+                .findAny().orElseThrow(Error::new)
+                .qualifiers;
+        if (qualifiers == null) {
+            return result;
         }
-
-        if (!result.containsKey("qualifiers")) {
-            // no qualifiers
-            return new ArrayList<>();
-        }
-
-        return new ArrayList<>(10); // TODO: Implement later, not needed now
-    }
-
-    private Map<String, Object> getStatement(List<Map<String, Object>> statements,
-                                             Map<String, Object> result,
-                                             String finalName) {
-        for (Map<String, Object> statement : statements) {
-            Map<String, Object> mainSnak = (Map<String, Object>) statement.get("mainsnak");
-            Map<String, Object> dataValue = (Map<String, Object>) mainSnak.get("datavalue");
-            Map<String, String> value = (Map<String, String>) dataValue.get("value");
-            String id = value.get("id");
-            if (id.equals(finalName)) {
-                result = statement;
-                break;
+        for (String s : qualifiers.keySet()) {
+            List<model.data.source.template.Qualifier> subQualis = qualifiers.get(s);
+            for (model.data.source.template.Qualifier subQuali : subQualis) {
+                result.add(new Qualifier(new Property(s, qualifierQuery),
+                        new Item(((Map<String, String>) subQuali.datavalue.value).get("id"), qualifierQuery)));
             }
         }
         return result;
@@ -82,21 +57,12 @@ public class WebCollector implements Collector {
 
     @Override
     public String getEntityDescription(String id) {
-        Map<String, Object> entities = (Map<String, Object>) getJson(id).get("entities"); // If I start getting
-        // exceptions then so be it!
-        Map<String, Object> entity = (Map<String, Object>) entities.get(id);
-        Map<String, Object> labels = (Map<String, Object>) entity.get("descriptions");
-        Map<String, String> label = (Map<String, String>) labels.get("en"); // TODO: Languages!
-        return label.get("value");
+        return getJson(id).entities.get(id).descriptions.get("en").value;
     }
 
     @Override
     public ArrayList<String> getStatementList(String id) {
-        Map<String, Object> statements =
-                ((Map<String, Map<String, Map<String, Object>>>) getJson(id)
-                        .get("entities"))
-                        .get(id)
-                        .get("claims");
+        Map<String, List<Claim>> statements = getJson(id).entities.get(id).claims;
         Set<String> keys = statements.keySet();
         ArrayList<String> keyList = new ArrayList<>(keys);
         keyList.sort(Comparator.comparingInt((i) -> Integer.parseInt(i.substring(1))));
@@ -105,21 +71,33 @@ public class WebCollector implements Collector {
 
     @Override
     public Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService) {
-        String id = tree.get(0);
-        Map<String, Object> statements =
-                ((Map<String, Map<String, Map<String, Object>>>) getJson(id)
-                        .get("entities"))
-                        .get(id)
-                        .get("claims");
-
         return new Statement(item, tree.get(1), statementService);
+    }
+
+    @Override
+    public ArrayList<Value> getDatumLinkListByTree(ArrayList<String> tree,
+                                                   Statement about, DatumQueryService queryService) {
+        ArrayList<Value> result = new ArrayList<>(10);
+        String id = tree.get(0);
+        String property = tree.get(1);
+        List<Claim> datumLinkList = getJson(id).entities.get(id).claims.get(property);
+        try {
+            for (Claim claim : datumLinkList) {
+                Map<String, String> value = (Map<String, String>) claim.mainsnak.datavalue.value;
+                result.add(new DatumLink(queryService, about, new Item(value.get("id"), queryService)));
+            }
+        } catch (ClassCastException ignored) {
+            return result;
+        }
+        return result;
     }
 
     private String formatURL(String id) {
         return "https://www.wikidata.org/wiki/Special:EntityData/" + id + ".json";
     }
 
-    private Map<String, Object> getJson(String urlStr) {
+    private Entities getJson(String urlStr) {
+
         URLConnection connection = null;
         try {
             URL url = new URL(formatURL(urlStr));
@@ -128,32 +106,13 @@ public class WebCollector implements Collector {
             //ignored
         }
 
-        StringBuilder json = new StringBuilder(1000);
-        if (createJsonString(connection, json)) {
-            return null;
-        }
-
-        Map<String, Object> result = null;
+        Entities newResult = new Entities();
         try {
-            result = (Map<String, Object>) engine.eval(json.toString());
-        } catch (ScriptException | ClassCastException ignored) {
-            //ignored
-        } // Something very bad happened!
-
-        return result;
-    }
-
-    private boolean createJsonString(URLConnection connection, StringBuilder json) {
-        json.append("Java.asJSONCompatible(");
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
-            String line;
-            while ((line = in.readLine()) != null) {
-                json.append(line).append('\n');
-            }
+            newResult = gson.fromJson(new InputStreamReader(connection.getInputStream()), Entities.class);
         } catch (IOException e) {
-            return true;
+            //ignored
         }
-        json.append(")");
-        return false;
+
+        return newResult;
     }
 }

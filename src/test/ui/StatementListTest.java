@@ -26,7 +26,7 @@ class StatementListTest {
     @BeforeEach
     void setUp() {
         statementList = new StatementList(
-                new Item("Q42", queryService), queryService);
+                new Item("Q42", queryService), queryService, new ArrayList<>(10));
     }
 
     @Test

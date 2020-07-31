@@ -9,6 +9,8 @@ title __SOURCE's Class Diagram__\n
           {abstract} + getEntityName()
           {abstract} + getQualifiers()
           {abstract} + getReferences()
+          {abstract} + getSingleStatement()
+          {abstract} + getStatementList()
       }
     }
   }
@@ -39,6 +41,8 @@ title __SOURCE's Class Diagram__\n
           + getEntityName()
           + getQualifiers()
           + getReferences()
+          + getSingleStatement()
+          + getStatementList()
           - createJsonString()
           - formatURL()
           - getJson()

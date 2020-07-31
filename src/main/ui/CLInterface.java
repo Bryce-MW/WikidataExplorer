@@ -63,7 +63,7 @@ public final class CLInterface {
         menuItems.add(profile);
         menuItems.add(preferences);
 
-        Datum startingPoint = new Item("Q42", queryService);
+        Datum startingPoint = new Item("Q1", queryService);
 
         layout.add(new ItemViewController(new ItemView(startingPoint)));
 

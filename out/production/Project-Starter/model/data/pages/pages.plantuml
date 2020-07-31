@@ -32,6 +32,7 @@ title __PAGES's Class Diagram__\n
 
   model.data.pages.Item -up-|> model.data.Datum
   model.data.pages.Item o-- model.data.DatumQueryService : queryService
+  model.data.pages.Item o-- ui.StatementList : statements
   model.data.pages.Property -up-|> model.data.Datum
   model.data.pages.Property o-- model.data.DatumQueryService : queryService
 

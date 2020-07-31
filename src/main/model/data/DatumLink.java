@@ -15,7 +15,7 @@ public class DatumLink extends Value {
     private final String name;
     private final String description;
 
-    protected DatumLink(DatumQueryService queryService, Statement property, Value value) {
+    public DatumLink(DatumQueryService queryService, Statement property, Value value) {
         super(queryService);
         id = value.getID();
         name = value.getTitle();

@@ -19,6 +19,7 @@ title __UI's Class Diagram__\n
         {static} - queryService : DatumQueryService
         + CLInterface()
         {static} + main()
+        {static} - getWindowSize()
         {static} - loop()
         {static} - parse()
     }
@@ -31,7 +32,11 @@ title __UI's Class Diagram__\n
         - photoRef : String
         - title : String
         + ItemView()
+        + getItem()
+        + parse()
+        + setController()
         + toStringArray()
+        + toggleLeft()
         + updateLanguage()
         - addLines()
     }
@@ -44,9 +49,13 @@ title __UI's Class Diagram__\n
         + ItemViewController()
         + add()
         + isEmpty()
+        + parse()
         + remove()
+        + setManager()
         + size()
         + toStringArray()
+        + toggle()
+        + toggleLeft()
     }
   }
   
@@ -61,10 +70,12 @@ title __UI's Class Diagram__\n
         + LayoutManager()
         + add()
         + isEmpty()
+        + parse()
         + print()
         + remove()
         + setSepWidth()
         + size()
+        + toggleLeft()
         - toStringArray()
     }
   }
@@ -76,6 +87,7 @@ title __UI's Class Diagram__\n
         - width : int
         + MenuBar()
         + addItem()
+        + parse()
         + removeItem()
         + swapSearch()
         + toStringArray()
@@ -86,6 +98,9 @@ title __UI's Class Diagram__\n
 
   namespace ui {
     interface ui.MenuBarItem {
+        {abstract} + getCommandString()
+        + getParser()
+        {abstract} + parse()
     }
   }
   
@@ -94,7 +109,9 @@ title __UI's Class Diagram__\n
     class ui.SearchBar {
         - results : ArrayList<Value>
         + SearchBar()
+        + getCommandString()
         + getResults()
+        + parse()
         + search()
         + toString()
     }
@@ -105,20 +122,24 @@ title __UI's Class Diagram__\n
     class ui.StatementList {
         - statements : ArrayList<Value>
         + StatementList()
+        + parse()
         + toStringArray()
         - getBasicStatements()
     }
   }
   
 
+  ui.ItemView o-- ui.ItemViewController : controller
   ui.ItemView o-- model.data.Value : item
   ui.ItemView o-- ui.SearchBar : searchBar
   ui.ItemView o-- ui.StatementList : statements
+  ui.ItemViewController o-- ui.LayoutManager : manager
   ui.LayoutManager o-- ui.MenuBar : menuBar
   ui.MenuBar o-- ui.SearchBar : searchBar
   ui.SearchBar .up.|> ui.MenuBarItem
   ui.SearchBar o-- model.data.ScopedSearch : searchService
   ui.StatementList o-- model.data.Value : entity
+  ui.StatementList o-- model.data.DatumQueryService : queryService
 
 
 right footer

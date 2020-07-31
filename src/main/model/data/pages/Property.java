@@ -2,7 +2,6 @@ package model.data.pages;
 
 import model.data.Datum;
 import model.data.DatumQueryService;
-import ui.StatementList;
 
 public class Property extends Datum {
     //TODO: Implement
@@ -10,7 +9,7 @@ public class Property extends Datum {
     private final DatumQueryService queryService;
 
     public Property(String id, DatumQueryService queryService) {
-        super(queryService);
+        super(queryService, id);
         this.id = id;
         this.queryService = queryService;
     }
@@ -28,10 +27,5 @@ public class Property extends Datum {
     @Override
     public String getID() {
         return id;
-    }
-
-    @Override
-    public StatementList getStatements() {
-        return new StatementList(this, queryService);
     }
 }

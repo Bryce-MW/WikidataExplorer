@@ -8,7 +8,7 @@ import java.util.List;
 public interface Collector {
     String getEntityName(String property);
 
-    ArrayList<Qualifier> getQualifiers(List<String> tree);
+    ArrayList<Qualifier> getQualifiers(List<String> tree, DatumQueryService qualifierQuery);
 
     ArrayList<Reference> getReferences(List<String> tree);
 
@@ -17,4 +17,6 @@ public interface Collector {
     ArrayList<String> getStatementList(String id);
 
     Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService);
+
+    ArrayList<Value> getDatumLinkListByTree(ArrayList<String> tree, Statement about, DatumQueryService queryService);
 }
