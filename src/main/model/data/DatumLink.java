@@ -11,13 +11,11 @@ public class DatumLink extends Value {
     private final ArrayList<Qualifier> qualifiers;
     private final ArrayList<Reference> references;
 
-    private final String id;
     private final String name;
     private final String description;
 
     public DatumLink(DatumQueryService queryService, Statement property, Value value) {
-        super(queryService);
-        id = value.getID();
+        super(queryService, value.getID());
         name = value.getTitle();
         description = value.getDescription();
         qualifiers = queryService.getQualifiersByStatement(property, value);
@@ -32,11 +30,6 @@ public class DatumLink extends Value {
     @Override
     public String getDescription() {
         return description;
-    }
-
-    @Override
-    public String getID() {
-        return id;
     }
 
     @Override

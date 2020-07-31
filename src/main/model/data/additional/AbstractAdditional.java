@@ -8,7 +8,7 @@ import java.util.List;
 public abstract class AbstractAdditional extends Value {
 
     protected AbstractAdditional(DatumQueryService queryService) {
-        super(queryService);
+        super(queryService, "");
     }
 
     @Override

@@ -6,15 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Statement extends Value {
-    private final String id;
     private final String name;
     private StatementList statements = null;
     private final Datum about;
 
     public Statement(Datum item, String property, DatumQueryService queryService) {
-        super(queryService);
+        super(queryService, property);
         this.queryService = queryService;
-        this.id = property;
         this.name = queryService.getNameByID(property);
         this.about = item;
     }
@@ -35,11 +33,6 @@ public class Statement extends Value {
     @Override
     public String getDescription() {
         return "";
-    }
-
-    @Override
-    public String getID() {
-        return id;
     }
 
     @Override

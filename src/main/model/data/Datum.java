@@ -7,11 +7,9 @@ import java.util.List;
 
 public abstract class Datum extends Value {
     protected StatementList statements;
-    protected String id;
 
     protected Datum(DatumQueryService queryService, String id) {
-        super(queryService);
-        this.id = id;
+        super(queryService, id);
         this.statements = new StatementList(this, queryService, findStatements());
     }
 
@@ -47,11 +45,6 @@ public abstract class Datum extends Value {
     @Override
     public StatementList getStatements() {
         return statements;
-    }
-
-    @Override
-    public String getID() {
-        return id;
     }
 
     @Override

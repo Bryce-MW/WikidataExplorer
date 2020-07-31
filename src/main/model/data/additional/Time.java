@@ -4,14 +4,17 @@ import model.data.DatumQueryService;
 import ui.StatementList;
 
 public class Time extends AbstractAdditional {
-    protected Time(DatumQueryService queryService) {
+    protected String time;
+
+    public Time(String time, DatumQueryService queryService) {
         super(queryService);
+        this.time = time;
     }
     // TODO: These are not needed yet
 
     @Override
     public String getTitle() {
-        return null;
+        return time;
     }
 
     @Override
@@ -21,7 +24,7 @@ public class Time extends AbstractAdditional {
 
     @Override
     public String getID() {
-        return null;
+        return time;
     }
 
     @Override

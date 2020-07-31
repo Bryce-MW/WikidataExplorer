@@ -12,7 +12,7 @@ class TimeTest {
 
     @BeforeAll
     static void setUp() {
-        additional = new Time(new DatumQueryService(new WebCollector()));
+        additional = new Time("+2001-12-31T00:00:00Z", new DatumQueryService(new WebCollector()));
     }
 
     @Test

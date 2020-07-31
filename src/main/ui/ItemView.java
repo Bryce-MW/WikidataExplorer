@@ -83,7 +83,9 @@ public class ItemView {
         midLine.setCharAt(0, '┠');
         midLine.setCharAt(midLine.length() - 1, '┨');
         result.add(4, midLine);
-        result.add(6, midLine);
+        if (result.size() > 6) {
+            result.add(6, midLine);
+        }
 
         StringBuilder botLine = new StringBuilder(maxLength);
         StringBuilderUtil.pad(botLine, '━', maxLength);

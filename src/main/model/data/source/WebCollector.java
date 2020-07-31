@@ -35,7 +35,8 @@ public class WebCollector implements Collector {
         String item = tree.get(2);
         Map<String, List<model.data.source.template.Qualifier>> qualifiers = getJson(id).entities.get(id)
                 .claims.get(claim).stream()
-                .filter((i) -> ((Map<String, String>) i.mainsnak.datavalue.value).get("id").equals(item))
+                .filter((i) -> Value.parseData(i.mainsnak.datavalue.value, i.mainsnak.datatype, qualifierQuery)
+                        .getID().equals(item))
                 .findAny().orElseThrow(Error::new)
                 .qualifiers;
         if (qualifiers == null) {
@@ -45,7 +46,7 @@ public class WebCollector implements Collector {
             List<model.data.source.template.Qualifier> subQualis = qualifiers.get(s);
             for (model.data.source.template.Qualifier subQuali : subQualis) {
                 result.add(new Qualifier(new Property(s, qualifierQuery),
-                        new Item(((Map<String, String>) subQuali.datavalue.value).get("id"), qualifierQuery)));
+                        Value.parseData(subQuali.datavalue.value, subQuali.datatype, qualifierQuery)));
             }
         }
         return result;
@@ -103,7 +104,7 @@ public class WebCollector implements Collector {
                 return entities;
             }
         }
-        System.out.println(urlStr);
+        System.out.println(urlStr); // TODO: Remove debug statement
 
         URLConnection connection = null;
         try {
