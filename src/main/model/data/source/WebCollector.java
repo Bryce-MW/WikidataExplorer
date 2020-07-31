@@ -46,7 +46,7 @@ public class WebCollector implements Collector {
             List<model.data.source.template.Qualifier> subQualis = qualifiers.get(s);
             for (model.data.source.template.Qualifier subQuali : subQualis) {
                 result.add(new Qualifier(new Property(s, qualifierQuery),
-                        Value.parseData(subQuali.datavalue.value, subQuali.datatype, qualifierQuery)));
+                        Value.parseData(subQuali.datavalue.value, subQuali.datatype, qualifierQuery), qualifierQuery));
             }
         }
         return result;

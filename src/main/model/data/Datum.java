@@ -35,13 +35,6 @@ public abstract class Datum extends Value {
         return false;
     }
 
-    public boolean toggleLeft(Statement statement) {
-        if (this.view == null) {
-            return false;
-        }
-        return view.toggleLeft(statement);
-    }
-
     @Override
     public StatementList getStatements() {
         return statements;

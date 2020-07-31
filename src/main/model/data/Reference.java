@@ -1,4 +1,46 @@
 package model.data;
 
-public class Reference {
+import model.data.pages.Property;
+import ui.StatementList;
+
+import java.util.List;
+
+public class Reference extends Value {
+    //TODO: Implement
+    private final Property property;
+    private final Value value;
+
+    public Reference(Property property, Value value, DatumQueryService queryService) {
+        super(queryService, property.getID());
+        this.property = property;
+        this.value = value;
+    }
+
+    public Property getProperty() {
+        return property;
+    }
+
+    public Value getValue() {
+        return value;
+    }
+
+    @Override
+    public String getTitle() {
+        return property.getTitle();
+    }
+
+    @Override
+    public String getDescription() {
+        return value.getTitle();
+    }
+
+    @Override
+    public StatementList getStatements() {
+        return null;
+    }
+
+    @Override
+    public Boolean parse(List<String> subList) {
+        return false;
+    }
 }

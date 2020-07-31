@@ -1,7 +1,6 @@
 package ui;
 
 import model.data.ScopedSearch;
-import model.data.Statement;
 import model.data.Value;
 import model.data.pages.Item;
 import model.util.StringBuilderUtil;
@@ -112,7 +111,7 @@ public class ItemView {
         return statements.parse(command);
     }
 
-    public boolean toggleLeft(Statement statement) {
+    public boolean toggleLeft(Value statement) {
         if (controller == null) {
             return false;
         }

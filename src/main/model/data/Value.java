@@ -81,5 +81,12 @@ public abstract class Value {
         return result;
     }
 
+    protected Boolean toggleLeft(Value value) {
+        if (this.view == null) {
+            return false;
+        }
+        return view.toggleLeft(value);
+    }
+
     //TODO: Implement
 }

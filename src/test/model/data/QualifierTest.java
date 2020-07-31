@@ -24,7 +24,7 @@ class QualifierTest {
 
     @BeforeEach
     void setUp() {
-        qualifier = new Qualifier(property, value);
+        qualifier = new Qualifier(property, value, queryService);
     }
 
     @Test

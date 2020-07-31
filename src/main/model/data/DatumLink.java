@@ -6,16 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatumLink extends Value {
-    private Statement property;
-    private Value value;
+    private final Statement property;
+    private final Value value;
     private final ArrayList<Qualifier> qualifiers;
     private final ArrayList<Reference> references;
+    private StatementList statementList = null;
 
     private final String name;
     private final String description;
 
     public DatumLink(DatumQueryService queryService, Statement property, Value value) {
         super(queryService, value.getID());
+        this.property = property;
+        this.value = value;
         name = value.getTitle();
         description = value.getDescription();
         qualifiers = queryService.getQualifiersByStatement(property, value);
@@ -34,12 +37,18 @@ public class DatumLink extends Value {
 
     @Override
     public StatementList getStatements() {
-        return null;
+        if (statementList == null) {
+            ArrayList<Value> statements = new ArrayList<>(qualifiers.size() + references.size());
+            statements.addAll(qualifiers);
+            statements.addAll(references);
+            statementList = new StatementList(this, queryService, statements);
+        }
+        return statementList;
     }
 
     @Override
     public Boolean parse(List<String> subList) {
-        return false; // Not implementing this quite yet either
+        return property.toggleLeft(this);
     }
     //TODO: Implement
 }

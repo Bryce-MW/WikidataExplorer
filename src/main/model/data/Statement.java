@@ -48,7 +48,7 @@ public class Statement extends Value {
         if (subList.size() == 0) {
             return about.toggleLeft(this);
         }
-        return false;
+        return statements.parse(subList);
     }
     //TODO: Implement
 
