@@ -83,6 +83,8 @@ public class LayoutManager {
     public void print() {
         ArrayList<StringBuilder> result = toStringArray();
 
+        result.stream().filter(builder -> builder.length() > width).forEach(builder -> builder.setLength(width));
+
         result.forEach(System.out::println);
     }
 
