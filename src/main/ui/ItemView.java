@@ -29,7 +29,7 @@ public class ItemView {
         // TODO: Probably won't add language support in first round (Just use english or first language listed)
         title = item.getTitle();
         description = item.getDescription();
-        searchBar = new SearchBar(new ScopedSearch(item));
+        searchBar = new SearchBar(new ScopedSearch(item, item.getQuery()));
         statements = item.getStatements();
     }
 

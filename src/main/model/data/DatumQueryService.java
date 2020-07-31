@@ -13,7 +13,7 @@ public class DatumQueryService {
     }
 
     public ScopedSearch getScopedSearch(Value item) {
-        return new ScopedSearch(item);
+        return new ScopedSearch(item, this);
     }
 
     public String getNameByID(String property) {

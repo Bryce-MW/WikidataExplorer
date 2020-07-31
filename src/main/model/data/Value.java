@@ -88,5 +88,9 @@ public abstract class Value {
         return view.toggleLeft(value);
     }
 
+    public void addStatement(Value value) {
+        getStatements().add(value);
+    }
+
     //TODO: Implement
 }

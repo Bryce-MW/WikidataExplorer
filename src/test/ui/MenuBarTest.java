@@ -1,6 +1,9 @@
 package ui;
 
+import model.data.DatumQueryService;
 import model.data.ScopedSearch;
+import model.data.pages.Item;
+import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,16 +14,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MenuBarTest {
     MenuBar menuBar;
+    Item q42;
+    DatumQueryService queryService;
 
     @BeforeEach
     void setUp() {
+        queryService = new DatumQueryService(new WebCollector());
+        q42 = new Item("Q42", queryService);
         menuBar = new MenuBar(new ArrayList<>(1),
-                new SearchBar(new ScopedSearch(null)), 100);
+                new SearchBar(new ScopedSearch(q42, queryService)), 100);
     }
 
     @Test
     void swapSearch() {
-        SearchBar newSearch = new SearchBar(new ScopedSearch(null)) {
+        SearchBar newSearch = new SearchBar(new ScopedSearch(q42, queryService)) {
             @Override
             public String toString() {
                 return "qqqqqqqqq";

@@ -1,6 +1,9 @@
 package model.prefrences;
 
+import model.data.DatumQueryService;
 import model.data.ScopedSearch;
+import model.data.pages.Item;
+import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.LayoutManager;
@@ -13,13 +16,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LayoutProfileManagerTest {
     LayoutProfileManager layoutProfileManager;
+    DatumQueryService queryService;
+    Item q42;
 
     @BeforeEach
     void setUp() {
+        queryService = new DatumQueryService(new WebCollector());
+        q42 = new Item("Q42", queryService);
         layoutProfileManager = new LayoutProfileManager(
                 new LayoutProfile("Test",
                         new LayoutManager(10, 10, new MenuBar(new ArrayList<>(0),
-                                new SearchBar(new ScopedSearch(null)), 10))));
+                                new SearchBar(new ScopedSearch(q42, queryService)),
+                                10))));
     }
 
     @Test
@@ -32,7 +40,7 @@ class LayoutProfileManagerTest {
     void addProfile() {
         layoutProfileManager.addProfile(new LayoutProfile("qwerty",
                 new LayoutManager(10, 10, new MenuBar(new ArrayList<>(0),
-                        new SearchBar(new ScopedSearch(null)), 10))));
+                        new SearchBar(new ScopedSearch(q42, queryService)), 10))));
         assertEquals(2, layoutProfileManager.getProfiles().size());
         assertEquals("qwerty", layoutProfileManager.getProfiles().get(1).getName());
     }

@@ -66,4 +66,8 @@ public class StatementList {
                 .filter((i) -> i.getID().equals(instruction.get(0)))
                 .anyMatch((i) -> i.parse(instruction.subList(1, instruction.size())));
     }
+
+    public void add(Value value) {
+        statements.add(value);
+    }
 }

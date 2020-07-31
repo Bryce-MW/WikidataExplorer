@@ -1,6 +1,9 @@
 package ui;
 
+import model.data.DatumQueryService;
 import model.data.ScopedSearch;
+import model.data.pages.Item;
+import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +15,8 @@ class SearchBarTest {
 
     @BeforeEach
     void setUp() {
-        searchBar = new SearchBar(new ScopedSearch());
+        DatumQueryService queryService = new DatumQueryService(new WebCollector());
+        searchBar = new SearchBar(new ScopedSearch(new Item("Q42", queryService), queryService));
     }
 
     @Test

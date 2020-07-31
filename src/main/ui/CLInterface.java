@@ -2,6 +2,7 @@ package ui;
 
 import model.data.Datum;
 import model.data.DatumQueryService;
+import model.data.ScopedSearch;
 import model.data.pages.Item;
 import model.data.source.WebCollector;
 import model.prefrences.LayoutProfileManager;
@@ -50,7 +51,10 @@ public final class CLInterface {
 
         queryService = new DatumQueryService(new WebCollector());
 
-        mainSearch = new SearchBar(queryService.getScopedSearch(null));
+        Datum startingPoint = new Item("Q42", queryService);
+        ItemViewController viewController = new ItemViewController(new ItemView(startingPoint));
+
+        mainSearch = new SearchBar(new ScopedSearch(viewController, queryService));
         menuBar = new MenuBar(menuItems, mainSearch, WIDTH);
         layout = new LayoutManager(WIDTH, HEIGHT, menuBar);
         layout.setSepWidth(SEP_WIDTH);
@@ -63,9 +67,7 @@ public final class CLInterface {
         menuItems.add(profile);
         menuItems.add(preferences);
 
-        Datum startingPoint = new Item("Q42", queryService);
-
-        layout.add(new ItemViewController(new ItemView(startingPoint)));
+        layout.add(viewController);
 
         loop(args);
     }

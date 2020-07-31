@@ -21,7 +21,7 @@ public class SearchBar implements MenuBarItem {
     }
 
     public List<Value> search(String query) {
-        return null;
+        return searchService.findElement(query);
     }
 
     //TODO: Rendering Stuff
@@ -32,7 +32,13 @@ public class SearchBar implements MenuBarItem {
 
     @Override
     public Boolean parse(List<String> subList) {
-        return true;
+        if (subList.size() == 0) {
+            return false;
+        }
+        String id = subList.get(0);
+        List<Value> values = search(id);
+        searchService.add(values);
+        return false;
     }
 
     @Override

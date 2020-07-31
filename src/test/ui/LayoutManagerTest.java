@@ -15,11 +15,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LayoutManagerTest {
     private LayoutManager layoutManager;
+    DatumQueryService queryService;
 
     @BeforeEach
     void setUp() {
+        queryService = new DatumQueryService(new WebCollector());
         layoutManager = new LayoutManager(100, 100, new MenuBar(
-                new ArrayList<>(), new SearchBar(new ScopedSearch()), 100));
+                new ArrayList<>(), new SearchBar(new ScopedSearch(new Item("Q42", queryService), queryService)),
+                100));
     }
 
     @Test
