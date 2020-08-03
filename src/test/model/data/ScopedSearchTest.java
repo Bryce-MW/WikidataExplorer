@@ -1,6 +1,7 @@
 package model.data;
 
 import model.data.pages.Item;
+import model.data.source.LocalRepository;
 import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ class ScopedSearchTest {
 
     @BeforeEach
     void setUp() {
-        q42 = new Item("Q42", new DatumQueryService(new WebCollector()));
+        q42 = new Item("Q42", new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json"))));
         scopedSearch = new ScopedSearch(q42, q42.getQuery());
     }
 

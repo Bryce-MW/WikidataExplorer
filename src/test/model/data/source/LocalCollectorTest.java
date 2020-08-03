@@ -6,7 +6,7 @@ class LocalCollectorTest {
 
     @Test
     void localCollector() {
-        new LocalCollector();
+        new LocalCollector(new LocalRepository("wikidata.json"));
         // Not implemented so just checking for exceptions
     }
 }

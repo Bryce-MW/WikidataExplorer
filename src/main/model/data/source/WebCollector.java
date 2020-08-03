@@ -14,11 +14,12 @@ import java.net.URLConnection;
 import java.util.*;
 
 @SuppressWarnings("ConstantConditions")
-public class WebCollector implements Collector {
+public class WebCollector extends Collector {
     private final Gson gson;
     private static final ArrayList<Entities> seen = new ArrayList<>(30);
 
-    public WebCollector() {
+    public WebCollector(LocalRepository repository) {
+        super(repository);
         gson = new Gson();
     }
 
@@ -92,6 +93,23 @@ public class WebCollector implements Collector {
             return result;
         }
         return result;
+    }
+
+    @Override
+    public Boolean triggerSave() {
+        Entities entities = new Entities();
+        entities.entities = new HashMap<>();
+        for (Entities entitiesCollection : seen) {
+            for (String entityKey : entitiesCollection.entities.keySet()) {
+                entities.entities.put(entityKey, entitiesCollection.entities.get(entityKey));
+            }
+        }
+        return repository.save(entities, gson);
+    }
+
+    @Override
+    public Boolean triggerLoad() {
+        return true; // Intended to do nothing as file
     }
 
     private String formatURL(String id) {

@@ -1,6 +1,7 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
+import model.data.source.LocalRepository;
 import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -13,7 +14,7 @@ class LiteralStringTest {
 
     @BeforeAll
     static void setUp() {
-        additional = new LiteralString("Test", new DatumQueryService(new WebCollector()));
+        additional = new LiteralString("Test", new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json"))));
     }
 
     @Test

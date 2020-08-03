@@ -1,6 +1,7 @@
 package model.data;
 
 import model.data.pages.Item;
+import model.data.source.LocalRepository;
 import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,7 @@ class DatumQueryServiceTest {
 
     @BeforeAll
     static void setUp() {
-        queryService = new DatumQueryService(new WebCollector());
+        queryService = new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json")));
     }
 
     @Test

@@ -15,7 +15,7 @@ class WebCollectorTest {
 
     @BeforeAll
     static void setUp() {
-        webCollector = new WebCollector();
+        webCollector = new WebCollector(new LocalRepository("wikidata.json"));
         queryService = new DatumQueryService(webCollector);
     }
 

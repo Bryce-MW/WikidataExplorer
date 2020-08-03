@@ -6,7 +6,7 @@ class LocalRepositoryTest {
 
     @Test
     void localRepository() {
-        new LocalRepository();
+        new LocalRepository("wikidata.json");
         // Not implemented so just checking for exceptions
     }
 }

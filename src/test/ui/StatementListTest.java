@@ -3,6 +3,7 @@ package ui;
 import model.data.DatumQueryService;
 import model.data.Value;
 import model.data.pages.Item;
+import model.data.source.LocalRepository;
 import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +22,7 @@ class StatementListTest {
 
     @BeforeAll
     static void init() {
-        queryService = new DatumQueryService(new WebCollector());
+        queryService = new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json")));
     }
 
     @BeforeEach
@@ -36,7 +37,7 @@ class StatementListTest {
         Field field = StatementList.class.getDeclaredField("statements");
         field.setAccessible(true);
         ArrayList<Value> statements = (ArrayList<Value>) field.get(statementList);
-        statements.add(new Item("Q1", new DatumQueryService(new WebCollector())));
+        statements.add(new Item("Q1", new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json")))));
         List<StringBuilder> strings = statementList.toStringArray();
         StringBuilder result = new StringBuilder(1000);
         for (StringBuilder string : strings) {

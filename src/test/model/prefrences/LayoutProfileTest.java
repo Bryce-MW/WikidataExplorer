@@ -3,6 +3,7 @@ package model.prefrences;
 import model.data.DatumQueryService;
 import model.data.ScopedSearch;
 import model.data.pages.Item;
+import model.data.source.LocalRepository;
 import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ class LayoutProfileTest {
 
     @BeforeEach
     void setUp() {
-        DatumQueryService queryService = new DatumQueryService(new WebCollector());
+        DatumQueryService queryService = new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json")));
         layoutManager = new LayoutManager(100, 100, new MenuBar(new ArrayList<>(0),
                 new SearchBar(new ScopedSearch(new Item("Q42", queryService), queryService)), 10));
         layoutProfile = new LayoutProfile("Test", layoutManager);

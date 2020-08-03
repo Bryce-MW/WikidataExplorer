@@ -54,4 +54,12 @@ public class DatumQueryService {
         tree.add(property.getID());
         return collector.getDatumLinkListByTree(tree, property, this);
     }
+
+    public Boolean triggerSave() {
+        return collector.triggerSave();
+    }
+
+    public boolean triggerLoad() {
+        return collector.triggerLoad();
+    }
 }

@@ -2,6 +2,7 @@ package ui;
 
 import model.data.DatumQueryService;
 import model.data.pages.Item;
+import model.data.source.LocalRepository;
 import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,7 @@ class ItemViewTest {
 
     @BeforeEach
     void setUp() {
-        itemView = new ItemView(new Item("Q42", new DatumQueryService(new WebCollector())));
+        itemView = new ItemView(new Item("Q42", new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json")))));
     }
 
     @Test

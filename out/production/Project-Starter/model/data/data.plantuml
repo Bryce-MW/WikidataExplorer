@@ -4,9 +4,12 @@ title __DATA's Class Diagram__\n
 
   namespace model.data {
     abstract class model.data.Datum {
+        + getStatements()
+        + needsRightArrow()
+        + needsSearchBar()
         + parse()
-        + toggleLeft()
         # Datum()
+        # findStatements()
     }
   }
   
@@ -14,16 +17,14 @@ title __DATA's Class Diagram__\n
   namespace model.data {
     class model.data.DatumLink {
         - description : String
-        - id : String
         - name : String
         - qualifiers : ArrayList<Qualifier>
         - references : ArrayList<Reference>
+        + DatumLink()
         + getDescription()
-        + getID()
         + getStatements()
         + getTitle()
         + parse()
-        # DatumLink()
     }
   }
   
@@ -31,6 +32,7 @@ title __DATA's Class Diagram__\n
   namespace model.data {
     class model.data.DatumQueryService {
         + DatumQueryService()
+        + getDatumLinkListByStatement()
         + getDescriptionByID()
         + getNameByID()
         + getQualifiersByStatement()
@@ -45,14 +47,25 @@ title __DATA's Class Diagram__\n
   namespace model.data {
     class model.data.Qualifier {
         + Qualifier()
+        + getDescription()
         + getProperty()
+        + getStatements()
+        + getTitle()
         + getValue()
+        + parse()
     }
   }
   
 
   namespace model.data {
     class model.data.Reference {
+        + Reference()
+        + getDescription()
+        + getProperty()
+        + getStatements()
+        + getTitle()
+        + getValue()
+        + parse()
     }
   }
   
@@ -61,6 +74,8 @@ title __DATA's Class Diagram__\n
     class model.data.ScopedSearch {
         + ScopedSearch()
         + ScopedSearch()
+        + add()
+        + findElement()
         + getItem()
     }
   }
@@ -68,45 +83,61 @@ title __DATA's Class Diagram__\n
 
   namespace model.data {
     class model.data.Statement {
-        - id : String
         - name : String
         + Statement()
         + getDescription()
-        + getID()
         + getParentID()
         + getStatements()
         + getTitle()
         + parse()
+        - findStatements()
     }
   }
   
 
   namespace model.data {
     abstract class model.data.Value {
+        # id : String
+        + addStatement()
+        + equals()
         {abstract} + getDescription()
-        {abstract} + getID()
+        + getID()
+        + getQuery()
         {abstract} + getStatements()
         {abstract} + getTitle()
+        + hashCode()
+        + needsRightArrow()
+        + needsSearchBar()
         {abstract} + parse()
+        {static} + parseData()
         + setView()
         # Value()
+        # toggleLeft()
     }
   }
   
 
   model.data.Datum -up-|> model.data.Value
+  model.data.Datum o-- ui.cli.StatementList : statements
   model.data.DatumLink -up-|> model.data.Value
   model.data.DatumLink o-- model.data.Statement : property
+  model.data.DatumLink o-- ui.cli.StatementList : statementList
   model.data.DatumLink o-- model.data.Value : value
   model.data.DatumQueryService o-- model.data.source.Collector : collector
+  model.data.Qualifier -up-|> model.data.Value
   model.data.Qualifier o-- model.data.pages.Property : property
   model.data.Qualifier o-- model.data.Value : value
+  model.data.Reference -up-|> model.data.Value
+  model.data.Reference o-- model.data.pages.Property : property
+  model.data.Reference o-- model.data.Value : value
+  model.data.ScopedSearch o-- ui.cli.ItemViewController : controller
   model.data.ScopedSearch o-- model.data.Value : item
+  model.data.ScopedSearch o-- model.data.DatumQueryService : queryService
   model.data.Statement -up-|> model.data.Value
   model.data.Statement o-- model.data.Datum : about
-  model.data.Statement o-- ui.StatementList : statements
+  model.data.Statement o-- ui.cli.StatementList : statements
   model.data.Value o-- model.data.DatumQueryService : queryService
-  model.data.Value o-- ui.ItemView : view
+  model.data.Value o-- ui.cli.ItemView : view
 
 
 right footer

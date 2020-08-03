@@ -2,6 +2,7 @@ package model.data;
 
 import model.data.additional.LiteralString;
 import model.data.pages.Property;
+import model.data.source.LocalRepository;
 import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,7 +18,7 @@ class QualifierTest {
 
     @BeforeAll
     static void init() {
-        queryService = new DatumQueryService(new WebCollector());
+        queryService = new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json")));
         property = new Property("P1545", queryService);
         value = new LiteralString("1", queryService);
     }

@@ -3,6 +3,7 @@ package ui;
 import model.data.DatumQueryService;
 import model.data.ScopedSearch;
 import model.data.pages.Item;
+import model.data.source.LocalRepository;
 import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ class LayoutManagerTest {
 
     @BeforeEach
     void setUp() {
-        queryService = new DatumQueryService(new WebCollector());
+        queryService = new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json")));
         layoutManager = new LayoutManager(100, 100, new MenuBar(
                 new ArrayList<>(), new SearchBar(new ScopedSearch(new Item("Q42", queryService), queryService)),
                 100));
@@ -29,7 +30,7 @@ class LayoutManagerTest {
     @Test
     void add() {
         layoutManager.add(new ItemViewController(new ItemView(
-                new Item("Q42", new DatumQueryService(new WebCollector())))));
+                new Item("Q42", new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json")))))));
         assertFalse(layoutManager.isEmpty());
         assertEquals(1, layoutManager.size());
     }
@@ -37,7 +38,7 @@ class LayoutManagerTest {
     @Test
     void remove() {
         ItemViewController itemViewController = new ItemViewController(new ItemView(
-                new Item("Q42", new DatumQueryService(new WebCollector()))));
+                new Item("Q42", new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json"))))));
         layoutManager.add(itemViewController);
         assertFalse(layoutManager.isEmpty());
         assertEquals(1, layoutManager.size());
@@ -51,7 +52,7 @@ class LayoutManagerTest {
     void isEmpty() {
         assertTrue(layoutManager.isEmpty());
         ItemViewController itemViewController = new ItemViewController(new ItemView(
-                new Item("Q42", new DatumQueryService(new WebCollector()))));
+                new Item("Q42", new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json"))))));
         layoutManager.add(itemViewController);
         assertFalse(layoutManager.isEmpty());
     }
@@ -60,7 +61,7 @@ class LayoutManagerTest {
     void size() {
         assertEquals(0, layoutManager.size());
         ItemViewController itemViewController = new ItemViewController(new ItemView(
-                new Item("Q42", new DatumQueryService(new WebCollector()))));
+                new Item("Q42", new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json"))))));
         layoutManager.add(itemViewController);
         assertEquals(1, layoutManager.size());
     }
@@ -71,7 +72,7 @@ class LayoutManagerTest {
         toStringArray.setAccessible(true);
 
         ItemViewController itemViewController = new ItemViewController(new ItemView(
-                new Item("Q42", new DatumQueryService(new WebCollector()))));
+                new Item("Q42", new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json"))))));
         layoutManager.add(itemViewController);
         layoutManager.setSepWidth(1);
         ArrayList<StringBuilder> output0 = (ArrayList<StringBuilder>) toStringArray.invoke(layoutManager);
@@ -88,7 +89,7 @@ class LayoutManagerTest {
     @Test
     void print() {
         ItemViewController itemViewController = new ItemViewController(new ItemView(
-                new Item("Q42", new DatumQueryService(new WebCollector()))));
+                new Item("Q42", new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json"))))));
         layoutManager.add(itemViewController);
         layoutManager.print();
         // Just prints something so all that we can check is that there are no exceptions

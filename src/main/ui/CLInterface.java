@@ -4,6 +4,7 @@ import model.data.Datum;
 import model.data.DatumQueryService;
 import model.data.ScopedSearch;
 import model.data.pages.Item;
+import model.data.source.LocalCollector;
 import model.data.source.LocalRepository;
 import model.data.source.WebCollector;
 import model.prefrences.LayoutProfileManager;
@@ -54,7 +55,11 @@ public final class CLInterface {
 
         ArrayList<MenuBarItem> menuItems = new ArrayList<>(3);
 
-        queryService = new DatumQueryService(new WebCollector());
+        if (Arrays.asList(args).contains("web")) {
+            queryService = new DatumQueryService(new WebCollector(repository));
+        } else {
+            queryService = new DatumQueryService(new LocalCollector(repository));
+        }
 
         Datum startingPoint = new Item("Q42", queryService);
         ItemViewController viewController = new ItemViewController(new ItemView(startingPoint));
@@ -124,6 +129,10 @@ public final class CLInterface {
             result = false;
         } else if (instructions.get(0).length() == 1) {
             result = menuBar.parse(instructions);
+        } else if (instructions.get(0).equalsIgnoreCase("save")) {
+            result = queryService.triggerSave();
+        } else if (instructions.get(0).equalsIgnoreCase("load")) {
+            result = queryService.triggerLoad();
         } else {
             result = layout.parse(instructions);
         }
