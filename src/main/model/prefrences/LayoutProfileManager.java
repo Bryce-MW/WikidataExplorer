@@ -1,6 +1,6 @@
 package model.prefrences;
 
-import ui.MenuBarItem;
+import ui.cli.MenuBarItem;
 
 import java.util.ArrayList;
 import java.util.List;

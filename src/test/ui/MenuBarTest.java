@@ -6,6 +6,9 @@ import model.data.pages.Item;
 import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ui.cli.MenuBar;
+import ui.cli.MenuBarItem;
+import ui.cli.SearchBar;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,8 +3,8 @@ package model.data;
 import model.data.additional.Time;
 import model.data.pages.Item;
 import model.data.pages.Property;
-import ui.ItemView;
-import ui.StatementList;
+import ui.cli.ItemView;
+import ui.cli.StatementList;
 
 import java.util.List;
 import java.util.Map;

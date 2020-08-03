@@ -1,4 +1,4 @@
-package ui;
+package ui.cli;
 
 import model.data.Value;
 import model.util.StringBuilderUtil;

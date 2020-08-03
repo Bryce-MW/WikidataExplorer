@@ -4,10 +4,12 @@ import model.data.Datum;
 import model.data.DatumQueryService;
 import model.data.ScopedSearch;
 import model.data.pages.Item;
+import model.data.source.LocalRepository;
 import model.data.source.WebCollector;
 import model.prefrences.LayoutProfileManager;
 import model.prefrences.PreferenceManager;
 import model.prefrences.UserProfile;
+import ui.cli.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,6 +34,8 @@ public final class CLInterface {
     private static LayoutProfileManager profileLayouts;
     private static PreferenceManager preferences;
 
+    private static LocalRepository repository;
+
     private static Scanner CLInput;
 
     public CLInterface() {
@@ -46,6 +50,7 @@ public final class CLInterface {
             getWindowSize();
         }
 
+        repository = new LocalRepository("wikidata.json");
 
         ArrayList<MenuBarItem> menuItems = new ArrayList<>(3);
 

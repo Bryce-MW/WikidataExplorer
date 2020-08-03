@@ -1,7 +1,7 @@
 package model.data;
 
 import model.data.pages.Property;
-import ui.StatementList;
+import ui.cli.StatementList;
 
 import java.util.List;
 

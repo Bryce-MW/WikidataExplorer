@@ -118,10 +118,10 @@ title __DATA's Class Diagram__\n
   
 
   model.data.Datum -up-|> model.data.Value
-  model.data.Datum o-- ui.StatementList : statements
+  model.data.Datum o-- ui.cli.StatementList : statements
   model.data.DatumLink -up-|> model.data.Value
   model.data.DatumLink o-- model.data.Statement : property
-  model.data.DatumLink o-- ui.StatementList : statementList
+  model.data.DatumLink o-- ui.cli.StatementList : statementList
   model.data.DatumLink o-- model.data.Value : value
   model.data.DatumQueryService o-- model.data.source.Collector : collector
   model.data.Qualifier -up-|> model.data.Value
@@ -130,14 +130,14 @@ title __DATA's Class Diagram__\n
   model.data.Reference -up-|> model.data.Value
   model.data.Reference o-- model.data.pages.Property : property
   model.data.Reference o-- model.data.Value : value
-  model.data.ScopedSearch o-- ui.ItemViewController : controller
+  model.data.ScopedSearch o-- ui.cli.ItemViewController : controller
   model.data.ScopedSearch o-- model.data.Value : item
   model.data.ScopedSearch o-- model.data.DatumQueryService : queryService
   model.data.Statement -up-|> model.data.Value
   model.data.Statement o-- model.data.Datum : about
-  model.data.Statement o-- ui.StatementList : statements
+  model.data.Statement o-- ui.cli.StatementList : statements
   model.data.Value o-- model.data.DatumQueryService : queryService
-  model.data.Value o-- ui.ItemView : view
+  model.data.Value o-- ui.cli.ItemView : view
 
 
 right footer

@@ -1,4 +1,4 @@
-package ui;
+package ui.cli;
 
 import model.data.ScopedSearch;
 import model.data.Value;

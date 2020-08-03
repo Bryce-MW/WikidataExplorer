@@ -1,4 +1,4 @@
-package ui;
+package ui.cli;
 
 import java.util.ArrayList;
 import java.util.HashMap;

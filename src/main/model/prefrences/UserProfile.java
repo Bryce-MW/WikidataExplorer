@@ -1,7 +1,7 @@
 package model.prefrences;
 
-import ui.LayoutManager;
-import ui.MenuBarItem;
+import ui.cli.LayoutManager;
+import ui.cli.MenuBarItem;
 
 import java.util.ArrayList;
 import java.util.List;

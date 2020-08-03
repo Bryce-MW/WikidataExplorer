@@ -27,7 +27,7 @@ title __UI's Class Diagram__\n
   
 
   namespace ui {
-    class ui.ItemView {
+    class ui.cli.ItemView {
         - description : String
         - photoRef : String
         - title : String
@@ -44,7 +44,7 @@ title __UI's Class Diagram__\n
   
 
   namespace ui {
-    class ui.ItemViewController {
+    class ui.cli.ItemViewController {
         - items : ArrayList<ItemView>
         + ItemViewController()
         + add()
@@ -62,7 +62,7 @@ title __UI's Class Diagram__\n
   
 
   namespace ui {
-    class ui.LayoutManager {
+    class ui.cli.LayoutManager {
         - controllers : ArrayList<ItemViewController>
         - height : int
         - leftIndex : int
@@ -85,7 +85,7 @@ title __UI's Class Diagram__\n
   
 
   namespace ui {
-    class ui.MenuBar {
+    class ui.cli.MenuBar {
         - items : ArrayList<MenuBarItem>
         - width : int
         + MenuBar()
@@ -100,7 +100,7 @@ title __UI's Class Diagram__\n
   
 
   namespace ui {
-    interface ui.MenuBarItem {
+    interface ui.cli.MenuBarItem {
         {abstract} + getCommandString()
         + getParser()
         {abstract} + parse()
@@ -109,7 +109,7 @@ title __UI's Class Diagram__\n
   
 
   namespace ui {
-    class ui.SearchBar {
+    class ui.cli.SearchBar {
         - results : ArrayList<Value>
         + SearchBar()
         + getCommandString()
@@ -122,7 +122,7 @@ title __UI's Class Diagram__\n
   
 
   namespace ui {
-    class ui.StatementList {
+    class ui.cli.StatementList {
         - statements : ArrayList<Value>
         + StatementList()
         + add()
@@ -133,17 +133,17 @@ title __UI's Class Diagram__\n
   }
   
 
-  ui.ItemView o-- ui.ItemViewController : controller
-  ui.ItemView o-- model.data.Value : item
-  ui.ItemView o-- ui.SearchBar : searchBar
-  ui.ItemView o-- ui.StatementList : statements
-  ui.ItemViewController o-- ui.LayoutManager : manager
-  ui.LayoutManager o-- ui.MenuBar : menuBar
-  ui.MenuBar o-- ui.SearchBar : searchBar
-  ui.SearchBar .up.|> ui.MenuBarItem
-  ui.SearchBar o-- model.data.ScopedSearch : searchService
-  ui.StatementList o-- model.data.Value : entity
-  ui.StatementList o-- model.data.DatumQueryService : queryService
+  ui.cli.ItemView o-- ui.cli.ItemViewController : controller
+  ui.cli.ItemView o-- model.data.Value : item
+  ui.cli.ItemView o-- ui.cli.SearchBar : searchBar
+  ui.cli.ItemView o-- ui.cli.StatementList : statements
+  ui.cli.ItemViewController o-- ui.cli.LayoutManager : manager
+  ui.cli.LayoutManager o-- ui.cli.MenuBar : menuBar
+  ui.cli.MenuBar o-- ui.cli.SearchBar : searchBar
+  ui.cli.SearchBar .up.|> ui.cli.MenuBarItem
+  ui.cli.SearchBar o-- model.data.ScopedSearch : searchService
+  ui.cli.StatementList o-- model.data.Value : entity
+  ui.cli.StatementList o-- model.data.DatumQueryService : queryService
 
 
 right footer

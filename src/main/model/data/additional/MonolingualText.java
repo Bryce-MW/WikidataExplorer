@@ -1,7 +1,7 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import ui.StatementList;
+import ui.cli.StatementList;
 
 public class MonolingualText extends AbstractAdditional {
     protected MonolingualText(DatumQueryService queryService) {

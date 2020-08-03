@@ -5,6 +5,7 @@ import model.data.pages.Item;
 import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ui.cli.ItemView;
 
 import java.util.List;
 

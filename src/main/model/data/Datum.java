@@ -1,6 +1,6 @@
 package model.data;
 
-import ui.StatementList;
+import ui.cli.StatementList;
 
 import java.util.ArrayList;
 import java.util.List;

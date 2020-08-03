@@ -6,6 +6,7 @@ import model.data.pages.Item;
 import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ui.cli.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

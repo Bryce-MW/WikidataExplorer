@@ -1,6 +1,6 @@
 package model.prefrences;
 
-import ui.LayoutManager;
+import ui.cli.LayoutManager;
 
 public class LayoutProfile {
     private final LayoutManager layout;

@@ -1,8 +1,8 @@
 package model.data;
 
 import model.data.pages.Item;
-import ui.ItemView;
-import ui.ItemViewController;
+import ui.cli.ItemView;
+import ui.cli.ItemViewController;
 
 import java.util.ArrayList;
 import java.util.List;

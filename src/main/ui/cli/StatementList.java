@@ -1,4 +1,4 @@
-package ui;
+package ui.cli;
 
 import model.data.Datum;
 import model.data.DatumQueryService;

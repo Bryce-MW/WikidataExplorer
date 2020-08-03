@@ -7,6 +7,7 @@ import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ui.cli.StatementList;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

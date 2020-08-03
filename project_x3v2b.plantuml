@@ -391,52 +391,52 @@ title __PROJECT-STARTER's Class Diagram__\n
   
 
   namespace ui {
-    class ui.ItemView {
+    class ui.cli.ItemView {
     }
   }
   
 
   namespace ui {
-    class ui.ItemViewController {
+    class ui.cli.ItemViewController {
     }
   }
   
 
   namespace ui {
-    class ui.LayoutManager {
+    class ui.cli.LayoutManager {
     }
   }
   
 
   namespace ui {
-    class ui.MenuBar {
+    class ui.cli.MenuBar {
     }
   }
   
 
   namespace ui {
-    interface ui.MenuBarItem {
+    interface ui.cli.MenuBarItem {
     }
   }
   
 
   namespace ui {
-    class ui.SearchBar {
+    class ui.cli.SearchBar {
     }
   }
   
 
   namespace ui {
-    class ui.StatementList {
+    class ui.cli.StatementList {
     }
   }
   
 
   model.data.Datum -up-|> model.data.Value
-  model.data.Datum o-- ui.StatementList : statements
+  model.data.Datum o-- ui.cli.StatementList : statements
   model.data.DatumLink -up-|> model.data.Value
   model.data.DatumLink o-- model.data.Statement : property
-  model.data.DatumLink o-- ui.StatementList : statementList
+  model.data.DatumLink o-- ui.cli.StatementList : statementList
   model.data.DatumLink o-- model.data.Value : value
   model.data.DatumQueryService o-- model.data.source.Collector : collector
   model.data.Qualifier -up-|> model.data.Value
@@ -445,14 +445,14 @@ title __PROJECT-STARTER's Class Diagram__\n
   model.data.Reference -up-|> model.data.Value
   model.data.Reference o-- model.data.pages.Property : property
   model.data.Reference o-- model.data.Value : value
-  model.data.ScopedSearch o-- ui.ItemViewController : controller
+  model.data.ScopedSearch o-- ui.cli.ItemViewController : controller
   model.data.ScopedSearch o-- model.data.Value : item
   model.data.ScopedSearch o-- model.data.DatumQueryService : queryService
   model.data.Statement -up-|> model.data.Value
   model.data.Statement o-- model.data.Datum : about
-  model.data.Statement o-- ui.StatementList : statements
+  model.data.Statement o-- ui.cli.StatementList : statements
   model.data.Value o-- model.data.DatumQueryService : queryService
-  model.data.Value o-- ui.ItemView : view
+  model.data.Value o-- ui.cli.ItemView : view
   model.data.additional.AbstractAdditional -up-|> model.data.Value
   model.data.additional.CommonsMedia -up-|> model.data.additional.AbstractAdditional
   model.data.additional.ExternalIdentifier -up-|> model.data.additional.AbstractAdditional
@@ -477,24 +477,24 @@ title __PROJECT-STARTER's Class Diagram__\n
   model.data.source.template.Claim o-- model.data.source.template.Snak : mainsnak
   model.data.source.template.Qualifier o-- model.data.source.template.DataValue : datavalue
   model.data.source.template.Snak o-- model.data.source.template.DataValue : datavalue
-  model.prefrences.LayoutProfile o-- ui.LayoutManager : layout
-  model.prefrences.LayoutProfileManager .up.|> ui.MenuBarItem
+  model.prefrences.LayoutProfile o-- ui.cli.LayoutManager : layout
+  model.prefrences.LayoutProfileManager .up.|> ui.cli.MenuBarItem
   model.prefrences.LayoutProfileManager o-- model.prefrences.LayoutProfile : current
-  model.prefrences.PreferenceManager .up.|> ui.MenuBarItem
-  model.prefrences.UserProfile .up.|> ui.MenuBarItem
+  model.prefrences.PreferenceManager .up.|> ui.cli.MenuBarItem
+  model.prefrences.UserProfile .up.|> ui.cli.MenuBarItem
   model.prefrences.UserProfile o-- model.prefrences.LayoutProfileManager : layout
   model.prefrences.UserProfile o-- model.prefrences.PreferenceManager : preferences
-  ui.ItemView o-- ui.ItemViewController : controller
-  ui.ItemView o-- model.data.Value : item
-  ui.ItemView o-- ui.SearchBar : searchBar
-  ui.ItemView o-- ui.StatementList : statements
-  ui.ItemViewController o-- ui.LayoutManager : manager
-  ui.LayoutManager o-- ui.MenuBar : menuBar
-  ui.MenuBar o-- ui.SearchBar : searchBar
-  ui.SearchBar .up.|> ui.MenuBarItem
-  ui.SearchBar o-- model.data.ScopedSearch : searchService
-  ui.StatementList o-- model.data.Value : entity
-  ui.StatementList o-- model.data.DatumQueryService : queryService
+  ui.cli.ItemView o-- ui.cli.ItemViewController : controller
+  ui.cli.ItemView o-- model.data.Value : item
+  ui.cli.ItemView o-- ui.cli.SearchBar : searchBar
+  ui.cli.ItemView o-- ui.cli.StatementList : statements
+  ui.cli.ItemViewController o-- ui.cli.LayoutManager : manager
+  ui.cli.LayoutManager o-- ui.cli.MenuBar : menuBar
+  ui.cli.MenuBar o-- ui.cli.SearchBar : searchBar
+  ui.cli.SearchBar .up.|> ui.cli.MenuBarItem
+  ui.cli.SearchBar o-- model.data.ScopedSearch : searchService
+  ui.cli.StatementList o-- model.data.Value : entity
+  ui.cli.StatementList o-- model.data.DatumQueryService : queryService
 
 
 right footer
