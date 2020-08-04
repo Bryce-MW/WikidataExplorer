@@ -1,5 +1,7 @@
 package model.data.source.template;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +17,7 @@ public class Claim implements Serializable {
     public List<Reference> references;
 
     @Override
-    public String toString() {
+    public @NotNull String toString() {
         return "Claim{"
                 + "id='" + id + '\''
                 + ", mainsnak=" + mainsnak

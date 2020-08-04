@@ -1,5 +1,7 @@
 package model.data.source.template;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.Serializable;
 
 public class Alias implements Serializable {
@@ -9,7 +11,7 @@ public class Alias implements Serializable {
     public String value;
 
     @Override
-    public String toString() {
+    public @NotNull String toString() {
         return "Alias{" + "language='" + language + '\'' + ", value='" + value + '\'' + '}';
     }
 }

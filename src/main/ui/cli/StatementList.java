@@ -3,6 +3,7 @@ package ui.cli;
 import model.data.DatumQueryService;
 import model.data.Value;
 import model.util.StringBuilderUtil;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,7 @@ public class StatementList {
 //        }
 //    }
 
-    public List<StringBuilder> toStringArray() {
+    public @NotNull List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(statements.size());
         int maxID = statements.stream().map(Value::getID).mapToInt(String::length).max().orElse(0);
         for (Value statement : statements) {
@@ -49,7 +50,7 @@ public class StatementList {
         return result;
     }
 
-    public Boolean parse(List<String> command) {
+    public Boolean parse(@NotNull List<String> command) {
         ArrayList<String> instruction = new ArrayList<>(command);
         if (instruction.size() == 2 && instruction.get(1).equals("R")) {
             ArrayList<Value> toRemove = new ArrayList<>(1);

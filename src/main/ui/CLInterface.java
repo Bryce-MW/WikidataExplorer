@@ -39,7 +39,7 @@ public final class CLInterface {
         throw new Error("CLInterface contains only static methods");
     }
 
-    public static void main(String[] args) {
+    public static void main(String @NotNull [] args) {
         // Start point for CLI interface
         CLInput = new Scanner(System.in);
 
@@ -110,7 +110,7 @@ public final class CLInterface {
         WIDTH = Integer.parseInt(pos.split(";", 2)[1].split("R", 2)[0]);
     }
 
-    private static void loop(String[] args) {
+    private static void loop(String @NotNull [] args) {
         layout.print();
 
         String command;
@@ -129,7 +129,7 @@ public final class CLInterface {
         }
     }
 
-    private static void parse(String command) {
+    private static void parse(@NotNull String command) {
         List<String> instructions = Arrays.asList(command.split("\\s"));
         boolean result;
         if (instructions.size() == 0) {

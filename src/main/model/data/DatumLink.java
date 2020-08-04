@@ -1,19 +1,21 @@
 package model.data;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ui.cli.StatementList;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatumLink extends Value {
-    private final Statement property;
+    private final @NotNull Statement property;
     private final ArrayList<Qualifier> qualifiers;
     private final ArrayList<Reference> references;
-    private final String name;
-    private final String description;
-    private StatementList statementList = null;
+    private final @Nullable String name;
+    private final @Nullable String description;
+    private @Nullable StatementList statementList = null;
 
-    public DatumLink(DatumQueryService queryService, Statement property, Value value) {
+    public DatumLink(@NotNull DatumQueryService queryService, @NotNull Statement property, @NotNull Value value) {
         super(queryService, value.getID());
         this.property = property;
         name = value.getTitle();
@@ -23,17 +25,17 @@ public class DatumLink extends Value {
     }
 
     @Override
-    public String getTitle() {
+    public @Nullable String getTitle() {
         return name;
     }
 
     @Override
-    public String getDescription() {
+    public @Nullable String getDescription() {
         return description;
     }
 
     @Override
-    public StatementList getStatements() {
+    public @Nullable StatementList getStatements() {
         if (statementList == null) {
             ArrayList<Value> statements = new ArrayList<>(qualifiers.size() + references.size());
             statements.addAll(qualifiers);

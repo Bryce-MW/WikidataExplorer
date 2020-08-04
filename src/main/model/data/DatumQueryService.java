@@ -1,6 +1,7 @@
 package model.data;
 
 import model.data.source.Collector;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ public class DatumQueryService {
         this.collector = collector;
     }
 
-    public ScopedSearch getScopedSearch(Value item) {
+    public @NotNull ScopedSearch getScopedSearch(Value item) {
         return new ScopedSearch(item, this);
     }
 
@@ -20,7 +21,7 @@ public class DatumQueryService {
         return collector.getEntityName(property);
     }
 
-    public ArrayList<Qualifier> getQualifiersByStatement(Statement property, Value value) {
+    public ArrayList<Qualifier> getQualifiersByStatement(@NotNull Statement property, @NotNull Value value) {
         ArrayList<String> tree = new ArrayList<>(3);
         tree.add(property.getParentID());
         tree.add(property.getID());
@@ -28,7 +29,7 @@ public class DatumQueryService {
         return collector.getQualifiers(tree, this);
     }
 
-    public ArrayList<Reference> getReferencesByStatement(Statement property, Value value) {
+    public ArrayList<Reference> getReferencesByStatement(@NotNull Statement property, @NotNull Value value) {
         ArrayList<String> tree = new ArrayList<>(3);
         tree.add(property.getParentID());
         tree.add(property.getID());
@@ -53,7 +54,7 @@ public class DatumQueryService {
         return collector.getSingleStatement(tree, item, this);
     }
 
-    public ArrayList<Value> getDatumLinkListByStatement(Statement property) {
+    public ArrayList<Value> getDatumLinkListByStatement(@NotNull Statement property) {
         ArrayList<String> tree = new ArrayList<>(3);
         tree.add(property.getParentID());
         tree.add(property.getID());

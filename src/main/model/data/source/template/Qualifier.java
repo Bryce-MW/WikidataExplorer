@@ -1,5 +1,7 @@
 package model.data.source.template;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.Serializable;
 
 public class Qualifier implements Serializable {
@@ -12,7 +14,7 @@ public class Qualifier implements Serializable {
     public DataValue datavalue;
 
     @Override
-    public String toString() {
+    public @NotNull String toString() {
         return "Qualifier{"
                 + "hash='" + hash + '\''
                 + ", snaktype='" + snaktype + '\''

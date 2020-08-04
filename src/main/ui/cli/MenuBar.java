@@ -1,5 +1,7 @@
 package ui.cli;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +34,7 @@ public class MenuBar {
 
     //TODO: Rendering Stuff
 
-    public List<StringBuilder> toStringArray() { // Always returns a length of 3
+    public @NotNull List<StringBuilder> toStringArray() { // Always returns a length of 3
         //TODO: Implement
         ArrayList<StringBuilder> output = new ArrayList<>(3);
         // We still use ArrayList rather than array even though the size is static because Lists are much easier to
@@ -67,7 +69,7 @@ public class MenuBar {
         return output;
     }
 
-    private void addLines(StringBuilder line1, StringBuilder line3, StringBuilder line2, String search) {
+    private void addLines(@NotNull StringBuilder line1, @NotNull StringBuilder line3, @NotNull StringBuilder line2, @NotNull String search) {
         IntStream.range(0, (width - line2.length() - search.length() - 2)).mapToObj(i -> ' ').forEach(line2::append);
         line2.append('│');
         line1.setCharAt(line2.length() - 1, '┯');
@@ -76,7 +78,7 @@ public class MenuBar {
         line2.append('┃');
     }
 
-    public Boolean parse(List<String> subList) {
+    public Boolean parse(@NotNull List<String> subList) {
         ArrayList<String> command = new ArrayList<>(subList);
         HashMap<String, Function<List<String>, Boolean>> parsers = new HashMap<>(items.size());
         items.forEach((i) -> parsers.put(i.getCommandString(), i.getParser()));

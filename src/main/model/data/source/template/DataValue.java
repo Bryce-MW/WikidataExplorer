@@ -1,5 +1,7 @@
 package model.data.source.template;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.Serializable;
 
 public class DataValue implements Serializable {
@@ -9,7 +11,7 @@ public class DataValue implements Serializable {
     public String type;
 
     @Override
-    public String toString() {
+    public @NotNull String toString() {
         return "DataValue{"
                 + "value=" + value
                 + ", type='" + type + '\''

@@ -1,22 +1,24 @@
 package model.data;
 
 import model.data.pages.Property;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ui.cli.StatementList;
 
 import java.util.List;
 
 public class Qualifier extends Value {
     //TODO: Implement
-    private final Property property;
+    private final @NotNull Property property;
     private final Value value;
 
-    public Qualifier(Property property, Value value, DatumQueryService queryService) {
+    public Qualifier(@NotNull Property property, Value value, DatumQueryService queryService) {
         super(queryService, property.getID());
         this.property = property;
         this.value = value;
     }
 
-    public Property getProperty() {
+    public @NotNull Property getProperty() {
         return property;
     }
 
@@ -30,17 +32,17 @@ public class Qualifier extends Value {
     }
 
     @Override
-    public String getDescription() {
+    public @Nullable String getDescription() {
         return value.getTitle();
     }
 
     @Override
-    public StatementList getStatements() {
+    public @Nullable StatementList getStatements() {
         return null;
     }
 
     @Override
-    public Boolean parse(List<String> subList) {
+    public @NotNull Boolean parse(List<String> subList) {
         return false;
     }
 }

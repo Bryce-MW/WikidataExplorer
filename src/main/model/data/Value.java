@@ -5,6 +5,8 @@ import model.data.additional.LiteralString;
 import model.data.additional.Time;
 import model.data.pages.Item;
 import model.data.pages.Property;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ui.cli.ItemView;
 import ui.cli.StatementList;
 
@@ -13,7 +15,7 @@ import java.util.Map;
 
 public abstract class Value {
     protected DatumQueryService queryService;
-    protected ItemView view = null;
+    protected @Nullable ItemView view = null;
     protected final String id;
 
     protected Value(DatumQueryService queryService, String id) {
@@ -23,7 +25,7 @@ public abstract class Value {
 
     @SuppressWarnings("CheckStyle") // Nothing can really be done in this case. It basically has to be long for the
     // switch
-    public static Value parseData(Object value, String dataType, DatumQueryService queryService) {
+    public static @NotNull Value parseData(Object value, @NotNull String dataType, @NotNull DatumQueryService queryService) {
         Map<String, Object> result;
         switch (dataType) {
             case "wikibase-item":
@@ -53,15 +55,15 @@ public abstract class Value {
         throw new Error("Datatype: " + dataType + " not found");
     }
 
-    public abstract String getTitle();
+    public abstract @Nullable String getTitle();
 
-    public abstract String getDescription();
+    public abstract @Nullable String getDescription();
 
-    public String getID() {
+    public @Nullable String getID() {
         return id;
     }
 
-    public abstract StatementList getStatements();
+    public abstract @Nullable StatementList getStatements();
 
     public abstract Boolean parse(List<String> subList);
 

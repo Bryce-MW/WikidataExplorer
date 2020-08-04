@@ -1,5 +1,6 @@
 package model.prefrences;
 
+import org.jetbrains.annotations.NotNull;
 import ui.cli.MenuBarItem;
 
 import java.util.ArrayList;
@@ -7,14 +8,14 @@ import java.util.List;
 
 public class PreferenceManager implements MenuBarItem {
     //TODO: Implement
-    private final ArrayList<UserPreference> preferences;
+    private final @NotNull ArrayList<UserPreference> preferences;
 
-    public PreferenceManager(List<UserPreference> preferences) {
+    public PreferenceManager(@NotNull List<UserPreference> preferences) {
         this.preferences = new ArrayList<>(preferences.size());
         this.preferences.addAll(preferences);
     }
 
-    public List<UserPreference> getPreferences() {
+    public @NotNull List<UserPreference> getPreferences() {
         return preferences;
     }
 
@@ -22,17 +23,17 @@ public class PreferenceManager implements MenuBarItem {
 
 
     @Override
-    public String toString() {
+    public @NotNull String toString() {
         return "E: Preferences";
     }
 
     @Override
-    public String getCommandString() {
+    public @NotNull String getCommandString() {
         return "E";
     }
 
     @Override
-    public Boolean parse(List<String> subList) {
+    public @NotNull Boolean parse(List<String> subList) {
         return true;
     }
 }

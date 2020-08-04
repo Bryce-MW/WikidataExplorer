@@ -1,6 +1,8 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ui.cli.StatementList;
 
 public class GlobeCoordinate extends AbstractAdditional {
@@ -14,17 +16,17 @@ public class GlobeCoordinate extends AbstractAdditional {
     }
 
     @Override
-    public String getTitle() {
+    public @NotNull String getTitle() {
         return "Position";
     }
 
     @Override
-    public String getDescription() {
+    public @NotNull String getDescription() {
         return posLat + ", " + posLong;
     }
 
     @Override
-    public StatementList getStatements() {
+    public @Nullable StatementList getStatements() {
         return null;
     }
 }

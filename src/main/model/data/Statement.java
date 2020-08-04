@@ -1,5 +1,7 @@
 package model.data;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ui.cli.StatementList;
 
 import java.util.ArrayList;
@@ -8,9 +10,9 @@ import java.util.List;
 public class Statement extends Value {
     private final String name;
     private final Datum about;
-    private StatementList statements = null;
+    private @Nullable StatementList statements = null;
 
-    public Statement(Datum item, String property, DatumQueryService queryService) throws NotFoundException {
+    public Statement(Datum item, String property, @NotNull DatumQueryService queryService) throws NotFoundException {
         super(queryService, property);
         this.queryService = queryService;
         this.name = queryService.getNameByID(property);
@@ -27,12 +29,12 @@ public class Statement extends Value {
     }
 
     @Override
-    public String getDescription() {
+    public @NotNull String getDescription() {
         return "";
     }
 
     @Override
-    public StatementList getStatements() {
+    public @Nullable StatementList getStatements() {
         if (statements == null) {
             statements = new StatementList(this, queryService, findStatements());
         }
@@ -40,7 +42,7 @@ public class Statement extends Value {
     }
 
     @Override
-    public Boolean parse(List<String> subList) {
+    public Boolean parse(@NotNull List<String> subList) {
         if (subList.size() == 0) {
             return about.toggleLeft(this);
         }
@@ -48,7 +50,7 @@ public class Statement extends Value {
     }
     //TODO: Implement
 
-    public String getParentID() {
+    public @Nullable String getParentID() {
         return about.getID();
     }
 }

@@ -5,6 +5,7 @@ import model.data.*;
 import model.data.pages.Property;
 import model.data.source.template.Claim;
 import model.data.source.template.Entities;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,14 +16,14 @@ import java.util.*;
 public class WebCollector extends Collector {
     private static final ArrayList<Entities> seen = new ArrayList<>(30);
     protected static Entities loaded;
-    private final Gson gson;
+    private final @NotNull Gson gson;
 
     public WebCollector(LocalRepository repository) {
         super(repository);
         gson = new Gson();
     }
 
-    private static String formatURL(String id) {
+    private static @NotNull String formatURL(String id) {
         return "https://www.wikidata.org/wiki/Special:EntityData/" + id + ".json";
     }
 
@@ -32,7 +33,7 @@ public class WebCollector extends Collector {
     }
 
     @Override
-    public ArrayList<Qualifier> getQualifiers(List<String> tree, DatumQueryService qualifierQuery) {
+    public @NotNull ArrayList<Qualifier> getQualifiers(@NotNull List<String> tree, @NotNull DatumQueryService qualifierQuery) {
         ArrayList<Qualifier> result = new ArrayList<>(5);
 
         Map<String, List<model.data.source.template.Qualifier>> qualifiers;
@@ -76,7 +77,7 @@ public class WebCollector extends Collector {
     }
 
     @Override
-    public ArrayList<Reference> getReferences(List<String> tree) {
+    public @NotNull ArrayList<Reference> getReferences(List<String> tree) {
         return new ArrayList<>(0); // TODO: Implement later, not needed now
     }
 
@@ -86,7 +87,7 @@ public class WebCollector extends Collector {
     }
 
     @Override
-    public ArrayList<String> getStatementList(String id) throws NotFoundException {
+    public @NotNull ArrayList<String> getStatementList(String id) throws NotFoundException {
         Map<String, List<Claim>> statements = getJson(id).entities.get(id).claims;
         Set<String> keys = statements.keySet();
         ArrayList<String> keyList = new ArrayList<>(keys);
@@ -95,14 +96,14 @@ public class WebCollector extends Collector {
     }
 
     @Override
-    public Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService)
+    public @NotNull Value getSingleStatement(@NotNull ArrayList<String> tree, Datum item, DatumQueryService statementService)
             throws NotFoundException {
         return new Statement(item, tree.get(1), statementService);
     }
 
     @Override
-    public ArrayList<Value> getDatumLinkListByTree(ArrayList<String> tree,
-                                                   Statement about, DatumQueryService queryService) {
+    public @NotNull ArrayList<Value> getDatumLinkListByTree(@NotNull ArrayList<String> tree,
+                                                            Statement about, DatumQueryService queryService) {
         ArrayList<Value> result = new ArrayList<>(10);
         String id = tree.get(0);
         String property = tree.get(1);
@@ -131,7 +132,7 @@ public class WebCollector extends Collector {
     }
 
     @Override
-    public Boolean triggerLoad() {
+    public @NotNull Boolean triggerLoad() {
         loaded = repository.load(gson);
         return true;
     }

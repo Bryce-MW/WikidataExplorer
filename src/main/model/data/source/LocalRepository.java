@@ -2,6 +2,7 @@ package model.data.source;
 
 import com.google.gson.Gson;
 import model.data.source.template.Entities;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.FileReader;
@@ -10,13 +11,13 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class LocalRepository {
-    private final File file;
+    private final @NotNull File file;
 
-    public LocalRepository(String fileName) {
+    public LocalRepository(@NotNull String fileName) {
         this.file = new File(fileName);
     }
 
-    public Boolean save(Entities entities, Gson gson) {
+    public @NotNull Boolean save(@NotNull Entities entities, @NotNull Gson gson) {
         Entities toSave = new Entities();
         toSave.entities = new HashMap<>();
 
@@ -37,7 +38,7 @@ public class LocalRepository {
         return true;
     }
 
-    public Entities load(Gson gson) {
+    public Entities load(@NotNull Gson gson) {
         try (FileReader reader = new FileReader(file)) {
             return gson.fromJson(reader, Entities.class);
         } catch (IOException e) {

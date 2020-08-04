@@ -1,6 +1,7 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
+import org.jetbrains.annotations.Nullable;
 import ui.cli.StatementList;
 
 public class LiteralString extends AbstractAdditional {
@@ -28,7 +29,7 @@ public class LiteralString extends AbstractAdditional {
     }
 
     @Override
-    public StatementList getStatements() {
+    public @Nullable StatementList getStatements() {
         return null;
     }
 //TODO: Implement
