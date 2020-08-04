@@ -94,24 +94,29 @@ public class WebCollector extends Collector {
                 for (model.data.source.template.Reference reference : claim.references) {
                     Map<String, ArrayList<Reference>> snaks = new HashMap<>();
                     for (String s : reference.snaks.keySet()) {
-                        ArrayList<Reference> values = new ArrayList<>();
+                        ArrayList<Reference> values = iterateSnaks(refQueryService, reference, s);
                         snaks.put(s, values);
-                        for (Snak snak : reference.snaks.get(s)) {
-                            try {
-                                values.add(new Reference(new Property(snak.property, refQueryService),
-                                        Value.parseData(snak.datavalue.value,
-                                                snak.datatype,
-                                                refQueryService), refQueryService));
-                            } catch (NotFoundException e) {
-                                // Just don't add the reference
-                            }
-                        }
                     }
                     reference.snaksOrder.stream().map(snaks::get).forEach(references::addAll);
                 }
             }
         }
         return references; // TODO: Implement later, not needed now
+    }
+
+    private ArrayList<Reference> iterateSnaks(DatumQueryService refQueryService,
+                                              model.data.source.template.Reference reference, String s) {
+        ArrayList<Reference> values = new ArrayList<>();
+        for (Snak snak : reference.snaks.get(s)) {
+            try {
+                values.add(new Reference(new Property(snak.property, refQueryService),
+                        Value.parseData(snak.datavalue.value, snak.datatype, refQueryService),
+                        refQueryService));
+            } catch (NotFoundException e) {
+                // Just don't add the reference
+            }
+        }
+        return values;
     }
 
     @Override

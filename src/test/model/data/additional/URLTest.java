@@ -6,6 +6,7 @@ import model.data.source.LocalRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 class URLTest {
@@ -19,17 +20,17 @@ class URLTest {
 
     @Test
     void getTitle() {
-        assertNull(additional.getTitle());
+        assertEquals("example.com", additional.getTitle());
     }
 
     @Test
     void getDescription() {
-        assertNull(additional.getDescription());
+        assertEquals("example.com", additional.getDescription());
     }
 
     @Test
     void getID() {
-        assertNull(additional.getID());
+        assertEquals("example.com", additional.getID());
     }
 
     @Test

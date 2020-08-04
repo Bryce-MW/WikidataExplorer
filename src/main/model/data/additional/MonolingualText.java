@@ -4,24 +4,29 @@ import model.data.DatumQueryService;
 import ui.cli.StatementList;
 
 public class MonolingualText extends AbstractAdditional {
-    protected MonolingualText(DatumQueryService queryService) {
+    private final String text;
+    private final String language;
+
+    public MonolingualText(String text, String language, DatumQueryService queryService) {
         super(queryService);
+        this.text = text;
+        this.language = language;
     }
     // TODO: These are not needed yet
 
     @Override
     public String getTitle() {
-        return null;
+        return text;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return language;
     }
 
     @Override
     public String getID() {
-        return null;
+        return text;
     }
 
     @Override

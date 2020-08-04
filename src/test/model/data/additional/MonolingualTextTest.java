@@ -6,6 +6,7 @@ import model.data.source.LocalRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 class MonolingualTextTest {
@@ -13,22 +14,24 @@ class MonolingualTextTest {
 
     @BeforeAll
     static void setUp() {
-        additional = new MonolingualText(new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))));
+        additional =
+                new MonolingualText("Hello", "en",
+                        new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))));
     }
 
     @Test
     void getTitle() {
-        assertNull(additional.getTitle());
+        assertEquals("Hello", additional.getTitle());
     }
 
     @Test
     void getDescription() {
-        assertNull(additional.getDescription());
+        assertEquals("en", additional.getDescription());
     }
 
     @Test
     void getID() {
-        assertNull(additional.getID());
+        assertEquals("Hello", additional.getID());
     }
 
     @Test

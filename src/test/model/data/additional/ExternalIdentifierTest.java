@@ -6,6 +6,7 @@ import model.data.source.LocalRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ExternalIdentifierTest {
@@ -20,17 +21,17 @@ class ExternalIdentifierTest {
 
     @Test
     void getTitle() {
-        assertNull(additional.getTitle());
+        assertEquals("test", additional.getTitle());
     }
 
     @Test
     void getDescription() {
-        assertNull(additional.getDescription());
+        assertEquals("test", additional.getDescription());
     }
 
     @Test
     void getID() {
-        assertNull(additional.getID());
+        assertEquals("test", additional.getID());
     }
 
     @Test

@@ -31,17 +31,32 @@ public abstract class Value {
             case "wikibase-property":
                 return buildProperty((Map<String, Object>) value, queryService);
             case "globe-coordinate":
-                result = (Map<String, Object>) value;
-                return new GlobeCoordinate((double) result.get("latitude"), (double) result.get("longitude"),
-                        queryService);
+                return buildGlobeCoordinate((Map<String, Object>) value, queryService);
             case "string":
                 return new LiteralString((String) value, queryService);
             case "external-id":
                 return new ExternalIdentifier((String) value, queryService);
             case "url":
                 return new URL((String) value, queryService);
+            case "monolingualtext":
+                return buildMonolingualText((Map<String, Object>) value, queryService);
         }
         throw new Error("Datatype: " + dataType + " not found");
+    }
+
+    @NotNull
+    private static MonolingualText buildMonolingualText(Map<String, Object> value, DatumQueryService queryService) {
+        Map<String, Object> result;
+        result = value;
+        return new MonolingualText((String) result.get("value"), (String) result.get("language"), queryService);
+    }
+
+    @NotNull
+    private static GlobeCoordinate buildGlobeCoordinate(Map<String, Object> value, DatumQueryService queryService) {
+        Map<String, Object> result;
+        result = value;
+        return new GlobeCoordinate((double) result.get("latitude"), (double) result.get("longitude"),
+                queryService);
     }
 
     @NotNull

@@ -43,7 +43,7 @@ class MenuBarTest {
 
         menuBar.swapSearch(newSearch);
         searchLine = menuBar.toStringArray().get(1);
-        assertEquals('q', searchLine.charAt(searchLine.length() - 2));
+        assertEquals('d', searchLine.charAt(searchLine.length() - 2));
     }
 
     @Test
