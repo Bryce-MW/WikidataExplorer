@@ -2,7 +2,6 @@ package ui.cli;
 
 import model.data.Value;
 import model.util.StringBuilderUtil;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.stream.IntStream;
 
 public class LayoutManager {
     //TODO: Implement
-    private final @NotNull ArrayList<ItemViewController> controllers;
+    private final ArrayList<ItemViewController> controllers;
     private final int width;
     private final int height;
     private final MenuBar menuBar;
@@ -24,12 +23,12 @@ public class LayoutManager {
         controllers = new ArrayList<>(5);
     }
 
-    public void add(@NotNull ItemViewController newView) {
+    public void add(ItemViewController newView) {
         controllers.add(newView);
         newView.setManager(this);
     }
 
-    public void add(int index, @NotNull ItemViewController newView) {
+    public void add(int index, ItemViewController newView) {
         controllers.add(index, newView);
         newView.setManager(this);
     }
@@ -51,7 +50,7 @@ public class LayoutManager {
         separationWidth = sepWidth;
     }
 
-    private @NotNull ArrayList<StringBuilder> toStringArray() {
+    private ArrayList<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(height);
         result.addAll(menuBar.toStringArray());
 

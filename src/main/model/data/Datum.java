@@ -1,20 +1,19 @@
 package model.data;
 
-import org.jetbrains.annotations.NotNull;
 import ui.cli.StatementList;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Datum extends Value {
-    protected final @NotNull StatementList statements;
+    protected final StatementList statements;
 
     protected Datum(DatumQueryService queryService, String id) {
         super(queryService, id);
         this.statements = new StatementList(this, queryService, findStatements());
     }
 
-    protected @NotNull ArrayList<Value> findStatements() {
+    protected ArrayList<Value> findStatements() {
         ArrayList<String> statementNames = queryService.getStatementListByID(getID());
         ArrayList<Value> result = new ArrayList<>(10);
         int max = 10;
@@ -36,12 +35,12 @@ public abstract class Datum extends Value {
     }
 
     @Override
-    public @NotNull Boolean parse(List<String> subList) {
+    public Boolean parse(List<String> subList) {
         return false;
     }
 
     @Override
-    public @NotNull StatementList getStatements() {
+    public StatementList getStatements() {
         return statements;
     }
 

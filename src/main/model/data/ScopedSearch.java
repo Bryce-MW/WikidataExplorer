@@ -1,8 +1,6 @@
 package model.data;
 
 import model.data.pages.Item;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import ui.cli.ItemView;
 import ui.cli.ItemViewController;
 
@@ -14,7 +12,7 @@ public class ScopedSearch {
     private final DatumQueryService queryService;
     //TODO: Implement
     private Value item; // Item that this is scoped by, null for all items. Probably needs a data service for all
-    private @Nullable ItemViewController controller = null;
+    private ItemViewController controller = null;
 
     public ScopedSearch(Value item, DatumQueryService queryService) {
         this.queryService = queryService;
@@ -30,7 +28,7 @@ public class ScopedSearch {
         return item;
     }
 
-    public void add(@NotNull List<Value> values) {
+    public void add(List<Value> values) {
         if (controller != null) {
             for (Value value : values) {
                 controller.add(new ItemView(value));
@@ -42,7 +40,7 @@ public class ScopedSearch {
         }
     }
 
-    public @NotNull List<Value> findElement(String query) {
+    public List<Value> findElement(String query) {
         if (controller != null) {
             ArrayList<Value> values = new ArrayList<>(1);
             try {

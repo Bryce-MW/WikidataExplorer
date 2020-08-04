@@ -1,7 +1,5 @@
 package model.data.source.template;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.Serializable;
 
 public class Label implements Serializable {
@@ -11,7 +9,7 @@ public class Label implements Serializable {
     public String value;
 
     @Override
-    public @NotNull String toString() {
+    public String toString() {
         return "Label{" + "language='" + language + '\'' + ", value='" + value + '\'' + '}';
     }
 }

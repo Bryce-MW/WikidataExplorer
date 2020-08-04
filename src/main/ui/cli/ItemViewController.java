@@ -1,23 +1,22 @@
 package ui.cli;
 
 import model.data.Value;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemViewController {
     //TODO: Implement
-    private final @NotNull ArrayList<ItemView> items;
+    private final ArrayList<ItemView> items;
     private LayoutManager manager;
 
-    public ItemViewController(@NotNull ItemView initial) {
+    public ItemViewController(ItemView initial) {
         items = new ArrayList<>(10);
         items.add(initial);
         initial.setController(this);
     }
 
-    public void add(@NotNull ItemView newView) {
+    public void add(ItemView newView) {
         items.add(newView);
         newView.setController(this);
     }
@@ -35,13 +34,13 @@ public class ItemViewController {
         return items.size();
     }
 
-    public @NotNull List<StringBuilder> toStringArray() {
+    public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(10 * items.size());
         items.stream().map(ItemView::toStringArray).forEach(result::addAll);
         return result;
     }
 
-    public Boolean parse(@NotNull List<String> instructions) {
+    public Boolean parse(List<String> instructions) {
         boolean found = false;
         ArrayList<String> command = new ArrayList<>(instructions);
         String id = command.get(0);

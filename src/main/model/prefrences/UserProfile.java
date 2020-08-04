@@ -1,6 +1,5 @@
 package model.prefrences;
 
-import org.jetbrains.annotations.NotNull;
 import ui.cli.LayoutManager;
 import ui.cli.MenuBarItem;
 
@@ -9,8 +8,8 @@ import java.util.List;
 
 public class UserProfile implements MenuBarItem {
     //TODO: Implement
-    private final @NotNull PreferenceManager preferences;
-    private final @NotNull LayoutProfileManager layout;
+    private final PreferenceManager preferences;
+    private final LayoutProfileManager layout;
 
     private final String name;
 
@@ -21,11 +20,11 @@ public class UserProfile implements MenuBarItem {
         this.name = name;
     }
 
-    public @NotNull PreferenceManager getPreferences() {
+    public PreferenceManager getPreferences() {
         return preferences;
     }
 
-    public @NotNull LayoutProfileManager getLayout() {
+    public LayoutProfileManager getLayout() {
         return layout;
     }
 
@@ -33,17 +32,17 @@ public class UserProfile implements MenuBarItem {
 
 
     @Override
-    public @NotNull String toString() {
+    public String toString() {
         return "P: " + name;
     }
 
     @Override
-    public @NotNull String getCommandString() {
+    public String getCommandString() {
         return "P";
     }
 
     @Override
-    public @NotNull Boolean parse(List<String> subList) {
+    public Boolean parse(List<String> subList) {
         return true;
     }
 }

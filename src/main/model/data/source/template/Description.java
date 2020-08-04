@@ -1,7 +1,5 @@
 package model.data.source.template;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.Serializable;
 
 public class Description implements Serializable {
@@ -12,7 +10,7 @@ public class Description implements Serializable {
 
 
     @Override
-    public @NotNull String toString() {
+    public String toString() {
         return "Description{"
                 + "language='" + language + '\''
                 + ", value='" + value + '\''

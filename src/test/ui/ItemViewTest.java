@@ -9,20 +9,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.cli.ItemView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ItemViewTest {
     private ItemView itemView;
-    private Item q42;
 
     @BeforeEach
     void setUp() throws NotFoundException {
-        q42 = new Item("Q42", new DatumQueryService(new LocalCollector(
-                new LocalRepository("wikidata.json"))));
-        itemView = new ItemView(q42);
+        itemView = new ItemView(new Item("Q42", new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")))));
     }
 
     @Test
@@ -60,17 +57,10 @@ class ItemViewTest {
 
     @Test
     void getItem() {
-        assertSame(q42, itemView.getItem());
     }
 
     @Test
     void parse() {
-        ArrayList<String> subList = new ArrayList<>();
-        subList.add("Q42");
-        assertTrue(itemView.parse(subList));
-        subList.remove(0);
-        subList.add("Q1");
-        assertFalse(itemView.parse(subList));
     }
 
     @Test

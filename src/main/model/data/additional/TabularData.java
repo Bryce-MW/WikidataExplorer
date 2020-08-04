@@ -1,7 +1,6 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import org.jetbrains.annotations.Nullable;
 import ui.cli.StatementList;
 
 public class TabularData extends AbstractAdditional {
@@ -11,22 +10,22 @@ public class TabularData extends AbstractAdditional {
     // TODO: These are not needed yet
 
     @Override
-    public @Nullable String getTitle() {
+    public String getTitle() {
         return null;
     }
 
     @Override
-    public @Nullable String getDescription() {
+    public String getDescription() {
         return null;
     }
 
     @Override
-    public @Nullable String getID() {
+    public String getID() {
         return null;
     }
 
     @Override
-    public @Nullable StatementList getStatements() {
+    public StatementList getStatements() {
         return null;
     }
     //TODO: Implement

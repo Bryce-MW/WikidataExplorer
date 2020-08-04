@@ -1,6 +1,5 @@
 package model.prefrences;
 
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +16,7 @@ class PreferenceManagerTest {
         prefs = new ArrayList<>(1);
         prefs.add(new UserPreference() {
             @Override
-            public @NotNull String toString() {
+            public String toString() {
                 return "Test";
             }
         });

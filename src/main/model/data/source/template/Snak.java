@@ -1,7 +1,5 @@
 package model.data.source.template;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.Serializable;
 
 public class Snak implements Serializable {
@@ -13,7 +11,7 @@ public class Snak implements Serializable {
     public DataValue datavalue;
 
     @Override
-    public @NotNull String toString() {
+    public String toString() {
         return "Snak{"
                 + "snaktype='" + snaktype + '\''
                 + ", property='" + property + '\''

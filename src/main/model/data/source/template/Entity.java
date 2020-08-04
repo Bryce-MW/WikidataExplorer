@@ -1,7 +1,5 @@
 package model.data.source.template;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +18,7 @@ public class Entity implements Serializable {
     public String modified;
 
     @Override
-    public @NotNull String toString() {
+    public String toString() {
         return "Entity{"
                 + "id='" + id + '\''
                 + ", type='" + type + '\''

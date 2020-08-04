@@ -2,7 +2,6 @@ package ui.cli;
 
 import model.data.ScopedSearch;
 import model.data.Value;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,14 +9,14 @@ import java.util.List;
 public class SearchBar implements MenuBarItem {
     //TODO: Implement
     private final ScopedSearch searchService;
-    private final @NotNull ArrayList<Value> results;
+    private final ArrayList<Value> results;
 
     public SearchBar(ScopedSearch searchService) {
         this.searchService = searchService;
         results = new ArrayList<>(50);
     }
 
-    public @NotNull List<Value> getResults() {
+    public List<Value> getResults() {
         return results;
     }
 
@@ -27,12 +26,12 @@ public class SearchBar implements MenuBarItem {
 
     //TODO: Rendering Stuff
 
-    public @NotNull String toString() {
+    public String toString() {
         return "S: Search";
     }
 
     @Override
-    public @NotNull Boolean parse(@NotNull List<String> subList) {
+    public Boolean parse(List<String> subList) {
         if (subList.size() == 0) {
             return false;
         }
@@ -43,7 +42,7 @@ public class SearchBar implements MenuBarItem {
     }
 
     @Override
-    public @NotNull String getCommandString() {
+    public String getCommandString() {
         return "S";
     }
 }

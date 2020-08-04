@@ -6,7 +6,6 @@ import model.data.ScopedSearch;
 import model.data.pages.Item;
 import model.data.source.LocalCollector;
 import model.data.source.LocalRepository;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.cli.MenuBar;
@@ -35,7 +34,7 @@ class MenuBarTest {
     void swapSearch() {
         SearchBar newSearch = new SearchBar(new ScopedSearch(q42, queryService)) {
             @Override
-            public @NotNull String toString() {
+            public String toString() {
                 return "Something odd";
             }
         };
@@ -44,7 +43,7 @@ class MenuBarTest {
 
         menuBar.swapSearch(newSearch);
         searchLine = menuBar.toStringArray().get(1);
-        assertEquals('d', searchLine.charAt(searchLine.length() - 2));
+        assertEquals('q', searchLine.charAt(searchLine.length() - 2));
     }
 
     @Test
@@ -53,17 +52,17 @@ class MenuBarTest {
         assertFalse(searchLine.toString().contains("hi"));
         menuBar.addItem(new MenuBarItem() {
             @Override
-            public @NotNull String getCommandString() {
+            public String getCommandString() {
                 return "null";
             }
 
             @Override
-            public @NotNull Boolean parse(List<String> subList) {
+            public Boolean parse(List<String> subList) {
                 return false;
             }
 
             @Override
-            public @NotNull String toString() {
+            public String toString() {
                 return "hi";
             }
         });
@@ -75,17 +74,17 @@ class MenuBarTest {
     void removeItem() {
         MenuBarItem toAdd = new MenuBarItem() {
             @Override
-            public @NotNull String getCommandString() {
+            public String getCommandString() {
                 return "null";
             }
 
             @Override
-            public @NotNull Boolean parse(List<String> subList) {
+            public Boolean parse(List<String> subList) {
                 return false;
             }
 
             @Override
-            public @NotNull String toString() {
+            public String toString() {
                 return "hi";
             }
         };

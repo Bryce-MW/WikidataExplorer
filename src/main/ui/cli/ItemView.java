@@ -5,8 +5,6 @@ import model.data.ScopedSearch;
 import model.data.Value;
 import model.data.pages.Item;
 import model.util.StringBuilderUtil;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +16,11 @@ public class ItemView {
     // The following will need language support!
     private final String title; // Douglas Addams
     private final String description; // English writer and humorist
-    private final @NotNull SearchBar searchBar; // Only present for Datum! TODO: (add needsSearchBar() to Value, true for Datum,
+    private final SearchBar searchBar; // Only present for Datum! TODO: (add needsSearchBar() to Value, true for Datum,
     // false otherwise.)
     private final StatementList statements;
     private String photoRef; // May not implement depending on time
-    private @Nullable ItemViewController controller = null;
+    private ItemViewController controller = null;
 
     public ItemView(Value value) {
         this.item = value;
@@ -41,7 +39,7 @@ public class ItemView {
         return item;
     }
 
-    public @NotNull List<StringBuilder> toStringArray() {
+    public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(16);
 
         // First solid line
@@ -70,7 +68,7 @@ public class ItemView {
         return result;
     }
 
-    private void addLines(@NotNull ArrayList<StringBuilder> result) {
+    private void addLines(ArrayList<StringBuilder> result) {
         int maxLength = result.get(0).length();
         StringBuilder topLine = new StringBuilder(maxLength);
         StringBuilderUtil.pad(topLine, '━', maxLength);
@@ -94,7 +92,7 @@ public class ItemView {
         result.add(botLine);
     }
 
-    public boolean parse(@NotNull List<String> subList) {
+    public boolean parse(List<String> subList) {
         ArrayList<String> command = new ArrayList<>(subList);
         if (command.size() == 0) {
             if (item.needsRightArrow() && controller != null) {
