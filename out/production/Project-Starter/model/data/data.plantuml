@@ -40,6 +40,8 @@ title __DATA's Class Diagram__\n
         + getScopedSearch()
         + getStatementByTree()
         + getStatementListByID()
+        + triggerLoad()
+        + triggerSave()
     }
   }
   

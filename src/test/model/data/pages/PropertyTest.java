@@ -1,8 +1,8 @@
 package model.data.pages;
 
 import model.data.DatumQueryService;
+import model.data.source.LocalCollector;
 import model.data.source.LocalRepository;
-import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +13,7 @@ class PropertyTest {
 
     @BeforeAll
     static void setUp() {
-        entity = new Property("P31", new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json"))));
+        entity = new Property("P31", new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))));
     }
 
     @Test

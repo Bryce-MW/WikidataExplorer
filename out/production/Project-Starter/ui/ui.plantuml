@@ -17,6 +17,7 @@ title __UI's Class Diagram__\n
         {static} - profile : UserProfile
         {static} - profileLayouts : LayoutProfileManager
         {static} - queryService : DatumQueryService
+        {static} - repository : LocalRepository
         + CLInterface()
         {static} + main()
         {static} - getWindowSize()
@@ -26,124 +27,6 @@ title __UI's Class Diagram__\n
   }
   
 
-  namespace ui {
-    class ui.cli.ItemView {
-        - description : String
-        - photoRef : String
-        - title : String
-        + ItemView()
-        + getItem()
-        + parse()
-        + setController()
-        + toStringArray()
-        + toggleLeft()
-        + updateLanguage()
-        - addLines()
-    }
-  }
-  
-
-  namespace ui {
-    class ui.cli.ItemViewController {
-        - items : ArrayList<ItemView>
-        + ItemViewController()
-        + add()
-        + isEmpty()
-        + parse()
-        + remove()
-        + setManager()
-        + size()
-        + toStringArray()
-        + toggle()
-        + toggleLeft()
-        + toggleRight()
-    }
-  }
-  
-
-  namespace ui {
-    class ui.cli.LayoutManager {
-        - controllers : ArrayList<ItemViewController>
-        - height : int
-        - leftIndex : int
-        - separationWidth : int
-        - width : int
-        + LayoutManager()
-        + add()
-        + add()
-        + isEmpty()
-        + parse()
-        + print()
-        + remove()
-        + setSepWidth()
-        + size()
-        + toggleLeft()
-        + toggleRight()
-        - toStringArray()
-    }
-  }
-  
-
-  namespace ui {
-    class ui.cli.MenuBar {
-        - items : ArrayList<MenuBarItem>
-        - width : int
-        + MenuBar()
-        + addItem()
-        + parse()
-        + removeItem()
-        + swapSearch()
-        + toStringArray()
-        - addLines()
-    }
-  }
-  
-
-  namespace ui {
-    interface ui.cli.MenuBarItem {
-        {abstract} + getCommandString()
-        + getParser()
-        {abstract} + parse()
-    }
-  }
-  
-
-  namespace ui {
-    class ui.cli.SearchBar {
-        - results : ArrayList<Value>
-        + SearchBar()
-        + getCommandString()
-        + getResults()
-        + parse()
-        + search()
-        + toString()
-    }
-  }
-  
-
-  namespace ui {
-    class ui.cli.StatementList {
-        - statements : ArrayList<Value>
-        + StatementList()
-        + add()
-        + parse()
-        + toStringArray()
-        - getBasicStatements()
-    }
-  }
-  
-
-  ui.cli.ItemView o-- ui.cli.ItemViewController : controller
-  ui.cli.ItemView o-- model.data.Value : item
-  ui.cli.ItemView o-- ui.cli.SearchBar : searchBar
-  ui.cli.ItemView o-- ui.cli.StatementList : statements
-  ui.cli.ItemViewController o-- ui.cli.LayoutManager : manager
-  ui.cli.LayoutManager o-- ui.cli.MenuBar : menuBar
-  ui.cli.MenuBar o-- ui.cli.SearchBar : searchBar
-  ui.cli.SearchBar .up.|> ui.cli.MenuBarItem
-  ui.cli.SearchBar o-- model.data.ScopedSearch : searchService
-  ui.cli.StatementList o-- model.data.Value : entity
-  ui.cli.StatementList o-- model.data.DatumQueryService : queryService
 
 
 right footer

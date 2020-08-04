@@ -1,8 +1,8 @@
 package model.data;
 
 import model.data.pages.Item;
+import model.data.source.LocalCollector;
 import model.data.source.LocalRepository;
-import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +16,7 @@ class DatumLinkTest {
 
     @BeforeAll
     static void setUp() {
-        queryService = new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json")));
+        queryService = new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")));
         q42 = new Item("Q42", queryService);
         datumLink = new DatumLink(queryService, new Statement(q42, "P31", queryService), new Item("Q1",
                 queryService));

@@ -1,8 +1,8 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
+import model.data.source.LocalCollector;
 import model.data.source.LocalRepository;
-import model.data.source.WebCollector;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +13,7 @@ class URLTest {
 
     @BeforeAll
     static void setUp() {
-        additional = new URL(new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json"))));
+        additional = new URL(new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))));
     }
 
     @Test
