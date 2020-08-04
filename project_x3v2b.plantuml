@@ -202,7 +202,7 @@ title __PROJECT-STARTER's Class Diagram__\n
 
   namespace model.data {
     namespace source {
-      interface model.data.source.Collector {
+      abstract class model.data.source.Collector {
       }
     }
   }
@@ -391,43 +391,57 @@ title __PROJECT-STARTER's Class Diagram__\n
   
 
   namespace ui {
-    class ui.cli.ItemView {
+    namespace cli {
+      class ui.cli.ItemView {
+      }
     }
   }
   
 
   namespace ui {
-    class ui.cli.ItemViewController {
+    namespace cli {
+      class ui.cli.ItemViewController {
+      }
     }
   }
   
 
   namespace ui {
-    class ui.cli.LayoutManager {
+    namespace cli {
+      class ui.cli.LayoutManager {
+      }
     }
   }
   
 
   namespace ui {
-    class ui.cli.MenuBar {
+    namespace cli {
+      class ui.cli.MenuBar {
+      }
     }
   }
   
 
   namespace ui {
-    interface ui.cli.MenuBarItem {
+    namespace cli {
+      interface ui.cli.MenuBarItem {
+      }
     }
   }
   
 
   namespace ui {
-    class ui.cli.SearchBar {
+    namespace cli {
+      class ui.cli.SearchBar {
+      }
     }
   }
   
 
   namespace ui {
-    class ui.cli.StatementList {
+    namespace cli {
+      class ui.cli.StatementList {
+      }
     }
   }
   
@@ -473,7 +487,9 @@ title __PROJECT-STARTER's Class Diagram__\n
   model.data.pages.language.Form o-- model.data.DatumQueryService : queryService
   model.data.pages.language.Lexeme o-- model.data.DatumQueryService : queryService
   model.data.pages.language.Sense o-- model.data.DatumQueryService : queryService
-  model.data.source.WebCollector .up.|> model.data.source.Collector
+  model.data.source.Collector o-- model.data.source.LocalRepository : repository
+  model.data.source.LocalCollector -up-|> model.data.source.WebCollector
+  model.data.source.WebCollector -up-|> model.data.source.Collector
   model.data.source.template.Claim o-- model.data.source.template.Snak : mainsnak
   model.data.source.template.Qualifier o-- model.data.source.template.DataValue : datavalue
   model.data.source.template.Snak o-- model.data.source.template.DataValue : datavalue

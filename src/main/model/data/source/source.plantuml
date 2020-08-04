@@ -4,7 +4,8 @@ title __SOURCE's Class Diagram__\n
 
   namespace model.data {
     namespace source {
-      interface model.data.source.Collector {
+      abstract class model.data.source.Collector {
+          + Collector()
           {abstract} + getDatumLinkListByTree()
           {abstract} + getEntityDescription()
           {abstract} + getEntityName()
@@ -12,6 +13,8 @@ title __SOURCE's Class Diagram__\n
           {abstract} + getReferences()
           {abstract} + getSingleStatement()
           {abstract} + getStatementList()
+          {abstract} + triggerLoad()
+          {abstract} + triggerSave()
       }
     }
   }
@@ -20,6 +23,10 @@ title __SOURCE's Class Diagram__\n
   namespace model.data {
     namespace source {
       class model.data.source.LocalCollector {
+          + LocalCollector()
+          + triggerLoad()
+          + triggerSave()
+          # getJson()
       }
     }
   }
@@ -28,6 +35,10 @@ title __SOURCE's Class Diagram__\n
   namespace model.data {
     namespace source {
       class model.data.source.LocalRepository {
+          - file : File
+          + LocalRepository()
+          + load()
+          + save()
       }
     }
   }
@@ -36,6 +47,7 @@ title __SOURCE's Class Diagram__\n
   namespace model.data {
     namespace source {
       class model.data.source.WebCollector {
+          {static} # loaded : Entities
           - gson : Gson
           {static} - seen : ArrayList<Entities>
           + WebCollector()
@@ -46,14 +58,18 @@ title __SOURCE's Class Diagram__\n
           + getReferences()
           + getSingleStatement()
           + getStatementList()
-          - formatURL()
-          - getJson()
+          + triggerLoad()
+          + triggerSave()
+          # getJson()
+          {static} - formatURL()
       }
     }
   }
   
 
-  model.data.source.WebCollector .up.|> model.data.source.Collector
+  model.data.source.Collector o-- model.data.source.LocalRepository : repository
+  model.data.source.LocalCollector -up-|> model.data.source.WebCollector
+  model.data.source.WebCollector -up-|> model.data.source.Collector
 
 
 right footer
