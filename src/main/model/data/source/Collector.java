@@ -16,7 +16,7 @@ public abstract class Collector {
 
     public abstract ArrayList<Qualifier> getQualifiers(List<String> tree, DatumQueryService qualifierQuery);
 
-    public abstract ArrayList<Reference> getReferences(List<String> tree);
+    public abstract ArrayList<Reference> getReferences(List<String> tree, DatumQueryService refQueryService);
 
     public abstract String getEntityDescription(String id) throws NotFoundException;
 

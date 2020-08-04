@@ -1,32 +1,9 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import ui.cli.StatementList;
 
-public class URL extends AbstractAdditional {
-    protected URL(DatumQueryService queryService) {
-        super(queryService);
+public class URL extends LiteralString {
+    public URL(String value, DatumQueryService queryService) {
+        super(value, queryService);
     }
-    // TODO: These are not needed yet
-
-    @Override
-    public String getTitle() {
-        return null;
-    }
-
-    @Override
-    public String getDescription() {
-        return null;
-    }
-
-    @Override
-    public String getID() {
-        return null;
-    }
-
-    @Override
-    public StatementList getStatements() {
-        return null;
-    }
-    //TODO: Implement
 }

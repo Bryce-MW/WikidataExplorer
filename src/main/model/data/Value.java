@@ -1,8 +1,6 @@
 package model.data;
 
-import model.data.additional.GlobeCoordinate;
-import model.data.additional.LiteralString;
-import model.data.additional.Time;
+import model.data.additional.*;
 import model.data.pages.Item;
 import model.data.pages.Property;
 import org.jetbrains.annotations.NotNull;
@@ -38,6 +36,10 @@ public abstract class Value {
                         queryService);
             case "string":
                 return new LiteralString((String) value, queryService);
+            case "external-id":
+                return new ExternalIdentifier((String) value, queryService);
+            case "url":
+                return new URL((String) value, queryService);
         }
         throw new Error("Datatype: " + dataType + " not found");
     }

@@ -33,7 +33,7 @@ public class DatumQueryService {
         tree.add(property.getParentID());
         tree.add(property.getID());
         tree.add(value.getID());
-        return collector.getReferences(tree);
+        return collector.getReferences(tree, property.queryService);
     }
 
     public String getDescriptionByID(String id) throws NotFoundException {

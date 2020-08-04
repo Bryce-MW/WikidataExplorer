@@ -81,7 +81,7 @@ public class ItemView {
         midLine.setCharAt(0, '┠');
         midLine.setCharAt(midLine.length() - 1, '┨');
         result.add(4, midLine);
-        if (result.size() > 6) {
+        if (item.needsSearchBar()) {
             result.add(6, midLine);
         }
 

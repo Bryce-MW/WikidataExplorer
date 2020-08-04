@@ -13,7 +13,9 @@ class ExternalIdentifierTest {
 
     @BeforeAll
     static void setUp() {
-        additional = new ExternalIdentifier(new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))));
+        additional =
+                new ExternalIdentifier("test", new DatumQueryService(
+                        new LocalCollector(new LocalRepository("wikidata.json"))));
     }
 
     @Test

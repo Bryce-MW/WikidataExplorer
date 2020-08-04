@@ -70,15 +70,16 @@ public class ItemViewController {
         this.manager = manager;
     }
 
-    public void toggle(Value statement) {
+    public boolean toggle(Value statement) {
         if (items.stream().anyMatch((i) -> i.getItem().equals(statement))) {
             ItemView found =
                     items.stream().filter((i) -> i.getItem().equals(statement)).findAny().orElseThrow(Error::new);
             // I should probably make my own exception class but the idea is that this can't happen. I suppose it's
             // not thread-safe but I don't have anything that is thread-safe.
-            items.remove(found);
+            return remove(found);
         } else {
             add(new ItemView(statement));
+            return false;
         }
     }
 

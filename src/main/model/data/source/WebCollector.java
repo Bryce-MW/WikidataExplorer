@@ -5,6 +5,7 @@ import model.data.*;
 import model.data.pages.Property;
 import model.data.source.template.Claim;
 import model.data.source.template.Entities;
+import model.data.source.template.Snak;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -76,8 +77,45 @@ public class WebCollector extends Collector {
     }
 
     @Override
-    public ArrayList<Reference> getReferences(List<String> tree) {
-        return new ArrayList<>(0); // TODO: Implement later, not needed now
+    public ArrayList<Reference> getReferences(List<String> tree, DatumQueryService refQueryService) {
+        ArrayList<Reference> references = new ArrayList<>();
+        List<Claim> claims;
+        try {
+            claims = getJson(tree.get(0))
+                    .entities.get(tree.get(0))
+                    .claims.get(tree.get(1));
+        } catch (NotFoundException e) {
+            return references;
+        }
+
+        for (Claim claim : claims) {
+            Value parsed = Value.parseData(claim.mainsnak.datavalue.value, claim.mainsnak.datatype, refQueryService);
+            if (parsed.getID().equals(tree.get(2))) {
+                if (claim.references != null) {
+                    for (model.data.source.template.Reference reference : claim.references) {
+                        Map<String, ArrayList<Reference>> snaks = new HashMap<>();
+                        for (String s : reference.snaks.keySet()) {
+                            ArrayList<Reference> values = new ArrayList<>();
+                            snaks.put(s, values);
+                            for (Snak snak : reference.snaks.get(s)) {
+                                try {
+                                    values.add(new Reference(new Property(snak.property, refQueryService),
+                                            Value.parseData(snak.datavalue.value,
+                                                    snak.datatype,
+                                                    refQueryService), refQueryService));
+                                } catch (NotFoundException e) {
+                                    // Just don't add the reference
+                                }
+                            }
+                        }
+                        for (String s : reference.snaksOrder) {
+                            references.addAll(snaks.get(s));
+                        }
+                    }
+                }
+            }
+        }
+        return references; // TODO: Implement later, not needed now
     }
 
     @Override

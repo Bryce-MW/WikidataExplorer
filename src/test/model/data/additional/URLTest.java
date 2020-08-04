@@ -13,7 +13,8 @@ class URLTest {
 
     @BeforeAll
     static void setUp() {
-        additional = new URL(new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))));
+        additional = new URL("example.com",
+                new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))));
     }
 
     @Test

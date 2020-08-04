@@ -54,7 +54,7 @@ class WebCollectorTest {
         tree.add("Q42");
         tree.add("P119");
         tree.add("Q533697");
-        assertEquals(0, webCollector.getReferences(tree).size()); // 0 because qualifiers not implemented
+        assertEquals(0, webCollector.getReferences(tree, queryService).size()); // 0 because qualifiers not implemented
     }
 
     @Test

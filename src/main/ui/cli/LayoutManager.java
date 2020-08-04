@@ -100,7 +100,9 @@ public class LayoutManager {
             add(0, new ItemViewController(new ItemView(statement)));
         } else {
             ItemViewController left = controllers.get(index - 1);
-            left.toggle(statement);
+            if (left.toggle(statement)) {
+                remove(left);
+            }
         }
         return true;
     }
@@ -113,8 +115,10 @@ public class LayoutManager {
         if (index == controllers.size()) {
             add(new ItemViewController(new ItemView(statement)));
         } else {
-            ItemViewController left = controllers.get(index + 1);
-            left.toggle(statement);
+            ItemViewController right = controllers.get(index + 1);
+            if (right.toggle(statement)) {
+                remove(right);
+            }
         }
         return true;
     }
