@@ -5,6 +5,7 @@ import model.data.additional.LiteralString;
 import model.data.additional.Time;
 import model.data.pages.Item;
 import model.data.pages.Property;
+import org.jetbrains.annotations.NotNull;
 import ui.cli.ItemView;
 import ui.cli.StatementList;
 
@@ -21,28 +22,16 @@ public abstract class Value {
         this.queryService = queryService;
     }
 
-    @SuppressWarnings("CheckStyle") // Nothing can really be done in this case. It basically has to be long for the
-    // switch
     public static Value parseData(Object value, String dataType, DatumQueryService queryService) {
         Map<String, Object> result;
         switch (dataType) {
             case "wikibase-item":
-                result = (Map<String, Object>) value;
-                try {
-                    return new Item((String) result.get("id"), queryService);
-                } catch (NotFoundException e) {
-                    throw new Error("Parsed Datum " + result.get("id") + " does not exist? (or no data)", e);
-                }
+                return buildItem((Map<String, Object>) value, queryService);
             case "time":
                 result = (Map<String, Object>) value;
                 return new Time((String) result.get("time"), queryService); // Not dealing with calendar models, etc
             case "wikibase-property":
-                result = (Map<String, Object>) value;
-                try {
-                    return new Property((String) result.get("id"), queryService);
-                } catch (NotFoundException e) {
-                    throw new Error("Parsed Datum" + result.get("id") + "does not exist? (or no data)", e);
-                }
+                return buildProperty((Map<String, Object>) value, queryService);
             case "globe-coordinate":
                 result = (Map<String, Object>) value;
                 return new GlobeCoordinate((double) result.get("latitude"), (double) result.get("longitude"),
@@ -51,6 +40,28 @@ public abstract class Value {
                 return new LiteralString((String) value, queryService);
         }
         throw new Error("Datatype: " + dataType + " not found");
+    }
+
+    @NotNull
+    private static Property buildProperty(Map<String, Object> value, DatumQueryService queryService) {
+        Map<String, Object> result;
+        result = value;
+        try {
+            return new Property((String) result.get("id"), queryService);
+        } catch (NotFoundException e) {
+            throw new Error("Parsed Datum" + result.get("id") + "does not exist? (or no data)", e);
+        }
+    }
+
+    @NotNull
+    private static Item buildItem(Map<String, Object> value, DatumQueryService queryService) {
+        Map<String, Object> result;
+        result = value;
+        try {
+            return new Item((String) result.get("id"), queryService);
+        } catch (NotFoundException e) {
+            throw new Error("Parsed Datum " + result.get("id") + " does not exist? (or no data)", e);
+        }
     }
 
     public abstract String getTitle();
@@ -112,6 +123,7 @@ public abstract class Value {
     public void addStatement(Value value) {
         getStatements().add(value);
     }
+
 
     //TODO: Implement
 }
