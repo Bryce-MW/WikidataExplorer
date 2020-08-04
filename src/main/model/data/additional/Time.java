@@ -4,7 +4,7 @@ import model.data.DatumQueryService;
 import ui.cli.StatementList;
 
 public class Time extends AbstractAdditional {
-    protected String time;
+    protected final String time;
 
     public Time(String time, DatumQueryService queryService) {
         super(queryService);

@@ -10,12 +10,9 @@ import java.util.List;
 public class StatementList {
     //TODO: Implement
     private final ArrayList<Value> statements;
-    private final Value entity; // Entity this statement list refers to.
-    private final DatumQueryService queryService;
 
     public StatementList(Value entity, DatumQueryService queryService, ArrayList<Value> statements) {
-        this.queryService = queryService;
-        this.entity = entity;
+        // Entity this statement list refers to.
         this.statements = statements;
     }
 

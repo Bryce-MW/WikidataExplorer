@@ -35,7 +35,7 @@ class MenuBarTest {
         SearchBar newSearch = new SearchBar(new ScopedSearch(q42, queryService)) {
             @Override
             public String toString() {
-                return "qqqqqqqqq";
+                return "Something odd";
             }
         };
         StringBuilder searchLine = menuBar.toStringArray().get(1);

@@ -14,13 +14,15 @@ import java.util.Map;
 public abstract class Value {
     protected DatumQueryService queryService;
     protected ItemView view = null;
-    protected String id;
+    protected final String id;
 
     protected Value(DatumQueryService queryService, String id) {
         this.id = id;
         this.queryService = queryService;
     }
 
+    @SuppressWarnings("CheckStyle") // Nothing can really be done in this case. It basically has to be long for the
+    // switch
     public static Value parseData(Object value, String dataType, DatumQueryService queryService) {
         Map<String, Object> result;
         switch (dataType) {

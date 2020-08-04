@@ -4,8 +4,8 @@ import model.data.DatumQueryService;
 import ui.cli.StatementList;
 
 public class GlobeCoordinate extends AbstractAdditional {
-    double posLat;
-    double posLong;
+    private final double posLat;
+    private final double posLong;
 
     public GlobeCoordinate(double posLat, double posLong, DatumQueryService queryService) {
         super(queryService);

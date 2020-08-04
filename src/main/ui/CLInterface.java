@@ -11,6 +11,7 @@ import model.data.source.WebCollector;
 import model.prefrences.LayoutProfileManager;
 import model.prefrences.PreferenceManager;
 import model.prefrences.UserProfile;
+import org.jetbrains.annotations.NotNull;
 import ui.cli.*;
 
 import java.util.ArrayList;
@@ -20,21 +21,15 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public final class CLInterface {
-    private static int WIDTH = 117; // Does not include prompt line
-    private static int HEIGHT = 20;
     private static final int WINDOW_WIDTH = 20;
     private static final int SEP_WIDTH = 3;
     private static final String DEFAULT_ID = "Q42";
-
+    private static int WIDTH = 117; // Does not include prompt line
+    private static int HEIGHT = 20;
     private static DatumQueryService queryService;
 
     private static LayoutManager layout;
     private static MenuBar menuBar;
-    private static SearchBar mainSearch;
-
-    private static UserProfile profile;
-    private static LayoutProfileManager profileLayouts;
-    private static PreferenceManager preferences;
 
     private static LocalRepository repository;
 
@@ -56,30 +51,17 @@ public final class CLInterface {
 
         ArrayList<MenuBarItem> menuItems = new ArrayList<>(3);
 
-        if (Arrays.asList(args).contains("web")) {
-            queryService = new DatumQueryService(new WebCollector(repository));
-        } else {
-            queryService = new DatumQueryService(new LocalCollector(repository));
-        }
-
-        Datum startingPoint = null;
-        try {
-            startingPoint = new Item("Q42", queryService);
-        } catch (NotFoundException e) {
-            // This should absolutely not happen unless local is selected and the repo is empty. In that case,
-            // throwing an error is appropriate since it's hard to start the program working in this case
-            throw new Error("Unable to start due to not finding required data.", e);
-        }
+        Datum startingPoint = setupStartingItem(args);
         ItemViewController viewController = new ItemViewController(new ItemView(startingPoint));
 
-        mainSearch = new SearchBar(new ScopedSearch(viewController, queryService));
+        SearchBar mainSearch = new SearchBar(new ScopedSearch(viewController, queryService));
         menuBar = new MenuBar(menuItems, mainSearch, WIDTH);
         layout = new LayoutManager(WIDTH, HEIGHT, menuBar);
         layout.setSepWidth(SEP_WIDTH);
 
-        profile = new UserProfile("Default", layout); //Not going to bother localizing this
-        profileLayouts = profile.getLayout();
-        preferences = profile.getPreferences();
+        UserProfile profile = new UserProfile("Default", layout); //Not going to bother localizing this
+        LayoutProfileManager profileLayouts = profile.getLayout();
+        PreferenceManager preferences = profile.getPreferences();
 
         menuItems.add(profileLayouts);
         menuItems.add(profile);
@@ -88,6 +70,23 @@ public final class CLInterface {
         layout.add(viewController);
 
         loop(args);
+    }
+
+    @NotNull
+    private static Datum setupStartingItem(String[] args) {
+        if (Arrays.asList(args).contains("web")) {
+            queryService = new DatumQueryService(new WebCollector(repository));
+        } else {
+            queryService = new DatumQueryService(new LocalCollector(repository));
+        }
+
+        try {
+            return new Item("Q42", queryService);
+        } catch (NotFoundException e) {
+            // This should absolutely not happen unless local is selected and the repo is empty. In that case,
+            // throwing an error is appropriate since it's hard to start the program working in this case
+            throw new Error("Unable to start due to not finding required data.", e);
+        }
     }
 
     private static void getWindowSize() {

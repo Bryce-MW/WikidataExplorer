@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LayoutManagerTest {
-    private LayoutManager layoutManager;
     DatumQueryService queryService;
+    private LayoutManager layoutManager;
 
     @BeforeEach
     void setUp() throws NotFoundException {

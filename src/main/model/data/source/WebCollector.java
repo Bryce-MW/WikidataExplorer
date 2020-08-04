@@ -12,15 +12,18 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.*;
 
-@SuppressWarnings("ConstantConditions")
 public class WebCollector extends Collector {
-    private final Gson gson;
     private static final ArrayList<Entities> seen = new ArrayList<>(30);
     protected static Entities loaded;
+    private final Gson gson;
 
     public WebCollector(LocalRepository repository) {
         super(repository);
         gson = new Gson();
+    }
+
+    private static String formatURL(String id) {
+        return "https://www.wikidata.org/wiki/Special:EntityData/" + id + ".json";
     }
 
     @Override
@@ -31,18 +34,10 @@ public class WebCollector extends Collector {
     @Override
     public ArrayList<Qualifier> getQualifiers(List<String> tree, DatumQueryService qualifierQuery) {
         ArrayList<Qualifier> result = new ArrayList<>(5);
-        String id = tree.get(0);
-        String claim = tree.get(1);
-        String item = tree.get(2);
 
         Map<String, List<model.data.source.template.Qualifier>> qualifiers;
         try {
-            qualifiers = getJson(id).entities.get(id)
-                    .claims.get(claim).stream()
-                    .filter((i) -> Value.parseData(i.mainsnak.datavalue.value, i.mainsnak.datatype, qualifierQuery)
-                            .getID().equals(item))
-                    .findAny().orElseThrow(() -> new NotFoundException(id, claim, item))
-                    .qualifiers;
+            qualifiers = tryGetQualifiers(qualifierQuery, tree.get(0), tree.get(1), tree.get(2));
         } catch (NotFoundException e) {
             return result;
         }
@@ -52,11 +47,10 @@ public class WebCollector extends Collector {
         }
 
         for (String s : qualifiers.keySet()) {
-            List<model.data.source.template.Qualifier> subQualis = qualifiers.get(s);
-            for (model.data.source.template.Qualifier subQuali : subQualis) {
+            for (model.data.source.template.Qualifier subQualifier : qualifiers.get(s)) {
                 try {
                     result.add(new Qualifier(new Property(s, qualifierQuery),
-                            Value.parseData(subQuali.datavalue.value, subQuali.datatype, qualifierQuery),
+                            Value.parseData(subQualifier.datavalue.value, subQualifier.datatype, qualifierQuery),
                             qualifierQuery));
                 } catch (NotFoundException ignored) {
                     // If a Value can't be created then just don't add it to the list
@@ -64,6 +58,21 @@ public class WebCollector extends Collector {
             }
         }
         return result;
+    }
+
+    private Map<String, List<model.data.source.template.Qualifier>> tryGetQualifiers(DatumQueryService qualifierQuery,
+                                                                                     String id,
+                                                                                     String claim,
+                                                                                     String item)
+            throws NotFoundException {
+        Map<String, List<model.data.source.template.Qualifier>> qualifiers;
+        qualifiers = getJson(id).entities.get(id)
+                .claims.get(claim).stream()
+                .filter((i) -> Value.parseData(i.mainsnak.datavalue.value, i.mainsnak.datatype, qualifierQuery)
+                        .getID().equals(item))
+                .findAny().orElseThrow(() -> new NotFoundException(id, claim, item))
+                .qualifiers;
+        return qualifiers;
     }
 
     @Override
@@ -86,7 +95,8 @@ public class WebCollector extends Collector {
     }
 
     @Override
-    public Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService) throws NotFoundException {
+    public Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService)
+            throws NotFoundException {
         return new Statement(item, tree.get(1), statementService);
     }
 
@@ -120,10 +130,6 @@ public class WebCollector extends Collector {
         return repository.save(entities, gson);
     }
 
-    private static String formatURL(String id) {
-        return "https://www.wikidata.org/wiki/Special:EntityData/" + id + ".json";
-    }
-
     @Override
     public Boolean triggerLoad() {
         loaded = repository.load(gson);
@@ -139,24 +145,18 @@ public class WebCollector extends Collector {
         if (loaded != null && loaded.entities.containsKey(urlStr)) {
             return loaded;
         }
+
         System.out.println(urlStr); // TODO: Remove debug statement
 
-        URLConnection connection = null;
         try {
             URL url = new URL(formatURL(urlStr));
-            connection = url.openConnection();
-        } catch (IOException ignored) {
-            throw new NotFoundException(urlStr);
-        }
+            URLConnection connection = url.openConnection();
 
-        Entities newResult = new Entities();
-        try {
-            newResult = gson.fromJson(new InputStreamReader(connection.getInputStream()), Entities.class);
+            Entities newResult = gson.fromJson(new InputStreamReader(connection.getInputStream()), Entities.class);
+            seen.add(newResult);
+            return newResult;
         } catch (IOException e) {
             throw new NotFoundException(urlStr);
         }
-
-        seen.add(newResult);
-        return newResult;
     }
 }

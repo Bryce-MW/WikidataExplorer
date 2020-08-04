@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Datum extends Value {
-    protected StatementList statements;
+    protected final StatementList statements;
 
     protected Datum(DatumQueryService queryService, String id) {
         super(queryService, id);

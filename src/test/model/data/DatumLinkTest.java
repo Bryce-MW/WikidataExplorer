@@ -12,13 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DatumLinkTest {
     private static DatumLink datumLink;
-    private static DatumQueryService queryService;
-    private static Item q42;
 
     @BeforeAll
     static void setUp() throws NotFoundException {
-        queryService = new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")));
-        q42 = new Item("Q42", queryService);
+        DatumQueryService queryService = new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")));
+        Item q42 = new Item("Q42", queryService);
         datumLink = new DatumLink(queryService, new Statement(q42, "P31", queryService), new Item("Q1",
                 queryService));
     }

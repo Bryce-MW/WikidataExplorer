@@ -16,11 +16,6 @@ public class LocalCollector extends WebCollector {
     }
 
     @Override
-    public Boolean triggerLoad() {
-        return super.triggerLoad();
-    }
-
-    @Override
     protected Entities getJson(String urlStr) throws NotFoundException {
         if (loaded != null && loaded.entities.containsKey(urlStr)) {
             return loaded;

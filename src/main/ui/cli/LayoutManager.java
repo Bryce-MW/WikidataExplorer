@@ -12,10 +12,8 @@ public class LayoutManager {
     private final ArrayList<ItemViewController> controllers;
     private final int width;
     private final int height;
-    private int separationWidth;
-
     private final MenuBar menuBar;
-
+    private int separationWidth;
     private int leftIndex;
 
     public LayoutManager(int width, int height, MenuBar menuBar) {

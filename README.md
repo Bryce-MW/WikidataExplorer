@@ -24,8 +24,8 @@ understanding of the relationships which are the core of
 structure which makes it much easier to determine how to best
 utilize the data.
 
-I have been fascinated with *Wikidata* for a long time. I
-thought it was incredibly interesting how concepts,
+I have been fascinated with *Wikidata* for a long time. It is incredibly
+ interesting how concepts,
 properties, lexemes, and other data-types are related to
 each-other. I keep a list of ideas for coding projects on my
 phone so that I always have once when I need it. Many of the

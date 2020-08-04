@@ -7,8 +7,8 @@ import java.util.List;
 
 public class Statement extends Value {
     private final String name;
-    private StatementList statements = null;
     private final Datum about;
+    private StatementList statements = null;
 
     public Statement(Datum item, String property, DatumQueryService queryService) throws NotFoundException {
         super(queryService, property);
@@ -18,10 +18,6 @@ public class Statement extends Value {
     }
 
     private ArrayList<Value> findStatements() {
-        ArrayList<Value> result = new ArrayList<>(10);
-        ArrayList<String> tree = new ArrayList<>(2);
-        tree.add(about.getID());
-        tree.add(getID());
         return queryService.getDatumLinkListByStatement(this);
     }
 

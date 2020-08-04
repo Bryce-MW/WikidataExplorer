@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Collector {
-    LocalRepository repository;
+    protected final LocalRepository repository;
 
     public Collector(LocalRepository repository) {
         this.repository = repository;
@@ -22,9 +22,11 @@ public abstract class Collector {
 
     public abstract ArrayList<String> getStatementList(String id) throws NotFoundException;
 
-    public abstract Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService) throws NotFoundException;
+    public abstract Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService)
+            throws NotFoundException;
 
-    public abstract ArrayList<Value> getDatumLinkListByTree(ArrayList<String> tree, Statement about, DatumQueryService queryService);
+    public abstract ArrayList<Value> getDatumLinkListByTree(ArrayList<String> tree, Statement about,
+                                                            DatumQueryService queryService);
 
     public abstract Boolean triggerSave();
 

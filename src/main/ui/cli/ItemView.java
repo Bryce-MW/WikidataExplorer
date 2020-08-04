@@ -16,12 +16,10 @@ public class ItemView {
     // The following will need language support!
     private final String title; // Douglas Addams
     private final String description; // English writer and humorist
-
-    private String photoRef; // May not implement depending on time
     private final SearchBar searchBar; // Only present for Datum! TODO: (add needsSearchBar() to Value, true for Datum,
     // false otherwise.)
     private final StatementList statements;
-
+    private String photoRef; // May not implement depending on time
     private ItemViewController controller = null;
 
     public ItemView(Value value) {

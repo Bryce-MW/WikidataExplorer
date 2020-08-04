@@ -17,13 +17,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class ItemViewControllerTest {
     private ItemViewController itemViewController;
     private DatumQueryService queryService;
-    private Item q42;
     private ItemView itemView;
 
     @BeforeEach
     void setUp() throws NotFoundException {
         queryService = new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")));
-        q42 = new Item("Q42", queryService);
+        Item q42 = new Item("Q42", queryService);
         itemView = new ItemView(q42);
         itemViewController = new ItemViewController(itemView);
     }

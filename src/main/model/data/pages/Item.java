@@ -5,14 +5,12 @@ import model.data.DatumQueryService;
 import model.data.NotFoundException;
 
 public class Item extends Datum {
-    //TODO: Implement
-    private final DatumQueryService queryService;
     private final String name;
     private final String description;
 
     public Item(String id, DatumQueryService queryService) throws NotFoundException {
         super(queryService, id);
-        this.queryService = queryService;
+        //TODO: Implement
         name = queryService.getNameByID(id);
         description = queryService.getDescriptionByID(id);
     }

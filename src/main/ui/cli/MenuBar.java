@@ -9,8 +9,8 @@ import java.util.stream.IntStream;
 public class MenuBar {
     //TODO: Implement
     private final ArrayList<MenuBarItem> items;
-    private SearchBar searchBar;
     private final int width;
+    private SearchBar searchBar;
 
     public MenuBar(ArrayList<MenuBarItem> items, SearchBar searchBar, int width) {
         this.items = items;
