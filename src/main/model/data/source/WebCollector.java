@@ -17,6 +17,7 @@ import java.util.*;
 public class WebCollector extends Collector {
     private final Gson gson;
     private static final ArrayList<Entities> seen = new ArrayList<>(30);
+    protected static Entities loaded;
 
     public WebCollector(LocalRepository repository) {
         super(repository);
@@ -107,20 +108,24 @@ public class WebCollector extends Collector {
         return repository.save(entities, gson);
     }
 
-    @Override
-    public Boolean triggerLoad() {
-        return true; // Intended to do nothing as file
-    }
-
-    private String formatURL(String id) {
+    private static String formatURL(String id) {
         return "https://www.wikidata.org/wiki/Special:EntityData/" + id + ".json";
     }
 
-    private Entities getJson(String urlStr) {
+    @Override
+    public Boolean triggerLoad() {
+        loaded = repository.load(gson);
+        return true;
+    }
+
+    protected Entities getJson(String urlStr) {
         for (Entities entities : seen) {
             if (entities.entities.containsKey(urlStr)) {
                 return entities;
             }
+        }
+        if (loaded != null && loaded.entities.containsKey(urlStr)) {
+            return loaded;
         }
         System.out.println(urlStr); // TODO: Remove debug statement
 
