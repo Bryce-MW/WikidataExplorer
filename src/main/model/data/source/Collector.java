@@ -12,17 +12,17 @@ public abstract class Collector {
         this.repository = repository;
     }
 
-    public abstract String getEntityName(String property);
+    public abstract String getEntityName(String property) throws NotFoundException;
 
     public abstract ArrayList<Qualifier> getQualifiers(List<String> tree, DatumQueryService qualifierQuery);
 
     public abstract ArrayList<Reference> getReferences(List<String> tree);
 
-    public abstract String getEntityDescription(String id);
+    public abstract String getEntityDescription(String id) throws NotFoundException;
 
-    public abstract ArrayList<String> getStatementList(String id);
+    public abstract ArrayList<String> getStatementList(String id) throws NotFoundException;
 
-    public abstract Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService);
+    public abstract Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService) throws NotFoundException;
 
     public abstract ArrayList<Value> getDatumLinkListByTree(ArrayList<String> tree, Statement about, DatumQueryService queryService);
 

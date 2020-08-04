@@ -15,13 +15,13 @@ class StatementTest {
     private Statement statement;
 
     @BeforeAll
-    static void init() {
+    static void init() throws NotFoundException {
         queryService = new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")));
         q42 = new Item("Q42", queryService);
     }
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws NotFoundException {
         statement = new Statement(q42, "P735", queryService);
     }
 
@@ -42,7 +42,7 @@ class StatementTest {
 
     @Test
     void getStatements() {
-        assertEquals(0, statement.getStatements().toStringArray().size());
+        assertEquals(2, statement.getStatements().toStringArray().size());
     }
 
     @Test

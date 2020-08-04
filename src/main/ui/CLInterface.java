@@ -2,6 +2,7 @@ package ui;
 
 import model.data.Datum;
 import model.data.DatumQueryService;
+import model.data.NotFoundException;
 import model.data.ScopedSearch;
 import model.data.pages.Item;
 import model.data.source.LocalCollector;
@@ -61,7 +62,14 @@ public final class CLInterface {
             queryService = new DatumQueryService(new LocalCollector(repository));
         }
 
-        Datum startingPoint = new Item("Q42", queryService);
+        Datum startingPoint = null;
+        try {
+            startingPoint = new Item("Q42", queryService);
+        } catch (NotFoundException e) {
+            // This should absolutely not happen unless local is selected and the repo is empty. In that case,
+            // throwing an error is appropriate since it's hard to start the program working in this case
+            throw new Error("Unable to start due to not finding required data.", e);
+        }
         ItemViewController viewController = new ItemViewController(new ItemView(startingPoint));
 
         mainSearch = new SearchBar(new ScopedSearch(viewController, queryService));

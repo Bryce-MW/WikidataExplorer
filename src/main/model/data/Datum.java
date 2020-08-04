@@ -24,7 +24,11 @@ public abstract class Datum extends Value {
         tree.add(getID());
         for (String s : statementNames.subList(0, max)) {
             tree.add(s);
-            result.add(queryService.getStatementByTree(tree, this));
+            try {
+                result.add(queryService.getStatementByTree(tree, this));
+            } catch (NotFoundException ignored) {
+                // We just couldn't find that statement so we won't add it
+            }
             tree.remove(1);
         }
         return result;

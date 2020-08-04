@@ -1,6 +1,10 @@
 package model.data.source.template;
 
-public class DataValue {
+import java.io.Serializable;
+
+public class DataValue implements Serializable {
+    public static final long serialVersionUID = 1L;
+
     public Object value;
     public String type;
 

@@ -10,7 +10,7 @@ public class Statement extends Value {
     private StatementList statements = null;
     private final Datum about;
 
-    public Statement(Datum item, String property, DatumQueryService queryService) {
+    public Statement(Datum item, String property, DatumQueryService queryService) throws NotFoundException {
         super(queryService, property);
         this.queryService = queryService;
         this.name = queryService.getNameByID(property);

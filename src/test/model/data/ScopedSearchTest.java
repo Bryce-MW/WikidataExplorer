@@ -5,6 +5,7 @@ import model.data.source.LocalCollector;
 import model.data.source.LocalRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ui.cli.ItemView;
 import ui.cli.ItemViewController;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,7 +16,7 @@ class ScopedSearchTest {
     private Item q42;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws NotFoundException {
         q42 = new Item("Q42", new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))));
         scopedSearch = new ScopedSearch(q42, q42.getQuery());
     }
@@ -23,6 +24,6 @@ class ScopedSearchTest {
     @Test
     void getItem() {
         assertEquals(q42, scopedSearch.getItem());
-        assertNull(new ScopedSearch(new ItemViewController(null), q42.getQuery()).getItem());
+        assertNull(new ScopedSearch(new ItemViewController(new ItemView(q42)), q42.getQuery()).getItem());
     }
 }

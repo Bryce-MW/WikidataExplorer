@@ -1,6 +1,10 @@
 package model.data.source.template;
 
-public class Label {
+import java.io.Serializable;
+
+public class Label implements Serializable {
+    public static final long serialVersionUID = 1L;
+
     public String language;
     public String value;
 

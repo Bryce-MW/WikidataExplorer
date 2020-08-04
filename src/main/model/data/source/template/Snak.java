@@ -1,6 +1,10 @@
 package model.data.source.template;
 
-public class Snak {
+import java.io.Serializable;
+
+public class Snak implements Serializable {
+    public static final long serialVersionUID = 1L;
+
     public String snaktype;
     public String property;
     public String datatype;

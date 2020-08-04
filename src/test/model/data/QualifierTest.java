@@ -17,7 +17,7 @@ class QualifierTest {
     private Qualifier qualifier;
 
     @BeforeAll
-    static void init() {
+    static void init() throws NotFoundException {
         queryService = new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")));
         property = new Property("P1545", queryService);
         value = new LiteralString("1", queryService);

@@ -1,6 +1,10 @@
 package model.data.source.template;
 
-public class Qualifier {
+import java.io.Serializable;
+
+public class Qualifier implements Serializable {
+    public static final long serialVersionUID = 1L;
+
     public String hash;
     public String snaktype;
     public String property;

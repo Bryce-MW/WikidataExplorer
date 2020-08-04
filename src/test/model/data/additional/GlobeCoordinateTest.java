@@ -6,6 +6,7 @@ import model.data.source.LocalRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 class GlobeCoordinateTest {
@@ -13,22 +14,23 @@ class GlobeCoordinateTest {
 
     @BeforeAll
     static void setUp() {
-        additional = new GlobeCoordinate(new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))));
+        additional = new GlobeCoordinate(0, 0, new DatumQueryService(new LocalCollector(new LocalRepository("wikidata" +
+                ".json"))));
     }
 
     @Test
     void getTitle() {
-        assertNull(additional.getTitle());
+        assertEquals("Position", additional.getTitle());
     }
 
     @Test
     void getDescription() {
-        assertNull(additional.getDescription());
+        assertEquals("0.0, 0.0", additional.getDescription());
     }
 
     @Test
     void getID() {
-        assertNull(additional.getID());
+        assertEquals("", additional.getID());
     }
 
     @Test

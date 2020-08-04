@@ -6,6 +6,7 @@ import model.data.source.LocalRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 class TimeTest {
@@ -18,7 +19,7 @@ class TimeTest {
 
     @Test
     void getTitle() {
-        assertNull(additional.getTitle());
+        assertEquals("+2001-12-31T00:00:00Z", additional.getTitle());
     }
 
     @Test
@@ -28,7 +29,7 @@ class TimeTest {
 
     @Test
     void getID() {
-        assertNull(additional.getID());
+        assertEquals("+2001-12-31T00:00:00Z", additional.getID());
     }
 
     @Test

@@ -6,8 +6,9 @@ import model.data.source.LocalRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 class DatumLinkTest {
     private static DatumLink datumLink;
@@ -15,7 +16,7 @@ class DatumLinkTest {
     private static Item q42;
 
     @BeforeAll
-    static void setUp() {
+    static void setUp() throws NotFoundException {
         queryService = new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")));
         q42 = new Item("Q42", queryService);
         datumLink = new DatumLink(queryService, new Statement(q42, "P31", queryService), new Item("Q1",
@@ -39,6 +40,12 @@ class DatumLinkTest {
 
     @Test
     void getStatements() {
-        assertNull(datumLink.getStatements());
+        List<StringBuilder> stringArray = datumLink.getStatements().toStringArray();
+        StringBuilder result = new StringBuilder();
+        for (StringBuilder builder : stringArray) {
+            result.append(builder).append("\n");
+        }
+        assertEquals("",
+                result.toString());
     }
 }

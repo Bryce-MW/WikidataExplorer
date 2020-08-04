@@ -1,6 +1,7 @@
 package ui;
 
 import model.data.DatumQueryService;
+import model.data.NotFoundException;
 import model.data.ScopedSearch;
 import model.data.pages.Item;
 import model.data.source.LocalCollector;
@@ -20,7 +21,7 @@ class LayoutManagerTest {
     DatumQueryService queryService;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws NotFoundException {
         queryService = new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")));
         layoutManager = new LayoutManager(100, 100, new MenuBar(
                 new ArrayList<>(), new SearchBar(new ScopedSearch(new Item("Q42", queryService), queryService)),
@@ -28,7 +29,7 @@ class LayoutManagerTest {
     }
 
     @Test
-    void add() {
+    void add() throws NotFoundException {
         layoutManager.add(new ItemViewController(new ItemView(
                 new Item("Q42", new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")))))));
         assertFalse(layoutManager.isEmpty());
@@ -36,7 +37,7 @@ class LayoutManagerTest {
     }
 
     @Test
-    void remove() {
+    void remove() throws NotFoundException {
         ItemViewController itemViewController = new ItemViewController(new ItemView(
                 new Item("Q42", new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))))));
         layoutManager.add(itemViewController);
@@ -49,7 +50,7 @@ class LayoutManagerTest {
     }
 
     @Test
-    void isEmpty() {
+    void isEmpty() throws NotFoundException {
         assertTrue(layoutManager.isEmpty());
         ItemViewController itemViewController = new ItemViewController(new ItemView(
                 new Item("Q42", new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))))));
@@ -58,7 +59,7 @@ class LayoutManagerTest {
     }
 
     @Test
-    void size() {
+    void size() throws NotFoundException {
         assertEquals(0, layoutManager.size());
         ItemViewController itemViewController = new ItemViewController(new ItemView(
                 new Item("Q42", new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))))));
@@ -67,7 +68,7 @@ class LayoutManagerTest {
     }
 
     @Test
-    void setSepWidth() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    void setSepWidth() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NotFoundException {
         Method toStringArray = LayoutManager.class.getDeclaredMethod("toStringArray");
         toStringArray.setAccessible(true);
 
@@ -77,17 +78,17 @@ class LayoutManagerTest {
         layoutManager.setSepWidth(1);
         ArrayList<StringBuilder> output0 = (ArrayList<StringBuilder>) toStringArray.invoke(layoutManager);
 
-        assertEquals(30, output0.get(output0.size() - 1).length());
+        assertEquals(31, output0.get(output0.size() - 1).length());
         layoutManager.setSepWidth(20);
         output0 = (ArrayList<StringBuilder>) toStringArray.invoke(layoutManager);
-        assertEquals(49, output0.get(output0.size() - 1).length());
+        assertEquals(50, output0.get(output0.size() - 1).length());
         layoutManager.setSepWidth(30);
         output0 = (ArrayList<StringBuilder>) toStringArray.invoke(layoutManager);
-        assertEquals(59, output0.get(output0.size() - 1).length());
+        assertEquals(60, output0.get(output0.size() - 1).length());
     }
 
     @Test
-    void print() {
+    void print() throws NotFoundException {
         ItemViewController itemViewController = new ItemViewController(new ItemView(
                 new Item("Q42", new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))))));
         layoutManager.add(itemViewController);

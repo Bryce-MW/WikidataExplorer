@@ -1,5 +1,6 @@
 package ui.cli;
 
+import model.data.NotFoundException;
 import model.data.ScopedSearch;
 import model.data.Value;
 import model.data.pages.Item;
@@ -96,9 +97,11 @@ public class ItemView {
     public boolean parse(List<String> subList) {
         ArrayList<String> command = new ArrayList<>(subList);
         if (command.size() == 0) {
-            if (item.needsRightArrow()) {
-                if (controller != null) {
+            if (item.needsRightArrow() && controller != null) {
+                try {
                     return controller.toggleRight(new Item(item.getID(), item.getQuery()));
+                } catch (NotFoundException e) {
+                    return false;
                 }
             }
             return false;

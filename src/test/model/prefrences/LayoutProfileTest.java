@@ -1,6 +1,7 @@
 package model.prefrences;
 
 import model.data.DatumQueryService;
+import model.data.NotFoundException;
 import model.data.ScopedSearch;
 import model.data.pages.Item;
 import model.data.source.LocalCollector;
@@ -20,7 +21,7 @@ class LayoutProfileTest {
     LayoutManager layoutManager;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws NotFoundException {
         DatumQueryService queryService = new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")));
         layoutManager = new LayoutManager(100, 100, new MenuBar(new ArrayList<>(0),
                 new SearchBar(new ScopedSearch(new Item("Q42", queryService), queryService)), 10));

@@ -1,5 +1,7 @@
 package model.data;
 
+import model.data.additional.GlobeCoordinate;
+import model.data.additional.LiteralString;
 import model.data.additional.Time;
 import model.data.pages.Item;
 import model.data.pages.Property;
@@ -20,14 +22,31 @@ public abstract class Value {
     }
 
     public static Value parseData(Object value, String dataType, DatumQueryService queryService) {
-        Map<String, Object> result = (Map<String, Object>) value;
+        Map<String, Object> result;
         switch (dataType) {
             case "wikibase-item":
-                return new Item((String) result.get("id"), queryService);
+                result = (Map<String, Object>) value;
+                try {
+                    return new Item((String) result.get("id"), queryService);
+                } catch (NotFoundException e) {
+                    throw new Error("Parsed Datum " + result.get("id") + " does not exist? (or no data)", e);
+                }
             case "time":
+                result = (Map<String, Object>) value;
                 return new Time((String) result.get("time"), queryService); // Not dealing with calendar models, etc
             case "wikibase-property":
-                return new Property((String) result.get("id"), queryService);
+                result = (Map<String, Object>) value;
+                try {
+                    return new Property((String) result.get("id"), queryService);
+                } catch (NotFoundException e) {
+                    throw new Error("Parsed Datum" + result.get("id") + "does not exist? (or no data)", e);
+                }
+            case "globe-coordinate":
+                result = (Map<String, Object>) value;
+                return new GlobeCoordinate((double) result.get("latitude"), (double) result.get("longitude"),
+                        queryService);
+            case "string":
+                return new LiteralString((String) value, queryService);
         }
         throw new Error("Datatype: " + dataType + " not found");
     }

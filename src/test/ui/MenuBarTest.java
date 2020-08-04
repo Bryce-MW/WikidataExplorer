@@ -1,6 +1,7 @@
 package ui;
 
 import model.data.DatumQueryService;
+import model.data.NotFoundException;
 import model.data.ScopedSearch;
 import model.data.pages.Item;
 import model.data.source.LocalCollector;
@@ -22,7 +23,7 @@ class MenuBarTest {
     DatumQueryService queryService;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws NotFoundException {
         queryService = new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")));
         q42 = new Item("Q42", queryService);
         menuBar = new MenuBar(new ArrayList<>(1),
@@ -106,7 +107,7 @@ class MenuBarTest {
         assertEquals(
                 "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━" +
                         "━━━━━━━━┓\n" +
-                        "┃                                                                                        ┃S: Search┃" +
+                        "┃                                                                                        │S: Search┃" +
                         "\n" +
                         "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━┛" +
                         "\n", result.toString());

@@ -1,6 +1,5 @@
 package ui.cli;
 
-import model.data.Datum;
 import model.data.DatumQueryService;
 import model.data.Value;
 import model.util.StringBuilderUtil;
@@ -20,22 +19,23 @@ public class StatementList {
         this.statements = statements;
     }
 
-    private void getBasicStatements() {
-        if (entity instanceof Datum) {
-            ArrayList<String> statementNames = queryService.getStatementListByID(entity.getID());
-            int max = 10;
-            if (statementNames.size() < 10) {
-                max = statementNames.size();
-            }
-            ArrayList<String> tree = new ArrayList<>(2);
-            tree.add(entity.getID());
-            for (String s : statementNames.subList(0, max)) {
-                tree.add(s);
-                statements.add(queryService.getStatementByTree(tree, (Datum) entity));
-                tree.remove(1);
-            }
-        }
-    }
+    // Currently unused but kept just in case
+//    private void getBasicStatements() {
+//        if (entity instanceof Datum) {
+//            ArrayList<String> statementNames = queryService.getStatementListByID(entity.getID());
+//            int max = 10;
+//            if (statementNames.size() < 10) {
+//                max = statementNames.size();
+//            }
+//            ArrayList<String> tree = new ArrayList<>(2);
+//            tree.add(entity.getID());
+//            for (String s : statementNames.subList(0, max)) {
+//                tree.add(s);
+//                statements.add(queryService.getStatementByTree(tree, (Datum) entity));
+//                tree.remove(1);
+//            }
+//        }
+//    }
 
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(statements.size());

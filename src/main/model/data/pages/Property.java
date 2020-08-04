@@ -2,23 +2,25 @@ package model.data.pages;
 
 import model.data.Datum;
 import model.data.DatumQueryService;
+import model.data.NotFoundException;
 
 public class Property extends Datum {
-    //TODO: Implement
-    private final DatumQueryService queryService;
+    private final String title;
+    private final String description;
 
-    public Property(String id, DatumQueryService queryService) {
+    public Property(String id, DatumQueryService queryService) throws NotFoundException {
         super(queryService, id);
-        this.queryService = queryService;
+        this.title = queryService.getNameByID(id);
+        this.description = queryService.getDescriptionByID(id);
     }
 
     @Override
     public String getTitle() {
-        return queryService.getNameByID(id);
+        return title;
     }
 
     @Override
     public String getDescription() {
-        return queryService.getDescriptionByID(id);
+        return description;
     }
 }

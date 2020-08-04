@@ -43,15 +43,23 @@ public class ScopedSearch {
     public List<Value> findElement(String query) {
         if (controller != null) {
             ArrayList<Value> values = new ArrayList<>(1);
-            values.add(new Item(query, queryService));
+            try {
+                values.add(new Item(query, queryService));
+            } catch (NotFoundException e) {
+                // Search was not found so we just return the empty list;
+            }
             return values;
         }
         ArrayList<String> tree = new ArrayList<>(2);
         tree.add(item.getID());
         tree.add(query);
         ArrayList<Value> result = new ArrayList<>(1);
-        if (item instanceof Datum) {
-            result.add(queryService.getStatementByTree(tree, (Datum) item));
+        if (item instanceof Datum) { // TODO: This is really really bad! Should be delegated to Value implementation
+            try {
+                result.add(queryService.getStatementByTree(tree, (Datum) item));
+            } catch (NotFoundException ignored) {
+                // Very odd but I guess we just don't need to return anything?
+            }
         }
         return result;
     }

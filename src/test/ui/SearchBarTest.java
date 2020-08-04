@@ -1,6 +1,7 @@
 package ui;
 
 import model.data.DatumQueryService;
+import model.data.NotFoundException;
 import model.data.ScopedSearch;
 import model.data.pages.Item;
 import model.data.source.LocalCollector;
@@ -10,13 +11,12 @@ import org.junit.jupiter.api.Test;
 import ui.cli.SearchBar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 class SearchBarTest {
     private SearchBar searchBar;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws NotFoundException {
         DatumQueryService queryService = new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")));
         searchBar = new SearchBar(new ScopedSearch(new Item("Q42", queryService), queryService));
     }
@@ -29,8 +29,8 @@ class SearchBarTest {
 
     @Test
     void search() {
-        assertNull(searchBar.search("Anything"));
-        // Currently always null, searching not supported yet!
+        assertEquals(0, searchBar.search("Anything").size());
+        assertEquals("Q42", searchBar.search("Q42").get(0).getID());
     }
 
     @Test

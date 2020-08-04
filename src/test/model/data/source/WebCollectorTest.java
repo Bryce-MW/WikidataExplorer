@@ -1,6 +1,7 @@
 package model.data.source;
 
 import model.data.DatumQueryService;
+import model.data.NotFoundException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -20,9 +21,9 @@ class WebCollectorTest {
     }
 
     @Test
-    void getEntityName() {
+    void getEntityName() throws NotFoundException {
         assertEquals("Douglas Adams", webCollector.getEntityName("Q42"));
-        assertThrows(NullPointerException.class, () -> webCollector.getEntityName("qwerty"));
+        assertThrows(NotFoundException.class, () -> webCollector.getEntityName("qwerty"));
     }
 
     @Test
@@ -31,7 +32,7 @@ class WebCollectorTest {
         tree.add("Q42");
         tree.add("P119");
         tree.add("Q533697");
-        assertEquals(0, webCollector.getQualifiers(tree, queryService).size()); // 0 because qualifiers not implemented
+        assertEquals(1, webCollector.getQualifiers(tree, queryService).size()); // 0 because qualifiers not implemented
 
         tree = new ArrayList<>(3);
         tree.add("Q2");
@@ -57,7 +58,7 @@ class WebCollectorTest {
     }
 
     @Test
-    void getEntityDescription() {
+    void getEntityDescription() throws NotFoundException {
         assertEquals("third planet from the Sun in the Solar System",
                 webCollector.getEntityDescription("Q2"));
     }

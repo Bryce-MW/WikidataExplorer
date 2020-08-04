@@ -1,8 +1,11 @@
 package model.data.source.template;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class SiteLink {
+public class SiteLink implements Serializable {
+    public static final long serialVersionUID = 1L;
+
     public String site;
     public String title;
     public List<String> badges;

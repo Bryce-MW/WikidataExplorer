@@ -1,5 +1,6 @@
 package model.data.source;
 
+import model.data.NotFoundException;
 import model.data.source.template.Entities;
 
 public class LocalCollector extends WebCollector {
@@ -20,11 +21,11 @@ public class LocalCollector extends WebCollector {
     }
 
     @Override
-    protected Entities getJson(String urlStr) {
+    protected Entities getJson(String urlStr) throws NotFoundException {
         if (loaded != null && loaded.entities.containsKey(urlStr)) {
             return loaded;
         }
         System.out.println(urlStr); // TODO: Remove debug statement
-        return new Entities(); // Will always cause a crash, I should do some Exception stuff
+        throw new NotFoundException(urlStr);
     }
 }

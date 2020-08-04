@@ -1,9 +1,12 @@
 package model.data.source.template;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public class Entity {
+public class Entity implements Serializable {
+    public static final long serialVersionUID = 1L;
+
     public String id;
     public String type;
     public Map<String, Label> labels;

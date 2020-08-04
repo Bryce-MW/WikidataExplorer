@@ -16,7 +16,7 @@ public class DatumQueryService {
         return new ScopedSearch(item, this);
     }
 
-    public String getNameByID(String property) {
+    public String getNameByID(String property) throws NotFoundException {
         return collector.getEntityName(property);
     }
 
@@ -36,15 +36,20 @@ public class DatumQueryService {
         return collector.getReferences(tree);
     }
 
-    public String getDescriptionByID(String id) {
+    public String getDescriptionByID(String id) throws NotFoundException {
         return collector.getEntityDescription(id);
     }
 
     public ArrayList<String> getStatementListByID(String id) {
-        return collector.getStatementList(id);
+        try {
+            return collector.getStatementList(id);
+        } catch (NotFoundException e) {
+            // Couldn't find statements so just returning an empty list
+            return new ArrayList<>(0);
+        }
     }
 
-    public Value getStatementByTree(ArrayList<String> tree, Datum item) {
+    public Value getStatementByTree(ArrayList<String> tree, Datum item) throws NotFoundException {
         return collector.getSingleStatement(tree, item, this);
     }
 

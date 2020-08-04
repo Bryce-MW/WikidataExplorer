@@ -1,6 +1,7 @@
 package model.prefrences;
 
 import model.data.DatumQueryService;
+import model.data.NotFoundException;
 import model.data.ScopedSearch;
 import model.data.pages.Item;
 import model.data.source.LocalCollector;
@@ -19,7 +20,7 @@ class UserProfileTest {
     UserProfile userProfile;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws NotFoundException {
         DatumQueryService queryService = new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json")));
         userProfile = new UserProfile("Test",
                 new LayoutManager(10, 10,

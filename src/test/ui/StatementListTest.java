@@ -1,6 +1,7 @@
 package ui;
 
 import model.data.DatumQueryService;
+import model.data.NotFoundException;
 import model.data.Value;
 import model.data.pages.Item;
 import model.data.source.LocalCollector;
@@ -26,13 +27,13 @@ class StatementListTest {
     }
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws NotFoundException {
         statementList = new StatementList(
                 new Item("Q42", queryService), queryService, new ArrayList<>(10));
     }
 
     @Test
-    void toStringArray() throws NoSuchFieldException, IllegalAccessException {
+    void toStringArray() throws NoSuchFieldException, IllegalAccessException, NotFoundException {
         // We don't actually have statement collection in yet so we need to reflect to set one for testing purposes.
         Field field = StatementList.class.getDeclaredField("statements");
         field.setAccessible(true);

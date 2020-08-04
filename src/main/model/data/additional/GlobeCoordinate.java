@@ -4,29 +4,27 @@ import model.data.DatumQueryService;
 import ui.cli.StatementList;
 
 public class GlobeCoordinate extends AbstractAdditional {
-    protected GlobeCoordinate(DatumQueryService queryService) {
+    double posLat;
+    double posLong;
+
+    public GlobeCoordinate(double posLat, double posLong, DatumQueryService queryService) {
         super(queryService);
+        this.posLat = posLat;
+        this.posLong = posLong;
     }
-    // TODO: These are not needed yet
 
     @Override
     public String getTitle() {
-        return null;
+        return "Position";
     }
 
     @Override
     public String getDescription() {
-        return null;
-    }
-
-    @Override
-    public String getID() {
-        return null;
+        return posLat + ", " + posLong;
     }
 
     @Override
     public StatementList getStatements() {
         return null;
     }
-    //TODO: Implement
 }
