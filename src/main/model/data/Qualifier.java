@@ -26,7 +26,7 @@ public class Qualifier extends Value {
 
     @Override
     public String getTitle() {
-        return property.getTitle();
+        return property.getTitle() + ": " + value.getTitle();
     }
 
     @Override

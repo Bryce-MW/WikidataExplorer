@@ -90,28 +90,24 @@ public class WebCollector extends Collector {
 
         for (Claim claim : claims) {
             Value parsed = Value.parseData(claim.mainsnak.datavalue.value, claim.mainsnak.datatype, refQueryService);
-            if (parsed.getID().equals(tree.get(2))) {
-                if (claim.references != null) {
-                    for (model.data.source.template.Reference reference : claim.references) {
-                        Map<String, ArrayList<Reference>> snaks = new HashMap<>();
-                        for (String s : reference.snaks.keySet()) {
-                            ArrayList<Reference> values = new ArrayList<>();
-                            snaks.put(s, values);
-                            for (Snak snak : reference.snaks.get(s)) {
-                                try {
-                                    values.add(new Reference(new Property(snak.property, refQueryService),
-                                            Value.parseData(snak.datavalue.value,
-                                                    snak.datatype,
-                                                    refQueryService), refQueryService));
-                                } catch (NotFoundException e) {
-                                    // Just don't add the reference
-                                }
+            if (parsed.getID().equals(tree.get(2)) && claim.references != null) {
+                for (model.data.source.template.Reference reference : claim.references) {
+                    Map<String, ArrayList<Reference>> snaks = new HashMap<>();
+                    for (String s : reference.snaks.keySet()) {
+                        ArrayList<Reference> values = new ArrayList<>();
+                        snaks.put(s, values);
+                        for (Snak snak : reference.snaks.get(s)) {
+                            try {
+                                values.add(new Reference(new Property(snak.property, refQueryService),
+                                        Value.parseData(snak.datavalue.value,
+                                                snak.datatype,
+                                                refQueryService), refQueryService));
+                            } catch (NotFoundException e) {
+                                // Just don't add the reference
                             }
                         }
-                        for (String s : reference.snaksOrder) {
-                            references.addAll(snaks.get(s));
-                        }
                     }
+                    reference.snaksOrder.stream().map(snaks::get).forEach(references::addAll);
                 }
             }
         }
