@@ -6,6 +6,7 @@ import model.util.StringBuilderUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class StatementList {
     //TODO: Implement
@@ -36,12 +37,14 @@ public class StatementList {
 
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(statements.size());
-        int maxID = statements.stream().map(Value::getID).mapToInt(String::length).max().orElse(0);
+        AtomicInteger maxID = new AtomicInteger(); // Must be atomic due to the lambda usage
+        statements.stream().map(Value::getID).mapToInt(String::length)
+                .forEach((i) -> maxID.set(Math.max(i, maxID.get())));
         for (Value statement : statements) {
             String name = statement.getTitle();
-            StringBuilder line = new StringBuilder(maxID + name.length() + 1);
-            line.append("◄ ").append(statement.getID()).append(':');
-            StringBuilderUtil.pad(line, ' ', maxID);
+            StringBuilder line = new StringBuilder(maxID.get() + 4);
+            line.append("◄ ").append(statement.getID()).append(": ");
+            StringBuilderUtil.pad(line, ' ', maxID.get() + 4);
             line.append(name);
             result.add(line);
         }

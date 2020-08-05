@@ -13,7 +13,7 @@ public class LocalRepository {
     private final File file;
 
     public LocalRepository(String fileName) {
-        this.file = new File(fileName);
+        this.file = new File("./data/" + fileName);
     }
 
     public Boolean save(Entities entities, Gson gson) {
