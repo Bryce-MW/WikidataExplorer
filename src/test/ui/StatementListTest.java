@@ -45,6 +45,6 @@ class StatementListTest {
             result.append(string).append('\n');
         }
 
-        assertEquals("◄ Q1:universe\n", result.toString());
+        assertEquals("◄ Q1: universe\n", result.toString());
     }
 }

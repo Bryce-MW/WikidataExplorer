@@ -1,11 +1,11 @@
 package model.data.source;
 
 import com.google.gson.Gson;
+import model.data.Qualifier;
+import model.data.Reference;
 import model.data.*;
 import model.data.pages.Property;
-import model.data.source.template.Claim;
-import model.data.source.template.Entities;
-import model.data.source.template.Snak;
+import model.data.source.template.*;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -29,7 +29,18 @@ public class WebCollector extends Collector {
 
     @Override
     public String getEntityName(String property) throws NotFoundException {
-        return getJson(property).entities.get(property).labels.get("en").value;
+        Entity entity = getJson(property).entities.get(property);
+        Map<String, Label> labels = entity.labels;
+        if (labels == null) {
+            labels = entity.representations;
+        }
+        Label name = labels.get("en");
+        if (name == null) {
+            Label other = new Label();
+            other.value = "";
+            return labels.values().stream().findAny().orElse(other).value;
+        }
+        return name.value;
     }
 
     @Override
@@ -51,7 +62,7 @@ public class WebCollector extends Collector {
             for (model.data.source.template.Qualifier subQualifier : qualifiers.get(s)) {
                 try {
                     result.add(new Qualifier(new Property(s, qualifierQuery),
-                            Value.parseData(subQualifier.datavalue.value, subQualifier.datatype, qualifierQuery),
+                            Value.parseData(subQualifier.datavalue, subQualifier.datatype, qualifierQuery),
                             qualifierQuery));
                 } catch (NotFoundException ignored) {
                     // If a Value can't be created then just don't add it to the list
@@ -69,7 +80,7 @@ public class WebCollector extends Collector {
         Map<String, List<model.data.source.template.Qualifier>> qualifiers;
         qualifiers = getJson(id).entities.get(id)
                 .claims.get(claim).stream()
-                .filter((i) -> Value.parseData(i.mainsnak.datavalue.value, i.mainsnak.datatype, qualifierQuery)
+                .filter((i) -> Value.parseData(i.mainsnak.datavalue, i.mainsnak.datatype, qualifierQuery)
                         .getID().equals(item))
                 .findAny().orElseThrow(() -> new NotFoundException(id, claim, item))
                 .qualifiers;
@@ -89,7 +100,7 @@ public class WebCollector extends Collector {
         }
 
         for (Claim claim : claims) {
-            Value parsed = Value.parseData(claim.mainsnak.datavalue.value, claim.mainsnak.datatype, refQueryService);
+            Value parsed = Value.parseData(claim.mainsnak.datavalue, claim.mainsnak.datatype, refQueryService);
             if (parsed.getID().equals(tree.get(2)) && claim.references != null) {
                 for (model.data.source.template.Reference reference : claim.references) {
                     Map<String, ArrayList<Reference>> snaks = new HashMap<>();
@@ -110,7 +121,7 @@ public class WebCollector extends Collector {
         for (Snak snak : reference.snaks.get(s)) {
             try {
                 values.add(new Reference(new Property(snak.property, refQueryService),
-                        Value.parseData(snak.datavalue.value, snak.datatype, refQueryService),
+                        Value.parseData(snak.datavalue, snak.datatype, refQueryService),
                         refQueryService));
             } catch (NotFoundException e) {
                 // Just don't add the reference
@@ -121,7 +132,12 @@ public class WebCollector extends Collector {
 
     @Override
     public String getEntityDescription(String id) throws NotFoundException {
-        return getJson(id).entities.get(id).descriptions.get("en").value;
+        Entity entity = getJson(id).entities.get(id);
+        Map<String, Description> descriptions = entity.descriptions;
+        if (descriptions == null) {
+            return "";
+        }
+        return descriptions.get("en").value;
     }
 
     @Override
@@ -148,7 +164,7 @@ public class WebCollector extends Collector {
         try {
             List<Claim> datumLinkList = getJson(id).entities.get(id).claims.get(property);
             for (Claim claim : datumLinkList) {
-                result.add(new DatumLink(queryService, about, Value.parseData(claim.mainsnak.datavalue.value,
+                result.add(new DatumLink(queryService, about, Value.parseData(claim.mainsnak.datavalue,
                         claim.mainsnak.datatype, queryService)));
             }
         } catch (NotFoundException ignored) {

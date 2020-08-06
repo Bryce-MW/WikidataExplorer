@@ -1,6 +1,7 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
+import model.data.additional.helpers.MonolingualTextData;
 import ui.cli.StatementList;
 
 public class MonolingualText extends AbstractAdditional {
@@ -12,7 +13,13 @@ public class MonolingualText extends AbstractAdditional {
         this.text = text;
         this.language = language;
     }
-    // TODO: These are not needed yet
+
+    public MonolingualText(MonolingualTextData monolingualTextValue, DatumQueryService queryService) {
+        super(queryService);
+        this.text = monolingualTextValue.value;
+        this.language = monolingualTextValue.language;
+    }
+
 
     @Override
     public String getTitle() {

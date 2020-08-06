@@ -1,6 +1,7 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
+import model.data.additional.helpers.GlobeCoordinateData;
 import ui.cli.StatementList;
 
 public class GlobeCoordinate extends AbstractAdditional {
@@ -11,6 +12,12 @@ public class GlobeCoordinate extends AbstractAdditional {
         super(queryService);
         this.posLat = posLat;
         this.posLong = posLong;
+    }
+
+    public GlobeCoordinate(GlobeCoordinateData globeCoordinateValue, DatumQueryService queryService) {
+        super(queryService);
+        this.posLat = globeCoordinateValue.latitude;
+        this.posLong = globeCoordinateValue.longitude;
     }
 
     @Override

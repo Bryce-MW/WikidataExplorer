@@ -1,32 +1,10 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import ui.cli.StatementList;
 
-public class MusicalNotation extends AbstractAdditional {
-    protected MusicalNotation(DatumQueryService queryService) {
-        super(queryService);
-    }
-    // TODO: These are not needed yet
+public class MusicalNotation extends LiteralString {
 
-    @Override
-    public String getTitle() {
-        return null;
+    public MusicalNotation(String value, DatumQueryService queryService) {
+        super(value, queryService);
     }
-
-    @Override
-    public String getDescription() {
-        return null;
-    }
-
-    @Override
-    public String getID() {
-        return null;
-    }
-
-    @Override
-    public StatementList getStatements() {
-        return null;
-    }
-    //TODO: Implement
 }

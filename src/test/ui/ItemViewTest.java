@@ -35,24 +35,24 @@ class ItemViewTest {
         for (StringBuilder itemString : itemStrings) {
             total.append(itemString).append('\n');
         }
-        assertEquals("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n" +
-                "┃Q42                         ┃\n" +
-                "┃Douglas Adams               ┃\n" +
-                "┃English writer and humorist ┃\n" +
-                "┠────────────────────────────┨\n" +
-                "┃S: Search                   ┃\n" +
-                "┠────────────────────────────┨\n" +
-                "┃◄ P18:image                 ┃\n" +
-                "┃◄ P19:place of birth        ┃\n" +
-                "┃◄ P20:place of death        ┃\n" +
-                "┃◄ P21:sex or gender         ┃\n" +
-                "┃◄ P22:father                ┃\n" +
-                "┃◄ P25:mother                ┃\n" +
-                "┃◄ P26:spouse                ┃\n" +
-                "┃◄ P27:country of citizenship┃\n" +
-                "┃◄ P31:instance of           ┃\n" +
-                "┃◄ P40:child                 ┃\n" +
-                "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n", total.toString());
+        assertEquals("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n" +
+                "┃Q42                          ┃\n" +
+                "┃Douglas Adams                ┃\n" +
+                "┃English writer and humorist  ┃\n" +
+                "┠─────────────────────────────┨\n" +
+                "┃S: Search                    ┃\n" +
+                "┠─────────────────────────────┨\n" +
+                "┃◄ P18: image                 ┃\n" +
+                "┃◄ P19: place of birth        ┃\n" +
+                "┃◄ P20: place of death        ┃\n" +
+                "┃◄ P21: sex or gender         ┃\n" +
+                "┃◄ P22: father                ┃\n" +
+                "┃◄ P25: mother                ┃\n" +
+                "┃◄ P26: spouse                ┃\n" +
+                "┃◄ P27: country of citizenship┃\n" +
+                "┃◄ P31: instance of           ┃\n" +
+                "┃◄ P40: child                 ┃\n" +
+                "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n", total.toString());
     }
 
     @Test

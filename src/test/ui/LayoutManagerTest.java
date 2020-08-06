@@ -78,13 +78,13 @@ class LayoutManagerTest {
         layoutManager.setSepWidth(1);
         ArrayList<StringBuilder> output0 = (ArrayList<StringBuilder>) toStringArray.invoke(layoutManager);
 
-        assertEquals(31, output0.get(output0.size() - 1).length());
+        assertEquals(32, output0.get(output0.size() - 1).length());
         layoutManager.setSepWidth(20);
         output0 = (ArrayList<StringBuilder>) toStringArray.invoke(layoutManager);
-        assertEquals(50, output0.get(output0.size() - 1).length());
+        assertEquals(51, output0.get(output0.size() - 1).length());
         layoutManager.setSepWidth(30);
         output0 = (ArrayList<StringBuilder>) toStringArray.invoke(layoutManager);
-        assertEquals(60, output0.get(output0.size() - 1).length());
+        assertEquals(61, output0.get(output0.size() - 1).length());
     }
 
     @Test

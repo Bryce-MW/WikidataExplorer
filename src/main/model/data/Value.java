@@ -1,9 +1,13 @@
 package model.data;
 
 import model.data.additional.*;
+import model.data.additional.helpers.*;
 import model.data.pages.Item;
 import model.data.pages.Property;
-import org.jetbrains.annotations.NotNull;
+import model.data.pages.language.Form;
+import model.data.pages.language.Lexeme;
+import model.data.pages.language.Sense;
+import model.data.source.template.DataValue;
 import ui.cli.ItemView;
 import ui.cli.StatementList;
 
@@ -20,65 +24,71 @@ public abstract class Value {
         this.queryService = queryService;
     }
 
-    public static Value parseData(Object value, String dataType, DatumQueryService queryService) {
-        Map<String, Object> result;
-        switch (dataType) {
-            case "wikibase-item":
-                return buildItem((Map<String, Object>) value, queryService);
-            case "time":
-                result = (Map<String, Object>) value;
-                return new Time((String) result.get("time"), queryService); // Not dealing with calendar models, etc
-            case "wikibase-property":
-                return buildProperty((Map<String, Object>) value, queryService);
-            case "globe-coordinate":
-                return buildGlobeCoordinate((Map<String, Object>) value, queryService);
+    public static Value parseData(DataValue value, String dataType, DatumQueryService queryService) {
+        switch (value.type) {
             case "string":
-                return new LiteralString((String) value, queryService);
-            case "external-id":
-                return new ExternalIdentifier((String) value, queryService);
-            case "url":
-                return new URL((String) value, queryService);
+                String stringValue = (String) value.value;
+                return getLiteralString(dataType, queryService, stringValue);
+            case "globecoordinate":
+                GlobeCoordinateData globeCoordinateValue = new GlobeCoordinateData((Map<String, Object>) value.value);
+                return new GlobeCoordinate(globeCoordinateValue, queryService);
             case "monolingualtext":
-                return buildMonolingualText((Map<String, Object>) value, queryService);
+                MonolingualTextData monolingualTextValue = new MonolingualTextData((Map<String, String>) value.value);
+                return new MonolingualText(monolingualTextValue, queryService);
+            case "quantity":
+                QuantityData quantityValue = new QuantityData((Map<String, String>) value.value);
+                return new Quantity(quantityValue, queryService);
+            case "time":
+                TimeData timeValue = new TimeData((Map<String, Object>) value.value);
+                return new Time(timeValue, queryService);
+            case "wikibase-entityid":
+                EntityData entityValue = new EntityData((Map<String, Object>) value.value);
+                return getDatum(dataType, queryService, entityValue);
+        }
+
+        throw new Error("Datatype: " + dataType + " not found");
+    }
+
+    private static Datum getDatum(String dataType, DatumQueryService queryService, EntityData entityValue) {
+        try {
+            switch (dataType) {
+                case "wikibase-item":
+                    return new Item(entityValue, queryService);
+                case "wikibase-property":
+                    return new Property(entityValue, queryService);
+                case "wikibase-lexeme":
+                    return new Lexeme(entityValue, queryService);
+                case "wikibase-form":
+                    return new Form(entityValue, queryService);
+                case "wikibase-sense":
+                    return new Sense(entityValue, queryService);
+            }
+        } catch (NotFoundException e) {
+            throw new Error("ID: " + entityValue.id + " not found", e);
         }
         throw new Error("Datatype: " + dataType + " not found");
     }
 
-    @NotNull
-    private static MonolingualText buildMonolingualText(Map<String, Object> value, DatumQueryService queryService) {
-        Map<String, Object> result;
-        result = value;
-        return new MonolingualText((String) result.get("value"), (String) result.get("language"), queryService);
-    }
-
-    @NotNull
-    private static GlobeCoordinate buildGlobeCoordinate(Map<String, Object> value, DatumQueryService queryService) {
-        Map<String, Object> result;
-        result = value;
-        return new GlobeCoordinate((double) result.get("latitude"), (double) result.get("longitude"),
-                queryService);
-    }
-
-    @NotNull
-    private static Property buildProperty(Map<String, Object> value, DatumQueryService queryService) {
-        Map<String, Object> result;
-        result = value;
-        try {
-            return new Property((String) result.get("id"), queryService);
-        } catch (NotFoundException e) {
-            throw new Error("Parsed Datum" + result.get("id") + "does not exist? (or no data)", e);
+    private static LiteralString getLiteralString(String dataType, DatumQueryService queryService, String stringValue) {
+        switch (dataType) {
+            case "commons-media":
+                return new CommonsMedia(stringValue, queryService);
+            case "geographic-shape":
+                return new GeographicShape(stringValue, queryService);
+            case "string":
+                return new LiteralString(stringValue, queryService);
+            case "tabular-data":
+                return new TabularData(stringValue, queryService);
+            case "url":
+                return new URL(stringValue, queryService);
+            case "external-id":
+                return new ExternalIdentifier(stringValue, queryService);
+            case "musical-notation":
+                return new MusicalNotation(stringValue, queryService);
+            case "mathematical-expression":
+                return new MathematicalExpression(stringValue, queryService);
         }
-    }
-
-    @NotNull
-    private static Item buildItem(Map<String, Object> value, DatumQueryService queryService) {
-        Map<String, Object> result;
-        result = value;
-        try {
-            return new Item((String) result.get("id"), queryService);
-        } catch (NotFoundException e) {
-            throw new Error("Parsed Datum " + result.get("id") + " does not exist? (or no data)", e);
-        }
+        throw new Error("Datatype: " + dataType + " not found");
     }
 
     public abstract String getTitle();

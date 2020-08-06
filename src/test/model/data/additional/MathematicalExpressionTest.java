@@ -6,6 +6,7 @@ import model.data.source.LocalRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 class MathematicalExpressionTest {
@@ -13,22 +14,24 @@ class MathematicalExpressionTest {
 
     @BeforeAll
     static void setUp() {
-        additional = new MathematicalExpression(new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))));
+        additional =
+                new MathematicalExpression("\\frac{1}{2}",
+                        new DatumQueryService(new LocalCollector(new LocalRepository("wikidata.json"))));
     }
 
     @Test
     void getTitle() {
-        assertNull(additional.getTitle());
+        assertEquals("\\frac{1}{2}", additional.getTitle());
     }
 
     @Test
     void getDescription() {
-        assertNull(additional.getDescription());
+        assertEquals("\\frac{1}{2}", additional.getDescription());
     }
 
     @Test
     void getID() {
-        assertNull(additional.getID());
+        assertEquals("\\frac{1}{2}", additional.getID());
     }
 
     @Test

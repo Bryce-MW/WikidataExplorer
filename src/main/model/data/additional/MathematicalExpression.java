@@ -1,32 +1,10 @@
 package model.data.additional;
 
 import model.data.DatumQueryService;
-import ui.cli.StatementList;
 
-public class MathematicalExpression extends AbstractAdditional {
-    protected MathematicalExpression(DatumQueryService queryService) {
-        super(queryService);
-    }
-    // TODO: These are not needed yet
+public class MathematicalExpression extends LiteralString {
 
-    @Override
-    public String getTitle() {
-        return null;
+    public MathematicalExpression(String value, DatumQueryService queryService) {
+        super(value, queryService);
     }
-
-    @Override
-    public String getDescription() {
-        return null;
-    }
-
-    @Override
-    public String getID() {
-        return null;
-    }
-
-    @Override
-    public StatementList getStatements() {
-        return null;
-    }
-//TODO: Implement
 }

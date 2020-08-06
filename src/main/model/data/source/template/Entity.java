@@ -10,6 +10,7 @@ public class Entity implements Serializable {
     public String id;
     public String type;
     public Map<String, Label> labels;
+    public Map<String, Label> representations;
     public Map<String, Description> descriptions;
     public Map<String, List<Alias>> aliases;
     public Map<String, List<Claim>> claims;
@@ -23,6 +24,7 @@ public class Entity implements Serializable {
                 + "id='" + id + '\''
                 + ", type='" + type + '\''
                 + ", labels=" + labels
+                + ", representations=" + representations
                 + ", descriptions=" + descriptions
                 + ", aliases=" + aliases
                 + ", claims=" + claims
