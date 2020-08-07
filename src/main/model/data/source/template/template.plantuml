@@ -7,6 +7,7 @@ title __TEMPLATE's Class Diagram__\n
       namespace template {
         class model.data.source.template.Alias {
             + language : String
+            {static} + serialVersionUID : long
             + value : String
             + toString()
         }
@@ -23,6 +24,7 @@ title __TEMPLATE's Class Diagram__\n
             + qualifiers : Map<String, List<Qualifier>>
             + rank : String
             + references : List<Reference>
+            {static} + serialVersionUID : long
             + type : String
             + toString()
         }
@@ -35,6 +37,7 @@ title __TEMPLATE's Class Diagram__\n
     namespace source {
       namespace template {
         class model.data.source.template.DataValue {
+            {static} + serialVersionUID : long
             + type : String
             + value : Object
             + toString()
@@ -49,6 +52,7 @@ title __TEMPLATE's Class Diagram__\n
       namespace template {
         class model.data.source.template.Description {
             + language : String
+            {static} + serialVersionUID : long
             + value : String
             + toString()
         }
@@ -62,6 +66,7 @@ title __TEMPLATE's Class Diagram__\n
       namespace template {
         class model.data.source.template.Entities {
             + entities : Map<String, Entity>
+            {static} + serialVersionUID : long
             + toString()
         }
       }
@@ -80,6 +85,8 @@ title __TEMPLATE's Class Diagram__\n
             + labels : Map<String, Label>
             + lastrevid : int
             + modified : String
+            + representations : Map<String, Label>
+            {static} + serialVersionUID : long
             + sitelinks : Map<String, SiteLink>
             + type : String
             + toString()
@@ -94,6 +101,7 @@ title __TEMPLATE's Class Diagram__\n
       namespace template {
         class model.data.source.template.Label {
             + language : String
+            {static} + serialVersionUID : long
             + value : String
             + toString()
         }
@@ -109,6 +117,7 @@ title __TEMPLATE's Class Diagram__\n
             + datatype : String
             + hash : String
             + property : String
+            {static} + serialVersionUID : long
             + snaktype : String
             + toString()
         }
@@ -122,6 +131,7 @@ title __TEMPLATE's Class Diagram__\n
       namespace template {
         class model.data.source.template.Reference {
             + hash : String
+            {static} + serialVersionUID : long
             + snaks : Map<String, List<Snak>>
             + snaksOrder : List<String>
             + toString()
@@ -136,6 +146,7 @@ title __TEMPLATE's Class Diagram__\n
       namespace template {
         class model.data.source.template.SiteLink {
             + badges : List<String>
+            {static} + serialVersionUID : long
             + site : String
             + title : String
             + url : String
@@ -152,6 +163,7 @@ title __TEMPLATE's Class Diagram__\n
         class model.data.source.template.Snak {
             + datatype : String
             + property : String
+            {static} + serialVersionUID : long
             + snaktype : String
             + toString()
         }
@@ -160,8 +172,19 @@ title __TEMPLATE's Class Diagram__\n
   }
   
 
+  model.data.source.template.Alias .up.|> java.io.Serializable
+  model.data.source.template.Claim .up.|> java.io.Serializable
   model.data.source.template.Claim o-- model.data.source.template.Snak : mainsnak
+  model.data.source.template.DataValue .up.|> java.io.Serializable
+  model.data.source.template.Description .up.|> java.io.Serializable
+  model.data.source.template.Entities .up.|> java.io.Serializable
+  model.data.source.template.Entity .up.|> java.io.Serializable
+  model.data.source.template.Label .up.|> java.io.Serializable
+  model.data.source.template.Qualifier .up.|> java.io.Serializable
   model.data.source.template.Qualifier o-- model.data.source.template.DataValue : datavalue
+  model.data.source.template.Reference .up.|> java.io.Serializable
+  model.data.source.template.SiteLink .up.|> java.io.Serializable
+  model.data.source.template.Snak .up.|> java.io.Serializable
   model.data.source.template.Snak o-- model.data.source.template.DataValue : datavalue
 
 

@@ -7,7 +7,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class StatementTest {
     private static DatumQueryService queryService;
@@ -48,5 +51,13 @@ class StatementTest {
     @Test
     void getParentID() {
         assertEquals("Q42", statement.getParentID());
+    }
+
+    @Test
+    void parse() {
+        ArrayList<String> command = new ArrayList<>();
+        command.add("P800");
+        statement.getStatements();
+        assertFalse(statement.parse(command));
     }
 }

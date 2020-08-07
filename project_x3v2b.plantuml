@@ -21,6 +21,12 @@ title __PROJECT-STARTER's Class Diagram__\n
   
 
   namespace model.data {
+    class model.data.NotFoundException {
+    }
+  }
+  
+
+  namespace model.data {
     class model.data.Qualifier {
     }
   }
@@ -149,6 +155,56 @@ title __PROJECT-STARTER's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.URL {
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace additional {
+      namespace helpers {
+        class model.data.additional.helpers.EntityData {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace additional {
+      namespace helpers {
+        class model.data.additional.helpers.GlobeCoordinateData {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace additional {
+      namespace helpers {
+        class model.data.additional.helpers.MonolingualTextData {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace additional {
+      namespace helpers {
+        class model.data.additional.helpers.QuantityData {
+        }
+      }
+    }
+  }
+  
+
+  namespace model.data {
+    namespace additional {
+      namespace helpers {
+        class model.data.additional.helpers.TimeData {
+        }
       }
     }
   }
@@ -451,7 +507,6 @@ title __PROJECT-STARTER's Class Diagram__\n
   model.data.DatumLink -up-|> model.data.Value
   model.data.DatumLink o-- model.data.Statement : property
   model.data.DatumLink o-- ui.cli.StatementList : statementList
-  model.data.DatumLink o-- model.data.Value : value
   model.data.DatumQueryService o-- model.data.source.Collector : collector
   model.data.Qualifier -up-|> model.data.Value
   model.data.Qualifier o-- model.data.pages.Property : property
@@ -468,30 +523,40 @@ title __PROJECT-STARTER's Class Diagram__\n
   model.data.Value o-- model.data.DatumQueryService : queryService
   model.data.Value o-- ui.cli.ItemView : view
   model.data.additional.AbstractAdditional -up-|> model.data.Value
-  model.data.additional.CommonsMedia -up-|> model.data.additional.AbstractAdditional
-  model.data.additional.ExternalIdentifier -up-|> model.data.additional.AbstractAdditional
-  model.data.additional.GeographicShape -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.CommonsMedia -up-|> model.data.additional.LiteralString
+  model.data.additional.ExternalIdentifier -up-|> model.data.additional.LiteralString
+  model.data.additional.GeographicShape -up-|> model.data.additional.LiteralString
   model.data.additional.GlobeCoordinate -up-|> model.data.additional.AbstractAdditional
   model.data.additional.LiteralString -up-|> model.data.additional.AbstractAdditional
-  model.data.additional.MathematicalExpression -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.MathematicalExpression -up-|> model.data.additional.LiteralString
   model.data.additional.MonolingualText -up-|> model.data.additional.AbstractAdditional
-  model.data.additional.MusicalNotation -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.MusicalNotation -up-|> model.data.additional.LiteralString
   model.data.additional.Quantity -up-|> model.data.additional.AbstractAdditional
-  model.data.additional.TabularData -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.Quantity o-- model.data.pages.Item : unit
+  model.data.additional.TabularData -up-|> model.data.additional.LiteralString
   model.data.additional.Time -up-|> model.data.additional.AbstractAdditional
-  model.data.additional.URL -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.URL -up-|> model.data.additional.LiteralString
   model.data.pages.Item -up-|> model.data.Datum
-  model.data.pages.Item o-- model.data.DatumQueryService : queryService
   model.data.pages.Property -up-|> model.data.Datum
-  model.data.pages.Property o-- model.data.DatumQueryService : queryService
-  model.data.pages.language.Form o-- model.data.DatumQueryService : queryService
-  model.data.pages.language.Lexeme o-- model.data.DatumQueryService : queryService
-  model.data.pages.language.Sense o-- model.data.DatumQueryService : queryService
+  model.data.pages.language.Form -up-|> model.data.Datum
+  model.data.pages.language.Lexeme -up-|> model.data.Datum
+  model.data.pages.language.Sense -up-|> model.data.Datum
   model.data.source.Collector o-- model.data.source.LocalRepository : repository
   model.data.source.LocalCollector -up-|> model.data.source.WebCollector
   model.data.source.WebCollector -up-|> model.data.source.Collector
+  model.data.source.template.Alias .up.|> java.io.Serializable
+  model.data.source.template.Claim .up.|> java.io.Serializable
   model.data.source.template.Claim o-- model.data.source.template.Snak : mainsnak
+  model.data.source.template.DataValue .up.|> java.io.Serializable
+  model.data.source.template.Description .up.|> java.io.Serializable
+  model.data.source.template.Entities .up.|> java.io.Serializable
+  model.data.source.template.Entity .up.|> java.io.Serializable
+  model.data.source.template.Label .up.|> java.io.Serializable
+  model.data.source.template.Qualifier .up.|> java.io.Serializable
   model.data.source.template.Qualifier o-- model.data.source.template.DataValue : datavalue
+  model.data.source.template.Reference .up.|> java.io.Serializable
+  model.data.source.template.SiteLink .up.|> java.io.Serializable
+  model.data.source.template.Snak .up.|> java.io.Serializable
   model.data.source.template.Snak o-- model.data.source.template.DataValue : datavalue
   model.prefrences.LayoutProfile o-- ui.cli.LayoutManager : layout
   model.prefrences.LayoutProfileManager .up.|> ui.cli.MenuBarItem
@@ -509,8 +574,6 @@ title __PROJECT-STARTER's Class Diagram__\n
   ui.cli.MenuBar o-- ui.cli.SearchBar : searchBar
   ui.cli.SearchBar .up.|> ui.cli.MenuBarItem
   ui.cli.SearchBar o-- model.data.ScopedSearch : searchService
-  ui.cli.StatementList o-- model.data.Value : entity
-  ui.cli.StatementList o-- model.data.DatumQueryService : queryService
 
 
 right footer

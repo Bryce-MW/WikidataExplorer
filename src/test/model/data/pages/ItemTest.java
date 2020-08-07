@@ -7,7 +7,10 @@ import model.data.source.LocalRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class ItemTest {
     private static Item entity;
@@ -35,5 +38,15 @@ class ItemTest {
     @Test
     void getStatements() {
         assertEquals(10, entity.getStatements().toStringArray().size());
+    }
+
+    @Test
+    void testParse() {
+        assertFalse(entity.parse(new ArrayList<>())); //False for any input
+    }
+
+    @Test
+    void testHashCode() {
+        assertEquals(56414707, entity.hashCode());
     }
 }

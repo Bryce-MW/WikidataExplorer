@@ -47,6 +47,16 @@ title __DATA's Class Diagram__\n
   
 
   namespace model.data {
+    class model.data.NotFoundException {
+        {static} + serialVersionUID : long
+        + NotFoundException()
+        + NotFoundException()
+        {static} - buildErrorString()
+    }
+  }
+  
+
+  namespace model.data {
     class model.data.Qualifier {
         + Qualifier()
         + getDescription()
@@ -115,6 +125,8 @@ title __DATA's Class Diagram__\n
         + setView()
         # Value()
         # toggleLeft()
+        {static} - getDatum()
+        {static} - getLiteralString()
     }
   }
   
@@ -124,7 +136,6 @@ title __DATA's Class Diagram__\n
   model.data.DatumLink -up-|> model.data.Value
   model.data.DatumLink o-- model.data.Statement : property
   model.data.DatumLink o-- ui.cli.StatementList : statementList
-  model.data.DatumLink o-- model.data.Value : value
   model.data.DatumQueryService o-- model.data.source.Collector : collector
   model.data.Qualifier -up-|> model.data.Value
   model.data.Qualifier o-- model.data.pages.Property : property

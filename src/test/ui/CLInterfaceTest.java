@@ -24,7 +24,8 @@ class CLInterfaceTest {
     void testParse() {
         assertDoesNotThrow(() -> CLInterface.main(new String[]{" ", "exit"}));
         assertDoesNotThrow(() -> CLInterface.main(new String[]{"S", "exit"}));
+        assertDoesNotThrow(() -> CLInterface.main(new String[]{"save", "exit", "web"}));
         assertDoesNotThrow(() -> CLInterface.main(new String[]{"save", "exit"}));
-        assertDoesNotThrow(() -> CLInterface.main(new String[]{"load", "exit"}));
+        assertDoesNotThrow(() -> CLInterface.main(new String[]{"load", "exit", "web"}));
     }
 }

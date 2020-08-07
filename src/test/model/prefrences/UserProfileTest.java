@@ -15,6 +15,7 @@ import ui.cli.SearchBar;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class UserProfileTest {
     UserProfile userProfile;
@@ -42,5 +43,10 @@ class UserProfileTest {
     @Test
     void testToString() {
         assertEquals("P: Test", userProfile.toString());
+    }
+
+    @Test
+    void parse() {
+        assertTrue(userProfile.parse(new ArrayList<>())); //Always true for any input
     }
 }

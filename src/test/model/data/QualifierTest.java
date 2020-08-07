@@ -8,7 +8,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class QualifierTest {
     private static DatumQueryService queryService;
@@ -36,5 +38,25 @@ class QualifierTest {
     @Test
     void getValue() {
         assertEquals(value, qualifier.getValue());
+    }
+
+    @Test
+    void getTitle() {
+        assertEquals("series ordinal: 1", qualifier.getTitle());
+    }
+
+    @Test
+    void getDescription() {
+        assertEquals("1", qualifier.getDescription());
+    }
+
+    @Test
+    void getStatements() {
+        assertNull(qualifier.getStatements());
+    }
+
+    @Test
+    void parse() {
+        assertFalse(qualifier.parse(new ArrayList<>())); //Always false
     }
 }

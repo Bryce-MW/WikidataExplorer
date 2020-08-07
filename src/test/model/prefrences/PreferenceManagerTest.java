@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PreferenceManagerTest {
     PreferenceManager preferenceManager;
@@ -31,5 +32,10 @@ class PreferenceManagerTest {
     @Test
     void testToString() {
         assertEquals("E: Preferences", preferenceManager.toString());
+    }
+
+    @Test
+    void parse() {
+        assertTrue(preferenceManager.parse(new ArrayList<>())); //Always true for any arguments
     }
 }

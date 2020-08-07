@@ -15,6 +15,7 @@ import ui.cli.SearchBar;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LayoutProfileManagerTest {
     LayoutProfileManager layoutProfileManager;
@@ -50,5 +51,10 @@ class LayoutProfileManagerTest {
     @Test
     void testToString() {
         assertEquals("L: Test", layoutProfileManager.toString());
+    }
+
+    @Test
+    void parse() {
+        assertTrue(layoutProfileManager.parse(new ArrayList<>())); //Always returns true
     }
 }

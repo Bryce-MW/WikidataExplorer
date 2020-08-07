@@ -7,11 +7,11 @@ import model.data.source.LocalRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class QuantityTest {
     private static Quantity additional;
@@ -46,5 +46,10 @@ class QuantityTest {
     @Test
     void getStatements() {
         assertNull(additional.getStatements());
+    }
+
+    @Test
+    void testParse() {
+        assertFalse(additional.parse(new ArrayList<>())); //Always false
     }
 }
