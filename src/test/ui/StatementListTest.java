@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class StatementListTest {
     private static DatumQueryService queryService;
@@ -46,5 +47,13 @@ class StatementListTest {
         }
 
         assertEquals("◄ Q1: universe\n", result.toString());
+    }
+
+    @Test
+    void parse() {
+        ArrayList<String> commands = new ArrayList<>();
+        commands.add("P1");
+        commands.add("R");
+        assertFalse(statementList.parse(commands));
     }
 }

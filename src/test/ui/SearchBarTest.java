@@ -10,7 +10,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.cli.SearchBar;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class SearchBarTest {
     private SearchBar searchBar;
@@ -36,5 +39,10 @@ class SearchBarTest {
     @Test
     void testToString() {
         assertEquals("S: Search", searchBar.toString());
+    }
+
+    @Test
+    void parse() {
+        assertFalse(searchBar.parse(new ArrayList<>()));
     }
 }

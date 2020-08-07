@@ -112,7 +112,7 @@ public class LayoutManager {
         if (index == -1) {
             return false;
         }
-        if (index == controllers.size()) {
+        if (index + 1 == controllers.size()) {
             add(new ItemViewController(new ItemView(statement)));
         } else {
             ItemViewController right = controllers.get(index + 1);

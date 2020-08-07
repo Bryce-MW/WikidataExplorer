@@ -95,4 +95,34 @@ class LayoutManagerTest {
         layoutManager.print();
         // Just prints something so all that we can check is that there are no exceptions
     }
+
+    @Test
+    void toggleLeft() throws NotFoundException {
+        Item q42 = new Item("Q42", queryService);
+        ItemViewController controller = new ItemViewController(new ItemView(q42));
+        assertFalse(layoutManager.toggleLeft(q42, controller));
+        layoutManager.add(controller);
+        assertTrue(layoutManager.toggleLeft(q42, controller));
+
+        Item p800 = new Item("P800", queryService);
+        ItemViewController p800ViewController = new ItemViewController(new ItemView(p800));
+        layoutManager.add(p800ViewController);
+        assertTrue(layoutManager.toggleLeft(p800, p800ViewController));
+        assertTrue(layoutManager.toggleLeft(q42, controller));
+    }
+
+    @Test
+    void toggleRight() throws NotFoundException {
+        Item q42 = new Item("Q42", queryService);
+        ItemViewController controller = new ItemViewController(new ItemView(q42));
+        assertFalse(layoutManager.toggleRight(q42, controller));
+        layoutManager.add(controller);
+        assertTrue(layoutManager.toggleRight(q42, controller));
+
+        Item p800 = new Item("P800", queryService);
+        ItemViewController p800ViewController = new ItemViewController(new ItemView(p800));
+        layoutManager.add(p800ViewController);
+        assertTrue(layoutManager.toggleRight(p800, p800ViewController));
+        assertTrue(layoutManager.toggleRight(q42, controller));
+    }
 }

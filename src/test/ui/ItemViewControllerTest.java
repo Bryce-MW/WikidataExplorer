@@ -9,7 +9,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.cli.ItemView;
 import ui.cli.ItemViewController;
+import ui.cli.LayoutManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -83,5 +85,33 @@ class ItemViewControllerTest {
                 "┃◄ P31: instance of           ┃\n" +
                 "┃◄ P40: child                 ┃\n" +
                 "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n", string.toString());
+    }
+
+    @Test
+    void parse() {
+        ArrayList<String> commands = new ArrayList<>();
+        commands.add("Q42");
+        assertFalse(itemViewController.parse(commands));
+    }
+
+    @Test
+    void toggleLeft() throws NotFoundException {
+        LayoutManager manager = new LayoutManager(100, 100, null);
+        manager.add(itemViewController);
+        itemViewController.toggleLeft(new Item("Q42", queryService));
+    }
+
+    @Test
+    void toggleRight() throws NotFoundException {
+        LayoutManager manager = new LayoutManager(100, 100, null);
+        manager.add(itemViewController);
+        itemViewController.toggleRight(new Item("Q42", queryService));
+    }
+
+    @Test
+    void toggle() throws NotFoundException {
+        Item q42 = new Item("Q42", queryService);
+        assertTrue(itemViewController.toggle(q42));
+        assertFalse(itemViewController.toggle(q42));
     }
 }

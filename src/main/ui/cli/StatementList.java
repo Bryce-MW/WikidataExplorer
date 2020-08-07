@@ -17,24 +17,6 @@ public class StatementList {
         this.statements = statements;
     }
 
-    // Currently unused but kept just in case
-//    private void getBasicStatements() {
-//        if (entity instanceof Datum) {
-//            ArrayList<String> statementNames = queryService.getStatementListByID(entity.getID());
-//            int max = 10;
-//            if (statementNames.size() < 10) {
-//                max = statementNames.size();
-//            }
-//            ArrayList<String> tree = new ArrayList<>(2);
-//            tree.add(entity.getID());
-//            for (String s : statementNames.subList(0, max)) {
-//                tree.add(s);
-//                statements.add(queryService.getStatementByTree(tree, (Datum) entity));
-//                tree.remove(1);
-//            }
-//        }
-//    }
-
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(statements.size());
         AtomicInteger maxID = new AtomicInteger(); // Must be atomic due to the lambda usage

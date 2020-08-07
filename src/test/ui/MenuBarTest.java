@@ -112,4 +112,14 @@ class MenuBarTest {
                         "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━┛" +
                         "\n", result.toString());
     }
+
+    @Test
+    void parse() {
+        ArrayList<String> commands = new ArrayList<>();
+        commands.add("K");
+        assertFalse(menuBar.parse(commands));
+        commands.set(0, "S");
+        commands.add("Q42");
+        assertFalse(menuBar.parse(commands));
+    }
 }

@@ -43,7 +43,7 @@ public final class CLInterface {
         // Start point for CLI interface
         CLInput = new Scanner(System.in);
 
-        if (!(args.length != 0 && (args[0].equals("Intellij") || args[0].equals("exit")))) {
+        if (!(args.length != 0 && (Arrays.asList(args).contains("Intellij") || Arrays.asList(args).contains("exit")))) {
             getWindowSize();
         }
 
@@ -116,8 +116,11 @@ public final class CLInterface {
         String command;
         System.out.print("Data $ ");
         if (args.length != 0) {
-            if (args[0].equals("exit")) {
-                CLInput = new Scanner("test\nexit");
+            if (Arrays.asList(args).contains("exit")) {
+                StringBuilder commands = new StringBuilder();
+                Arrays.asList(args).forEach((i) -> commands.append(i).append('\n'));
+                commands.append("exit");
+                CLInput = new Scanner(commands.toString());
             }
         }
 
