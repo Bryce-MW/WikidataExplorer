@@ -1,21 +1,28 @@
 package ui.cli;
 
+import ui.GUInterface;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 
-public class MenuBar {
+public class MenuBar extends JMenuBar {
     //TODO: Implement
     private final ArrayList<MenuBarItem> items;
     private final int width;
     private SearchBar searchBar;
+    private GUInterface guInterface;
 
     public MenuBar(ArrayList<MenuBarItem> items, SearchBar searchBar, int width) {
         this.items = items;
         this.searchBar = searchBar;
         this.width = width;
+
+        items.forEach(this::add);
+        add(searchBar);
     }
 
     public void swapSearch(SearchBar searchBar) {
@@ -87,5 +94,15 @@ public class MenuBar {
         }
 
         return parsers.get(command.get(0)).apply(command.subList(1, command.size()));
+    }
+
+    public void setGuInterface(GUInterface guInterface) {
+        this.guInterface = guInterface;
+    }
+
+    public void toggle(ItemView itemView) {
+        if (guInterface != null) {
+            guInterface.toggle(itemView);
+        }
     }
 }

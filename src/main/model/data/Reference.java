@@ -16,6 +16,12 @@ public class Reference extends Value {
         this.value = value;
     }
 
+    @Override
+    public void addNotify() {
+        super.addNotify();
+        remove(button);
+    }
+
     public Property getProperty() {
         return property;
     }

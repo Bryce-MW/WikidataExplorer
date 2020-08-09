@@ -4,7 +4,7 @@ import model.data.DatumQueryService;
 import ui.cli.StatementList;
 
 public class LiteralString extends AbstractAdditional {
-    private final String value;
+    protected final String value;
 
     public LiteralString(String value, DatumQueryService queryService) {
         super(queryService);

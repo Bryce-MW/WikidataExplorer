@@ -11,11 +11,7 @@ title __UI's Class Diagram__\n
         {static} - WIDTH : int
         {static} - WINDOW_WIDTH : int
         {static} - layout : LayoutManager
-        {static} - mainSearch : SearchBar
         {static} - menuBar : MenuBar
-        {static} - preferences : PreferenceManager
-        {static} - profile : UserProfile
-        {static} - profileLayouts : LayoutProfileManager
         {static} - queryService : DatumQueryService
         {static} - repository : LocalRepository
         + CLInterface()
@@ -23,6 +19,7 @@ title __UI's Class Diagram__\n
         {static} - getWindowSize()
         {static} - loop()
         {static} - parse()
+        {static} - setupStartingItem()
     }
   }
   

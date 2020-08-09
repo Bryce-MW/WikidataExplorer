@@ -117,7 +117,6 @@ title __CLI's Class Diagram__\n
           + add()
           + parse()
           + toStringArray()
-          - getBasicStatements()
       }
     }
   }
@@ -132,8 +131,6 @@ title __CLI's Class Diagram__\n
   ui.cli.MenuBar o-- ui.cli.SearchBar : searchBar
   ui.cli.SearchBar .up.|> ui.cli.MenuBarItem
   ui.cli.SearchBar o-- model.data.ScopedSearch : searchService
-  ui.cli.StatementList o-- model.data.Value : entity
-  ui.cli.StatementList o-- model.data.DatumQueryService : queryService
 
 
 right footer

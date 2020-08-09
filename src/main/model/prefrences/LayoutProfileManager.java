@@ -5,7 +5,7 @@ import ui.cli.MenuBarItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LayoutProfileManager implements MenuBarItem {
+public class LayoutProfileManager extends MenuBarItem {
     //TODO: Implement
     private final ArrayList<LayoutProfile> profiles;
     private final LayoutProfile current;

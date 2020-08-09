@@ -6,8 +6,12 @@ title __LANGUAGE's Class Diagram__\n
     namespace pages {
       namespace language {
         class model.data.pages.language.Form {
-            - id : String
+            - description : String
+            - name : String
             + Form()
+            + Form()
+            + getDescription()
+            + getTitle()
         }
       }
     }
@@ -18,8 +22,12 @@ title __LANGUAGE's Class Diagram__\n
     namespace pages {
       namespace language {
         class model.data.pages.language.Lexeme {
-            - id : String
+            - description : String
+            - name : String
             + Lexeme()
+            + Lexeme()
+            + getDescription()
+            + getTitle()
         }
       }
     }
@@ -30,17 +38,21 @@ title __LANGUAGE's Class Diagram__\n
     namespace pages {
       namespace language {
         class model.data.pages.language.Sense {
-            - id : String
+            - description : String
+            - name : String
             + Sense()
+            + Sense()
+            + getDescription()
+            + getTitle()
         }
       }
     }
   }
   
 
-  model.data.pages.language.Form o-- model.data.DatumQueryService : queryService
-  model.data.pages.language.Lexeme o-- model.data.DatumQueryService : queryService
-  model.data.pages.language.Sense o-- model.data.DatumQueryService : queryService
+  model.data.pages.language.Form -up-|> model.data.Datum
+  model.data.pages.language.Lexeme -up-|> model.data.Datum
+  model.data.pages.language.Sense -up-|> model.data.Datum
 
 
 right footer

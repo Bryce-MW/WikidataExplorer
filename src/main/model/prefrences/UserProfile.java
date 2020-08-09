@@ -6,7 +6,7 @@ import ui.cli.MenuBarItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserProfile implements MenuBarItem {
+public class UserProfile extends MenuBarItem {
     //TODO: Implement
     private final PreferenceManager preferences;
     private final LayoutProfileManager layout;
@@ -24,7 +24,7 @@ public class UserProfile implements MenuBarItem {
         return preferences;
     }
 
-    public LayoutProfileManager getLayout() {
+    public LayoutProfileManager getLayoutProfileManager() {
         return layout;
     }
 

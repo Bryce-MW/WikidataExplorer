@@ -5,7 +5,7 @@ import ui.cli.MenuBarItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PreferenceManager implements MenuBarItem {
+public class PreferenceManager extends MenuBarItem {
     //TODO: Implement
     private final ArrayList<UserPreference> preferences;
 

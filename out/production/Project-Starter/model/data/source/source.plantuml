@@ -24,7 +24,6 @@ title __SOURCE's Class Diagram__\n
     namespace source {
       class model.data.source.LocalCollector {
           + LocalCollector()
-          + triggerLoad()
           + triggerSave()
           # getJson()
       }
@@ -62,6 +61,8 @@ title __SOURCE's Class Diagram__\n
           + triggerSave()
           # getJson()
           {static} - formatURL()
+          - iterateSnaks()
+          - tryGetQualifiers()
       }
     }
   }

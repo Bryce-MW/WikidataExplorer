@@ -137,7 +137,14 @@ public class WebCollector extends Collector {
         if (descriptions == null) {
             return "";
         }
-        return descriptions.get("en").value;
+
+        Description name = descriptions.get("en");
+        if (name == null) {
+            Description other = new Description();
+            other.value = "";
+            return descriptions.values().stream().findAny().orElse(other).value;
+        }
+        return name.value;
     }
 
     @Override

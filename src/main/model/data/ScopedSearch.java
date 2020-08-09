@@ -1,6 +1,7 @@
 package model.data;
 
 import model.data.pages.Item;
+import org.jetbrains.annotations.NotNull;
 import ui.cli.ItemView;
 import ui.cli.ItemViewController;
 
@@ -33,7 +34,7 @@ public class ScopedSearch {
             for (Value value : values) {
                 controller.add(new ItemView(value));
             }
-        } else {
+        } else if (item != null) {
             for (Value value : values) {
                 item.addStatement(value);
             }
@@ -50,6 +51,20 @@ public class ScopedSearch {
             }
             return values;
         }
+        if (item != null) {
+            return itemIsNull(query);
+        }
+        ArrayList<Value> values = new ArrayList<>(1);
+        try {
+            values.add(new Item(query, queryService));
+        } catch (NotFoundException e) {
+            // Search was not found so we just return the empty list;
+        }
+        return values;
+    }
+
+    @NotNull
+    private ArrayList<Value> itemIsNull(String query) {
         ArrayList<String> tree = new ArrayList<>(2);
         tree.add(item.getID());
         tree.add(query);
@@ -62,5 +77,9 @@ public class ScopedSearch {
             }
         }
         return result;
+    }
+
+    public ItemViewController getController() {
+        return controller;
     }
 }

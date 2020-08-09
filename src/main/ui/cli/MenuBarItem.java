@@ -1,16 +1,18 @@
 package ui.cli;
 
+import javax.swing.*;
 import java.util.List;
 import java.util.function.Function;
 
-public interface MenuBarItem {
-    String getCommandString();
+public abstract class MenuBarItem extends JMenu {
 
-    default Function<List<String>, Boolean> getParser() {
+    public abstract String getCommandString();
+
+    public Function<List<String>, Boolean> getParser() {
         return this::parse;
     }
 
-    Boolean parse(List<String> subList);
+    public abstract Boolean parse(List<String> subList);
 
     //TODO: Implement
 

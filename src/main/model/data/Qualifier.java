@@ -16,6 +16,12 @@ public class Qualifier extends Value {
         this.value = value;
     }
 
+    @Override
+    public void addNotify() {
+        super.addNotify();
+        remove(button);
+    }
+
     public Property getProperty() {
         return property;
     }

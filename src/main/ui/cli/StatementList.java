@@ -3,18 +3,29 @@ package ui.cli;
 import model.data.DatumQueryService;
 import model.data.Value;
 import model.util.StringBuilderUtil;
+import ui.GUInterface;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class StatementList {
+public class StatementList extends JPanel {
     //TODO: Implement
     private final ArrayList<Value> statements;
 
     public StatementList(Value entity, DatumQueryService queryService, ArrayList<Value> statements) {
         // Entity this statement list refers to.
         this.statements = statements;
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        statements.forEach(this::addComp);
+        setBackground(GUInterface.midGray);
+    }
+
+    private void addComp(JComponent value) {
+        add(value);
+        revalidate();
     }
 
     public List<StringBuilder> toStringArray() {
@@ -51,5 +62,14 @@ public class StatementList {
 
     public void add(Value value) {
         statements.add(value);
+        addComp(value);
+    }
+
+    public void toggle(ItemView value) {
+        Container parent = getParent();
+        if (parent instanceof ItemView) {
+            ItemView guInterface = (ItemView) parent;
+            guInterface.toggle(value);
+        }
     }
 }

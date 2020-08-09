@@ -60,7 +60,7 @@ public final class CLInterface {
         layout.setSepWidth(SEP_WIDTH);
 
         UserProfile profile = new UserProfile("Default", layout); //Not going to bother localizing this
-        LayoutProfileManager profileLayouts = profile.getLayout();
+        LayoutProfileManager profileLayouts = profile.getLayoutProfileManager();
         PreferenceManager preferences = profile.getPreferences();
 
         menuItems.add(profileLayouts);

@@ -37,7 +37,7 @@ class UserProfileTest {
 
     @Test
     void getLayout() {
-        assertEquals(1, userProfile.getLayout().getProfiles().size());
+        assertEquals(1, userProfile.getLayoutProfileManager().getProfiles().size());
     }
 
     @Test

@@ -15,11 +15,7 @@ title __ADDITIONAL's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.CommonsMedia {
-          + getDescription()
-          + getID()
-          + getStatements()
-          + getTitle()
-          # CommonsMedia()
+          + CommonsMedia()
       }
     }
   }
@@ -28,11 +24,7 @@ title __ADDITIONAL's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.ExternalIdentifier {
-          + getDescription()
-          + getID()
-          + getStatements()
-          + getTitle()
-          # ExternalIdentifier()
+          + ExternalIdentifier()
       }
     }
   }
@@ -41,11 +33,7 @@ title __ADDITIONAL's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.GeographicShape {
-          + getDescription()
-          + getID()
-          + getStatements()
-          + getTitle()
-          # GeographicShape()
+          + GeographicShape()
       }
     }
   }
@@ -54,11 +42,13 @@ title __ADDITIONAL's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.GlobeCoordinate {
+          - posLat : double
+          - posLong : double
+          + GlobeCoordinate()
+          + GlobeCoordinate()
           + getDescription()
-          + getID()
           + getStatements()
           + getTitle()
-          # GlobeCoordinate()
       }
     }
   }
@@ -81,11 +71,7 @@ title __ADDITIONAL's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.MathematicalExpression {
-          + getDescription()
-          + getID()
-          + getStatements()
-          + getTitle()
-          # MathematicalExpression()
+          + MathematicalExpression()
       }
     }
   }
@@ -94,11 +80,14 @@ title __ADDITIONAL's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.MonolingualText {
+          - language : String
+          - text : String
+          + MonolingualText()
+          + MonolingualText()
           + getDescription()
           + getID()
           + getStatements()
           + getTitle()
-          # MonolingualText()
       }
     }
   }
@@ -107,11 +96,7 @@ title __ADDITIONAL's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.MusicalNotation {
-          + getDescription()
-          + getID()
-          + getStatements()
-          + getTitle()
-          # MusicalNotation()
+          + MusicalNotation()
       }
     }
   }
@@ -120,11 +105,12 @@ title __ADDITIONAL's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.Quantity {
+          - amount : String
+          + Quantity()
           + getDescription()
           + getID()
           + getStatements()
           + getTitle()
-          # Quantity()
       }
     }
   }
@@ -133,11 +119,7 @@ title __ADDITIONAL's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.TabularData {
-          + getDescription()
-          + getID()
-          + getStatements()
-          + getTitle()
-          # TabularData()
+          + TabularData()
       }
     }
   }
@@ -147,6 +129,7 @@ title __ADDITIONAL's Class Diagram__\n
     namespace additional {
       class model.data.additional.Time {
           # time : String
+          + Time()
           + Time()
           + getDescription()
           + getID()
@@ -160,29 +143,26 @@ title __ADDITIONAL's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.URL {
-          + getDescription()
-          + getID()
-          + getStatements()
-          + getTitle()
-          # URL()
+          + URL()
       }
     }
   }
   
 
   model.data.additional.AbstractAdditional -up-|> model.data.Value
-  model.data.additional.CommonsMedia -up-|> model.data.additional.AbstractAdditional
-  model.data.additional.ExternalIdentifier -up-|> model.data.additional.AbstractAdditional
-  model.data.additional.GeographicShape -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.CommonsMedia -up-|> model.data.additional.LiteralString
+  model.data.additional.ExternalIdentifier -up-|> model.data.additional.LiteralString
+  model.data.additional.GeographicShape -up-|> model.data.additional.LiteralString
   model.data.additional.GlobeCoordinate -up-|> model.data.additional.AbstractAdditional
   model.data.additional.LiteralString -up-|> model.data.additional.AbstractAdditional
-  model.data.additional.MathematicalExpression -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.MathematicalExpression -up-|> model.data.additional.LiteralString
   model.data.additional.MonolingualText -up-|> model.data.additional.AbstractAdditional
-  model.data.additional.MusicalNotation -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.MusicalNotation -up-|> model.data.additional.LiteralString
   model.data.additional.Quantity -up-|> model.data.additional.AbstractAdditional
-  model.data.additional.TabularData -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.Quantity o-- model.data.pages.Item : unit
+  model.data.additional.TabularData -up-|> model.data.additional.LiteralString
   model.data.additional.Time -up-|> model.data.additional.AbstractAdditional
-  model.data.additional.URL -up-|> model.data.additional.AbstractAdditional
+  model.data.additional.URL -up-|> model.data.additional.LiteralString
 
 
 right footer

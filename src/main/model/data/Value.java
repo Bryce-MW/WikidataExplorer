@@ -11,17 +11,45 @@ import model.data.source.template.DataValue;
 import ui.cli.ItemView;
 import ui.cli.StatementList;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 import java.util.Map;
 
-public abstract class Value {
+public abstract class Value extends JComponent {
     protected DatumQueryService queryService;
     protected ItemView view = null;
     protected final String id;
+    protected boolean initialized;
+    protected JButton button;
 
     protected Value(DatumQueryService queryService, String id) {
         this.id = id;
         this.queryService = queryService;
+        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        setAlignmentX(Component.LEFT_ALIGNMENT);
+    }
+
+    private static LiteralString getLiteralString(String dataType, DatumQueryService queryService, String stringValue) {
+        switch (dataType) {
+            case "commonsMedia":
+                return new CommonsMedia(stringValue, queryService);
+            case "geographic-shape":
+                return new GeographicShape(stringValue, queryService);
+            case "string":
+                return new LiteralString(stringValue, queryService);
+            case "tabular-data":
+                return new TabularData(stringValue, queryService);
+            case "url":
+                return new URL(stringValue, queryService);
+            case "external-id":
+                return new ExternalIdentifier(stringValue, queryService);
+            case "musical-notation":
+                return new MusicalNotation(stringValue, queryService);
+            case "mathematical-expression":
+                return new MathematicalExpression(stringValue, queryService);
+        }
+        throw new Error("Datatype: " + dataType + " not found");
     }
 
     public static Value parseData(DataValue value, String dataType, DatumQueryService queryService) {
@@ -69,26 +97,31 @@ public abstract class Value {
         throw new Error("Datatype: " + dataType + " not found");
     }
 
-    private static LiteralString getLiteralString(String dataType, DatumQueryService queryService, String stringValue) {
-        switch (dataType) {
-            case "commons-media":
-                return new CommonsMedia(stringValue, queryService);
-            case "geographic-shape":
-                return new GeographicShape(stringValue, queryService);
-            case "string":
-                return new LiteralString(stringValue, queryService);
-            case "tabular-data":
-                return new TabularData(stringValue, queryService);
-            case "url":
-                return new URL(stringValue, queryService);
-            case "external-id":
-                return new ExternalIdentifier(stringValue, queryService);
-            case "musical-notation":
-                return new MusicalNotation(stringValue, queryService);
-            case "mathematical-expression":
-                return new MathematicalExpression(stringValue, queryService);
+    @Override
+    public void addNotify() {
+        super.addNotify();
+        if (!initialized) {
+            initialized = true;
+            Value thisValue = this;
+            button = new JButton("◄");
+            button.addActionListener(i -> {
+                Container parent = getParent();
+                if (parent instanceof StatementList) {
+                    StatementList guInterface = (StatementList) parent;
+                    guInterface.toggle(new ItemView(thisValue));
+                }
+            });
+            add(button);
+            JLabel idComp = new JLabel(getID());
+            idComp.setForeground(Color.WHITE);
+            add(idComp);
+            JLabel separator = new JLabel(": ");
+            separator.setForeground(Color.WHITE);
+            add(separator);
+            JLabel titleComp = new JLabel(getTitle());
+            titleComp.setForeground(Color.WHITE);
+            add(titleComp);
         }
-        throw new Error("Datatype: " + dataType + " not found");
     }
 
     public abstract String getTitle();
@@ -151,6 +184,7 @@ public abstract class Value {
         getStatements().add(value);
     }
 
-
-    //TODO: Implement
+    public String getImage() {
+        return "";
+    }
 }

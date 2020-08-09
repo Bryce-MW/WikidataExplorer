@@ -5,11 +5,14 @@ import model.data.ScopedSearch;
 import model.data.Value;
 import model.data.pages.Item;
 import model.util.StringBuilderUtil;
+import ui.GUInterface;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemView {
+public class ItemView extends JPanel {
     //TODO: Implement
     private final Value item; // Q42, P137, L23 . . .
 
@@ -30,6 +33,56 @@ public class ItemView {
         description = item.getDescription();
         searchBar = new SearchBar(new ScopedSearch(item, item.getQuery()));
         statements = item.getStatements();
+
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+
+        addButtons();
+
+        JLabel titleComp = new JLabel(title);
+        titleComp.setForeground(Color.WHITE);
+        add(titleComp);
+        JLabel descr = new JLabel(description);
+        descr.setForeground(Color.WHITE);
+        add(descr);
+        add(searchBar);
+        add(statements);
+        setBackground(GUInterface.midGray);
+        setForeground(Color.WHITE);
+    }
+
+    private void addButtons() {
+        JButton button = new JButton("X");
+        int size = (int) button.getMaximumSize().getHeight();
+        button.setMaximumSize(new Dimension(size, size));
+        button.addActionListener(i -> {
+            Container parent = this.getParent();
+            parent.remove(this);
+            parent.repaint();
+        });
+        add(button);
+
+        addRightButton();
+    }
+
+    private void addRightButton() {
+        JButton button;
+        int size;
+        button = new JButton("►");
+        size = (int) button.getMaximumSize().getHeight();
+        button.setMaximumSize(new Dimension(size, size));
+        button.addActionListener(i -> {
+            Container parent = this.getParent();
+            if (parent instanceof GUInterface) {
+                GUInterface guInterface = (GUInterface) parent;
+                try {
+                    guInterface.toggle(new ItemView(new Item(this.item.getID(), this.item.getQuery())));
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        add(button);
     }
 
     public void updateLanguage(String lang) {
@@ -123,5 +176,30 @@ public class ItemView {
         this.controller = controller;
     }
 
-    //TODO: Rendering Stuff
+    public void toggle(ItemView value) {
+        Container parent = getParent();
+        if (parent instanceof GUInterface) {
+            GUInterface guInterface = (GUInterface) parent;
+            guInterface.toggle(value);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof ItemView)) {
+            return false;
+        }
+
+        ItemView itemView = (ItemView) o;
+
+        return getItem() == itemView.getItem(); //I want to compare actually being the same item
+    }
+
+    @Override
+    public int hashCode() {
+        return getItem().hashCode();
+    }
 }
