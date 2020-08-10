@@ -12,6 +12,7 @@ public class DatumLink extends Value {
     private final String name;
     private final String description;
     private StatementList statementList = null;
+    private final Value value;
 
     public DatumLink(DatumQueryService queryService, Statement property, Value value) {
         super(queryService, value.getID());
@@ -20,6 +21,12 @@ public class DatumLink extends Value {
         description = value.getDescription();
         qualifiers = queryService.getQualifiersByStatement(property, value);
         references = queryService.getReferencesByStatement(property, value);
+        this.value = value;
+    }
+
+    @Override
+    public String getImage() {
+        return value.getImage();
     }
 
     @Override

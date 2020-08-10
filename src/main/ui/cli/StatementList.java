@@ -1,5 +1,6 @@
 package ui.cli;
 
+import model.data.DatumLink;
 import model.data.DatumQueryService;
 import model.data.Value;
 import model.util.StringBuilderUtil;
@@ -71,5 +72,16 @@ public class StatementList extends JPanel {
             ItemView guInterface = (ItemView) parent;
             guInterface.toggle(value);
         }
+    }
+
+    public String getImage() {
+        for (Value statement : statements) {
+            if (statement instanceof DatumLink) {
+                if (!statement.getImage().equals("")) {
+                    return statement.getImage();
+                }
+            }
+        }
+        return "";
     }
 }

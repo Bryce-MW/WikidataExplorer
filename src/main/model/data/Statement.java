@@ -22,6 +22,11 @@ public class Statement extends Value {
     }
 
     @Override
+    public String getImage() {
+        return statements.getImage();
+    }
+
+    @Override
     public String getTitle() {
         return name;
     }

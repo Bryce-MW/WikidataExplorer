@@ -2,13 +2,17 @@ package ui.cli;
 
 import model.data.NotFoundException;
 import model.data.ScopedSearch;
+import model.data.Statement;
 import model.data.Value;
 import model.data.pages.Item;
 import model.util.StringBuilderUtil;
 import ui.GUInterface;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +53,14 @@ public class ItemView extends JPanel {
         add(statements);
         setBackground(GUInterface.midGray);
         setForeground(Color.WHITE);
+
+        if (item instanceof Statement && item.getID().equals("P18")) {
+            try {
+                add(new JLabel(new ImageIcon(ImageIO.read(new URL(item.getImage())))));
+            } catch (IOException ignored) {
+                // Just don't add the image if there isn't one
+            }
+        }
     }
 
     private void addButtons() {

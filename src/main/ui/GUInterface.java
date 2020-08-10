@@ -26,7 +26,6 @@ public class GUInterface extends JPanel {
     public static final Color darkGray = new Color(43, 43, 43);
     public static final Color midGray = new Color(49, 51, 53);
     public static final Color brightGray = new Color(60, 63, 65);
-    private static GUInterface testInterface;
     private final Map<Component, Point> locations = new HashMap<>();
     private boolean pressed;
     private int startX;
@@ -35,7 +34,6 @@ public class GUInterface extends JPanel {
 
     public static void main(String[] args) throws NotFoundException {
         GUInterface gui = new GUInterface();
-        testInterface = new GUInterface();
         DatumQueryService queryService =
                 new DatumQueryService(new WebCollector(new LocalRepository("wikidata.json")));
         queryService.triggerLoad();
@@ -43,9 +41,8 @@ public class GUInterface extends JPanel {
 
         MenuBar menuBar = setupMenubar(gui, queryService);
 
-        testInterface.add(q42);
         gui.setLayout(new DragLayout());
-        gui.setUpWindow(q42, testInterface, menuBar);
+        gui.setUpWindow(q42, menuBar);
     }
 
     @NotNull
@@ -69,7 +66,7 @@ public class GUInterface extends JPanel {
         return menuBar;
     }
 
-    private void setUpWindow(ItemView inital, GUInterface other, MenuBar menuBar) {
+    private void setUpWindow(ItemView inital, MenuBar menuBar) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Wikidata Explorer");
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -83,50 +80,52 @@ public class GUInterface extends JPanel {
             frame.addMouseListener(new GMouseAdapter(this));
             frame.addMouseMotionListener(new GDragListener(this));
 
-            locations.put(inital, inital.getLocation());
-            other.remove(inital);
-
             this.add(inital);
-            inital.setLocation(locations.get(inital));
         });
     }
 
     public void pressed(int x, int y) {
         pressed = true;
-        startX = x;
-        startY = y;
-        down = getComponentAt(x, y - 60);
+        Point pos = getMousePosition();
+        startX = pos.x;
+        startY = pos.y;
+        down = getComponentAt(pos.x, pos.y);
     }
 
 
     public void released(int x, int y) {
         pressed = false;
-        startX = x;
-        startY = y;
+        Point pos = getMousePosition();
+        if (pos != null) {
+            startX = pos.x;
+            startY = pos.y;
+        }
     }
 
     public void drag(int x, int y) {
-        if (pressed) {
-            if (down instanceof ItemView) {
-                ItemView item = (ItemView) down;
-                Point location = item.getLocation();
-                int origX = (int) location.getX();
-                int origY = (int) location.getY();
-                item.setLocation(x - startX + origX, y - startY + origY);
-                locations.put(item, item.getLocation());
-            }
-            if (down instanceof GUInterface) {
-                for (Component component : getComponents()) {
-                    Point location = component.getLocation();
-                    int origX = (int) location.getX();
-                    int origY = (int) location.getY();
-                    component.setLocation(x - startX + origX, y - startY + origY);
-                    locations.put(component, component.getLocation());
+        Point pos = getMousePosition();
+        if (pos != null) {
+            if (pressed) {
+                moveComponent(pos.x, pos.y, down);
+                if (down instanceof GUInterface) {
+                    for (Component component : getComponents()) {
+                        moveComponent(pos.x, pos.y, component);
+                    }
                 }
             }
+            startX = pos.x;
+            startY = pos.y;
         }
-        startX = x;
-        startY = y;
+    }
+
+    private void moveComponent(int x, int y, Component component) {
+        if (component instanceof ItemView) {
+            ItemView item = (ItemView) component;
+            Point location = item.getLocation();
+            int origX = (int) location.getX();
+            int origY = (int) location.getY();
+            item.setLocation(x - startX + origX, y - startY + origY);
+        }
     }
 
     public void toggle(ItemView value) {
@@ -134,22 +133,11 @@ public class GUInterface extends JPanel {
         if (components.contains(value)) {
             Component toRemove = components.get(components.indexOf(value));
             remove(toRemove);
-            locations.remove(toRemove);
         } else {
-            testInterface.add(value);
-
-            locations.put(value, value.getLocation());
-
-            testInterface.remove(value);
-
             add(value);
-            value.setLocation(locations.get(value));
         }
         SwingUtilities.invokeLater(() -> {
             revalidate();
-            for (Component component : locations.keySet()) {
-                component.setLocation(locations.get(component));
-            }
             repaint();
         });
     }
