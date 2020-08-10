@@ -38,8 +38,11 @@ public class ItemView extends JPanel {
         searchBar = new SearchBar(new ScopedSearch(item, item.getQuery()));
         statements = item.getStatements();
 
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        configureView();
+    }
 
+    private void configureView() {
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         addButtons();
 
