@@ -52,7 +52,9 @@ public class ItemView extends JPanel {
         JLabel descr = new JLabel(description);
         descr.setForeground(Color.WHITE);
         add(descr);
-        add(searchBar);
+        if (item.needsSearchBar()) {
+            add(searchBar);
+        }
         add(statements);
         setBackground(GUInterface.midGray);
         setForeground(Color.WHITE);
@@ -77,7 +79,9 @@ public class ItemView extends JPanel {
         });
         add(button);
 
-        addRightButton();
+        if (item.needsRightArrow()) {
+            addRightButton();
+        }
     }
 
     private void addRightButton() {

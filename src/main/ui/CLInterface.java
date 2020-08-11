@@ -43,7 +43,7 @@ public final class CLInterface {
         // Start point for CLI interface
         CLInput = new Scanner(System.in);
 
-        if (!(args.length != 0 && (Arrays.asList(args).contains("Intellij") || Arrays.asList(args).contains("exit")))) {
+        if (!(args.length != 0 && (Arrays.asList(args).contains("IntelliJ") || Arrays.asList(args).contains("exit")))) {
             getWindowSize();
         }
 
