@@ -216,4 +216,4 @@ UIDesign.png			out
       bit from the internet. I added a comment with a link to the original
        location. I could have maybe figured that part out own my own, but it
         would have taken many more hours than I was willing to put in.
-* That's about all there is too it!
+* That's about all there is to it!
