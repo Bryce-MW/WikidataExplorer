@@ -30,7 +30,6 @@ title __UI's Class Diagram__\n
         {static} + darkGray : Color
         {static} + midGray : Color
         - down : Component
-        - locations : Map<Component, Point>
         - pressed : boolean
         - startX : int
         - startY : int

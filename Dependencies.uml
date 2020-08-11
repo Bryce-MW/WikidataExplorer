@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>model</OriginalElement>
+  <nodes>
+    <node x="1040.7580273984904" y="2350.0">ui.cli.ItemViewController</node>
+    <node x="5325.105807651014" y="0.0">model.data.source.template.DataValue</node>
+    <node x="2387.5873704814653" y="3150.0">model.data.additional.helpers.TimeData</node>
+    <node x="3783.6474743176814" y="3360.0">model.data.additional.MusicalNotation</node>
+    <node x="2576.59927524337" y="2920.0">model.data.pages.language.Form</node>
+    <node x="1744.6123246847064" y="3150.0">model.data.additional.helpers.GlobeCoordinateData</node>
+    <node x="349.136672415304" y="3950.0">ui.cli.SearchBar</node>
+    <node x="3442.6474743176814" y="3360.0">model.data.additional.Time</node>
+    <node x="5027.513911724482" y="730.0">model.data.pages.Property</node>
+    <node x="5199.84713983896" y="290.0">model.data.source.template.Description</node>
+    <node x="2437.8373704814653" y="2920.0">model.data.pages.language.Lexeme</node>
+    <node x="2826.0426149826435" y="430.0">model.data.additional.helpers.EntityData</node>
+    <node x="442.9616017458143" y="850.0">model.prefrences.UserPreference</node>
+    <node x="2823.59927524337" y="2920.0">ui.cli.StatementList</node>
+    <node x="2990.304267720402" y="3760.0">model.data.Value</node>
+    <node x="2699.0426149826435" y="430.0">model.data.Datum</node>
+    <node x="5284.84713983896" y="200.0">model.data.source.template.Qualifier</node>
+    <node x="5649.326890422072" y="850.0">model.data.source.LocalRepository</node>
+    <node x="3030.6474743176814" y="3360.0">model.data.additional.GlobeCoordinate</node>
+    <node x="620.9616017458143" y="850.0">ui.cli.MenuBarItem</node>
+    <node x="985.4655365559993" y="1500.0">ui.gui.GDragListener</node>
+    <node x="1341.4655365559993" y="1500.0">ui.gui.GMouseAdapter</node>
+    <node x="5823.620287987108" y="290.0">model.data.source.template.Claim</node>
+    <node x="584.2646520146513" y="1500.0">model.prefrences.UserProfile</node>
+    <node x="5897.620287987108" y="200.0">model.data.source.template.Reference</node>
+    <node x="2243.8146432087383" y="1500.0">model.data.pages.Item</node>
+    <node x="1983.993277065659" y="3150.0">model.data.additional.helpers.MonolingualTextData</node>
+    <node x="5535.813575024145" y="290.0">model.data.source.template.Alias</node>
+    <node x="1087.4784077632899" y="1740.0">ui.GUInterface</node>
+    <node x="776.9908424908422" y="1500.0">ui.cli.MenuBar</node>
+    <node x="488.97570139116397" y="1200.0">model.prefrences.PreferenceManager</node>
+    <node x="3969.6474743176814" y="3360.0">model.data.additional.CommonsMedia</node>
+    <node x="1261.4784077632899" y="1740.0">model.util.StringBuilderUtil</node>
+    <node x="5640.230241690811" y="730.0">model.data.source.template.Entities</node>
+    <node x="5839.287520613978" y="100.0">model.data.source.template.Snak</node>
+    <node x="3236.6474743176814" y="3360.0">model.data.additional.MonolingualText</node>
+    <node x="791.7449321603954" y="2210.0">ui.cli.LayoutManager</node>
+    <node x="1193.9471577632899" y="1980.0">ui.cli.ItemView</node>
+    <node x="183.97945888867116" y="850.0">model.prefrences.LayoutProfile</node>
+    <node x="1283.6185205721517" y="2460.0">model.data.ScopedSearch</node>
+    <node x="2231.7129740353557" y="3360.0">model.data.additional.Quantity</node>
+    <node x="3543.6474743176814" y="3360.0">model.data.additional.MathematicalExpression</node>
+    <node x="6059.744626611446" y="1740.0">model.data.source.LocalCollector</node>
+    <node x="3347.7694116549656" y="2920.0">model.data.additional.AbstractAdditional</node>
+    <node x="5017.750022835593" y="850.0">model.data.Qualifier</node>
+    <node x="3601.379358375653" y="2650.0">model.data.DatumQueryService</node>
+    <node x="4239.647474317681" y="3360.0">model.data.additional.ExternalIdentifier</node>
+    <node x="4147.647474317681" y="3360.0">model.data.additional.URL</node>
+    <node x="248.84500574863705" y="4160.0">ui.CLInterface</node>
+    <node x="3249.3191301341585" y="290.0">model.data.NotFoundException</node>
+    <node x="0.0" y="4261.0">model.prefrences.SerialIOController</node>
+    <node x="4858.750022835593" y="850.0">model.data.Reference</node>
+    <node x="2696.59927524337" y="2920.0">model.data.pages.language.Sense</node>
+    <node x="5662.813575024145" y="290.0">model.data.source.template.SiteLink</node>
+    <node x="5374.84713983896" y="290.0">model.data.source.template.Label</node>
+    <node x="4047.1474743176814" y="3150.0">model.data.additional.LiteralString</node>
+    <node x="4634.647474317681" y="3360.0">model.data.additional.TabularData</node>
+    <node x="5246.057387077494" y="1500.0">model.data.source.WebCollector</node>
+    <node x="4799.314140984348" y="1200.0">model.data.source.Collector</node>
+    <node x="1175.4655365559993" y="1500.0">ui.gui.DragLayout</node>
+    <node x="224.96160174581428" y="1200.0">model.prefrences.LayoutProfileManager</node>
+    <node x="3665.6407220120163" y="1200.0">model.data.DatumLink</node>
+    <node x="1181.5080273984904" y="3150.0">model.data.additional.helpers.QuantityData</node>
+    <node x="4448.647474317681" y="3360.0">model.data.additional.GeographicShape</node>
+    <node x="3497.4134492847434" y="850.0">model.data.Statement</node>
+    <node x="5592.283081521939" y="430.0">model.data.source.template.Entity</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="model.data.pages.Item" target="model.data.Datum">
+      <point x="-26.66666666666663" y="-15.0" />
+      <point x="2257.147976542072" y="1480.0" />
+      <point x="2266.708223780606" y="1480.0" />
+      <point x="2266.708223780606" y="590.0" />
+      <point x="2707.7426149826438" y="590.0" />
+      <point x="-34.80000000000001" y="15.0" />
+    </edge>
+    <edge source="model.data.additional.MusicalNotation" target="model.data.additional.LiteralString">
+      <point x="55.33333333333326" y="-15.0" />
+      <point x="3921.980807651015" y="3320.0" />
+      <point x="4095.6768860823877" y="3320.0" />
+      <point x="-26.470588235294144" y="15.0" />
+    </edge>
+    <edge source="model.data.Reference" target="model.data.Value">
+      <point x="10.818181818181984" y="15.0" />
+      <point x="4929.068204653775" y="990.0" />
+      <point x="5026.6807264009085" y="990.0" />
+      <point x="5026.6807264009085" y="3650.0" />
+      <point x="3064.1852201013544" y="3650.0" />
+      <point x="30.380952380952294" y="-15.0" />
+    </edge>
+    <edge source="model.data.additional.GeographicShape" target="model.data.additional.LiteralString">
+      <point x="0.0" y="-15.0" />
+      <point x="4531.647474317681" y="3290.0" />
+      <point x="4175.08865078827" y="3290.0" />
+      <point x="52.94117647058829" y="15.0" />
+    </edge>
+    <edge source="model.data.Statement" target="model.data.Value">
+      <point x="-38.25" y="15.0" />
+      <point x="3518.6634492847434" y="1020.0" />
+      <point x="2544.7183228624176" y="1020.0" />
+      <point x="2544.7183228624176" y="3510.0" />
+      <point x="3022.756648672783" y="3510.0" />
+      <point x="-11.047619047619037" y="-15.0" />
+    </edge>
+    <edge source="model.data.pages.Property" target="model.data.Datum">
+      <point x="-37.0" y="-15.0" />
+      <point x="5046.013911724482" y="560.0" />
+      <point x="2773.8626149826437" y="560.0" />
+      <point x="31.32000000000005" y="15.0" />
+    </edge>
+    <edge source="model.data.additional.Time" target="model.data.additional.AbstractAdditional">
+      <point x="0.0" y="-15.0" />
+      <point x="3482.6474743176814" y="3220.0" />
+      <point x="3447.5849743176814" y="3220.0" />
+      <point x="3447.5849743176814" y="3130.0" />
+      <point x="3450.1444116549656" y="3130.0" />
+      <point x="7.875" y="15.0" />
+    </edge>
+    <edge source="model.data.source.WebCollector" target="model.data.source.Collector">
+      <point x="-52.592592592593064" y="-15.0" />
+      <point x="5264.464794484901" y="1380.0" />
+      <point x="4908.397474317681" y="1380.0" />
+      <point x="49.58333333333326" y="15.0" />
+    </edge>
+    <edge source="model.prefrences.UserProfile" target="ui.cli.MenuBarItem">
+      <point x="58.625" y="-15.0" />
+      <point x="709.8896520146513" y="1480.0" />
+      <point x="701.3685585340213" y="1480.0" />
+      <point x="701.3685585340213" y="1180.0" />
+      <point x="687.9616017458143" y="1180.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="model.data.pages.language.Lexeme" target="model.data.Datum">
+      <point x="-35.625" y="-15.0" />
+      <point x="2449.7123704814653" y="2900.0" />
+      <point x="2439.452920750303" y="2900.0" />
+      <point x="2439.452920750303" y="610.0" />
+      <point x="2714.702614982644" y="610.0" />
+      <point x="-27.839999999999975" y="15.0" />
+    </edge>
+    <edge source="model.data.pages.language.Sense" target="model.data.Datum">
+      <point x="-10.875" y="-15.0" />
+      <point x="2729.22427524337" y="2790.0" />
+      <point x="2734.59927524337" y="2790.0" />
+      <point x="-6.960000000000036" y="15.0" />
+    </edge>
+    <edge source="model.data.additional.Quantity" target="model.data.additional.AbstractAdditional">
+      <point x="49.33333333333326" y="-15.0" />
+      <point x="2336.546307368689" y="3340.0" />
+      <point x="2357.0873704814653" y="3340.0" />
+      <point x="2357.0873704814653" y="3090.0" />
+      <point x="3371.3944116549656" y="3090.0" />
+      <point x="-70.875" y="15.0" />
+    </edge>
+    <edge source="model.data.additional.LiteralString" target="model.data.additional.AbstractAdditional">
+      <point x="-18.75" y="-15.0" />
+      <point x="4103.397474317681" y="3020.0" />
+      <point x="3481.6444116549656" y="3020.0" />
+      <point x="39.375" y="15.0" />
+    </edge>
+    <edge source="model.data.additional.MonolingualText" target="model.data.additional.AbstractAdditional">
+      <point x="66.40000000000009" y="-15.0" />
+      <point x="3386.047474317682" y="3340.0" />
+      <point x="3390.3099743176817" y="3340.0" />
+      <point x="3390.3099743176817" y="3130.0" />
+      <point x="3434.3944116549656" y="3130.0" />
+      <point x="-7.875" y="15.0" />
+    </edge>
+    <edge source="model.data.additional.GlobeCoordinate" target="model.data.additional.AbstractAdditional">
+      <point x="66.40000000000009" y="-15.0" />
+      <point x="3180.047474317682" y="3330.0" />
+      <point x="3146.7474743176817" y="3330.0" />
+      <point x="3146.7474743176817" y="3110.0" />
+      <point x="3402.8944116549656" y="3110.0" />
+      <point x="-39.375" y="15.0" />
+    </edge>
+    <edge source="model.data.additional.MathematicalExpression" target="model.data.additional.LiteralString">
+      <point x="73.33333333333348" y="-15.0" />
+      <point x="3726.9808076510153" y="3300.0" />
+      <point x="4078.029827258858" y="3300.0" />
+      <point x="-44.11764705882342" y="15.0" />
+    </edge>
+    <edge source="model.data.Qualifier" target="model.data.Value">
+      <point x="32.454545454545496" y="15.0" />
+      <point x="5109.704568290139" y="1120.0" />
+      <point x="5133.109588358057" y="1120.0" />
+      <point x="5133.109588358057" y="3700.0" />
+      <point x="3071.0899820061163" y="3700.0" />
+      <point x="37.28571428571422" y="-15.0" />
+    </edge>
+    <edge source="model.data.Datum" target="model.data.Value">
+      <point x="-20.879999999999995" y="15.0" />
+      <point x="2721.662614982644" y="630.0" />
+      <point x="2543.3373704814653" y="630.0" />
+      <point x="2543.3373704814653" y="3520.0" />
+      <point x="3021.3756962918305" y="3520.0" />
+      <point x="-12.428571428571331" y="-15.0" />
+    </edge>
+    <edge source="model.data.additional.CommonsMedia" target="model.data.additional.LiteralString">
+      <point x="0.0" y="-15.0" />
+      <point x="4040.6474743176814" y="3330.0" />
+      <point x="4104.500415494153" y="3330.0" />
+      <point x="-17.647058823529505" y="15.0" />
+    </edge>
+    <edge source="model.prefrences.PreferenceManager" target="ui.cli.MenuBarItem">
+      <point x="60.33333333333303" y="-15.0" />
+      <point x="639.809034724497" y="1180.0" />
+      <point x="668.8187446029574" y="1180.0" />
+      <point x="-19.142857142856883" y="15.0" />
+    </edge>
+    <edge source="model.data.additional.URL" target="model.data.additional.LiteralString">
+      <point x="0.0" y="-15.0" />
+      <point x="4183.647474317681" y="3330.0" />
+      <point x="4139.794533141211" y="3330.0" />
+      <point x="17.647058823529505" y="15.0" />
+    </edge>
+    <edge source="model.data.additional.TabularData" target="model.data.additional.LiteralString">
+      <point x="0.0" y="-15.0" />
+      <point x="4701.647474317681" y="3260.0" />
+      <point x="4192.735709611799" y="3260.0" />
+      <point x="70.58823529411757" y="15.0" />
+    </edge>
+    <edge source="model.prefrences.LayoutProfileManager" target="ui.cli.MenuBarItem">
+      <point x="76.875" y="-15.0" />
+      <point x="404.3366017458143" y="1160.0" />
+      <point x="630.5330303172427" y="1160.0" />
+      <point x="-57.42857142857156" y="15.0" />
+    </edge>
+    <edge source="model.data.additional.AbstractAdditional" target="model.data.Value">
+      <point x="70.875" y="15.0" />
+      <point x="3513.1444116549656" y="3000.0" />
+      <point x="4779.147474317681" y="3000.0" />
+      <point x="4779.147474317681" y="3550.0" />
+      <point x="3050.3756962918305" y="3550.0" />
+      <point x="16.57142857142867" y="-15.0" />
+    </edge>
+    <edge source="model.data.additional.ExternalIdentifier" target="model.data.additional.LiteralString">
+      <point x="0.0" y="-15.0" />
+      <point x="4334.147474317681" y="3310.0" />
+      <point x="4157.44159196474" y="3310.0" />
+      <point x="35.29411764705878" y="15.0" />
+    </edge>
+    <edge source="model.data.DatumLink" target="model.data.Value">
+      <point x="17.850000000000023" y="15.0" />
+      <point x="3742.9907220120162" y="1440.0" />
+      <point x="4784.6712838414915" y="1440.0" />
+      <point x="4784.6712838414915" y="3590.0" />
+      <point x="3055.89950581564" y="3590.0" />
+      <point x="22.095238095238074" y="-15.0" />
+    </edge>
+    <edge source="model.data.pages.language.Form" target="model.data.Datum">
+      <point x="-30.0" y="-15.0" />
+      <point x="2586.59927524337" y="2790.0" />
+      <point x="2580.84927524337" y="2790.0" />
+      <point x="2580.84927524337" y="640.0" />
+      <point x="2725.142614982644" y="640.0" />
+      <point x="-17.399999999999977" y="15.0" />
+    </edge>
+    <edge source="model.data.source.LocalCollector" target="model.data.source.WebCollector">
+      <point x="-31.600000000000364" y="-15.0" />
+      <point x="6107.144626611445" y="1640.0" />
+      <point x="5377.914529934637" y="1640.0" />
+      <point x="60.85714285714312" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.20250521920668058" x="3109.0" y="2145.5" />
+  <SelectedNodes>
+    <node>ui.cli.ItemViewController</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>Production</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

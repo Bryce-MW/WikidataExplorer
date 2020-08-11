@@ -220,7 +220,7 @@ UIDesign.png			out
 
 # Phase 4
 
-## Part 1
+## Task 2
 
 * Test and design a class that is robust: I have an Exception called
  NotFoundException. This is mainly thrown in the WebCollector and
@@ -248,3 +248,28 @@ UIDesign.png			out
 : There are a number of places where I have bi-directional associations. I
  can't possibly list all of them, but if you want to see one of them, you can
   look at the LayoutManager and ItemViewController classes.
+
+## Task 3
+At this point, there is not much I can do to improve the structure and
+ design without spending a huge number of hours. There are a lot of classes
+  that both handle data and display of that data. There are also a lot of
+   places where things not existing cause problems which I cannot easily fix
+   . Overall, there really just needs to be a much better design to the
+    whole thing which more clearly separates what each thing does. Statements
+     and DatumLink and a number of other classes shouldn't really be items
+      but are because when I wrote them, making them not items would require
+       a lot of changes elsewhere. There could be a much better use of the
+        composite pattern than the not-so-great usage that I have now which
+         only somewhat works. Have a look at model.uml and Dependencies.uml
+          (for dependencies.uml, select all and click show dependencies to see
+           the craziness). Then you will understand how hard changing
+            literally anything is. Basically, my entire project has extremely
+             high cohesion which is quite bad if I ever want to expand it
+             . That being said, I will probably never do anything else with
+              this project. If I ever wanted to do it again, I would write it
+               as a web app. There are a number of nice JavaScript libraries
+                that let you use Python rather than JS for client-side
+                 implementations. I've also updated the project_x3v2b UML
+                  diagram which is created by SketchIT and plantUML. It seems
+                   to not really work properly but is another nice
+                   visualization.
