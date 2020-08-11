@@ -24,6 +24,29 @@ title __UI's Class Diagram__\n
   }
   
 
+  namespace ui {
+    class ui.GUInterface {
+        {static} + brightGray : Color
+        {static} + darkGray : Color
+        {static} + midGray : Color
+        - down : Component
+        - locations : Map<Component, Point>
+        - pressed : boolean
+        - startX : int
+        - startY : int
+        + drag()
+        {static} + main()
+        + pressed()
+        + released()
+        + toggle()
+        - moveComponent()
+        - setUpWindow()
+        {static} - setupMenubar()
+    }
+  }
+  
+
+  ui.GUInterface -up-|> javax.swing.JPanel
 
 
 right footer

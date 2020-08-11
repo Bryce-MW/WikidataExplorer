@@ -447,6 +447,12 @@ title __PROJECT-STARTER's Class Diagram__\n
   
 
   namespace ui {
+    class ui.GUInterface {
+    }
+  }
+  
+
+  namespace ui {
     namespace cli {
       class ui.cli.ItemView {
       }
@@ -480,7 +486,7 @@ title __PROJECT-STARTER's Class Diagram__\n
 
   namespace ui {
     namespace cli {
-      interface ui.cli.MenuBarItem {
+      abstract class ui.cli.MenuBarItem {
       }
     }
   }
@@ -502,11 +508,36 @@ title __PROJECT-STARTER's Class Diagram__\n
   }
   
 
+  namespace ui {
+    namespace gui {
+      class ui.gui.DragLayout {
+      }
+    }
+  }
+  
+
+  namespace ui {
+    namespace gui {
+      class ui.gui.GDragListener {
+      }
+    }
+  }
+  
+
+  namespace ui {
+    namespace gui {
+      class ui.gui.GMouseAdapter {
+      }
+    }
+  }
+  
+
   model.data.Datum -up-|> model.data.Value
   model.data.Datum o-- ui.cli.StatementList : statements
   model.data.DatumLink -up-|> model.data.Value
   model.data.DatumLink o-- model.data.Statement : property
   model.data.DatumLink o-- ui.cli.StatementList : statementList
+  model.data.DatumLink o-- model.data.Value : value
   model.data.DatumQueryService o-- model.data.source.Collector : collector
   model.data.Qualifier -up-|> model.data.Value
   model.data.Qualifier o-- model.data.pages.Property : property
@@ -520,6 +551,7 @@ title __PROJECT-STARTER's Class Diagram__\n
   model.data.Statement -up-|> model.data.Value
   model.data.Statement o-- model.data.Datum : about
   model.data.Statement o-- ui.cli.StatementList : statements
+  model.data.Value -up-|> javax.swing.JComponent
   model.data.Value o-- model.data.DatumQueryService : queryService
   model.data.Value o-- ui.cli.ItemView : view
   model.data.additional.AbstractAdditional -up-|> model.data.Value
@@ -559,21 +591,33 @@ title __PROJECT-STARTER's Class Diagram__\n
   model.data.source.template.Snak .up.|> java.io.Serializable
   model.data.source.template.Snak o-- model.data.source.template.DataValue : datavalue
   model.prefrences.LayoutProfile o-- ui.cli.LayoutManager : layout
-  model.prefrences.LayoutProfileManager .up.|> ui.cli.MenuBarItem
+  model.prefrences.LayoutProfileManager -up-|> ui.cli.MenuBarItem
   model.prefrences.LayoutProfileManager o-- model.prefrences.LayoutProfile : current
-  model.prefrences.PreferenceManager .up.|> ui.cli.MenuBarItem
-  model.prefrences.UserProfile .up.|> ui.cli.MenuBarItem
+  model.prefrences.PreferenceManager -up-|> ui.cli.MenuBarItem
+  model.prefrences.UserProfile -up-|> ui.cli.MenuBarItem
   model.prefrences.UserProfile o-- model.prefrences.LayoutProfileManager : layout
   model.prefrences.UserProfile o-- model.prefrences.PreferenceManager : preferences
+  ui.GUInterface -up-|> javax.swing.JPanel
+  ui.cli.ItemView -up-|> javax.swing.JPanel
   ui.cli.ItemView o-- ui.cli.ItemViewController : controller
   ui.cli.ItemView o-- model.data.Value : item
   ui.cli.ItemView o-- ui.cli.SearchBar : searchBar
   ui.cli.ItemView o-- ui.cli.StatementList : statements
   ui.cli.ItemViewController o-- ui.cli.LayoutManager : manager
   ui.cli.LayoutManager o-- ui.cli.MenuBar : menuBar
+  ui.cli.MenuBar -up-|> javax.swing.JMenuBar
+  ui.cli.MenuBar o-- ui.GUInterface : guInterface
   ui.cli.MenuBar o-- ui.cli.SearchBar : searchBar
-  ui.cli.SearchBar .up.|> ui.cli.MenuBarItem
+  ui.cli.MenuBarItem -up-|> javax.swing.JMenu
+  ui.cli.SearchBar -up-|> javax.swing.JPanel
   ui.cli.SearchBar o-- model.data.ScopedSearch : searchService
+  ui.cli.StatementList -up-|> javax.swing.JPanel
+  ui.gui.DragLayout .up.|> java.awt.LayoutManager
+  ui.gui.DragLayout .up.|> java.io.Serializable
+  ui.gui.GDragListener -up-|> java.awt.event.MouseMotionAdapter
+  ui.gui.GDragListener o-- ui.GUInterface : guInterface
+  ui.gui.GMouseAdapter -up-|> java.awt.event.MouseAdapter
+  ui.gui.GMouseAdapter o-- ui.GUInterface : guInterface
 
 
 right footer

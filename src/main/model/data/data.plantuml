@@ -22,6 +22,7 @@ title __DATA's Class Diagram__\n
         - references : ArrayList<Reference>
         + DatumLink()
         + getDescription()
+        + getImage()
         + getStatements()
         + getTitle()
         + parse()
@@ -59,6 +60,7 @@ title __DATA's Class Diagram__\n
   namespace model.data {
     class model.data.Qualifier {
         + Qualifier()
+        + addNotify()
         + getDescription()
         + getProperty()
         + getStatements()
@@ -72,6 +74,7 @@ title __DATA's Class Diagram__\n
   namespace model.data {
     class model.data.Reference {
         + Reference()
+        + addNotify()
         + getDescription()
         + getProperty()
         + getStatements()
@@ -88,7 +91,9 @@ title __DATA's Class Diagram__\n
         + ScopedSearch()
         + add()
         + findElement()
+        + getController()
         + getItem()
+        - itemIsNull()
     }
   }
   
@@ -98,6 +103,7 @@ title __DATA's Class Diagram__\n
         - name : String
         + Statement()
         + getDescription()
+        + getImage()
         + getParentID()
         + getStatements()
         + getTitle()
@@ -109,11 +115,15 @@ title __DATA's Class Diagram__\n
 
   namespace model.data {
     abstract class model.data.Value {
+        # button : JButton
         # id : String
+        # initialized : boolean
+        + addNotify()
         + addStatement()
         + equals()
         {abstract} + getDescription()
         + getID()
+        + getImage()
         + getQuery()
         {abstract} + getStatements()
         {abstract} + getTitle()
@@ -136,6 +146,7 @@ title __DATA's Class Diagram__\n
   model.data.DatumLink -up-|> model.data.Value
   model.data.DatumLink o-- model.data.Statement : property
   model.data.DatumLink o-- ui.cli.StatementList : statementList
+  model.data.DatumLink o-- model.data.Value : value
   model.data.DatumQueryService o-- model.data.source.Collector : collector
   model.data.Qualifier -up-|> model.data.Value
   model.data.Qualifier o-- model.data.pages.Property : property
@@ -149,6 +160,7 @@ title __DATA's Class Diagram__\n
   model.data.Statement -up-|> model.data.Value
   model.data.Statement o-- model.data.Datum : about
   model.data.Statement o-- ui.cli.StatementList : statements
+  model.data.Value -up-|> javax.swing.JComponent
   model.data.Value o-- model.data.DatumQueryService : queryService
   model.data.Value o-- ui.cli.ItemView : view
 

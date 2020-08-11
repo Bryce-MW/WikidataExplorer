@@ -19,14 +19,14 @@ import ui.gui.GMouseAdapter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.*;
 
 public class GUInterface extends JPanel {
     public static final Color darkGray = new Color(43, 43, 43);
     public static final Color midGray = new Color(49, 51, 53);
     public static final Color brightGray = new Color(60, 63, 65);
-    private final Map<Component, Point> locations = new HashMap<>();
     private boolean pressed;
     private int startX;
     private int startY;
@@ -66,7 +66,7 @@ public class GUInterface extends JPanel {
         return menuBar;
     }
 
-    private void setUpWindow(ItemView inital, MenuBar menuBar) {
+    private void setUpWindow(ItemView initial, MenuBar menuBar) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Wikidata Explorer");
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -80,7 +80,7 @@ public class GUInterface extends JPanel {
             frame.addMouseListener(new GMouseAdapter(this));
             frame.addMouseMotionListener(new GDragListener(this));
 
-            this.add(inital);
+            this.add(initial);
         });
     }
 

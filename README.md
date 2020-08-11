@@ -217,3 +217,34 @@ UIDesign.png			out
        location. I could have maybe figured that part out own my own, but it
         would have taken many more hours than I was willing to put in.
 * That's about all there is to it!
+
+# Phase 4
+
+## Part 1
+
+* Test and design a class that is robust: I have an Exception called
+ NotFoundException. This is mainly thrown in the WebCollector and
+  LocalCollector classes if data for a specific ID could not be found. This
+   exception is then caught in a number of different classes. In some cases
+   , there is nothing that can be done, so an unchecked exception is thrown
+    because there is no easy way for the program to continue. Having this
+     exception does allow for may of the NullPointerExceptions which happened
+      in the past to no longer happen however, so it's overall quite good.
+* Include a type hierarchy: I have a very complex hierarchy in multiple
+ locations. The main one is the Value hierarchy. A Value is any datatype on
+  *Wikidata*. A Datum extends it and is some Value which has a *Wikidata* URI
+  . There are further subclasses of Datum for the different types of pages
+  . There is also the additional package which contains many datatypes which
+   do not have their own URI. There are even more subclasses for specific
+    uses. It's quite a complex hierarchy with many classes. Maybe
+     if I actually document my code someday, it will be possible to fully
+      understand what is going on. At this point, even I couldn't fully
+       explain what is going on.
+* Make appropriate use of the Map interface: Besides the specific JSON cases
+ where I need a Map, I use one for my cache of data collected from the web in
+  this session in my WebCollector class. I also use it for the lists of
+   statements, qualifiers, and references, so I can look them up by ID.
+* Make appropriate use of a bi-directional association somewhere in your code
+: There are a number of places where I have bi-directional associations. I
+ can't possibly list all of them, but if you want to see one of them, you can
+  look at the LayoutManager and ItemViewController classes.

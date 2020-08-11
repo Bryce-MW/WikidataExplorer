@@ -16,6 +16,7 @@ title __ADDITIONAL's Class Diagram__\n
     namespace additional {
       class model.data.additional.CommonsMedia {
           + CommonsMedia()
+          + getImage()
       }
     }
   }
@@ -57,7 +58,7 @@ title __ADDITIONAL's Class Diagram__\n
   namespace model.data {
     namespace additional {
       class model.data.additional.LiteralString {
-          - value : String
+          # value : String
           + LiteralString()
           + getDescription()
           + getID()
