@@ -87,9 +87,9 @@ how data is organized.
 * As a user, I want to search for an entity by name.
 * As a user, I want to ask simple questions and validate statements.
 
-#Usage
+# Usage
 
-##CLI
+## CLI
 
 * Clone the latest version of the repository. There are a ton of bugs and
  other issues which I fix as I figure them out, so it's best to be on the
@@ -187,7 +187,7 @@ UIDesign.png			out
     be interested. The point of this program is not to help you actually find
      the information, but to help you see the connections between data.
 
-##GUI
+## GUI
 
 * To use the GUI, you can easily just run GUInterface from IntelliJ.
 * Drag a panel to move it around.
