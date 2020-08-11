@@ -176,24 +176,24 @@ public class DragLayout implements LayoutManager, java.io.Serializable {
     @Override
     public void layoutContainer(Container parent) {
         synchronized (parent.getTreeLock()) {
-            Insets parentInsets = parent.getInsets();
-
-            int x = parentInsets.left;
-            int y = parentInsets.top;
 
             //  Get x/y location of any component outside the bounds of the panel.
             //  All components will be adjust by the x/y values, if necessary.
 
-            for (Component component : parent.getComponents()) {
-                if (component.isVisible()) {
-                    Point location = component.getLocation();
-                    x = Math.min(x, location.x);
-                    y = Math.min(y, location.y);
-                }
-            }
+            // The following was commented out by Bryce Wilson to allow for components outside the bounds of the panel.
 
-            x = (x < parentInsets.left) ? parentInsets.left - x : 0;
-            y = (y < parentInsets.top) ? parentInsets.top - y : 0;
+            //for (Component component : parent.getComponents()) {
+            //    if (component.isVisible()) {
+            //        Point location = component.getLocation();
+            //        x = Math.min(x, location.x);
+            //        y = Math.min(y, location.y);
+            //    }
+            //}
+
+            // The following was also adjusted in accordance with the previous change
+
+            int x = 0;
+            int y = 0;
 
             //  Set bounds of each component
 
