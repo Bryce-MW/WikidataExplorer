@@ -1,5 +1,6 @@
 package ui.cli;
 
+
 import model.data.ScopedSearch;
 import model.data.Value;
 import ui.GUInterface;
@@ -12,10 +13,18 @@ import java.util.List;
 import java.util.function.Function;
 
 public class SearchBar extends JPanel {
-    //TODO: Implement
+    /*
+     * Class Description:
+     *
+     */
     private final ScopedSearch searchService;
     private final ArrayList<Value> results;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public SearchBar(ScopedSearch searchService) {
         this.searchService = searchService;
         results = new ArrayList<>(50);
@@ -29,20 +38,38 @@ public class SearchBar extends JPanel {
         setBackground(GUInterface.midGray);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public List<Value> getResults() {
         return results;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public List<Value> search(String query) {
         return searchService.findElement(query);
     }
 
-    //TODO: Rendering Stuff
-
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public String toString() {
         return "S: Search";
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public Boolean parse(List<String> subList) {
         if (subList.size() == 0) {
             return false;
@@ -61,10 +88,20 @@ public class SearchBar extends JPanel {
         return false;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public String getCommandString() {
         return "S";
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public Function<List<String>, Boolean> getParser() {
         return this::parse;
     }

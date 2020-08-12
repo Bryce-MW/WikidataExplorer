@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatumLink extends Value {
+    /*
+     * Class Description:
+     *
+     */
     private final Statement property;
     private final ArrayList<Qualifier> qualifiers;
     private final ArrayList<Reference> references;
@@ -14,6 +18,11 @@ public class DatumLink extends Value {
     private StatementList statementList = null;
     private final Value value;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public DatumLink(DatumQueryService queryService, Statement property, Value value) {
         super(queryService, value.getID());
         this.property = property;
@@ -24,21 +33,41 @@ public class DatumLink extends Value {
         this.value = value;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public String getImage() {
         return value.getImage();
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public String getTitle() {
         return name;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public String getDescription() {
         return description;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public StatementList getStatements() {
         if (statementList == null) {
@@ -50,9 +79,13 @@ public class DatumLink extends Value {
         return statementList;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public Boolean parse(List<String> subList) {
         return property.toggleLeft(this);
     }
-    //TODO: Implement
 }

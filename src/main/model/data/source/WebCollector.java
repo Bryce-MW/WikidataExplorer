@@ -14,19 +14,38 @@ import java.net.URLConnection;
 import java.util.*;
 
 public class WebCollector extends Collector {
+    /*
+     * Class Description:
+     *
+     */
     private static final ArrayList<Entities> seen = new ArrayList<>(30);
     protected static Entities loaded;
     private final Gson gson;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public WebCollector(LocalRepository repository) {
         super(repository);
         gson = new Gson();
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private static String formatURL(String id) {
         return "https://www.wikidata.org/wiki/Special:EntityData/" + id + ".json";
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public String getEntityName(String property) throws NotFoundException {
         Entity entity = getJson(property).entities.get(property);
@@ -43,6 +62,11 @@ public class WebCollector extends Collector {
         return name.value;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public ArrayList<Qualifier> getQualifiers(List<String> tree, DatumQueryService qualifierQuery) {
         ArrayList<Qualifier> result = new ArrayList<>(5);
@@ -72,6 +96,11 @@ public class WebCollector extends Collector {
         return result;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private Map<String, List<model.data.source.template.Qualifier>> tryGetQualifiers(DatumQueryService qualifierQuery,
                                                                                      String id,
                                                                                      String claim,
@@ -87,6 +116,11 @@ public class WebCollector extends Collector {
         return qualifiers;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public ArrayList<Reference> getReferences(List<String> tree, DatumQueryService refQueryService) {
         ArrayList<Reference> references = new ArrayList<>();
@@ -112,9 +146,14 @@ public class WebCollector extends Collector {
                 }
             }
         }
-        return references; // TODO: Implement later, not needed now
+        return references;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private ArrayList<Reference> iterateSnaks(DatumQueryService refQueryService,
                                               model.data.source.template.Reference reference, String s) {
         ArrayList<Reference> values = new ArrayList<>();
@@ -130,6 +169,11 @@ public class WebCollector extends Collector {
         return values;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public String getEntityDescription(String id) throws NotFoundException {
         Entity entity = getJson(id).entities.get(id);
@@ -147,6 +191,11 @@ public class WebCollector extends Collector {
         return name.value;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public ArrayList<String> getStatementList(String id) throws NotFoundException {
         Map<String, List<Claim>> statements = getJson(id).entities.get(id).claims;
@@ -156,12 +205,22 @@ public class WebCollector extends Collector {
         return keyList;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService)
             throws NotFoundException {
         return new Statement(item, tree.get(1), statementService);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public ArrayList<Value> getDatumLinkListByTree(ArrayList<String> tree,
                                                    Statement about, DatumQueryService queryService) {
@@ -180,6 +239,11 @@ public class WebCollector extends Collector {
         return result;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public Boolean triggerSave() {
         Entities entities = new Entities();
@@ -192,12 +256,22 @@ public class WebCollector extends Collector {
         return repository.save(entities, gson);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public Boolean triggerLoad() {
         loaded = repository.load(gson);
         return true;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     protected Entities getJson(String urlStr) throws NotFoundException {
         for (Entities entities : seen) {
             if (entities.entities.containsKey(urlStr)) {
@@ -208,7 +282,7 @@ public class WebCollector extends Collector {
             return loaded;
         }
 
-        System.out.println(urlStr); // TODO: Remove debug statement
+        System.out.println(urlStr); // TODO: Remove debug statement, move it to a new class or something.
 
         try {
             URL url = new URL(formatURL(urlStr));

@@ -7,6 +7,10 @@ import model.data.pages.Item;
 import ui.cli.StatementList;
 
 public class Quantity extends AbstractAdditional {
+    /*
+     * Class Description:
+     *
+     */
     private final String amount;
     private final Item unit;
 
@@ -28,24 +32,43 @@ public class Quantity extends AbstractAdditional {
         unit = possibleUnit != null ? possibleUnit : dimensionless;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public String getTitle() {
         return amount;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public String getDescription() {
         return unit.getTitle();
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public String getID() {
         return amount;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public StatementList getStatements() {
         return null;
     }
-    //TODO: Implement
 }

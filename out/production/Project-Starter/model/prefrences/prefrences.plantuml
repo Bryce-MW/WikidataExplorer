@@ -55,7 +55,7 @@ title __PREFRENCES's Class Diagram__\n
         - name : String
         + UserProfile()
         + getCommandString()
-        + getLayout()
+        + getLayoutProfileManager()
         + getPreferences()
         + parse()
         + toString()
@@ -64,10 +64,10 @@ title __PREFRENCES's Class Diagram__\n
   
 
   model.prefrences.LayoutProfile o-- ui.cli.LayoutManager : layout
-  model.prefrences.LayoutProfileManager .up.|> ui.cli.MenuBarItem
+  model.prefrences.LayoutProfileManager -up-|> ui.cli.MenuBarItem
   model.prefrences.LayoutProfileManager o-- model.prefrences.LayoutProfile : current
-  model.prefrences.PreferenceManager .up.|> ui.cli.MenuBarItem
-  model.prefrences.UserProfile .up.|> ui.cli.MenuBarItem
+  model.prefrences.PreferenceManager -up-|> ui.cli.MenuBarItem
+  model.prefrences.UserProfile -up-|> ui.cli.MenuBarItem
   model.prefrences.UserProfile o-- model.prefrences.LayoutProfileManager : layout
   model.prefrences.UserProfile o-- model.prefrences.PreferenceManager : preferences
 

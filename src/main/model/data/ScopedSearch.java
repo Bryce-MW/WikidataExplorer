@@ -9,26 +9,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScopedSearch {
-    // items.
+    /*
+     * Class Description:
+     *
+     */
     private final DatumQueryService queryService;
-    //TODO: Implement
     private Value item; // Item that this is scoped by, null for all items. Probably needs a data service for all
     private ItemViewController controller = null;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public ScopedSearch(Value item, DatumQueryService queryService) {
         this.queryService = queryService;
         this.item = item;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public ScopedSearch(ItemViewController controller, DatumQueryService queryService) {
         this.controller = controller;
         this.queryService = queryService;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public Value getItem() {
         return item;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void add(List<Value> values) {
         if (controller != null) {
             for (Value value : values) {
@@ -41,6 +63,11 @@ public class ScopedSearch {
         }
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public List<Value> findElement(String query) {
         if (controller != null) {
             ArrayList<Value> values = new ArrayList<>(1);
@@ -63,6 +90,11 @@ public class ScopedSearch {
         return values;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @NotNull
     private ArrayList<Value> itemIsNull(String query) {
         ArrayList<String> tree = new ArrayList<>(2);
@@ -79,6 +111,11 @@ public class ScopedSearch {
         return result;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public ItemViewController getController() {
         return controller;
     }

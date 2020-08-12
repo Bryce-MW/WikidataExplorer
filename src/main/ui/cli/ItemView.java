@@ -17,22 +17,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemView extends JPanel {
-    //TODO: Implement
+    /*
+     * Class Description:
+     *
+     */
     private final Value item; // Q42, P137, L23 . . .
 
     // The following will need language support!
     private final String title; // Douglas Addams
     private final String description; // English writer and humorist
-    private final SearchBar searchBar; // Only present for Datum! TODO: (add needsSearchBar() to Value, true for Datum,
-    // false otherwise.)
+    private final SearchBar searchBar;
     private final StatementList statements;
-    private String photoRef; // May not implement depending on time
     private ItemViewController controller = null;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public ItemView(Value value) {
         this.item = value;
         this.item.setView(this);
-        // TODO: Probably won't add language support in first round (Just use english or first language listed)
+        // TODO: Still need to add in language support!
         title = item.getTitle();
         description = item.getDescription();
         searchBar = new SearchBar(new ScopedSearch(item, item.getQuery()));
@@ -41,6 +47,11 @@ public class ItemView extends JPanel {
         configureView();
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private void configureView() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -68,6 +79,11 @@ public class ItemView extends JPanel {
         }
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private void addButtons() {
         JButton button = new JButton("X");
         int size = (int) button.getMaximumSize().getHeight();
@@ -84,6 +100,11 @@ public class ItemView extends JPanel {
         }
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private void addRightButton() {
         JButton button;
         int size;
@@ -104,13 +125,28 @@ public class ItemView extends JPanel {
         add(button);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void updateLanguage(String lang) {
     } // TODO: Languages!
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public Value getItem() {
         return item;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(16);
 
@@ -140,6 +176,11 @@ public class ItemView extends JPanel {
         return result;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private void addLines(ArrayList<StringBuilder> result) {
         int maxLength = result.get(0).length();
         StringBuilder topLine = new StringBuilder(maxLength);
@@ -164,6 +205,11 @@ public class ItemView extends JPanel {
         result.add(botLine);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean parse(List<String> subList) {
         ArrayList<String> command = new ArrayList<>(subList);
         if (command.size() == 0) {
@@ -184,6 +230,11 @@ public class ItemView extends JPanel {
         return statements.parse(command);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean toggleLeft(Value statement) {
         if (controller == null) {
             return false;
@@ -191,10 +242,20 @@ public class ItemView extends JPanel {
         return controller.toggleLeft(statement);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void setController(ItemViewController controller) {
         this.controller = controller;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void toggle(ItemView value) {
         Container parent = getParent();
         if (parent instanceof GUInterface) {
@@ -203,6 +264,11 @@ public class ItemView extends JPanel {
         }
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -217,6 +283,11 @@ public class ItemView extends JPanel {
         return getItem() == itemView.getItem(); //I want to compare actually being the same item
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public int hashCode() {
         return getItem().hashCode();

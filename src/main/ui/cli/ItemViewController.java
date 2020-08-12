@@ -6,40 +6,78 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemViewController {
-    //TODO: Implement
+    /*
+     * Class Description:
+     *
+     */
     private final ArrayList<ItemView> items;
     private LayoutManager manager;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public ItemViewController(ItemView initial) {
         items = new ArrayList<>(10);
         items.add(initial);
         initial.setController(this);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void add(ItemView newView) {
         items.add(newView);
         newView.setController(this);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean remove(ItemView toRemove) { // true if ViewController is now empty
         items.remove(toRemove);
         return items.isEmpty();
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean isEmpty() {
         return items.isEmpty();
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public int size() {
         return items.size();
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(10 * items.size());
         items.stream().map(ItemView::toStringArray).forEach(result::addAll);
         return result;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public Boolean parse(List<String> instructions) {
         boolean found = false;
         ArrayList<String> command = new ArrayList<>(instructions);
@@ -52,6 +90,11 @@ public class ItemViewController {
         return found;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean toggleLeft(Value statement) {
         if (manager == null) {
             return false;
@@ -59,6 +102,11 @@ public class ItemViewController {
         return manager.toggleLeft(statement, this);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean toggleRight(Value statement) {
         if (manager == null) {
             return false;
@@ -66,10 +114,20 @@ public class ItemViewController {
         return manager.toggleRight(statement, this);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void setManager(LayoutManager manager) {
         this.manager = manager;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean toggle(Value statement) {
         if (items.stream().anyMatch((i) -> i.getItem().equals(statement))) {
             ItemView found =
@@ -82,6 +140,4 @@ public class ItemViewController {
             return false;
         }
     }
-
-    //TODO: Rendering stuff
 }

@@ -8,7 +8,10 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class LayoutManager {
-    //TODO: Implement
+    /*
+     * Class Description:
+     *
+     */
     private final ArrayList<ItemViewController> controllers;
     private final int width;
     private final int height;
@@ -16,6 +19,11 @@ public class LayoutManager {
     private int separationWidth;
     private int leftIndex;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public LayoutManager(int width, int height, MenuBar menuBar) {
         this.width = width;
         this.height = height;
@@ -23,33 +31,68 @@ public class LayoutManager {
         controllers = new ArrayList<>(5);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void add(ItemViewController newView) {
         controllers.add(newView);
         newView.setManager(this);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void add(int index, ItemViewController newView) {
         controllers.add(index, newView);
         newView.setManager(this);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean remove(ItemViewController toRemove) { // true if ItemViewController is now empty
         controllers.remove(toRemove);
         return controllers.isEmpty();
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean isEmpty() {
         return controllers.isEmpty();
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public int size() {
         return controllers.size();
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void setSepWidth(int sepWidth) {
         separationWidth = sepWidth;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private ArrayList<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(height);
         result.addAll(menuBar.toStringArray());
@@ -72,12 +115,16 @@ public class LayoutManager {
             }
 
             StringBuilderUtil.padAll(result.subList(startHeight, result.size()), ' ', separationWidth);
-            // TODO: Render connections
         }
 
         return result;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void print() {
         ArrayList<StringBuilder> result = toStringArray();
 
@@ -86,11 +133,21 @@ public class LayoutManager {
         result.forEach(System.out::println);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public Boolean parse(List<String> instructions) {
         ArrayList<ItemViewController> toCheck = new ArrayList<>(controllers);
         return toCheck.stream().anyMatch((i) -> i.parse(instructions));
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean toggleLeft(Value statement, ItemViewController itemViewController) {
         int index = controllers.indexOf(itemViewController);
         if (index == -1) {
@@ -107,6 +164,11 @@ public class LayoutManager {
         return true;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean toggleRight(Value statement, ItemViewController itemViewController) {
         int index = controllers.indexOf(itemViewController);
         if (index == -1) {
@@ -122,6 +184,4 @@ public class LayoutManager {
         }
         return true;
     }
-
-    //TODO: Rendering stuff
 }

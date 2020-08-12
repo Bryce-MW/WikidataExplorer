@@ -4,6 +4,10 @@ import java.util.Map;
 
 public class GlobeCoordinateData {
     /*
+     * Class Description:
+     *
+     */
+    /*
     "datavalue": {
             "value": {
               "latitude": 52.516666666667,
@@ -20,6 +24,11 @@ public class GlobeCoordinateData {
     public final double precision;
     public final String globe;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public GlobeCoordinateData(Map<String, Object> value) {
         latitude = (double) value.get("latitude");
         longitude = (double) value.get("longitude");

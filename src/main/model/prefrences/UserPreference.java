@@ -1,7 +1,10 @@
 package model.prefrences;
 
 public interface UserPreference {
-    //TODO: Implement
+    /*
+     * Class Description:
+     *
+     */
 
     // I don't really know what kinds of preferences I will have quite yet.
 }

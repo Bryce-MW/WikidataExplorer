@@ -4,6 +4,10 @@ import java.util.Map;
 
 public class TimeData {
     /*
+     * Class Description:
+     *
+     */
+    /*
     "datavalue": {
             "value": {
               "time": "+2001-12-31T00:00:00Z",
@@ -23,6 +27,11 @@ public class TimeData {
     public final double precision;
     public final String calendarmodel;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public TimeData(Map<String, Object> value) {
         time = (String) value.get("time");
         timezone = (double) value.get("timezone");

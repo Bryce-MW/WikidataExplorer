@@ -24,6 +24,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GUInterface extends JPanel {
+    /*
+     * Class Description:
+     *
+     */
     public static final Color darkGray = new Color(43, 43, 43);
     public static final Color midGray = new Color(49, 51, 53);
     public static final Color brightGray = new Color(60, 63, 65);
@@ -32,6 +36,11 @@ public class GUInterface extends JPanel {
     private int startY;
     private Component down;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public static void main(String[] args) throws NotFoundException {
         GUInterface gui = new GUInterface();
         DatumQueryService queryService =
@@ -45,6 +54,11 @@ public class GUInterface extends JPanel {
         gui.setUpWindow(q42, menuBar);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @NotNull
     private static MenuBar setupMenubar(GUInterface gui, DatumQueryService queryService) {
         ArrayList<MenuBarItem> menuItems = new ArrayList<>(3);
@@ -66,6 +80,11 @@ public class GUInterface extends JPanel {
         return menuBar;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private void setUpWindow(ItemView initial, MenuBar menuBar) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Wikidata Explorer");
@@ -84,6 +103,11 @@ public class GUInterface extends JPanel {
         });
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void pressed(int x, int y) {
         pressed = true;
         Point pos = getMousePosition();
@@ -92,7 +116,11 @@ public class GUInterface extends JPanel {
         down = getComponentAt(pos.x, pos.y);
     }
 
-
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void released(int x, int y) {
         pressed = false;
         Point pos = getMousePosition();
@@ -102,6 +130,11 @@ public class GUInterface extends JPanel {
         }
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void drag(int x, int y) {
         Point pos = getMousePosition();
         if (pos != null) {
@@ -118,6 +151,11 @@ public class GUInterface extends JPanel {
         }
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private void moveComponent(int x, int y, Component component) {
         if (component instanceof ItemView) {
             ItemView item = (ItemView) component;
@@ -128,6 +166,11 @@ public class GUInterface extends JPanel {
         }
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void toggle(ItemView value) {
         List<Component> components = Arrays.asList(getComponents());
         if (components.contains(value)) {

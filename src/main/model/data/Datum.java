@@ -6,13 +6,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Datum extends Value {
+    /*
+     * Class Description:
+     *
+     */
     protected final StatementList statements;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     protected Datum(DatumQueryService queryService, String id) {
         super(queryService, id);
         this.statements = new StatementList(this, queryService, findStatements());
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     protected ArrayList<Value> findStatements() {
         ArrayList<String> statementNames = queryService.getStatementListByID(getID());
         ArrayList<Value> result = new ArrayList<>(10);
@@ -34,25 +48,43 @@ public abstract class Datum extends Value {
         return result;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public Boolean parse(List<String> subList) {
         return false;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public StatementList getStatements() {
         return statements;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public boolean needsSearchBar() {
         return true;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public boolean needsRightArrow() {
         return false;
     }
-
-    //TODO: Implement
 }

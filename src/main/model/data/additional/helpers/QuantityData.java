@@ -4,6 +4,10 @@ import java.util.Map;
 
 public class QuantityData {
     /*
+     * Class Description:
+     *
+     */
+    /*
     "datavalue": {
             "value":{
               "amount":"+10.38",
@@ -19,6 +23,11 @@ public class QuantityData {
     public final String lowerBound;
     public final String unit;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public QuantityData(Map<String, String> value) {
         amount = value.get("amount");
         upperBound = value.get("upperBound");

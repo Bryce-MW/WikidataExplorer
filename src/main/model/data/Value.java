@@ -17,12 +17,21 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class Value extends JComponent {
+    /*
+     * Class Description:
+     *
+     */
     protected DatumQueryService queryService;
     protected ItemView view = null;
     protected final String id;
     protected boolean initialized;
     protected JButton button;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     protected Value(DatumQueryService queryService, String id) {
         this.id = id;
         this.queryService = queryService;
@@ -30,6 +39,11 @@ public abstract class Value extends JComponent {
         setAlignmentX(Component.LEFT_ALIGNMENT);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private static LiteralString getLiteralString(String dataType, DatumQueryService queryService, String stringValue) {
         switch (dataType) {
             case "commonsMedia":
@@ -52,6 +66,11 @@ public abstract class Value extends JComponent {
         throw new Error("Datatype: " + dataType + " not found");
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public static Value parseData(DataValue value, String dataType, DatumQueryService queryService) {
         switch (value.type) {
             case "string":
@@ -77,6 +96,11 @@ public abstract class Value extends JComponent {
         throw new Error("Datatype: " + dataType + " not found");
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private static Datum getDatum(String dataType, DatumQueryService queryService, EntityData entityValue) {
         try {
             switch (dataType) {
@@ -97,6 +121,11 @@ public abstract class Value extends JComponent {
         throw new Error("Datatype: " + dataType + " not found");
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public void addNotify() {
         super.addNotify();
@@ -124,34 +153,84 @@ public abstract class Value extends JComponent {
         }
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public abstract String getTitle();
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public abstract String getDescription();
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public String getID() {
         return id;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public abstract StatementList getStatements();
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public abstract Boolean parse(List<String> subList);
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void setView(ItemView view) {
         this.view = view;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean needsSearchBar() {
         return false;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public boolean needsRightArrow() {
         return true;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public DatumQueryService getQuery() {
         return queryService;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -166,6 +245,11 @@ public abstract class Value extends JComponent {
         return getID().equals(value.getID());
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public int hashCode() {
         int result = getDescription().hashCode();
@@ -173,6 +257,11 @@ public abstract class Value extends JComponent {
         return result;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     protected Boolean toggleLeft(Value value) {
         if (this.view == null) {
             return false;
@@ -180,10 +269,20 @@ public abstract class Value extends JComponent {
         return view.toggleLeft(value);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void addStatement(Value value) {
         getStatements().add(value);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public String getImage() {
         return "";
     }

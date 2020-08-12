@@ -21,6 +21,10 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public final class CLInterface {
+    /*
+     * Class Description:
+     *
+     */
     private static final int WINDOW_WIDTH = 20;
     private static final int SEP_WIDTH = 3;
     private static final String DEFAULT_ID = "Q42";
@@ -35,10 +39,20 @@ public final class CLInterface {
 
     private static Scanner CLInput;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public CLInterface() {
         throw new Error("CLInterface contains only static methods");
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public static void main(String[] args) {
         // Start point for CLI interface
         CLInput = new Scanner(System.in);
@@ -72,6 +86,11 @@ public final class CLInterface {
         loop(args);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @NotNull
     private static Datum setupStartingItem(String[] args) {
         if (Arrays.asList(args).contains("web")) {
@@ -89,6 +108,11 @@ public final class CLInterface {
         }
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private static void getWindowSize() {
         //This is my attempt to get the console size. Don't complain about how confusing it is:
             /*
@@ -110,6 +134,11 @@ public final class CLInterface {
         WIDTH = Integer.parseInt(pos.split(";", 2)[1].split("R", 2)[0]);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private static void loop(String[] args) {
         layout.print();
 
@@ -132,6 +161,11 @@ public final class CLInterface {
         }
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private static void parse(String command) {
         List<String> instructions = Arrays.asList(command.split("\\s"));
         boolean result;

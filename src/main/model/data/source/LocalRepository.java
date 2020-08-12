@@ -10,12 +10,26 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class LocalRepository {
+    /*
+     * Class Description:
+     *
+     */
     private final File file;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public LocalRepository(String fileName) {
         this.file = new File("./data/" + fileName);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public Boolean save(Entities entities, Gson gson) {
         Entities toSave = new Entities();
         toSave.entities = new HashMap<>();
@@ -37,6 +51,11 @@ public class LocalRepository {
         return true;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public Entities load(Gson gson) {
         try (FileReader reader = new FileReader(file)) {
             return gson.fromJson(reader, Entities.class);

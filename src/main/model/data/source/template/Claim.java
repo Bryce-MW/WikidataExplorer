@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Claim implements Serializable {
+    /*
+     * Class Description:
+     *
+     */
     public static final long serialVersionUID = 1L;
 
     public String id;
@@ -14,6 +18,11 @@ public class Claim implements Serializable {
     public Map<String, List<Qualifier>> qualifiers;
     public List<Reference> references;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public String toString() {
         return "Claim{"

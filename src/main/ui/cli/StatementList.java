@@ -13,9 +13,17 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class StatementList extends JPanel {
-    //TODO: Implement
+    /*
+     * Class Description:
+     *
+     */
     private final ArrayList<Value> statements;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public StatementList(Value entity, DatumQueryService queryService, ArrayList<Value> statements) {
         // Entity this statement list refers to.
         this.statements = statements;
@@ -24,11 +32,21 @@ public class StatementList extends JPanel {
         setBackground(GUInterface.midGray);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     private void addComp(JComponent value) {
         add(value);
         revalidate();
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(statements.size());
         AtomicInteger maxID = new AtomicInteger(); // Must be atomic due to the lambda usage
@@ -46,6 +64,11 @@ public class StatementList extends JPanel {
         return result;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public Boolean parse(List<String> command) {
         ArrayList<String> instruction = new ArrayList<>(command);
         if (instruction.size() == 2 && instruction.get(1).equals("R")) {
@@ -61,11 +84,21 @@ public class StatementList extends JPanel {
                 .anyMatch((i) -> i.parse(instruction.subList(1, instruction.size())));
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void add(Value value) {
         statements.add(value);
         addComp(value);
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public void toggle(ItemView value) {
         Container parent = getParent();
         if (parent instanceof ItemView) {
@@ -74,6 +107,11 @@ public class StatementList extends JPanel {
         }
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public String getImage() {
         for (Value statement : statements) {
             if (statement instanceof DatumLink) {

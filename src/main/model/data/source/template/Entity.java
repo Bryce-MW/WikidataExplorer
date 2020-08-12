@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Entity implements Serializable {
+    /*
+     * Class Description:
+     *
+     */
     public static final long serialVersionUID = 1L;
 
     public String id;
@@ -18,6 +22,11 @@ public class Entity implements Serializable {
     public int lastrevid;
     public String modified;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public String toString() {
         return "Entity{"

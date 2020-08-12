@@ -9,13 +9,19 @@ title __CLI's Class Diagram__\n
           - photoRef : String
           - title : String
           + ItemView()
+          + equals()
           + getItem()
+          + hashCode()
           + parse()
           + setController()
           + toStringArray()
+          + toggle()
           + toggleLeft()
           + updateLanguage()
+          - addButtons()
           - addLines()
+          - addRightButton()
+          - configureView()
       }
     }
   }
@@ -75,8 +81,10 @@ title __CLI's Class Diagram__\n
           + addItem()
           + parse()
           + removeItem()
+          + setGuInterface()
           + swapSearch()
           + toStringArray()
+          + toggle()
           - addLines()
       }
     }
@@ -85,7 +93,7 @@ title __CLI's Class Diagram__\n
 
   namespace ui {
     namespace cli {
-      interface ui.cli.MenuBarItem {
+      abstract class ui.cli.MenuBarItem {
           {abstract} + getCommandString()
           + getParser()
           {abstract} + parse()
@@ -100,6 +108,7 @@ title __CLI's Class Diagram__\n
           - results : ArrayList<Value>
           + SearchBar()
           + getCommandString()
+          + getParser()
           + getResults()
           + parse()
           + search()
@@ -115,22 +124,30 @@ title __CLI's Class Diagram__\n
           - statements : ArrayList<Value>
           + StatementList()
           + add()
+          + getImage()
           + parse()
           + toStringArray()
+          + toggle()
+          - addComp()
       }
     }
   }
   
 
+  ui.cli.ItemView -up-|> javax.swing.JPanel
   ui.cli.ItemView o-- ui.cli.ItemViewController : controller
   ui.cli.ItemView o-- model.data.Value : item
   ui.cli.ItemView o-- ui.cli.SearchBar : searchBar
   ui.cli.ItemView o-- ui.cli.StatementList : statements
   ui.cli.ItemViewController o-- ui.cli.LayoutManager : manager
   ui.cli.LayoutManager o-- ui.cli.MenuBar : menuBar
+  ui.cli.MenuBar -up-|> javax.swing.JMenuBar
+  ui.cli.MenuBar o-- ui.GUInterface : guInterface
   ui.cli.MenuBar o-- ui.cli.SearchBar : searchBar
-  ui.cli.SearchBar .up.|> ui.cli.MenuBarItem
+  ui.cli.MenuBarItem -up-|> javax.swing.JMenu
+  ui.cli.SearchBar -up-|> javax.swing.JPanel
   ui.cli.SearchBar o-- model.data.ScopedSearch : searchService
+  ui.cli.StatementList -up-|> javax.swing.JPanel
 
 
 right footer

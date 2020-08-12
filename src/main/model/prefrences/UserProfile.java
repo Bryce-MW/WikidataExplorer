@@ -7,12 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserProfile extends MenuBarItem {
-    //TODO: Implement
+    /*
+     * Class Description:
+     *
+     */
     private final PreferenceManager preferences;
     private final LayoutProfileManager layout;
 
     private final String name;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public UserProfile(String name, LayoutManager defaultLayout) {
         preferences = new PreferenceManager(new ArrayList<>(1)); // For now, there are no preferences.
         layout = new LayoutProfileManager(new LayoutProfile("Default", defaultLayout)); // I won't bother
@@ -20,27 +28,50 @@ public class UserProfile extends MenuBarItem {
         this.name = name;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public PreferenceManager getPreferences() {
         return preferences;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public LayoutProfileManager getLayoutProfileManager() {
         return layout;
     }
 
-    //TODO: Other stuff to make this work
 
-
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public String toString() {
         return "P: " + name;
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public String getCommandString() {
         return "P";
     }
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     @Override
     public Boolean parse(List<String> subList) {
         return true;

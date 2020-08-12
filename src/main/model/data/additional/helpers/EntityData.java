@@ -6,6 +6,10 @@ import java.util.Map;
 
 public class EntityData {
     /*
+     * Class Description:
+     *
+     */
+    /*
     "datavalue": {
             "value": {
               "entity-type": "item",
@@ -22,6 +26,11 @@ public class EntityData {
     @SerializedName("numeric-id")
     public final double numericId;
 
+    /*
+     * REQUIRES:
+     * MODIFIES:
+     * EFFECTS :
+     */
     public EntityData(Map<String, Object> value) {
         entityType = (String) value.get("entity-type");
         id = (String) value.get("id");
