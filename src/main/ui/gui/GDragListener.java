@@ -8,7 +8,8 @@ import java.awt.event.MouseMotionAdapter;
 public class GDragListener extends MouseMotionAdapter {
     /*
      * Class Description:
-     *
+     * This class acts to process the muse drag events for te GUI. It could probably have been better done as a
+     * anonymous class but I was not sure how much code this would need so I made it a full class just in case.
      */
     private final GUInterface guInterface;
 

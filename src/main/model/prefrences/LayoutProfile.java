@@ -5,7 +5,8 @@ import ui.cli.LayoutManager;
 public class LayoutProfile {
     /*
      * Class Description:
-     *
+     * This class was never implemented but I believe that I had intended it to manage a specific layout of which a
+     * profile would have multiple.
      */
     private final LayoutManager layout;
     private String name;

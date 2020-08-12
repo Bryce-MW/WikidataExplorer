@@ -8,7 +8,8 @@ import java.util.List;
 public class DatumLink extends Value {
     /*
      * Class Description:
-     *
+     * This class actually represents a single individual statement. It also contains the list of qualifiers and
+     * references for that specific statement.
      */
     private final Statement property;
     private final ArrayList<Qualifier> qualifiers;

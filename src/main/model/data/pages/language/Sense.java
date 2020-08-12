@@ -8,7 +8,9 @@ import model.data.additional.helpers.EntityData;
 public class Sense extends Datum {
     /*
      * Class Description:
-     *
+     * A sense applies to one lexeme (a word in English). It's sort of like a definition but it is more about the
+     * senses in which a word can be interpreted. This is one of the entity types on Wikidata though I never really
+     * showed it off because it is not implemented properly and is not particularly interesting.
      */
     private final String name;
     private final String description;

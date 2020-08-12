@@ -8,7 +8,11 @@ import java.util.List;
 public class Statement extends Value {
     /*
      * Class Description:
-     *
+     * This is a specific statement which is really multiple statements. Basically, an Item can have a number oof
+     * statements which are associated with the same property. This acts as a collection of all of these statements
+     * which have the same property. Throughout this entire project, I have gone back and forth between proper
+     * terminology so this name, and many others, is quite inconstant. Luckily, I have the diagram which I drew
+     * before starting which helps me sort out what everything is.
      */
     private final String name;
     private final Datum about;

@@ -8,7 +8,9 @@ import java.util.List;
 public class ItemViewController {
     /*
      * Class Description:
-     *
+     * This stores an individual row of items. It should never be empty as an item is added right at the start and
+     * whenever an item is removed, the remove method returns true as to indicate that this item view controller
+     * should be deleted.
      */
     private final ArrayList<ItemView> items;
     private LayoutManager manager;

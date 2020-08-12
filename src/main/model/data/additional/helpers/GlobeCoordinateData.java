@@ -5,7 +5,8 @@ import java.util.Map;
 public class GlobeCoordinateData {
     /*
      * Class Description:
-     *
+     * This is the JSON format of a GlobeCoordinate. This class is just used to convert the raw Map<String, Object> into
+     * the proper format to easily create a globe coordinate value. An example of what the JSON looks like is below.
      */
     /*
     "datavalue": {

@@ -8,7 +8,11 @@ import java.util.List;
 public class Qualifier extends Value {
     /*
      * Class Description:
-     *
+     * A qualifier is some condition which a statement is only true under. This is a bit of a nebulous definition
+     * though as it can also be used for things like setting a statement order (such as when a person has multiple
+     * first names and the one they use the most is selected as the primary one). There are other qualifiers that do
+     * weird things as well. It's kinds of hard to explain so I would just have a look at the actual Wikidata website
+     *  itself to see what I mean.
      */
     private final Property property;
     private final Value value;

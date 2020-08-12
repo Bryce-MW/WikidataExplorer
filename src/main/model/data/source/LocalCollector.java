@@ -6,7 +6,10 @@ import model.data.source.template.Entities;
 public class LocalCollector extends WebCollector {
     /*
      * Class Description:
-     *
+     * This class is used when only collecting data from the local repository and not from the web is desired. I
+     * ended up putting more in WebCollector than I had anticipated so I just extended that class rather than
+     * rewriting it. Really, a lot of it should have gone into DatumQueryService which would have allowed this class
+     * to directly extend Collector.
      */
     public LocalCollector(LocalRepository repository) {
         super(repository);

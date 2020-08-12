@@ -7,7 +7,8 @@ import java.util.Map;
 public class EntityData {
     /*
      * Class Description:
-     *
+     * This is the JSON format of an entity. This class is just used to convert the raw Map<String, Object> into the
+     * proper format to easily create a entity value. An example of what the JSON looks like is below.
      */
     /*
     "datavalue": {

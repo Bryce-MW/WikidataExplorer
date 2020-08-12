@@ -12,7 +12,8 @@ import java.util.HashMap;
 public class LocalRepository {
     /*
      * Class Description:
-     *
+     * This class managed the saving and loading to the local repository (./data/wikidata.json). Note that this class
+     *  will not create the file if it does not exist which could cause some issues.
      */
     private final File file;
 

@@ -8,7 +8,8 @@ import java.util.List;
 public class LayoutProfileManager extends MenuBarItem {
     /*
      * Class Description:
-     *
+     * This class would have managed all of the layouts which a particular user profile would have saved. This was
+     * never implemented so this class does not do very much at the moment.
      */
     private final ArrayList<LayoutProfile> profiles;
     private final LayoutProfile current;

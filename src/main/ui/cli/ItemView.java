@@ -19,7 +19,11 @@ import java.util.List;
 public class ItemView extends JPanel {
     /*
      * Class Description:
-     *
+     * An item view is used in both the GUI and the CLI. In the CLI it is contained within an item view controller.
+     * In the GUI, it is its own top level component. This class is larger than it needs to be as it really should be
+     *  separated between rendering and functionality. There are also a number of things which should be delegated to
+     *  the Items themselves (and perhaps some sort of item rendering class). I also never implemented language
+     * support properly but it is not implemented anywhere else so at least it is not inconsistent.
      */
     private final Value item; // Q42, P137, L23 . . .
 

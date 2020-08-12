@@ -15,7 +15,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class StatementList extends JPanel {
     /*
      * Class Description:
-     *
+     * This is a list of statements which is displayed below and item. This acts both as the actual list container
+     * and the JPanel which displays the list.
      */
     private final ArrayList<Value> statements;
 

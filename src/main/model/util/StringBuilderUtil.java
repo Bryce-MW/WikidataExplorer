@@ -7,7 +7,9 @@ import java.util.stream.IntStream;
 public class StringBuilderUtil {
     /*
      * Class Description:
-     *
+     * This is a utility class which I made because I was doing a lot of padding of string builders and I wanted a
+     * nice way to do that functionally and to reduce code redundancy. This class is made of entirely static methods
+     * so it can not be instantiated.
      */
     public StringBuilderUtil() {
         throw new Error("StringBuilderUtil contains only static methods");

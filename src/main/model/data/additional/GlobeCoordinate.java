@@ -7,7 +7,8 @@ import ui.cli.StatementList;
 public class GlobeCoordinate extends AbstractAdditional {
     /*
      * Class Description:
-     *
+     * This class represents a specific location on earth (by default but another "globe" can be specified) in some
+     * coordinate system.
      */
     private final double posLat;
     private final double posLong;

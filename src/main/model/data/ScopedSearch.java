@@ -11,7 +11,8 @@ import java.util.List;
 public class ScopedSearch {
     /*
      * Class Description:
-     *
+     * This is the class which actually does the searching for the top level item or for a property within an item. I
+     *  really should have split this into two classes since this just ends up doing some annoying checks for null.
      */
     private final DatumQueryService queryService;
     private Value item; // Item that this is scoped by, null for all items. Probably needs a data service for all

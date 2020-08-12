@@ -8,7 +8,8 @@ import model.data.additional.helpers.EntityData;
 public class Form extends Datum {
     /*
      * Class Description:
-     *
+     * To be honest, I don't entirely know what a Form is, I just know that it is a type of page on Wikidata. I think
+     *  it goes a lexeme has one or more forms and a form has one or more senses.
      */
     private final String name;
     private final String description;

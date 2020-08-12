@@ -8,6 +8,7 @@ import model.data.pages.language.Form;
 import model.data.pages.language.Lexeme;
 import model.data.pages.language.Sense;
 import model.data.source.template.DataValue;
+import ui.GUInterface;
 import ui.cli.ItemView;
 import ui.cli.StatementList;
 
@@ -16,10 +17,16 @@ import java.awt.*;
 import java.util.List;
 import java.util.Map;
 
-public abstract class Value extends JComponent {
+public abstract class Value extends JPanel {
     /*
      * Class Description:
-     *
+     * This is the abstract class for any "Value". Originally, this was basically just going to be any Wikidata
+     * datatype, but my poor planning meant that it ended up also including things that should really be left to
+     * rendering or a different type of class entirely. It works well enough. This class also handles converting from
+     *  a "snak" to an actual Value which is a reasonable static function for this class to have. This class also
+     * does its own rendering for the GUI but it does it in a very weird way since it's not actually as a panel but
+     * as an item in a statement list. This makes it very confusing to debug and use. I would definitely write this
+     * class very differently if I was doing this again.
      */
     protected DatumQueryService queryService;
     protected ItemView view = null;
@@ -37,6 +44,7 @@ public abstract class Value extends JComponent {
         this.queryService = queryService;
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         setAlignmentX(Component.LEFT_ALIGNMENT);
+        setBackground(GUInterface.midGray);
     }
 
     /*

@@ -8,7 +8,8 @@ import java.util.List;
 public class PreferenceManager extends MenuBarItem {
     /*
      * Class Description:
-     *
+     * This class would have been a menu of all of the possible preferences which could have been set. I never ended
+     * up implementing any preferences so this class does nt do very much at the moment.
      */
     private final ArrayList<UserPreference> preferences;
 

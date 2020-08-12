@@ -9,7 +9,8 @@ import java.util.List;
 public class UserProfile extends MenuBarItem {
     /*
      * Class Description:
-     *
+     * I never ended up implementing this class but the idea what that a user profile would contain a number of
+     * layouts as well as user preferences which I also did not implement.
      */
     private final PreferenceManager preferences;
     private final LayoutProfileManager layout;

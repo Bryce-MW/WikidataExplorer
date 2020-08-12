@@ -8,7 +8,9 @@ import model.data.additional.helpers.EntityData;
 public class Property extends Datum {
     /*
      * Class Description:
-     *
+     * This is a property. It represents anything that is a property on Wikidata, i.e. something with an ID that
+     * starts with P. A property is used to describe a relationship. It could be something like instance of, mother,
+     * video, image, notable work, and many many more.
      */
     private final String title;
     private final String description;

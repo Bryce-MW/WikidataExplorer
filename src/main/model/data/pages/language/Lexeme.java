@@ -8,7 +8,14 @@ import model.data.additional.helpers.EntityData;
 public class Lexeme extends Datum {
     /*
      * Class Description:
-     *
+     * A lexeme is similar to a word in English. Some languages don't have words in the same way that english does so
+     *  the definition is a bit more precise. To be specific, a lexeme is the smallest unit of language which has some
+     *  meaning on its own. Even conceptual word like the work "the" are lexemes but parts of words that are not
+     * words on their own are not such as "un" (in English, it is a lexeme in French for example). This is a type of
+     * grapheme though which is the smallest unit of language since "un" can be prepended to some words to invert
+     * their meaning however it does not have any meaning when used on its own. Graphemes are not included in Wikidata
+     *  because they are a bit more of debated topic on if they exist, how to define them, and what they actually are
+     *  in various languages.
      */
     private final String name;
     private final String description;

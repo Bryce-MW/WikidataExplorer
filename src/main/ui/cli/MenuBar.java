@@ -12,7 +12,9 @@ import java.util.stream.IntStream;
 public class MenuBar extends JMenuBar {
     /*
      * Class Description:
-     *
+     * This menu bar class acts as a container for all of the menu bar items. It also deals with the display of those
+     *  items for the CLI and the parsing of commands directed at the menu items in the CLU. It does very little for
+     * the GUI other than adding the menu bar items to itself.
      */
     private final ArrayList<MenuBarItem> items;
     private final int width;

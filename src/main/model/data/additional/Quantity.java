@@ -9,7 +9,8 @@ import ui.cli.StatementList;
 public class Quantity extends AbstractAdditional {
     /*
      * Class Description:
-     *
+     * This is some sort of numerical value associated with a unit (though the unit could be the "Dimensionless" unit
+     * which is the default).
      */
     private final String amount;
     private final Item unit;

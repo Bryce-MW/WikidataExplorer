@@ -116,7 +116,7 @@ UIDesign.png			out
   classpath. The `lib` folder is the first place to look for a missing class.
 * Determine the required arguments. There are a few supported. The most
  important one is `web` which specifies that you want to include information
-  from the *WikiData* website rather than just the local cache. Using web
+  from the *Wikidata* website rather than just the local cache. Using web
    information is much slower but avoids many possible null pointer issues
     which I have not added proper error handling for yet. The other important
      one which I mentioned before is `IntelliJ` which must be added if you
@@ -264,7 +264,7 @@ At this point, there is not much I can do to improve the structure and
           (for dependencies.uml, select all and click show dependencies to see
            the craziness). Then you will understand how hard changing
             literally anything is. Basically, my entire project has extremely
-             high cohesion which is quite bad if I ever want to expand it
+             high coupling which is quite bad if I ever want to expand it
              . That being said, I will probably never do anything else with
               this project. If I ever wanted to do it again, I would write it
                as a web app. There are a number of nice JavaScript libraries

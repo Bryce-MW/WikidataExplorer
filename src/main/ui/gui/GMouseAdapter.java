@@ -8,7 +8,9 @@ import java.awt.event.MouseEvent;
 public class GMouseAdapter extends MouseAdapter {
     /*
      * Class Description:
-     *
+     * This class simply serves as the adapter for processing mouse presses from the GUI. It could probably be done
+     * as an anonymous class, but I was unsure of how much code needed to go here which is why I made this a separate
+     *  class.
      */
     private final GUInterface guInterface;
 

@@ -7,7 +7,7 @@ import ui.cli.StatementList;
 public class MonolingualText extends AbstractAdditional {
     /*
      * Class Description:
-     *
+     * This is a string of text in a single language.
      */
     private final String text;
     private final String language;

@@ -4,8 +4,8 @@
   <OriginalElement>model</OriginalElement>
   <nodes>
     <node x="0.0" y="570.0">ui.cli.ItemViewController</node>
-    <node x="171.0" y="795.0">model.data.source.template.DataValue</node>
     <node x="827.0" y="795.0">model.data.additional.helpers.TimeData</node>
+    <node x="171.0" y="795.0">model.data.source.template.DataValue</node>
     <node x="452.9999999999999" y="170.0">model.data.pages.language.Form</node>
     <node x="239.9999999999999" y="260.0">model.data.additional.MusicalNotation</node>
     <node x="808.0" y="335.0">model.data.additional.helpers.GlobeCoordinateData</node>
@@ -18,11 +18,11 @@
     <node x="1106.0" y="720.0">model.data.additional.helpers.EntityData</node>
     <node x="414.0" y="645.0">ui.cli.StatementList</node>
     <node x="214.9999999999999" y="90.0">model.data.Datum</node>
-    <node x="499.0" y="795.0">model.data.source.template.Qualifier</node>
     <node x="542.4999999999999" y="0.0">model.data.Value</node>
-    <node x="428.0" y="335.0">ui.cli.MenuBarItem</node>
+    <node x="499.0" y="795.0">model.data.source.template.Qualifier</node>
     <node x="1140.0" y="170.0">model.data.additional.GlobeCoordinate</node>
     <node x="0.0" y="645.0">model.data.source.LocalRepository</node>
+    <node x="428.0" y="335.0">ui.cli.MenuBarItem</node>
     <node x="609.0" y="645.0">ui.gui.GDragListener</node>
     <node x="804.0" y="645.0">ui.gui.GMouseAdapter</node>
     <node x="428.0" y="415.0">model.prefrences.UserProfile</node>
@@ -36,24 +36,24 @@
     <node x="156.0" y="870.0">ui.cli.MenuBar</node>
     <node x="911.9999999999999" y="260.0">model.data.additional.CommonsMedia</node>
     <node x="468.0" y="570.0">model.util.StringBuilderUtil</node>
-    <node x="840.0" y="870.0">model.data.source.template.Snak</node>
     <node x="983.0" y="795.0">model.data.source.template.Entities</node>
+    <node x="840.0" y="870.0">model.data.source.template.Snak</node>
     <node x="722.9999999999999" y="170.0">model.data.additional.MonolingualText</node>
     <node x="999.0" y="645.0">ui.cli.LayoutManager</node>
     <node x="1139.0" y="795.0">ui.cli.ItemView</node>
     <node x="0.0" y="720.0">model.prefrences.LayoutProfile</node>
     <node x="195.0" y="720.0">model.data.ScopedSearch</node>
     <node x="908.9999999999999" y="170.0">model.data.additional.Quantity</node>
-    <node x="517.9999999999999" y="260.0">model.data.additional.MathematicalExpression</node>
     <node x="0.0" y="495.0">model.data.source.LocalCollector</node>
+    <node x="517.9999999999999" y="260.0">model.data.additional.MathematicalExpression</node>
     <node x="869.9999999999999" y="90.0">model.data.additional.AbstractAdditional</node>
     <node x="1074.0" y="260.0">model.data.additional.ExternalIdentifier</node>
-    <node x="694.0" y="570.0">model.data.DatumQueryService</node>
     <node x="456.9999999999999" y="90.0">model.data.Qualifier</node>
+    <node x="694.0" y="570.0">model.data.DatumQueryService</node>
     <node x="425.9999999999999" y="260.0">model.data.additional.URL</node>
-    <node x="920.0" y="570.0">model.data.NotFoundException</node>
-    <node x="927.0" y="720.0">ui.CLInterface</node>
     <node x="234.0" y="570.0">model.prefrences.SerialIOController</node>
+    <node x="927.0" y="720.0">ui.CLInterface</node>
+    <node x="920.0" y="570.0">model.data.NotFoundException</node>
     <node x="214.9999999999999" y="170.0">model.data.pages.language.Sense</node>
     <node x="75.99999999999989" y="90.0">model.data.Reference</node>
     <node x="0.0" y="870.0">model.data.source.template.SiteLink</node>
@@ -64,9 +64,9 @@
     <node x="19.5" y="335.0">model.data.source.Collector</node>
     <node x="0.0" y="795.0">ui.gui.DragLayout</node>
     <node x="203.0" y="415.0">model.prefrences.LayoutProfileManager</node>
-    <node x="53.999999999999886" y="260.0">model.data.additional.GeographicShape</node>
     <node x="595.9999999999999" y="90.0">model.data.DatumLink</node>
     <node x="382.0" y="720.0">model.data.additional.helpers.QuantityData</node>
+    <node x="53.999999999999886" y="260.0">model.data.additional.GeographicShape</node>
     <node x="1079.0" y="90.0">model.data.Statement</node>
     <node x="304.0" y="870.0">model.data.source.template.Entity</node>
   </nodes>
@@ -151,8 +151,8 @@
       <point x="-37.799999999999955" y="15.0" />
     </edge>
     <edge source="model.data.additional.CommonsMedia" target="model.data.additional.LiteralString">
-      <point x="1.1368683772161603E-13" y="-15.0" />
-      <point x="983.0" y="230.0" />
+      <point x="0.0" y="-15.0" />
+      <point x="982.9999999999999" y="230.0" />
       <point x="670.8571428571428" y="230.0" />
       <point x="42.85714285714289" y="15.0" />
     </edge>
@@ -186,7 +186,7 @@
       <point x="0.0" y="-15.0" />
       <point x="147.4999999999999" y="150.0" />
       <point x="241.0999999999999" y="150.0" />
-      <point x="-17.400000000000006" y="15.0" />
+      <point x="-17.399999999999977" y="15.0" />
     </edge>
     <edge source="model.data.additional.MusicalNotation" target="model.data.additional.LiteralString">
       <point x="0.0" y="-15.0" />
@@ -201,8 +201,8 @@
       <point x="-64.28571428571433" y="15.0" />
     </edge>
     <edge source="model.data.additional.AbstractAdditional" target="model.data.Value">
-      <point x="1.1368683772161603E-13" y="-15.0" />
-      <point x="964.5" y="60.0" />
+      <point x="-1.1368683772161603E-13" y="-15.0" />
+      <point x="964.4999999999998" y="60.0" />
       <point x="607.7499999999999" y="60.0" />
       <point x="21.75" y="15.0" />
     </edge>
@@ -229,7 +229,7 @@
       <point x="0.0" y="15.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.7510869565217392" x="653.0" y="449.99999999999994" />
+  <settings layout="Hierarchic Group" zoom="0.91800878477306" x="673.0" y="450.0" />
   <SelectedNodes />
   <Categories>
     <Category>Inner Classes</Category>

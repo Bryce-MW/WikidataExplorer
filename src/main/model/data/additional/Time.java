@@ -7,7 +7,11 @@ import ui.cli.StatementList;
 public class Time extends AbstractAdditional {
     /*
      * Class Description:
-     *
+     * A time is essentially just a string which is in a specific format to represent time but also has other fields
+     * (which I do not use) to represent the accuracy of the given time. For example, the creation of earth has a
+     * very low accuracy but the UNIX epoch has a very high accuracy (since it's defined rather than measured). But
+     * even other measured times such as the birth of Barack Obama is known to a significantly higher accuracy than
+     * when the first life came about.
      */
     protected final String time;
 

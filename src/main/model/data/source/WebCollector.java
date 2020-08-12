@@ -16,7 +16,10 @@ import java.util.*;
 public class WebCollector extends Collector {
     /*
      * Class Description:
-     *
+     * This class actually collects the JSON from the Wikidata website and converts it to the proper formats. It also
+     *  handles some of the caching. It ended up doing a lot of the stuff which the Datum Query Service should have
+     * done which is why I ended up making local collector extend this rather than having it just extend collector on
+     *  its own.
      */
     private static final ArrayList<Entities> seen = new ArrayList<>(30);
     protected static Entities loaded;

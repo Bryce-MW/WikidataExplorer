@@ -5,7 +5,7 @@ import model.data.DatumQueryService;
 public class MathematicalExpression extends LiteralString {
     /*
      * Class Description:
-     *
+     * This is a mathematical expression of some sort in LaTeX format.
      */
 
     /*

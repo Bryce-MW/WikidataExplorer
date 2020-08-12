@@ -26,7 +26,9 @@ import java.util.List;
 public class GUInterface extends JPanel {
     /*
      * Class Description:
-     *
+     * This is the base class of the graphical user interface. It is a panel itself which is placed onto a JFrame
+     * which is the actual window. This class also sets up a number of other classes which are subsequently used in
+     * the interface.
      */
     public static final Color darkGray = new Color(43, 43, 43);
     public static final Color midGray = new Color(49, 51, 53);

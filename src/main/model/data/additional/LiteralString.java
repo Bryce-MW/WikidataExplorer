@@ -6,7 +6,7 @@ import ui.cli.StatementList;
 public class LiteralString extends AbstractAdditional {
     /*
      * Class Description:
-     *
+     * This represents something that is just a string and is not associated with any specific language.
      */
     protected final String value;
 

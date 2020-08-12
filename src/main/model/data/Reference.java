@@ -8,7 +8,9 @@ import java.util.List;
 public class Reference extends Value {
     /*
      * Class Description:
-     *
+     * A references is basically how we know some specific statement is true. Only problem is that references can have
+     *  multiple parts and we just store each part as a separate reference which can get quite confusing. I mostly
+     * ignore this as "good enough" for now.
      */
     private final Property property;
     private final Value value;

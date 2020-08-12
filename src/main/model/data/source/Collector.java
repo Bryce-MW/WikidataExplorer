@@ -8,7 +8,8 @@ import java.util.List;
 public abstract class Collector {
     /*
      * Class Description:
-     *
+     * This class is supposed to be the superclass of LocalCollector and WebCollector but it didn't end up working
+     * that way. Basically just lays out how any data source should work.
      */
     protected final LocalRepository repository;
 

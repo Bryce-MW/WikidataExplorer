@@ -5,7 +5,9 @@ import java.util.Map;
 public class MonolingualTextData {
     /*
      * Class Description:
-     *
+     * This is the JSON format of a MonolingualText. This class is just used to convert the raw Map<String,
+     * Object> into the
+     * proper format to easily create a MonolingualText value.
      */
     public final String language;
     public final String value;

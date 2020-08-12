@@ -8,7 +8,9 @@ import model.data.additional.helpers.EntityData;
 public class Item extends Datum {
     /*
      * Class Description:
-     *
+     * An Item is anything which is a concept on Wikidata, i.e. anything which has an ID starting with Q. This can
+     * represent a person, place, physical or theoretical object, philosophical concept, really anything which could
+     * be a noun in English.
      */
     private final String name;
     private final String description;

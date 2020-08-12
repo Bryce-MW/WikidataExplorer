@@ -23,9 +23,11 @@ import java.util.regex.Pattern;
 public final class CLInterface {
     /*
      * Class Description:
-     *
+     * This is the base class of the command line interface. This class is static and therefore can not be
+     * instantiated. This class sets up a number of other classes which are used in the interface and also contains
+     * the main REPL loop.
      */
-    private static final int WINDOW_WIDTH = 20;
+    private static final int WINDOW_WIDTH = 20; //TODO: wrap description text
     private static final int SEP_WIDTH = 3;
     private static final String DEFAULT_ID = "Q42";
     private static int WIDTH = 117; // Does not include prompt line
@@ -100,7 +102,7 @@ public final class CLInterface {
         }
 
         try {
-            return new Item("Q42", queryService);
+            return new Item(DEFAULT_ID, queryService);
         } catch (NotFoundException e) {
             // This should absolutely not happen unless local is selected and the repo is empty. In that case,
             // throwing an error is appropriate since it's hard to start the program working in this case

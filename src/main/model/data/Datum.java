@@ -8,7 +8,10 @@ import java.util.List;
 public abstract class Datum extends Value {
     /*
      * Class Description:
-     *
+     * This is superclass of anything which has an actual URI page on Wikidata which can be visited. It's possible
+     * that other values do as well and I just didn't realize it but these are all of the things with their own top
+     * level ID (if you can call the ID that a sense has separate which it really isnt but not in the same was as the
+     *  other datatypes).
      */
     protected final StatementList statements;
 

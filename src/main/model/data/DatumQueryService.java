@@ -7,7 +7,10 @@ import java.util.ArrayList;
 public class DatumQueryService {
     /*
      * Class Description:
-     *
+     * This class is a service which is used to query for the actual data which is needed. I originally intended for
+     * this to actually do a lot of work and have the collectors only do the most basic work of gathering the data
+     * and formatting it into a useful object, but it has ended up that I added too many features to the collectors
+     * (which is why I had the local collector just extend the web collector) so this class is largely unnecessary.
      */
     private final Collector collector;
 

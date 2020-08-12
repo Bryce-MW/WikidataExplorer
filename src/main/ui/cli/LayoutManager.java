@@ -10,7 +10,9 @@ import java.util.stream.IntStream;
 public class LayoutManager {
     /*
      * Class Description:
-     *
+     * This class is only used in the CLI and is used as the top level class which contains all of the item views
+     * (which are actually contained in item view controllers). Since the item views are somewhat stored in a table,
+     * this class would have a list of all of the rows.
      */
     private final ArrayList<ItemViewController> controllers;
     private final int width;
