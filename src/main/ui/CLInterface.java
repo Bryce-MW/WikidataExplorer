@@ -42,7 +42,7 @@ public final class CLInterface {
     private static Scanner CLInput;
 
     /*
-     * REQUIRES:
+     * REQUIRES: not to be called
      * MODIFIES:
      * EFFECTS :
      */
@@ -51,7 +51,7 @@ public final class CLInterface {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: args is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -89,7 +89,7 @@ public final class CLInterface {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: args is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -111,7 +111,7 @@ public final class CLInterface {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -137,7 +137,7 @@ public final class CLInterface {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: args is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -164,7 +164,7 @@ public final class CLInterface {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: command is a whitespace separated tree of commands
      * MODIFIES:
      * EFFECTS :
      */

@@ -24,7 +24,7 @@ public class SearchBar extends JPanel {
     private final ArrayList<Value> results;
 
     /*
-     * REQUIRES:
+     * REQUIRES: searchService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -42,7 +42,7 @@ public class SearchBar extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -51,7 +51,7 @@ public class SearchBar extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: query is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -60,7 +60,7 @@ public class SearchBar extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -69,7 +69,7 @@ public class SearchBar extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: subList is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -92,7 +92,7 @@ public class SearchBar extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -101,7 +101,7 @@ public class SearchBar extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

@@ -11,7 +11,7 @@ public class LiteralString extends AbstractAdditional {
     protected final String value;
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is not null, queryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -21,7 +21,7 @@ public class LiteralString extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -31,7 +31,7 @@ public class LiteralString extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -41,7 +41,7 @@ public class LiteralString extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -51,7 +51,7 @@ public class LiteralString extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

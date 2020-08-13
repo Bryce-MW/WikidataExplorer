@@ -22,7 +22,7 @@ public class MenuBar extends JMenuBar {
     private GUInterface guInterface;
 
     /*
-     * REQUIRES:
+     * REQUIRES: items is not null, searchBar is not null, width is positive
      * MODIFIES:
      * EFFECTS :
      */
@@ -36,7 +36,7 @@ public class MenuBar extends JMenuBar {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: searchBar is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -45,7 +45,7 @@ public class MenuBar extends JMenuBar {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: item is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -54,7 +54,7 @@ public class MenuBar extends JMenuBar {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: item is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -64,7 +64,7 @@ public class MenuBar extends JMenuBar {
 
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -103,7 +103,7 @@ public class MenuBar extends JMenuBar {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none of the lines are null and search is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -117,7 +117,7 @@ public class MenuBar extends JMenuBar {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: subList is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -135,7 +135,7 @@ public class MenuBar extends JMenuBar {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: guInterface is not null and has been (or will be soon) set up
      * MODIFIES:
      * EFFECTS :
      */
@@ -144,7 +144,7 @@ public class MenuBar extends JMenuBar {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: itemView is not null
      * MODIFIES:
      * EFFECTS :
      */

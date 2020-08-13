@@ -14,7 +14,7 @@ public class Label implements Serializable {
     public String value;
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

@@ -20,7 +20,7 @@ public class Reference implements Serializable {
     public List<String> snaksOrder;
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

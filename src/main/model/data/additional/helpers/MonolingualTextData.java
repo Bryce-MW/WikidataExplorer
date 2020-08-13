@@ -13,7 +13,7 @@ public class MonolingualTextData {
     public final String value;
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is valid monolingual text data in the format specified above
      * MODIFIES:
      * EFFECTS :
      */

@@ -15,7 +15,7 @@ public class LayoutProfileManager extends MenuBarItem {
     private final LayoutProfile current;
 
     /*
-     * REQUIRES:
+     * REQUIRES: defaultProfile is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -26,7 +26,7 @@ public class LayoutProfileManager extends MenuBarItem {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -35,7 +35,7 @@ public class LayoutProfileManager extends MenuBarItem {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: profile is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -45,7 +45,7 @@ public class LayoutProfileManager extends MenuBarItem {
 
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -55,7 +55,7 @@ public class LayoutProfileManager extends MenuBarItem {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -65,7 +65,7 @@ public class LayoutProfileManager extends MenuBarItem {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

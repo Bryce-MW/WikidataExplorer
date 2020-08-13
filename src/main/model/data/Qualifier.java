@@ -18,7 +18,7 @@ public class Qualifier extends Value {
     private final Value value;
 
     /*
-     * REQUIRES:
+     * REQUIRES: property is not null, value is not null, queryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -29,7 +29,7 @@ public class Qualifier extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -40,7 +40,7 @@ public class Qualifier extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -49,7 +49,7 @@ public class Qualifier extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -58,7 +58,7 @@ public class Qualifier extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -68,7 +68,7 @@ public class Qualifier extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -78,7 +78,7 @@ public class Qualifier extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -88,7 +88,7 @@ public class Qualifier extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

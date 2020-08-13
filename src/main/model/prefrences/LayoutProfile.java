@@ -12,7 +12,7 @@ public class LayoutProfile {
     private String name;
 
     /*
-     * REQUIRES:
+     * REQUIRES: name is not null, layout is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -22,7 +22,7 @@ public class LayoutProfile {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -31,7 +31,7 @@ public class LayoutProfile {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -40,7 +40,7 @@ public class LayoutProfile {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: name is not null
      * MODIFIES:
      * EFFECTS :
      */

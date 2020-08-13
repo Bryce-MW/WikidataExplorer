@@ -13,7 +13,7 @@ public class NotFoundException extends Exception {
     public static final long serialVersionUID = 1L;
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -22,7 +22,7 @@ public class NotFoundException extends Exception {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -31,7 +31,7 @@ public class NotFoundException extends Exception {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

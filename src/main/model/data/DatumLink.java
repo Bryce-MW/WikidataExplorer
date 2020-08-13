@@ -20,7 +20,7 @@ public class DatumLink extends Value {
     private final Value value;
 
     /*
-     * REQUIRES:
+     * REQUIRES: queryService is not null, property is not null, value is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -35,7 +35,7 @@ public class DatumLink extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -45,7 +45,7 @@ public class DatumLink extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -55,7 +55,7 @@ public class DatumLink extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -65,7 +65,7 @@ public class DatumLink extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -75,13 +75,13 @@ public class DatumLink extends Value {
             ArrayList<Value> statements = new ArrayList<>(qualifiers.size() + references.size());
             statements.addAll(qualifiers);
             statements.addAll(references);
-            statementList = new StatementList(this, queryService, statements);
+            statementList = new StatementList(this, statements);
         }
         return statementList;
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

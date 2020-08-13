@@ -20,7 +20,7 @@ public class Claim implements Serializable {
     public List<Reference> references;
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

@@ -35,7 +35,7 @@ public abstract class Value extends JPanel {
     protected JButton button;
 
     /*
-     * REQUIRES:
+     * REQUIRES: queryService is not null, id is a valid Wikidata ID
      * MODIFIES:
      * EFFECTS :
      */
@@ -48,7 +48,8 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: dataType is a valid Wikidata datatype which has LiteralString as its backing, queryService is not
+     * null, stringValue is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -75,7 +76,8 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is a valid Wikidata datatype, value is a valid DataValue corresponding to the datatype,
+     * queryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -105,7 +107,8 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: dataType is a valid Wikidata datatype with an item as its backing, queryService is not null,
+     * entityValue is not a valid EntityData corresponding to the dataType given
      * MODIFIES:
      * EFFECTS :
      */
@@ -130,7 +133,7 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -162,21 +165,21 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
     public abstract String getTitle();
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
     public abstract String getDescription();
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -185,21 +188,21 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
     public abstract StatementList getStatements();
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
     public abstract Boolean parse(List<String> subList);
 
     /*
-     * REQUIRES:
+     * REQUIRES: view is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -208,7 +211,7 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -217,7 +220,7 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -226,7 +229,7 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -235,7 +238,7 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -254,7 +257,7 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -266,7 +269,7 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -278,7 +281,7 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is not null and does not already exist
      * MODIFIES:
      * EFFECTS :
      */
@@ -287,7 +290,7 @@ public abstract class Value extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

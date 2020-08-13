@@ -16,7 +16,7 @@ public class ItemViewController {
     private LayoutManager manager;
 
     /*
-     * REQUIRES:
+     * REQUIRES: initial is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -27,7 +27,7 @@ public class ItemViewController {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: newView is not null and is not a member of this ItemViewController
      * MODIFIES:
      * EFFECTS :
      */
@@ -37,7 +37,7 @@ public class ItemViewController {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: toRemove is not null and is a member of this ItemViewController
      * MODIFIES:
      * EFFECTS :
      */
@@ -47,7 +47,7 @@ public class ItemViewController {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -56,7 +56,7 @@ public class ItemViewController {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -65,7 +65,7 @@ public class ItemViewController {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -76,7 +76,7 @@ public class ItemViewController {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: instructions is not null and contains at least one element
      * MODIFIES:
      * EFFECTS :
      */
@@ -93,7 +93,7 @@ public class ItemViewController {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: statement is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -105,7 +105,7 @@ public class ItemViewController {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: statement is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -117,7 +117,7 @@ public class ItemViewController {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: manager is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -126,7 +126,7 @@ public class ItemViewController {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: statement is not null
      * MODIFIES:
      * EFFECTS :
      */

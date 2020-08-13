@@ -17,7 +17,7 @@ public class SiteLink implements Serializable {
     public String url;
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

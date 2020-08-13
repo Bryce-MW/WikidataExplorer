@@ -9,7 +9,7 @@ public class MathematicalExpression extends LiteralString {
      */
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is valid LaTeX, queryService is not null
      * MODIFIES:
      * EFFECTS :
      */

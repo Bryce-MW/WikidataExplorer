@@ -14,14 +14,14 @@ public abstract class MenuBarItem extends JMenu {
      */
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
     public abstract String getCommandString();
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -30,7 +30,7 @@ public abstract class MenuBarItem extends JMenu {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: subList is not null
      * MODIFIES:
      * EFFECTS :
      */

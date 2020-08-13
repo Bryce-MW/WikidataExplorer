@@ -29,7 +29,7 @@ public class TimeData {
     public final String calendarmodel;
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is valid time data in the format specified above
      * MODIFIES:
      * EFFECTS :
      */

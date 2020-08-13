@@ -18,7 +18,7 @@ public class LocalRepository {
     private final File file;
 
     /*
-     * REQUIRES:
+     * REQUIRES: fileName is the name of a Wikidata formatted JSON file which exists on the filesystem.
      * MODIFIES:
      * EFFECTS :
      */
@@ -27,7 +27,7 @@ public class LocalRepository {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: entities is a valid Entities, gson is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -53,7 +53,7 @@ public class LocalRepository {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: gson is valid
      * MODIFIES:
      * EFFECTS :
      */

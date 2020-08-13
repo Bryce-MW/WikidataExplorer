@@ -26,7 +26,7 @@ public class Statement extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -35,7 +35,7 @@ public class Statement extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -45,7 +45,7 @@ public class Statement extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -55,7 +55,7 @@ public class Statement extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -65,20 +65,20 @@ public class Statement extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
     @Override
     public StatementList getStatements() {
         if (statements == null) {
-            statements = new StatementList(this, queryService, findStatements());
+            statements = new StatementList(this, findStatements());
         }
         return statements;
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: subList is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -91,7 +91,7 @@ public class Statement extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

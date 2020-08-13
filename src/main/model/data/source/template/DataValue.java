@@ -14,7 +14,7 @@ public class DataValue implements Serializable {
     public String type;
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

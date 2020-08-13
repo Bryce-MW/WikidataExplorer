@@ -15,7 +15,7 @@ public class CommonsMedia extends LiteralString {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

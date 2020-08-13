@@ -24,7 +24,7 @@ public class Entity implements Serializable {
     public String modified;
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

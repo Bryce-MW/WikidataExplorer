@@ -18,7 +18,7 @@ public class UserProfile extends MenuBarItem {
     private final String name;
 
     /*
-     * REQUIRES:
+     * REQUIRES: name is not null, defaultLayout is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -30,7 +30,7 @@ public class UserProfile extends MenuBarItem {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -39,7 +39,7 @@ public class UserProfile extends MenuBarItem {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -49,7 +49,7 @@ public class UserProfile extends MenuBarItem {
 
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -59,7 +59,7 @@ public class UserProfile extends MenuBarItem {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -69,7 +69,7 @@ public class UserProfile extends MenuBarItem {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

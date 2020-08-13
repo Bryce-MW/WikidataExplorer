@@ -28,7 +28,7 @@ public class EntityData {
     public final double numericId;
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is valid entity data in the format specified above
      * MODIFIES:
      * EFFECTS :
      */

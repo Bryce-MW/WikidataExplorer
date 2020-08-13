@@ -17,7 +17,7 @@ public abstract class AbstractAdditional extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

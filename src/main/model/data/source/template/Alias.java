@@ -14,7 +14,7 @@ public class Alias implements Serializable {
     public String value;
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

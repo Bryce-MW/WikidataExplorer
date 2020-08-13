@@ -14,7 +14,7 @@ public abstract class Collector {
     protected final LocalRepository repository;
 
     /*
-     * REQUIRES:
+     * REQUIRES: repository is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -23,42 +23,42 @@ public abstract class Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: property is a valid Wikidata ID
      * MODIFIES:
      * EFFECTS :
      */
     public abstract String getEntityName(String property) throws NotFoundException;
 
     /*
-     * REQUIRES:
+     * REQUIRES: tree is a valid Wikidata tree, qualifierQuery is not null
      * MODIFIES:
      * EFFECTS :
      */
     public abstract ArrayList<Qualifier> getQualifiers(List<String> tree, DatumQueryService qualifierQuery);
 
     /*
-     * REQUIRES:
+     * REQUIRES: tree is a valid Wikidata tree, qualifierQuery is not null
      * MODIFIES:
      * EFFECTS :
      */
     public abstract ArrayList<Reference> getReferences(List<String> tree, DatumQueryService refQueryService);
 
     /*
-     * REQUIRES:
+     * REQUIRES: id is a valid Wikidata ID
      * MODIFIES:
      * EFFECTS :
      */
     public abstract String getEntityDescription(String id) throws NotFoundException;
 
     /*
-     * REQUIRES:
+     * REQUIRES: id is a valid Wikidata ID
      * MODIFIES:
      * EFFECTS :
      */
     public abstract ArrayList<String> getStatementList(String id) throws NotFoundException;
 
     /*
-     * REQUIRES:
+     * REQUIRES: tree is a valid Wikidata tree about item, statementService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -66,7 +66,7 @@ public abstract class Collector {
             throws NotFoundException;
 
     /*
-     * REQUIRES:
+     * REQUIRES: tree is a valid Wikidata tree about about, statementService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -74,14 +74,14 @@ public abstract class Collector {
                                                             DatumQueryService queryService);
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
     public abstract Boolean triggerSave();
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

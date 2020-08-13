@@ -15,7 +15,7 @@ public class DatumQueryService {
     private final Collector collector;
 
     /*
-     * REQUIRES:
+     * REQUIRES: collector is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -24,7 +24,7 @@ public class DatumQueryService {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: item is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -33,7 +33,7 @@ public class DatumQueryService {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: property is not null and is a valid Wikidata ID
      * MODIFIES:
      * EFFECTS :
      */
@@ -42,7 +42,7 @@ public class DatumQueryService {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: property is a valid Wikidata ID and is a valid property for the given valid. Value is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -55,7 +55,7 @@ public class DatumQueryService {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: property is a valid Wikidata ID and is a valid property for the given valid. Value is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -68,7 +68,7 @@ public class DatumQueryService {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: id is not null and is a valid Wikidata ID
      * MODIFIES:
      * EFFECTS :
      */
@@ -77,7 +77,7 @@ public class DatumQueryService {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: id is not null and is a valid Wikidata Id
      * MODIFIES:
      * EFFECTS :
      */
@@ -91,7 +91,7 @@ public class DatumQueryService {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: tree is a valid tree of IDs and item is a valid item
      * MODIFIES:
      * EFFECTS :
      */
@@ -100,7 +100,7 @@ public class DatumQueryService {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: property is a valid and not null statement
      * MODIFIES:
      * EFFECTS :
      */
@@ -112,7 +112,7 @@ public class DatumQueryService {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -121,7 +121,7 @@ public class DatumQueryService {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

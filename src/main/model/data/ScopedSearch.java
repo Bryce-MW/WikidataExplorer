@@ -19,7 +19,7 @@ public class ScopedSearch {
     private ItemViewController controller = null;
 
     /*
-     * REQUIRES:
+     * REQUIRES: item is not null, queryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -29,7 +29,7 @@ public class ScopedSearch {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: controller is not null, queryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -39,7 +39,7 @@ public class ScopedSearch {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -48,7 +48,7 @@ public class ScopedSearch {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: values is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -65,7 +65,7 @@ public class ScopedSearch {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: query is not null and is a valid search query for the item or for an ID overall if no item
      * MODIFIES:
      * EFFECTS :
      */
@@ -92,7 +92,7 @@ public class ScopedSearch {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: query is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -113,7 +113,7 @@ public class ScopedSearch {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

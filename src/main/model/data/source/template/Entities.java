@@ -14,7 +14,7 @@ public class Entities implements Serializable {
     public Map<String, Entity> entities;
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

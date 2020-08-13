@@ -15,7 +15,7 @@ public class Description implements Serializable {
 
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

@@ -22,7 +22,7 @@ public class LayoutManager {
     private int leftIndex;
 
     /*
-     * REQUIRES:
+     * REQUIRES: width and height are positive and menuBar is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -34,7 +34,7 @@ public class LayoutManager {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: newView is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -44,7 +44,7 @@ public class LayoutManager {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: index is positive or 0 and newView is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -54,7 +54,7 @@ public class LayoutManager {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: toRemove is not null and is a member of this LayoutManager
      * MODIFIES:
      * EFFECTS :
      */
@@ -64,7 +64,7 @@ public class LayoutManager {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -73,7 +73,7 @@ public class LayoutManager {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -82,7 +82,7 @@ public class LayoutManager {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: sepWidth is not negative
      * MODIFIES:
      * EFFECTS :
      */
@@ -91,7 +91,7 @@ public class LayoutManager {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -123,7 +123,7 @@ public class LayoutManager {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -136,7 +136,7 @@ public class LayoutManager {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: instructions is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -146,7 +146,7 @@ public class LayoutManager {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: statement is not null, itemViewController is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -167,7 +167,7 @@ public class LayoutManager {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: statement is not null, itemViewController is not null
      * MODIFIES:
      * EFFECTS :
      */

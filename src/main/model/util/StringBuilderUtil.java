@@ -16,7 +16,7 @@ public class StringBuilderUtil {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: list is not null, additionalLength is not negative
      * MODIFIES:
      * EFFECTS :
      */
@@ -29,7 +29,7 @@ public class StringBuilderUtil {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: builder is not null, length is not negative
      * MODIFIES:
      * EFFECTS :
      */

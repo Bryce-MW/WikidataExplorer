@@ -21,7 +21,7 @@ public class Lexeme extends Datum {
     private final String description;
 
     /*
-     * REQUIRES:
+     * REQUIRES: id is a valid Wikidata lexeme ID, queryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -32,7 +32,7 @@ public class Lexeme extends Datum {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: data is valid EntityData for a Lexeme, queryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -41,7 +41,7 @@ public class Lexeme extends Datum {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -51,7 +51,7 @@ public class Lexeme extends Datum {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

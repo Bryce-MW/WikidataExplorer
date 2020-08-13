@@ -17,7 +17,7 @@ public class Qualifier implements Serializable {
     public DataValue datavalue;
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

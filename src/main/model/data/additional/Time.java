@@ -16,7 +16,7 @@ public class Time extends AbstractAdditional {
     protected final String time;
 
     /*
-     * REQUIRES:
+     * REQUIRES: time is valid time data, queryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -26,7 +26,7 @@ public class Time extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: timeValue is valid TimeData, queryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -36,7 +36,7 @@ public class Time extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -46,7 +46,7 @@ public class Time extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -56,7 +56,7 @@ public class Time extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -66,7 +66,7 @@ public class Time extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

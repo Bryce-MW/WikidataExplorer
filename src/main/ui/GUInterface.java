@@ -39,9 +39,9 @@ public class GUInterface extends JPanel {
     private Component down;
 
     /*
-     * REQUIRES:
-     * MODIFIES:
-     * EFFECTS :
+     * REQUIRES: has not been called before
+     * MODIFIES: gui, queryService, q42, menubar
+     * EFFECTS : sets up the basic objects required for the GUI
      */
     public static void main(String[] args) throws NotFoundException {
         GUInterface gui = new GUInterface();
@@ -57,7 +57,7 @@ public class GUInterface extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: gui and queryService are not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -83,7 +83,7 @@ public class GUInterface extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: inital and menuBar are not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -106,7 +106,7 @@ public class GUInterface extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none (x and y ended up not being used)
      * MODIFIES:
      * EFFECTS :
      */
@@ -119,7 +119,7 @@ public class GUInterface extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none (x and y ended up not being used)
      * MODIFIES:
      * EFFECTS :
      */
@@ -133,7 +133,7 @@ public class GUInterface extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none (x and y ended up not being used)
      * MODIFIES:
      * EFFECTS :
      */
@@ -154,7 +154,7 @@ public class GUInterface extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: x and y are new mouse positions
      * MODIFIES:
      * EFFECTS :
      */
@@ -169,7 +169,7 @@ public class GUInterface extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is not null and contains a valid Item
      * MODIFIES:
      * EFFECTS :
      */

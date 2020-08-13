@@ -15,6 +15,11 @@ public class Quantity extends AbstractAdditional {
     private final String amount;
     private final Item unit;
 
+    /*
+     * REQUIRES: quantityValue is valid QuantityData, queryService is not null
+     * MODIFIES:
+     * EFFECTS :
+     */
     public Quantity(QuantityData quantityValue, DatumQueryService queryService) {
         super(queryService);
         amount = quantityValue.amount;
@@ -34,7 +39,7 @@ public class Quantity extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -44,7 +49,7 @@ public class Quantity extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -54,7 +59,7 @@ public class Quantity extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -64,7 +69,7 @@ public class Quantity extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

@@ -26,7 +26,7 @@ public class GlobeCoordinateData {
     public final String globe;
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is valid globe coordinate data in the format specified above
      * MODIFIES:
      * EFFECTS :
      */

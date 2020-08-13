@@ -13,7 +13,7 @@ public class MonolingualText extends AbstractAdditional {
     private final String language;
 
     /*
-     * REQUIRES:
+     * REQUIRES: text is not null, language is a valid ISO something language ID. queryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -24,7 +24,7 @@ public class MonolingualText extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: monolingualTextValue is valid MonolingualTextData, queryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -36,7 +36,7 @@ public class MonolingualText extends AbstractAdditional {
 
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -46,7 +46,7 @@ public class MonolingualText extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -56,7 +56,7 @@ public class MonolingualText extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -66,7 +66,7 @@ public class MonolingualText extends AbstractAdditional {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

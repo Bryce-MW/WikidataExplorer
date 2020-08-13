@@ -16,17 +16,17 @@ public abstract class Datum extends Value {
     protected final StatementList statements;
 
     /*
-     * REQUIRES:
+     * REQUIRES: queryService is not null, ID is a valid Wikidata ID
      * MODIFIES:
      * EFFECTS :
      */
     protected Datum(DatumQueryService queryService, String id) {
         super(queryService, id);
-        this.statements = new StatementList(this, queryService, findStatements());
+        this.statements = new StatementList(this, findStatements());
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -52,7 +52,7 @@ public abstract class Datum extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -62,7 +62,7 @@ public abstract class Datum extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -72,7 +72,7 @@ public abstract class Datum extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -82,7 +82,7 @@ public abstract class Datum extends Value {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

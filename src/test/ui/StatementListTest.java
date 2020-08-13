@@ -30,7 +30,7 @@ class StatementListTest {
     @BeforeEach
     void setUp() throws NotFoundException {
         statementList = new StatementList(
-                new Item("Q42", queryService), queryService, new ArrayList<>(10));
+                new Item("Q42", queryService), new ArrayList<>(10));
     }
 
     @Test

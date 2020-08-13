@@ -35,7 +35,7 @@ public class ItemView extends JPanel {
     private ItemViewController controller = null;
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -52,7 +52,7 @@ public class ItemView extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -84,7 +84,7 @@ public class ItemView extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -105,7 +105,7 @@ public class ItemView extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -130,7 +130,7 @@ public class ItemView extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: language is a valid language code according to ISO something or other
      * MODIFIES:
      * EFFECTS :
      */
@@ -138,7 +138,7 @@ public class ItemView extends JPanel {
     } // TODO: Languages!
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -147,7 +147,7 @@ public class ItemView extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -181,7 +181,7 @@ public class ItemView extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: result is not null and contains at least one element
      * MODIFIES:
      * EFFECTS :
      */
@@ -210,7 +210,7 @@ public class ItemView extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: subList is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -235,7 +235,7 @@ public class ItemView extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: statement is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -247,7 +247,7 @@ public class ItemView extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -256,7 +256,7 @@ public class ItemView extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -269,7 +269,7 @@ public class ItemView extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -288,7 +288,7 @@ public class ItemView extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

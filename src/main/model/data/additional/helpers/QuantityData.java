@@ -25,7 +25,7 @@ public class QuantityData {
     public final String unit;
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is valid quantity data in the format specified above
      * MODIFIES:
      * EFFECTS :
      */

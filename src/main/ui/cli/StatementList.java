@@ -1,7 +1,6 @@
 package ui.cli;
 
 import model.data.DatumLink;
-import model.data.DatumQueryService;
 import model.data.Value;
 import model.util.StringBuilderUtil;
 import ui.GUInterface;
@@ -21,11 +20,11 @@ public class StatementList extends JPanel {
     private final ArrayList<Value> statements;
 
     /*
-     * REQUIRES:
+     * REQUIRES: statements is not null and contains valid statements about the entity
      * MODIFIES:
      * EFFECTS :
      */
-    public StatementList(Value entity, DatumQueryService queryService, ArrayList<Value> statements) {
+    public StatementList(Value entity, ArrayList<Value> statements) {
         // Entity this statement list refers to.
         this.statements = statements;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -34,7 +33,7 @@ public class StatementList extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -44,7 +43,7 @@ public class StatementList extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -66,7 +65,7 @@ public class StatementList extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: command is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -86,7 +85,7 @@ public class StatementList extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -96,7 +95,7 @@ public class StatementList extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: value is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -109,7 +108,7 @@ public class StatementList extends JPanel {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */

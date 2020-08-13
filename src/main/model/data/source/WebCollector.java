@@ -26,7 +26,7 @@ public class WebCollector extends Collector {
     private final Gson gson;
 
     /*
-     * REQUIRES:
+     * REQUIRES: repository is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -36,7 +36,7 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: ID is a valid Wikidata ID
      * MODIFIES:
      * EFFECTS :
      */
@@ -45,7 +45,7 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: property is a valid Wikidata ID
      * MODIFIES:
      * EFFECTS :
      */
@@ -66,7 +66,7 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: tree is of size at least 3 and contains a valid tree of IDs, qualifierQuery is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -100,7 +100,7 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: qualifierQuery is not null, id, claim, and item are a valid tree of Wikidata IDs
      * MODIFIES:
      * EFFECTS :
      */
@@ -120,7 +120,7 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: tree is a valid length three tree of Wikidata IDs. refQueryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -153,7 +153,8 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: refQueryService is not null, reference is a valid Reference, s is in the keys of the Map
+     * reference.snaks
      * MODIFIES:
      * EFFECTS :
      */
@@ -173,7 +174,7 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: id is a valid Wikidata ID
      * MODIFIES:
      * EFFECTS :
      */
@@ -195,7 +196,7 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: id is a valid Wikidata ID
      * MODIFIES:
      * EFFECTS :
      */
@@ -209,7 +210,7 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: tree is a valid length 2 Wikidata tree starting at item, statementService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -220,7 +221,8 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: tree is a valid length 2 Wikidata tree, about is a valid Statement which this tree is about,
+     * queryService is not null
      * MODIFIES:
      * EFFECTS :
      */
@@ -243,7 +245,7 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -260,7 +262,7 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: none
      * MODIFIES:
      * EFFECTS :
      */
@@ -271,7 +273,7 @@ public class WebCollector extends Collector {
     }
 
     /*
-     * REQUIRES:
+     * REQUIRES: urlString is a valid Wikidata ID
      * MODIFIES:
      * EFFECTS :
      */
