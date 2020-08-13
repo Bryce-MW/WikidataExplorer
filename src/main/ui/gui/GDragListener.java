@@ -15,7 +15,7 @@ public class GDragListener extends MouseMotionAdapter {
 
     /*
      * REQUIRES: the interface is valid and has been (or will be shortly) set up
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public GDragListener(GUInterface guInterface) {
@@ -24,7 +24,7 @@ public class GDragListener extends MouseMotionAdapter {
 
     /*
      * REQUIRES: the event has an X and Y location
-     * MODIFIES:
+     * MODIFIES: guInterface
      * EFFECTS :
      */
     @Override

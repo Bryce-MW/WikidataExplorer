@@ -21,7 +21,7 @@ public class StatementList extends JPanel {
 
     /*
      * REQUIRES: statements is not null and contains valid statements about the entity
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public StatementList(Value entity, ArrayList<Value> statements) {
@@ -34,7 +34,7 @@ public class StatementList extends JPanel {
 
     /*
      * REQUIRES: value is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     private void addComp(JComponent value) {
@@ -44,7 +44,7 @@ public class StatementList extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public List<StringBuilder> toStringArray() {
@@ -66,7 +66,7 @@ public class StatementList extends JPanel {
 
     /*
      * REQUIRES: command is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Boolean parse(List<String> command) {
@@ -86,7 +86,7 @@ public class StatementList extends JPanel {
 
     /*
      * REQUIRES: value is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void add(Value value) {
@@ -96,7 +96,7 @@ public class StatementList extends JPanel {
 
     /*
      * REQUIRES: value is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void toggle(ItemView value) {
@@ -109,7 +109,7 @@ public class StatementList extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public String getImage() {

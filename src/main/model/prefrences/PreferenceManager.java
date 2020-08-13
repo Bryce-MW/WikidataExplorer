@@ -15,7 +15,7 @@ public class PreferenceManager extends MenuBarItem {
 
     /*
      * REQUIRES: preferences is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public PreferenceManager(List<UserPreference> preferences) {
@@ -25,7 +25,7 @@ public class PreferenceManager extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public List<UserPreference> getPreferences() {
@@ -35,7 +35,7 @@ public class PreferenceManager extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -45,7 +45,7 @@ public class PreferenceManager extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -55,7 +55,7 @@ public class PreferenceManager extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

@@ -25,7 +25,7 @@ public class SearchBar extends JPanel {
 
     /*
      * REQUIRES: searchService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public SearchBar(ScopedSearch searchService) {
@@ -43,7 +43,7 @@ public class SearchBar extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public List<Value> getResults() {
@@ -52,7 +52,7 @@ public class SearchBar extends JPanel {
 
     /*
      * REQUIRES: query is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public List<Value> search(String query) {
@@ -61,7 +61,7 @@ public class SearchBar extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public String toString() {
@@ -70,7 +70,7 @@ public class SearchBar extends JPanel {
 
     /*
      * REQUIRES: subList is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Boolean parse(List<String> subList) {
@@ -93,7 +93,7 @@ public class SearchBar extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public String getCommandString() {
@@ -102,7 +102,7 @@ public class SearchBar extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public Function<List<String>, Boolean> getParser() {

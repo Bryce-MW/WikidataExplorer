@@ -17,7 +17,7 @@ public class Time extends AbstractAdditional {
 
     /*
      * REQUIRES: time is valid time data, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Time(String time, DatumQueryService queryService) {
@@ -27,7 +27,7 @@ public class Time extends AbstractAdditional {
 
     /*
      * REQUIRES: timeValue is valid TimeData, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Time(TimeData timeValue, DatumQueryService queryService) {
@@ -37,7 +37,7 @@ public class Time extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -47,7 +47,7 @@ public class Time extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -57,7 +57,7 @@ public class Time extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -67,7 +67,7 @@ public class Time extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

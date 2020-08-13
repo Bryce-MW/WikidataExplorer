@@ -18,7 +18,7 @@ public class LocalCollector extends WebCollector {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -28,7 +28,7 @@ public class LocalCollector extends WebCollector {
 
     /*
      * REQUIRES: uslStr is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

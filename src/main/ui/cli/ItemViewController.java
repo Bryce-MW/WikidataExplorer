@@ -17,7 +17,7 @@ public class ItemViewController {
 
     /*
      * REQUIRES: initial is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public ItemViewController(ItemView initial) {
@@ -28,7 +28,7 @@ public class ItemViewController {
 
     /*
      * REQUIRES: newView is not null and is not a member of this ItemViewController
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void add(ItemView newView) {
@@ -38,7 +38,7 @@ public class ItemViewController {
 
     /*
      * REQUIRES: toRemove is not null and is a member of this ItemViewController
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public boolean remove(ItemView toRemove) { // true if ViewController is now empty
@@ -48,7 +48,7 @@ public class ItemViewController {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public boolean isEmpty() {
@@ -57,7 +57,7 @@ public class ItemViewController {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public int size() {
@@ -66,7 +66,7 @@ public class ItemViewController {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public List<StringBuilder> toStringArray() {
@@ -77,7 +77,7 @@ public class ItemViewController {
 
     /*
      * REQUIRES: instructions is not null and contains at least one element
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Boolean parse(List<String> instructions) {
@@ -94,7 +94,7 @@ public class ItemViewController {
 
     /*
      * REQUIRES: statement is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public boolean toggleLeft(Value statement) {
@@ -106,7 +106,7 @@ public class ItemViewController {
 
     /*
      * REQUIRES: statement is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public boolean toggleRight(Value statement) {
@@ -118,7 +118,7 @@ public class ItemViewController {
 
     /*
      * REQUIRES: manager is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void setManager(LayoutManager manager) {
@@ -127,7 +127,7 @@ public class ItemViewController {
 
     /*
      * REQUIRES: statement is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public boolean toggle(Value statement) {

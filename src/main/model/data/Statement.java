@@ -27,7 +27,7 @@ public class Statement extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     private ArrayList<Value> findStatements() {
@@ -36,7 +36,7 @@ public class Statement extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -46,7 +46,7 @@ public class Statement extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -56,7 +56,7 @@ public class Statement extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -66,7 +66,7 @@ public class Statement extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     @Override
@@ -79,7 +79,7 @@ public class Statement extends Value {
 
     /*
      * REQUIRES: subList is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     @Override
@@ -92,7 +92,7 @@ public class Statement extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public String getParentID() {

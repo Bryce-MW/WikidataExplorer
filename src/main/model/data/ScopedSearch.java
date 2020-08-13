@@ -19,8 +19,8 @@ public class ScopedSearch {
     private ItemViewController controller = null;
 
     /*
-     * REQUIRES: item is not null, queryService is not null
-     * MODIFIES:
+     * REQUIRES: queryService is not null
+     * MODIFIES: this
      * EFFECTS :
      */
     public ScopedSearch(Value item, DatumQueryService queryService) {
@@ -29,8 +29,8 @@ public class ScopedSearch {
     }
 
     /*
-     * REQUIRES: controller is not null, queryService is not null
-     * MODIFIES:
+     * REQUIRES: queryService is not null
+     * MODIFIES: this
      * EFFECTS :
      */
     public ScopedSearch(ItemViewController controller, DatumQueryService queryService) {
@@ -40,7 +40,7 @@ public class ScopedSearch {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public Value getItem() {
@@ -49,7 +49,7 @@ public class ScopedSearch {
 
     /*
      * REQUIRES: values is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void add(List<Value> values) {
@@ -66,7 +66,7 @@ public class ScopedSearch {
 
     /*
      * REQUIRES: query is not null and is a valid search query for the item or for an ID overall if no item
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public List<Value> findElement(String query) {
@@ -93,7 +93,7 @@ public class ScopedSearch {
 
     /*
      * REQUIRES: query is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     @NotNull
@@ -114,7 +114,7 @@ public class ScopedSearch {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public ItemViewController getController() {

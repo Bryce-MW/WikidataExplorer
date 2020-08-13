@@ -23,7 +23,7 @@ public class MenuBar extends JMenuBar {
 
     /*
      * REQUIRES: items is not null, searchBar is not null, width is positive
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public MenuBar(ArrayList<MenuBarItem> items, SearchBar searchBar, int width) {
@@ -37,7 +37,7 @@ public class MenuBar extends JMenuBar {
 
     /*
      * REQUIRES: searchBar is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void swapSearch(SearchBar searchBar) {
@@ -46,7 +46,7 @@ public class MenuBar extends JMenuBar {
 
     /*
      * REQUIRES: item is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void addItem(MenuBarItem item) {
@@ -55,7 +55,7 @@ public class MenuBar extends JMenuBar {
 
     /*
      * REQUIRES: item is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void removeItem(MenuBarItem item) {
@@ -65,7 +65,7 @@ public class MenuBar extends JMenuBar {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public List<StringBuilder> toStringArray() { // Always returns a length of 3
@@ -104,7 +104,7 @@ public class MenuBar extends JMenuBar {
 
     /*
      * REQUIRES: none of the lines are null and search is not null
-     * MODIFIES:
+     * MODIFIES: line1, line2, line3
      * EFFECTS :
      */
     private void addLines(StringBuilder line1, StringBuilder line3, StringBuilder line2, String search) {
@@ -118,7 +118,7 @@ public class MenuBar extends JMenuBar {
 
     /*
      * REQUIRES: subList is not null
-     * MODIFIES:
+     * MODIFIES:  this
      * EFFECTS :
      */
     public Boolean parse(List<String> subList) {
@@ -136,7 +136,7 @@ public class MenuBar extends JMenuBar {
 
     /*
      * REQUIRES: guInterface is not null and has been (or will be soon) set up
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void setGuInterface(GUInterface guInterface) {
@@ -145,7 +145,7 @@ public class MenuBar extends JMenuBar {
 
     /*
      * REQUIRES: itemView is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void toggle(ItemView itemView) {

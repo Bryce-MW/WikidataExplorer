@@ -26,7 +26,7 @@ public class QuantityData {
 
     /*
      * REQUIRES: value is valid quantity data in the format specified above
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public QuantityData(Map<String, String> value) {

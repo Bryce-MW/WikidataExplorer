@@ -16,7 +16,7 @@ public class GMouseAdapter extends MouseAdapter {
 
     /*
      * REQUIRES: guInterface is a valid interface and has been (or will be shortly) set up.
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public GMouseAdapter(GUInterface guInterface) {
@@ -25,7 +25,7 @@ public class GMouseAdapter extends MouseAdapter {
 
     /*
      * REQUIRES: the event has an X and Y location
-     * MODIFIES:
+     * MODIFIES: guInterface
      * EFFECTS :
      */
     @Override
@@ -36,7 +36,7 @@ public class GMouseAdapter extends MouseAdapter {
 
     /*
      * REQUIRES: the event has an X and Y location
-     * MODIFIES:
+     * MODIFIES: guInterface
      * EFFECTS :
      */
     @Override

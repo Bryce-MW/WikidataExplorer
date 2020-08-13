@@ -14,7 +14,7 @@ public class NotFoundException extends Exception {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public NotFoundException(String urlStr) {
@@ -23,7 +23,7 @@ public class NotFoundException extends Exception {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public NotFoundException(String... tree) {
@@ -32,7 +32,7 @@ public class NotFoundException extends Exception {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     private static String buildErrorString(String[] tree) {

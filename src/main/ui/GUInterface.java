@@ -58,7 +58,7 @@ public class GUInterface extends JPanel {
 
     /*
      * REQUIRES: gui and queryService are not null
-     * MODIFIES:
+     * MODIFIES: gui
      * EFFECTS :
      */
     @NotNull
@@ -83,8 +83,8 @@ public class GUInterface extends JPanel {
     }
 
     /*
-     * REQUIRES: inital and menuBar are not null
-     * MODIFIES:
+     * REQUIRES: initial and menuBar are not null
+     * MODIFIES: this
      * EFFECTS :
      */
     private void setUpWindow(ItemView initial, MenuBar menuBar) {
@@ -107,7 +107,7 @@ public class GUInterface extends JPanel {
 
     /*
      * REQUIRES: none (x and y ended up not being used)
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void pressed(int x, int y) {
@@ -120,7 +120,7 @@ public class GUInterface extends JPanel {
 
     /*
      * REQUIRES: none (x and y ended up not being used)
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void released(int x, int y) {
@@ -134,7 +134,7 @@ public class GUInterface extends JPanel {
 
     /*
      * REQUIRES: none (x and y ended up not being used)
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void drag(int x, int y) {
@@ -155,7 +155,7 @@ public class GUInterface extends JPanel {
 
     /*
      * REQUIRES: x and y are new mouse positions
-     * MODIFIES:
+     * MODIFIES: component
      * EFFECTS :
      */
     private void moveComponent(int x, int y, Component component) {
@@ -170,7 +170,7 @@ public class GUInterface extends JPanel {
 
     /*
      * REQUIRES: value is not null and contains a valid Item
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void toggle(ItemView value) {

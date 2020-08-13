@@ -17,7 +17,7 @@ public class StringBuilderUtil {
 
     /*
      * REQUIRES: list is not null, additionalLength is not negative
-     * MODIFIES:
+     * MODIFIES: list
      * EFFECTS :
      */
     public static void padAll(List<StringBuilder> list, char character, int additionalLength) {
@@ -30,7 +30,7 @@ public class StringBuilderUtil {
 
     /*
      * REQUIRES: builder is not null, length is not negative
-     * MODIFIES:
+     * MODIFIES: builder
      * EFFECTS :
      */
     public static void pad(StringBuilder builder, char character, int length) {

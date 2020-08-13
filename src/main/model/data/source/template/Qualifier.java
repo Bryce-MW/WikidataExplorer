@@ -18,7 +18,7 @@ public class Qualifier implements Serializable {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

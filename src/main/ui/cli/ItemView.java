@@ -36,7 +36,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: value is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public ItemView(Value value) {
@@ -53,7 +53,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     private void configureView() {
@@ -85,7 +85,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     private void addButtons() {
@@ -106,7 +106,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     private void addRightButton() {
@@ -131,7 +131,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: language is a valid language code according to ISO something or other
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void updateLanguage(String lang) {
@@ -139,7 +139,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Value getItem() {
@@ -148,7 +148,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public List<StringBuilder> toStringArray() {
@@ -182,7 +182,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: result is not null and contains at least one element
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     private void addLines(ArrayList<StringBuilder> result) {
@@ -211,7 +211,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: subList is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public boolean parse(List<String> subList) {
@@ -236,7 +236,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: statement is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public boolean toggleLeft(Value statement) {
@@ -248,7 +248,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void setController(ItemViewController controller) {
@@ -257,7 +257,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: value is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void toggle(ItemView value) {
@@ -270,7 +270,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -289,7 +289,7 @@ public class ItemView extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

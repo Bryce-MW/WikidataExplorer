@@ -30,7 +30,7 @@ public class TimeData {
 
     /*
      * REQUIRES: value is valid time data in the format specified above
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public TimeData(Map<String, Object> value) {

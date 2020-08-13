@@ -16,7 +16,7 @@ public class LayoutProfileManager extends MenuBarItem {
 
     /*
      * REQUIRES: defaultProfile is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public LayoutProfileManager(LayoutProfile defaultProfile) {
@@ -27,7 +27,7 @@ public class LayoutProfileManager extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public ArrayList<LayoutProfile> getProfiles() {
@@ -36,7 +36,7 @@ public class LayoutProfileManager extends MenuBarItem {
 
     /*
      * REQUIRES: profile is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void addProfile(LayoutProfile profile) {
@@ -46,7 +46,7 @@ public class LayoutProfileManager extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -56,7 +56,7 @@ public class LayoutProfileManager extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -66,7 +66,7 @@ public class LayoutProfileManager extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

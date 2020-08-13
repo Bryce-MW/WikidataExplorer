@@ -17,7 +17,7 @@ public class Item extends Datum {
 
     /*
      * REQUIRES: id is a valid Wikidata concept ID, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Item(String id, DatumQueryService queryService) throws NotFoundException {
@@ -28,7 +28,7 @@ public class Item extends Datum {
 
     /*
      * REQUIRES: data is valid concept EntityData, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Item(EntityData data, DatumQueryService queryService) throws NotFoundException {
@@ -37,7 +37,7 @@ public class Item extends Datum {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -47,7 +47,7 @@ public class Item extends Datum {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

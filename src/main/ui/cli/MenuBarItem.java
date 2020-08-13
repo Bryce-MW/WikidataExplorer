@@ -15,14 +15,14 @@ public abstract class MenuBarItem extends JMenu {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public abstract String getCommandString();
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public Function<List<String>, Boolean> getParser() {
@@ -31,7 +31,7 @@ public abstract class MenuBarItem extends JMenu {
 
     /*
      * REQUIRES: subList is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public abstract Boolean parse(List<String> subList);

@@ -21,7 +21,7 @@ public class DatumLink extends Value {
 
     /*
      * REQUIRES: queryService is not null, property is not null, value is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public DatumLink(DatumQueryService queryService, Statement property, Value value) {
@@ -36,7 +36,7 @@ public class DatumLink extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -46,7 +46,7 @@ public class DatumLink extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -56,7 +56,7 @@ public class DatumLink extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -66,7 +66,7 @@ public class DatumLink extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -82,7 +82,7 @@ public class DatumLink extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

@@ -17,7 +17,7 @@ public abstract class Datum extends Value {
 
     /*
      * REQUIRES: queryService is not null, ID is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     protected Datum(DatumQueryService queryService, String id) {
@@ -27,7 +27,7 @@ public abstract class Datum extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     protected ArrayList<Value> findStatements() {
@@ -53,7 +53,7 @@ public abstract class Datum extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -63,7 +63,7 @@ public abstract class Datum extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -73,7 +73,7 @@ public abstract class Datum extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -83,7 +83,7 @@ public abstract class Datum extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

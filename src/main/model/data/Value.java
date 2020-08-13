@@ -36,7 +36,7 @@ public abstract class Value extends JPanel {
 
     /*
      * REQUIRES: queryService is not null, id is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     protected Value(DatumQueryService queryService, String id) {
@@ -50,7 +50,7 @@ public abstract class Value extends JPanel {
     /*
      * REQUIRES: dataType is a valid Wikidata datatype which has LiteralString as its backing, queryService is not
      * null, stringValue is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     private static LiteralString getLiteralString(String dataType, DatumQueryService queryService, String stringValue) {
@@ -78,7 +78,7 @@ public abstract class Value extends JPanel {
     /*
      * REQUIRES: value is a valid Wikidata datatype, value is a valid DataValue corresponding to the datatype,
      * queryService is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public static Value parseData(DataValue value, String dataType, DatumQueryService queryService) {
@@ -109,7 +109,7 @@ public abstract class Value extends JPanel {
     /*
      * REQUIRES: dataType is a valid Wikidata datatype with an item as its backing, queryService is not null,
      * entityValue is not a valid EntityData corresponding to the dataType given
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     private static Datum getDatum(String dataType, DatumQueryService queryService, EntityData entityValue) {
@@ -134,7 +134,7 @@ public abstract class Value extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     @Override
@@ -166,21 +166,21 @@ public abstract class Value extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public abstract String getTitle();
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public abstract String getDescription();
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public String getID() {
@@ -189,21 +189,21 @@ public abstract class Value extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public abstract StatementList getStatements();
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public abstract Boolean parse(List<String> subList);
 
     /*
      * REQUIRES: view is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void setView(ItemView view) {
@@ -212,7 +212,7 @@ public abstract class Value extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public boolean needsSearchBar() {
@@ -221,7 +221,7 @@ public abstract class Value extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public boolean needsRightArrow() {
@@ -230,7 +230,7 @@ public abstract class Value extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public DatumQueryService getQuery() {
@@ -239,7 +239,7 @@ public abstract class Value extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -258,7 +258,7 @@ public abstract class Value extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

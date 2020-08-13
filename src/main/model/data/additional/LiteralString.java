@@ -12,7 +12,7 @@ public class LiteralString extends AbstractAdditional {
 
     /*
      * REQUIRES: value is not null, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public LiteralString(String value, DatumQueryService queryService) {
@@ -22,7 +22,7 @@ public class LiteralString extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -32,7 +32,7 @@ public class LiteralString extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -42,7 +42,7 @@ public class LiteralString extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -52,7 +52,7 @@ public class LiteralString extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

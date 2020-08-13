@@ -23,7 +23,7 @@ public class LayoutManager {
 
     /*
      * REQUIRES: width and height are positive and menuBar is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public LayoutManager(int width, int height, MenuBar menuBar) {
@@ -35,7 +35,7 @@ public class LayoutManager {
 
     /*
      * REQUIRES: newView is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void add(ItemViewController newView) {
@@ -45,7 +45,7 @@ public class LayoutManager {
 
     /*
      * REQUIRES: index is positive or 0 and newView is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public void add(int index, ItemViewController newView) {
@@ -55,7 +55,7 @@ public class LayoutManager {
 
     /*
      * REQUIRES: toRemove is not null and is a member of this LayoutManager
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public boolean remove(ItemViewController toRemove) { // true if ItemViewController is now empty
@@ -65,7 +65,7 @@ public class LayoutManager {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public boolean isEmpty() {
@@ -74,7 +74,7 @@ public class LayoutManager {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public int size() {
@@ -83,7 +83,7 @@ public class LayoutManager {
 
     /*
      * REQUIRES: sepWidth is not negative
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public void setSepWidth(int sepWidth) {
@@ -92,7 +92,7 @@ public class LayoutManager {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     private ArrayList<StringBuilder> toStringArray() {
@@ -124,7 +124,7 @@ public class LayoutManager {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public void print() {
@@ -137,7 +137,7 @@ public class LayoutManager {
 
     /*
      * REQUIRES: instructions is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Boolean parse(List<String> instructions) {
@@ -147,7 +147,7 @@ public class LayoutManager {
 
     /*
      * REQUIRES: statement is not null, itemViewController is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public boolean toggleLeft(Value statement, ItemViewController itemViewController) {
@@ -168,7 +168,7 @@ public class LayoutManager {
 
     /*
      * REQUIRES: statement is not null, itemViewController is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public boolean toggleRight(Value statement, ItemViewController itemViewController) {

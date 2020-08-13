@@ -27,7 +27,7 @@ public class WebCollector extends Collector {
 
     /*
      * REQUIRES: repository is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public WebCollector(LocalRepository repository) {
@@ -37,7 +37,7 @@ public class WebCollector extends Collector {
 
     /*
      * REQUIRES: ID is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     private static String formatURL(String id) {
@@ -46,7 +46,7 @@ public class WebCollector extends Collector {
 
     /*
      * REQUIRES: property is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -67,7 +67,7 @@ public class WebCollector extends Collector {
 
     /*
      * REQUIRES: tree is of size at least 3 and contains a valid tree of IDs, qualifierQuery is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -101,7 +101,7 @@ public class WebCollector extends Collector {
 
     /*
      * REQUIRES: qualifierQuery is not null, id, claim, and item are a valid tree of Wikidata IDs
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     private Map<String, List<model.data.source.template.Qualifier>> tryGetQualifiers(DatumQueryService qualifierQuery,
@@ -121,7 +121,7 @@ public class WebCollector extends Collector {
 
     /*
      * REQUIRES: tree is a valid length three tree of Wikidata IDs. refQueryService is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -155,7 +155,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: refQueryService is not null, reference is a valid Reference, s is in the keys of the Map
      * reference.snaks
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     private ArrayList<Reference> iterateSnaks(DatumQueryService refQueryService,
@@ -175,7 +175,7 @@ public class WebCollector extends Collector {
 
     /*
      * REQUIRES: id is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -197,7 +197,7 @@ public class WebCollector extends Collector {
 
     /*
      * REQUIRES: id is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -211,7 +211,7 @@ public class WebCollector extends Collector {
 
     /*
      * REQUIRES: tree is a valid length 2 Wikidata tree starting at item, statementService is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -223,7 +223,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: tree is a valid length 2 Wikidata tree, about is a valid Statement which this tree is about,
      * queryService is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -246,7 +246,7 @@ public class WebCollector extends Collector {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     @Override
@@ -263,7 +263,7 @@ public class WebCollector extends Collector {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     @Override
@@ -274,7 +274,7 @@ public class WebCollector extends Collector {
 
     /*
      * REQUIRES: urlString is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     protected Entities getJson(String urlStr) throws NotFoundException {

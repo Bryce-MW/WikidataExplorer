@@ -14,7 +14,7 @@ public class MonolingualText extends AbstractAdditional {
 
     /*
      * REQUIRES: text is not null, language is a valid ISO something language ID. queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public MonolingualText(String text, String language, DatumQueryService queryService) {
@@ -25,7 +25,7 @@ public class MonolingualText extends AbstractAdditional {
 
     /*
      * REQUIRES: monolingualTextValue is valid MonolingualTextData, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public MonolingualText(MonolingualTextData monolingualTextValue, DatumQueryService queryService) {
@@ -37,7 +37,7 @@ public class MonolingualText extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -47,7 +47,7 @@ public class MonolingualText extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -57,7 +57,7 @@ public class MonolingualText extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -67,7 +67,7 @@ public class MonolingualText extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

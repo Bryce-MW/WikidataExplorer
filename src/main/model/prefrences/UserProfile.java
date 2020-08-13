@@ -19,7 +19,7 @@ public class UserProfile extends MenuBarItem {
 
     /*
      * REQUIRES: name is not null, defaultLayout is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public UserProfile(String name, LayoutManager defaultLayout) {
@@ -31,7 +31,7 @@ public class UserProfile extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public PreferenceManager getPreferences() {
@@ -40,7 +40,7 @@ public class UserProfile extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public LayoutProfileManager getLayoutProfileManager() {
@@ -50,7 +50,7 @@ public class UserProfile extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -60,7 +60,7 @@ public class UserProfile extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -70,7 +70,7 @@ public class UserProfile extends MenuBarItem {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

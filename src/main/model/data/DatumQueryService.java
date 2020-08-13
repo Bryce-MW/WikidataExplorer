@@ -16,7 +16,7 @@ public class DatumQueryService {
 
     /*
      * REQUIRES: collector is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public DatumQueryService(Collector collector) {
@@ -25,7 +25,7 @@ public class DatumQueryService {
 
     /*
      * REQUIRES: item is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public ScopedSearch getScopedSearch(Value item) {
@@ -34,7 +34,7 @@ public class DatumQueryService {
 
     /*
      * REQUIRES: property is not null and is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public String getNameByID(String property) throws NotFoundException {
@@ -43,7 +43,7 @@ public class DatumQueryService {
 
     /*
      * REQUIRES: property is a valid Wikidata ID and is a valid property for the given valid. Value is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public ArrayList<Qualifier> getQualifiersByStatement(Statement property, Value value) {
@@ -56,7 +56,7 @@ public class DatumQueryService {
 
     /*
      * REQUIRES: property is a valid Wikidata ID and is a valid property for the given valid. Value is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public ArrayList<Reference> getReferencesByStatement(Statement property, Value value) {
@@ -69,7 +69,7 @@ public class DatumQueryService {
 
     /*
      * REQUIRES: id is not null and is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public String getDescriptionByID(String id) throws NotFoundException {
@@ -78,7 +78,7 @@ public class DatumQueryService {
 
     /*
      * REQUIRES: id is not null and is a valid Wikidata Id
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public ArrayList<String> getStatementListByID(String id) {
@@ -92,7 +92,7 @@ public class DatumQueryService {
 
     /*
      * REQUIRES: tree is a valid tree of IDs and item is a valid item
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public Value getStatementByTree(ArrayList<String> tree, Datum item) throws NotFoundException {
@@ -101,7 +101,7 @@ public class DatumQueryService {
 
     /*
      * REQUIRES: property is a valid and not null statement
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public ArrayList<Value> getDatumLinkListByStatement(Statement property) {
@@ -113,7 +113,7 @@ public class DatumQueryService {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public Boolean triggerSave() {
@@ -122,7 +122,7 @@ public class DatumQueryService {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public boolean triggerLoad() {

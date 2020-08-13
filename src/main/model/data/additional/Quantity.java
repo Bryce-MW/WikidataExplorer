@@ -17,7 +17,7 @@ public class Quantity extends AbstractAdditional {
 
     /*
      * REQUIRES: quantityValue is valid QuantityData, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Quantity(QuantityData quantityValue, DatumQueryService queryService) {
@@ -40,7 +40,7 @@ public class Quantity extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -50,7 +50,7 @@ public class Quantity extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -60,7 +60,7 @@ public class Quantity extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -70,7 +70,7 @@ public class Quantity extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

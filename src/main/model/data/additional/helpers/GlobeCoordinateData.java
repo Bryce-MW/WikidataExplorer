@@ -27,7 +27,7 @@ public class GlobeCoordinateData {
 
     /*
      * REQUIRES: value is valid globe coordinate data in the format specified above
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public GlobeCoordinateData(Map<String, Object> value) {

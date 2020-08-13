@@ -17,7 +17,7 @@ public class Reference extends Value {
 
     /*
      * REQUIRES: property is not null, value is not null, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Reference(Property property, Value value, DatumQueryService queryService) {
@@ -28,7 +28,7 @@ public class Reference extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     @Override
@@ -39,7 +39,7 @@ public class Reference extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public Property getProperty() {
@@ -48,7 +48,7 @@ public class Reference extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public Value getValue() {
@@ -57,7 +57,7 @@ public class Reference extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -67,7 +67,7 @@ public class Reference extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -77,7 +77,7 @@ public class Reference extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -87,7 +87,7 @@ public class Reference extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

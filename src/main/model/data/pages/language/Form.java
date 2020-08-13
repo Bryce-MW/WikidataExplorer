@@ -16,7 +16,7 @@ public class Form extends Datum {
 
     /*
      * REQUIRES: id is a valid Wikidata form id, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Form(String id, DatumQueryService queryService) throws NotFoundException {
@@ -27,7 +27,7 @@ public class Form extends Datum {
 
     /*
      * REQUIRES: data is valid EntityData for a Form, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Form(EntityData data, DatumQueryService queryService) throws NotFoundException {
@@ -36,7 +36,7 @@ public class Form extends Datum {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -46,7 +46,7 @@ public class Form extends Datum {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

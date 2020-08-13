@@ -22,7 +22,7 @@ public class Lexeme extends Datum {
 
     /*
      * REQUIRES: id is a valid Wikidata lexeme ID, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Lexeme(String id, DatumQueryService queryService) throws NotFoundException {
@@ -33,7 +33,7 @@ public class Lexeme extends Datum {
 
     /*
      * REQUIRES: data is valid EntityData for a Lexeme, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Lexeme(EntityData data, DatumQueryService queryService) throws NotFoundException {
@@ -42,7 +42,7 @@ public class Lexeme extends Datum {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -52,7 +52,7 @@ public class Lexeme extends Datum {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

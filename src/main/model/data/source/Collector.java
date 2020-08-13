@@ -15,7 +15,7 @@ public abstract class Collector {
 
     /*
      * REQUIRES: repository is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Collector(LocalRepository repository) {
@@ -24,42 +24,42 @@ public abstract class Collector {
 
     /*
      * REQUIRES: property is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public abstract String getEntityName(String property) throws NotFoundException;
 
     /*
      * REQUIRES: tree is a valid Wikidata tree, qualifierQuery is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public abstract ArrayList<Qualifier> getQualifiers(List<String> tree, DatumQueryService qualifierQuery);
 
     /*
      * REQUIRES: tree is a valid Wikidata tree, qualifierQuery is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public abstract ArrayList<Reference> getReferences(List<String> tree, DatumQueryService refQueryService);
 
     /*
      * REQUIRES: id is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public abstract String getEntityDescription(String id) throws NotFoundException;
 
     /*
      * REQUIRES: id is a valid Wikidata ID
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public abstract ArrayList<String> getStatementList(String id) throws NotFoundException;
 
     /*
      * REQUIRES: tree is a valid Wikidata tree about item, statementService is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public abstract Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService)
@@ -67,7 +67,7 @@ public abstract class Collector {
 
     /*
      * REQUIRES: tree is a valid Wikidata tree about about, statementService is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public abstract ArrayList<Value> getDatumLinkListByTree(ArrayList<String> tree, Statement about,
@@ -75,14 +75,14 @@ public abstract class Collector {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public abstract Boolean triggerSave();
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public abstract Boolean triggerLoad();

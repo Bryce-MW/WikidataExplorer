@@ -16,7 +16,7 @@ public class CommonsMedia extends LiteralString {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

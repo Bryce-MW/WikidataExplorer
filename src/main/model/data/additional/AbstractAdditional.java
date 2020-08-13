@@ -18,7 +18,7 @@ public abstract class AbstractAdditional extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

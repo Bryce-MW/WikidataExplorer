@@ -15,7 +15,7 @@ public class GlobeCoordinate extends AbstractAdditional {
 
     /*
      * REQUIRES: posLat and posLong are positions on Earth (or other globe), queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public GlobeCoordinate(double posLat, double posLong, DatumQueryService queryService) {
@@ -26,7 +26,7 @@ public class GlobeCoordinate extends AbstractAdditional {
 
     /*
      * REQUIRES: globeCoordinateValue is valid GlobeCoordinateData, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public GlobeCoordinate(GlobeCoordinateData globeCoordinateValue, DatumQueryService queryService) {
@@ -37,7 +37,7 @@ public class GlobeCoordinate extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -47,7 +47,7 @@ public class GlobeCoordinate extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -57,7 +57,7 @@ public class GlobeCoordinate extends AbstractAdditional {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

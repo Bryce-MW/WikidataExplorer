@@ -13,7 +13,7 @@ public class LayoutProfile {
 
     /*
      * REQUIRES: name is not null, layout is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public LayoutProfile(String name, LayoutManager layout) {
@@ -23,7 +23,7 @@ public class LayoutProfile {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public LayoutManager getLayout() {
@@ -32,7 +32,7 @@ public class LayoutProfile {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public String getName() {
@@ -41,7 +41,7 @@ public class LayoutProfile {
 
     /*
      * REQUIRES: name is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public void setName(String name) {

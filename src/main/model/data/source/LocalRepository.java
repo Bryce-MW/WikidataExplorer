@@ -19,7 +19,7 @@ public class LocalRepository {
 
     /*
      * REQUIRES: fileName is the name of a Wikidata formatted JSON file which exists on the filesystem.
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public LocalRepository(String fileName) {
@@ -28,7 +28,7 @@ public class LocalRepository {
 
     /*
      * REQUIRES: entities is a valid Entities, gson is not null
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public Boolean save(Entities entities, Gson gson) {
@@ -54,7 +54,7 @@ public class LocalRepository {
 
     /*
      * REQUIRES: gson is valid
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public Entities load(Gson gson) {

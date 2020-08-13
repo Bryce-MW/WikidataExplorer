@@ -19,7 +19,7 @@ public class Qualifier extends Value {
 
     /*
      * REQUIRES: property is not null, value is not null, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public Qualifier(Property property, Value value, DatumQueryService queryService) {
@@ -30,7 +30,7 @@ public class Qualifier extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     @Override
@@ -41,7 +41,7 @@ public class Qualifier extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public Property getProperty() {
@@ -50,7 +50,7 @@ public class Qualifier extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     public Value getValue() {
@@ -59,7 +59,7 @@ public class Qualifier extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -69,7 +69,7 @@ public class Qualifier extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -79,7 +79,7 @@ public class Qualifier extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override
@@ -89,7 +89,7 @@ public class Qualifier extends Value {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

@@ -52,7 +52,7 @@ public final class CLInterface {
 
     /*
      * REQUIRES: args is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public static void main(String[] args) {
@@ -90,7 +90,7 @@ public final class CLInterface {
 
     /*
      * REQUIRES: args is not null
-     * MODIFIES:
+     * MODIFIES: queryService
      * EFFECTS :
      */
     @NotNull
@@ -112,7 +112,7 @@ public final class CLInterface {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     private static void getWindowSize() {
@@ -138,7 +138,7 @@ public final class CLInterface {
 
     /*
      * REQUIRES: args is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     private static void loop(String[] args) {
@@ -165,7 +165,7 @@ public final class CLInterface {
 
     /*
      * REQUIRES: command is a whitespace separated tree of commands
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     private static void parse(String command) {

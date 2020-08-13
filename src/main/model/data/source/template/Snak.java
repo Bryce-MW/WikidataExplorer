@@ -17,7 +17,7 @@ public class Snak implements Serializable {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

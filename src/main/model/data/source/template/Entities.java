@@ -15,7 +15,7 @@ public class Entities implements Serializable {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
+     * MODIFIES: none
      * EFFECTS :
      */
     @Override

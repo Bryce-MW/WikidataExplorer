@@ -10,7 +10,7 @@ public class MathematicalExpression extends LiteralString {
 
     /*
      * REQUIRES: value is valid LaTeX, queryService is not null
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public MathematicalExpression(String value, DatumQueryService queryService) {

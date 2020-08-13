@@ -29,7 +29,7 @@ public class EntityData {
 
     /*
      * REQUIRES: value is valid entity data in the format specified above
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public EntityData(Map<String, Object> value) {

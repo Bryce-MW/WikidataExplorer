@@ -14,7 +14,7 @@ public class MonolingualTextData {
 
     /*
      * REQUIRES: value is valid monolingual text data in the format specified above
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS :
      */
     public MonolingualTextData(Map<String, String> value) {
