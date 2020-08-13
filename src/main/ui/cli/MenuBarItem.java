@@ -16,14 +16,14 @@ public abstract class MenuBarItem extends JMenu {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the string used to send commands to this item
      */
     public abstract String getCommandString();
 
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the function reference which is used to parse REPL commands which are directed to this item
      */
     public Function<List<String>, Boolean> getParser() {
         return this::parse;
@@ -32,7 +32,7 @@ public abstract class MenuBarItem extends JMenu {
     /*
      * REQUIRES: subList is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : parse a REPL command directed at this item
      */
     public abstract Boolean parse(List<String> subList);
 }

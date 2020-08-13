@@ -24,7 +24,7 @@ public class MenuBar extends JMenuBar {
     /*
      * REQUIRES: items is not null, searchBar is not null, width is positive
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets up a new menu bar
      */
     public MenuBar(ArrayList<MenuBarItem> items, SearchBar searchBar, int width) {
         this.items = items;
@@ -38,7 +38,7 @@ public class MenuBar extends JMenuBar {
     /*
      * REQUIRES: searchBar is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : changes the search bar to a new one
      */
     public void swapSearch(SearchBar searchBar) {
         this.searchBar = searchBar;
@@ -47,7 +47,7 @@ public class MenuBar extends JMenuBar {
     /*
      * REQUIRES: item is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : adds a new menu bar item
      */
     public void addItem(MenuBarItem item) {
         items.add(item);
@@ -56,7 +56,7 @@ public class MenuBar extends JMenuBar {
     /*
      * REQUIRES: item is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : removes a menu bar item
      */
     public void removeItem(MenuBarItem item) {
         items.remove(item);
@@ -66,7 +66,7 @@ public class MenuBar extends JMenuBar {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the CLI representation of the menu bar
      */
     public List<StringBuilder> toStringArray() { // Always returns a length of 3
         ArrayList<StringBuilder> output = new ArrayList<>(3);
@@ -105,7 +105,7 @@ public class MenuBar extends JMenuBar {
     /*
      * REQUIRES: none of the lines are null and search is not null
      * MODIFIES: line1, line2, line3
-     * EFFECTS :
+     * EFFECTS : adds box-drawing lines to the lines as needed
      */
     private void addLines(StringBuilder line1, StringBuilder line3, StringBuilder line2, String search) {
         IntStream.range(0, (width - line2.length() - search.length() - 2)).mapToObj(i -> ' ').forEach(line2::append);
@@ -119,7 +119,7 @@ public class MenuBar extends JMenuBar {
     /*
      * REQUIRES: subList is not null
      * MODIFIES:  this
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed to this menu bar
      */
     public Boolean parse(List<String> subList) {
         ArrayList<String> command = new ArrayList<>(subList);
@@ -137,7 +137,7 @@ public class MenuBar extends JMenuBar {
     /*
      * REQUIRES: guInterface is not null and has been (or will be soon) set up
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets the GuInterface for this menu bar
      */
     public void setGuInterface(GUInterface guInterface) {
         this.guInterface = guInterface;
@@ -146,7 +146,7 @@ public class MenuBar extends JMenuBar {
     /*
      * REQUIRES: itemView is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : toggles an item in the GuInterface
      */
     public void toggle(ItemView itemView) {
         if (guInterface != null) {

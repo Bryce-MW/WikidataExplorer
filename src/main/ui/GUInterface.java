@@ -59,7 +59,7 @@ public class GUInterface extends JPanel {
     /*
      * REQUIRES: gui and queryService are not null
      * MODIFIES: gui
-     * EFFECTS :
+     * EFFECTS : sets up the menu bar
      */
     @NotNull
     private static MenuBar setupMenubar(GUInterface gui, DatumQueryService queryService) {
@@ -85,7 +85,7 @@ public class GUInterface extends JPanel {
     /*
      * REQUIRES: initial and menuBar are not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets up the window
      */
     private void setUpWindow(ItemView initial, MenuBar menuBar) {
         SwingUtilities.invokeLater(() -> {
@@ -108,7 +108,7 @@ public class GUInterface extends JPanel {
     /*
      * REQUIRES: none (x and y ended up not being used)
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets that the mouse button has been pressed and sets the point at which that happened
      */
     public void pressed(int x, int y) {
         pressed = true;
@@ -121,7 +121,7 @@ public class GUInterface extends JPanel {
     /*
      * REQUIRES: none (x and y ended up not being used)
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : unsets that the mouse button has been pressed and sets the location where that happened
      */
     public void released(int x, int y) {
         pressed = false;
@@ -135,7 +135,7 @@ public class GUInterface extends JPanel {
     /*
      * REQUIRES: none (x and y ended up not being used)
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : moves components due to the drag and sets the new location of the mouse
      */
     public void drag(int x, int y) {
         Point pos = getMousePosition();
@@ -156,7 +156,7 @@ public class GUInterface extends JPanel {
     /*
      * REQUIRES: x and y are new mouse positions
      * MODIFIES: component
-     * EFFECTS :
+     * EFFECTS : moves an ItemView component
      */
     private void moveComponent(int x, int y, Component component) {
         if (component instanceof ItemView) {
@@ -171,7 +171,7 @@ public class GUInterface extends JPanel {
     /*
      * REQUIRES: value is not null and contains a valid Item
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : Toggles a component on the screen
      */
     public void toggle(ItemView value) {
         List<Component> components = Arrays.asList(getComponents());

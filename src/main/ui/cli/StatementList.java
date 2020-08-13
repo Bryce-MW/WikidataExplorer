@@ -22,7 +22,7 @@ public class StatementList extends JPanel {
     /*
      * REQUIRES: statements is not null and contains valid statements about the entity
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets up a new statement list
      */
     public StatementList(Value entity, ArrayList<Value> statements) {
         // Entity this statement list refers to.
@@ -35,7 +35,7 @@ public class StatementList extends JPanel {
     /*
      * REQUIRES: value is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : adds a component to this list
      */
     private void addComp(JComponent value) {
         add(value);
@@ -45,7 +45,7 @@ public class StatementList extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : creates the CLI output for this list
      */
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(statements.size());
@@ -67,7 +67,7 @@ public class StatementList extends JPanel {
     /*
      * REQUIRES: command is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : parses a REPL command sent to this list
      */
     public Boolean parse(List<String> command) {
         ArrayList<String> instruction = new ArrayList<>(command);
@@ -87,7 +87,7 @@ public class StatementList extends JPanel {
     /*
      * REQUIRES: value is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : adds a value to this list
      */
     public void add(Value value) {
         statements.add(value);
@@ -97,7 +97,7 @@ public class StatementList extends JPanel {
     /*
      * REQUIRES: value is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : toggles an ItemView in the GUI
      */
     public void toggle(ItemView value) {
         Container parent = getParent();
@@ -110,7 +110,7 @@ public class StatementList extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the URL of the image if there is one
      */
     public String getImage() {
         for (Value statement : statements) {

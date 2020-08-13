@@ -17,7 +17,7 @@ public class GMouseAdapter extends MouseAdapter {
     /*
      * REQUIRES: guInterface is a valid interface and has been (or will be shortly) set up.
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets up this mouse adapter
      */
     public GMouseAdapter(GUInterface guInterface) {
         this.guInterface = guInterface;
@@ -26,7 +26,7 @@ public class GMouseAdapter extends MouseAdapter {
     /*
      * REQUIRES: the event has an X and Y location
      * MODIFIES: guInterface
-     * EFFECTS :
+     * EFFECTS : interprets a mouse press event
      */
     @Override
     public void mousePressed(MouseEvent e) {
@@ -37,7 +37,7 @@ public class GMouseAdapter extends MouseAdapter {
     /*
      * REQUIRES: the event has an X and Y location
      * MODIFIES: guInterface
-     * EFFECTS :
+     * EFFECTS : interprets a mouse released event
      */
     @Override
     public void mouseReleased(MouseEvent e) {

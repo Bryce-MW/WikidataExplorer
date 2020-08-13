@@ -43,8 +43,8 @@ public final class CLInterface {
 
     /*
      * REQUIRES: not to be called
-     * MODIFIES:
-     * EFFECTS :
+     * MODIFIES: none
+     * EFFECTS : throws and error
      */
     public CLInterface() {
         throw new Error("CLInterface contains only static methods");
@@ -53,7 +53,7 @@ public final class CLInterface {
     /*
      * REQUIRES: args is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : starts the CLI and sets up the objects required to do so, starts the REPL loop
      */
     public static void main(String[] args) {
         // Start point for CLI interface
@@ -91,7 +91,7 @@ public final class CLInterface {
     /*
      * REQUIRES: args is not null
      * MODIFIES: queryService
-     * EFFECTS :
+     * EFFECTS : sets up ther initial item and teh collector
      */
     @NotNull
     private static Datum setupStartingItem(String[] args) {
@@ -113,7 +113,7 @@ public final class CLInterface {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : gets the size of the console in a kind of annoying way
      */
     private static void getWindowSize() {
         //This is my attempt to get the console size. Don't complain about how confusing it is:
@@ -139,7 +139,7 @@ public final class CLInterface {
     /*
      * REQUIRES: args is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : loops until an exit command is found
      */
     private static void loop(String[] args) {
         layout.print();
@@ -166,7 +166,7 @@ public final class CLInterface {
     /*
      * REQUIRES: command is a whitespace separated tree of commands
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : parses a command from the REPL
      */
     private static void parse(String command) {
         List<String> instructions = Arrays.asList(command.split("\\s"));

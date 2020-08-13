@@ -26,7 +26,7 @@ public class SearchBar extends JPanel {
     /*
      * REQUIRES: searchService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets up a new search bar
      */
     public SearchBar(ScopedSearch searchService) {
         this.searchService = searchService;
@@ -44,7 +44,7 @@ public class SearchBar extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the results of the last search
      */
     public List<Value> getResults() {
         return results;
@@ -53,7 +53,7 @@ public class SearchBar extends JPanel {
     /*
      * REQUIRES: query is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : searches for a specific ID
      */
     public List<Value> search(String query) {
         return searchService.findElement(query);
@@ -62,7 +62,7 @@ public class SearchBar extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : Returns the CLI string for the search bar
      */
     public String toString() {
         return "S: Search";
@@ -71,7 +71,7 @@ public class SearchBar extends JPanel {
     /*
      * REQUIRES: subList is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed at this search bar
      */
     public Boolean parse(List<String> subList) {
         if (subList.size() == 0) {
@@ -94,7 +94,7 @@ public class SearchBar extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the string which is used to select to send commands to this search bar
      */
     public String getCommandString() {
         return "S";
@@ -103,7 +103,7 @@ public class SearchBar extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets a reference to the function which parses a REPL command
      */
     public Function<List<String>, Boolean> getParser() {
         return this::parse;

@@ -4,101 +4,103 @@
   <OriginalElement>model</OriginalElement>
   <nodes>
     <node x="0.0" y="570.0">ui.cli.ItemViewController</node>
-    <node x="492.0" y="795.0">model.data.additional.helpers.TimeData</node>
-    <node x="1066.0" y="720.0">model.data.source.template.DataValue</node>
-    <node x="24.000000000000114" y="170.0">model.data.pages.language.Form</node>
-    <node x="0.0" y="260.0">model.data.additional.MusicalNotation</node>
+    <node x="171.0" y="795.0">model.data.source.template.DataValue</node>
+    <node x="827.0" y="795.0">model.data.additional.helpers.TimeData</node>
+    <node x="239.9999999999999" y="260.0">model.data.additional.MusicalNotation</node>
+    <node x="452.9999999999999" y="170.0">model.data.pages.language.Form</node>
     <node x="808.0" y="335.0">model.data.additional.helpers.GlobeCoordinateData</node>
-    <node x="933.0000000000001" y="170.0">model.data.additional.Time</node>
-    <node x="0.0" y="795.0">ui.cli.SearchBar</node>
-    <node x="124.00000000000011" y="170.0">model.data.pages.Property</node>
-    <node x="187.0" y="720.0">model.data.source.template.Description</node>
-    <node x="362.0000000000001" y="170.0">model.data.pages.language.Lexeme</node>
-    <node x="0.0" y="645.0">model.prefrences.UserPreference</node>
-    <node x="724.0" y="720.0">model.data.additional.helpers.EntityData</node>
-    <node x="203.0" y="645.0">ui.cli.StatementList</node>
-    <node x="255.0000000000001" y="90.0">model.data.Datum</node>
-    <node x="723.2500000000001" y="0.0">model.data.Value</node>
-    <node x="164.0" y="795.0">model.data.source.template.Qualifier</node>
-    <node x="747.0000000000001" y="170.0">model.data.additional.GlobeCoordinate</node>
-    <node x="1146.0" y="570.0">model.data.source.LocalRepository</node>
-    <node x="392.5" y="335.0">ui.cli.MenuBarItem</node>
-    <node x="398.0" y="645.0">ui.gui.GDragListener</node>
-    <node x="593.0" y="645.0">ui.gui.GMouseAdapter</node>
-    <node x="203.0" y="415.0">model.prefrences.UserProfile</node>
-    <node x="140.0" y="870.0">model.data.source.template.Claim</node>
-    <node x="328.0" y="795.0">model.data.source.template.Reference</node>
-    <node x="477.0000000000001" y="170.0">model.data.pages.Item</node>
+    <node x="335.0" y="795.0">ui.cli.SearchBar</node>
+    <node x="1040.0" y="170.0">model.data.additional.Time</node>
+    <node x="321.9999999999999" y="170.0">model.data.pages.Property</node>
+    <node x="569.0" y="720.0">model.data.source.template.Description</node>
+    <node x="99.99999999999989" y="170.0">model.data.pages.language.Lexeme</node>
+    <node x="211.0" y="645.0">model.prefrences.UserPreference</node>
+    <node x="1106.0" y="720.0">model.data.additional.helpers.EntityData</node>
+    <node x="414.0" y="645.0">ui.cli.StatementList</node>
+    <node x="214.9999999999999" y="90.0">model.data.Datum</node>
+    <node x="542.4999999999999" y="0.0">model.data.Value</node>
+    <node x="499.0" y="795.0">model.data.source.template.Qualifier</node>
+    <node x="1140.0" y="170.0">model.data.additional.GlobeCoordinate</node>
+    <node x="428.0" y="335.0">ui.cli.MenuBarItem</node>
+    <node x="0.0" y="645.0">model.data.source.LocalRepository</node>
+    <node x="609.0" y="645.0">ui.gui.GDragListener</node>
+    <node x="804.0" y="645.0">ui.gui.GMouseAdapter</node>
+    <node x="444.0" y="870.0">model.data.source.template.Claim</node>
+    <node x="428.0" y="415.0">model.prefrences.UserProfile</node>
+    <node x="663.0" y="795.0">model.data.source.template.Reference</node>
+    <node x="0.0" y="170.0">model.data.pages.Item</node>
     <node x="1050.0" y="335.0">model.data.additional.helpers.MonolingualTextData</node>
-    <node x="272.0" y="870.0">model.data.source.template.Alias</node>
-    <node x="366.0" y="720.0">ui.GUInterface</node>
+    <node x="576.0" y="870.0">model.data.source.template.Alias</node>
+    <node x="748.0" y="720.0">ui.GUInterface</node>
     <node x="582.0" y="415.0">model.prefrences.PreferenceManager</node>
-    <node x="1116.0" y="795.0">ui.cli.MenuBar</node>
-    <node x="581.0" y="260.0">model.data.additional.CommonsMedia</node>
+    <node x="156.0" y="870.0">ui.cli.MenuBar</node>
+    <node x="911.9999999999999" y="260.0">model.data.additional.CommonsMedia</node>
     <node x="468.0" y="570.0">model.util.StringBuilderUtil</node>
-    <node x="536.0" y="870.0">model.data.source.template.Snak</node>
-    <node x="648.0" y="795.0">model.data.source.template.Entities</node>
-    <node x="1164.0" y="170.0">model.data.additional.MonolingualText</node>
-    <node x="788.0" y="645.0">ui.cli.LayoutManager</node>
-    <node x="804.0" y="795.0">ui.cli.ItemView</node>
-    <node x="983.0" y="645.0">model.prefrences.LayoutProfile</node>
-    <node x="1178.0" y="645.0">model.data.ScopedSearch</node>
-    <node x="1033.0" y="170.0">model.data.additional.Quantity</node>
+    <node x="840.0" y="870.0">model.data.source.template.Snak</node>
+    <node x="983.0" y="795.0">model.data.source.template.Entities</node>
+    <node x="722.9999999999999" y="170.0">model.data.additional.MonolingualText</node>
+    <node x="999.0" y="645.0">ui.cli.LayoutManager</node>
+    <node x="1139.0" y="795.0">ui.cli.ItemView</node>
+    <node x="0.0" y="720.0">model.prefrences.LayoutProfile</node>
+    <node x="195.0" y="720.0">model.data.ScopedSearch</node>
+    <node x="908.9999999999999" y="170.0">model.data.additional.Quantity</node>
     <node x="0.0" y="495.0">model.data.source.LocalCollector</node>
-    <node x="897.0" y="260.0">model.data.additional.MathematicalExpression</node>
-    <node x="878.5000000000001" y="90.0">model.data.additional.AbstractAdditional</node>
-    <node x="186.0" y="260.0">model.data.additional.ExternalIdentifier</node>
-    <node x="1087.5" y="90.0">model.data.Qualifier</node>
+    <node x="517.9999999999999" y="260.0">model.data.additional.MathematicalExpression</node>
+    <node x="869.9999999999999" y="90.0">model.data.additional.AbstractAdditional</node>
+    <node x="1074.0" y="260.0">model.data.additional.ExternalIdentifier</node>
     <node x="694.0" y="570.0">model.data.DatumQueryService</node>
-    <node x="1137.0" y="260.0">model.data.additional.URL</node>
-    <node x="545.0" y="720.0">ui.CLInterface</node>
+    <node x="456.9999999999999" y="90.0">model.data.Qualifier</node>
+    <node x="425.9999999999999" y="260.0">model.data.additional.URL</node>
+    <node x="927.0" y="720.0">ui.CLInterface</node>
     <node x="920.0" y="570.0">model.data.NotFoundException</node>
     <node x="234.0" y="570.0">model.prefrences.SerialIOController</node>
-    <node x="1226.5" y="90.0">model.data.Reference</node>
-    <node x="255.0000000000001" y="170.0">model.data.pages.language.Sense</node>
-    <node x="960.0" y="795.0">model.data.source.template.SiteLink</node>
-    <node x="404.0" y="870.0">model.data.source.template.Label</node>
-    <node x="577.0000000000001" y="170.0">model.data.additional.LiteralString</node>
-    <node x="743.0" y="260.0">model.data.additional.TabularData</node>
+    <node x="214.9999999999999" y="170.0">model.data.pages.language.Sense</node>
+    <node x="75.99999999999989" y="90.0">model.data.Reference</node>
+    <node x="0.0" y="870.0">model.data.source.template.SiteLink</node>
+    <node x="708.0" y="870.0">model.data.source.template.Label</node>
+    <node x="552.9999999999999" y="170.0">model.data.additional.LiteralString</node>
+    <node x="757.9999999999999" y="260.0">model.data.additional.TabularData</node>
     <node x="8.0" y="415.0">model.data.source.WebCollector</node>
-    <node x="895.0" y="720.0">ui.gui.DragLayout</node>
     <node x="19.5" y="335.0">model.data.source.Collector</node>
-    <node x="357.0" y="415.0">model.prefrences.LayoutProfileManager</node>
-    <node x="620.2500000000001" y="90.0">model.data.DatumLink</node>
-    <node x="0.0" y="720.0">model.data.additional.helpers.QuantityData</node>
-    <node x="395.0" y="260.0">model.data.additional.GeographicShape</node>
-    <node x="481.2500000000001" y="90.0">model.data.Statement</node>
-    <node x="0.0" y="870.0">model.data.source.template.Entity</node>
+    <node x="0.0" y="795.0">ui.gui.DragLayout</node>
+    <node x="203.0" y="415.0">model.prefrences.LayoutProfileManager</node>
+    <node x="53.999999999999886" y="260.0">model.data.additional.GeographicShape</node>
+    <node x="595.9999999999999" y="90.0">model.data.DatumLink</node>
+    <node x="382.0" y="720.0">model.data.additional.helpers.QuantityData</node>
+    <node x="1079.0" y="90.0">model.data.Statement</node>
+    <node x="304.0" y="870.0">model.data.source.template.Entity</node>
   </nodes>
   <notes />
   <edges>
     <edge source="model.data.pages.Property" target="model.data.Datum">
       <point x="0.0" y="-15.0" />
-      <point x="179.5000000000001" y="150.0" />
-      <point x="281.10000000000014" y="150.0" />
-      <point x="-17.400000000000006" y="15.0" />
+      <point x="377.4999999999999" y="150.0" />
+      <point x="275.89999999999986" y="150.0" />
+      <point x="17.399999999999977" y="15.0" />
     </edge>
     <edge source="model.data.additional.ExternalIdentifier" target="model.data.additional.LiteralString">
       <point x="0.0" y="-15.0" />
-      <point x="280.5" y="230.0" />
-      <point x="609.1428571428572" y="230.0" />
-      <point x="-42.85714285714289" y="15.0" />
+      <point x="1168.5" y="220.0" />
+      <point x="692.2857142857142" y="220.0" />
+      <point x="64.28571428571433" y="15.0" />
     </edge>
     <edge source="model.data.additional.GlobeCoordinate" target="model.data.additional.AbstractAdditional">
       <point x="0.0" y="-15.0" />
-      <point x="830.0000000000001" y="150.0" />
-      <point x="935.2000000000002" y="150.0" />
-      <point x="-37.799999999999955" y="15.0" />
+      <point x="1223.0" y="140.0" />
+      <point x="1040.1" y="140.0" />
+      <point x="75.60000000000002" y="15.0" />
     </edge>
     <edge source="model.data.additional.Time" target="model.data.additional.AbstractAdditional">
       <point x="0.0" y="-15.0" />
-      <point x="0.0" y="15.0" />
+      <point x="1080.0" y="150.0" />
+      <point x="1002.3" y="150.0" />
+      <point x="37.80000000000007" y="15.0" />
     </edge>
     <edge source="model.data.additional.URL" target="model.data.additional.LiteralString">
       <point x="0.0" y="-15.0" />
-      <point x="1173.0" y="220.0" />
-      <point x="716.2857142857144" y="220.0" />
-      <point x="64.28571428571433" y="15.0" />
+      <point x="461.9999999999999" y="240.0" />
+      <point x="606.5714285714284" y="240.0" />
+      <point x="-21.428571428571445" y="15.0" />
     </edge>
     <edge source="model.data.source.WebCollector" target="model.data.source.Collector">
       <point x="0.0" y="-15.0" />
@@ -106,77 +108,75 @@
     </edge>
     <edge source="model.data.additional.Quantity" target="model.data.additional.AbstractAdditional">
       <point x="0.0" y="-15.0" />
-      <point x="1088.5" y="150.0" />
-      <point x="1010.8000000000002" y="150.0" />
-      <point x="37.80000000000007" y="15.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="model.data.Qualifier" target="model.data.Value">
       <point x="0.0" y="-15.0" />
-      <point x="1147.0" y="60.0" />
-      <point x="788.5000000000001" y="60.0" />
-      <point x="21.75" y="15.0" />
+      <point x="516.4999999999999" y="70.0" />
+      <point x="578.7499999999999" y="70.0" />
+      <point x="-7.25" y="15.0" />
     </edge>
     <edge source="model.data.pages.Item" target="model.data.Datum">
       <point x="0.0" y="-15.0" />
-      <point x="517.0000000000001" y="140.0" />
-      <point x="333.3000000000001" y="140.0" />
-      <point x="34.80000000000001" y="15.0" />
+      <point x="40.0" y="140.0" />
+      <point x="223.69999999999987" y="140.0" />
+      <point x="-34.80000000000001" y="15.0" />
     </edge>
     <edge source="model.data.additional.LiteralString" target="model.data.additional.AbstractAdditional">
       <point x="0.0" y="-15.0" />
-      <point x="652.0000000000001" y="140.0" />
-      <point x="897.4000000000001" y="140.0" />
+      <point x="627.9999999999999" y="140.0" />
+      <point x="888.8999999999999" y="140.0" />
       <point x="-75.60000000000002" y="15.0" />
     </edge>
     <edge source="model.data.additional.TabularData" target="model.data.additional.LiteralString">
       <point x="0.0" y="-15.0" />
-      <point x="810.0" y="240.0" />
-      <point x="673.4285714285716" y="240.0" />
+      <point x="824.9999999999999" y="240.0" />
+      <point x="649.4285714285713" y="240.0" />
       <point x="21.428571428571445" y="15.0" />
     </edge>
     <edge source="model.data.Datum" target="model.data.Value">
       <point x="0.0" y="-15.0" />
-      <point x="298.5000000000001" y="50.0" />
-      <point x="730.5000000000001" y="50.0" />
-      <point x="-36.25" y="15.0" />
+      <point x="258.4999999999999" y="60.0" />
+      <point x="564.2499999999999" y="60.0" />
+      <point x="-21.75" y="15.0" />
     </edge>
     <edge source="model.prefrences.UserProfile" target="ui.cli.MenuBarItem">
       <point x="0.0" y="-15.0" />
-      <point x="270.0" y="390.0" />
-      <point x="414.8333333333333" y="390.0" />
-      <point x="-44.666666666666686" y="15.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="model.data.additional.MonolingualText" target="model.data.additional.AbstractAdditional">
       <point x="0.0" y="-15.0" />
-      <point x="1247.0" y="140.0" />
-      <point x="1048.6000000000001" y="140.0" />
-      <point x="75.60000000000002" y="15.0" />
+      <point x="805.9999999999999" y="150.0" />
+      <point x="926.6999999999999" y="150.0" />
+      <point x="-37.799999999999955" y="15.0" />
     </edge>
     <edge source="model.data.additional.CommonsMedia" target="model.data.additional.LiteralString">
       <point x="1.1368683772161603E-13" y="-15.0" />
-      <point x="0.0" y="15.0" />
+      <point x="983.0" y="230.0" />
+      <point x="670.8571428571428" y="230.0" />
+      <point x="42.85714285714289" y="15.0" />
     </edge>
     <edge source="model.data.additional.MathematicalExpression" target="model.data.additional.LiteralString">
       <point x="0.0" y="-15.0" />
-      <point x="1007.0" y="230.0" />
-      <point x="694.857142857143" y="230.0" />
-      <point x="42.85714285714289" y="15.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="model.data.DatumLink" target="model.data.Value">
       <point x="0.0" y="-15.0" />
-      <point x="679.7500000000001" y="70.0" />
-      <point x="759.5000000000001" y="70.0" />
-      <point x="-7.25" y="15.0" />
+      <point x="655.4999999999999" y="70.0" />
+      <point x="593.2499999999999" y="70.0" />
+      <point x="7.25" y="15.0" />
     </edge>
     <edge source="model.prefrences.LayoutProfileManager" target="ui.cli.MenuBarItem">
       <point x="0.0" y="-15.0" />
-      <point x="0.0" y="15.0" />
+      <point x="305.5" y="390.0" />
+      <point x="450.3333333333333" y="390.0" />
+      <point x="-44.666666666666686" y="15.0" />
     </edge>
     <edge source="model.data.pages.language.Form" target="model.data.Datum">
       <point x="0.0" y="-15.0" />
-      <point x="64.00000000000011" y="140.0" />
-      <point x="263.7000000000001" y="140.0" />
-      <point x="-34.80000000000001" y="15.0" />
+      <point x="492.9999999999999" y="140.0" />
+      <point x="293.2999999999999" y="140.0" />
+      <point x="34.80000000000001" y="15.0" />
     </edge>
     <edge source="model.data.source.LocalCollector" target="model.data.source.WebCollector">
       <point x="0.0" y="-15.0" />
@@ -184,44 +184,44 @@
     </edge>
     <edge source="model.data.pages.language.Lexeme" target="model.data.Datum">
       <point x="0.0" y="-15.0" />
-      <point x="409.5000000000001" y="150.0" />
-      <point x="315.9000000000001" y="150.0" />
-      <point x="17.399999999999977" y="15.0" />
+      <point x="147.4999999999999" y="150.0" />
+      <point x="241.0999999999999" y="150.0" />
+      <point x="-17.400000000000006" y="15.0" />
     </edge>
     <edge source="model.data.additional.MusicalNotation" target="model.data.additional.LiteralString">
       <point x="0.0" y="-15.0" />
-      <point x="83.0" y="220.0" />
-      <point x="587.7142857142858" y="220.0" />
-      <point x="-64.28571428571433" y="15.0" />
+      <point x="322.9999999999999" y="230.0" />
+      <point x="585.142857142857" y="230.0" />
+      <point x="-42.85714285714289" y="15.0" />
     </edge>
     <edge source="model.data.additional.GeographicShape" target="model.data.additional.LiteralString">
       <point x="0.0" y="-15.0" />
-      <point x="478.0" y="240.0" />
-      <point x="630.5714285714287" y="240.0" />
-      <point x="-21.428571428571445" y="15.0" />
+      <point x="136.9999999999999" y="220.0" />
+      <point x="563.7142857142856" y="220.0" />
+      <point x="-64.28571428571433" y="15.0" />
     </edge>
     <edge source="model.data.additional.AbstractAdditional" target="model.data.Value">
       <point x="1.1368683772161603E-13" y="-15.0" />
-      <point x="973.0000000000002" y="70.0" />
-      <point x="774.0000000000001" y="70.0" />
-      <point x="7.25" y="15.0" />
+      <point x="964.5" y="60.0" />
+      <point x="607.7499999999999" y="60.0" />
+      <point x="21.75" y="15.0" />
     </edge>
     <edge source="model.data.Reference" target="model.data.Value">
       <point x="0.0" y="-15.0" />
-      <point x="1286.0" y="50.0" />
-      <point x="803.0000000000001" y="50.0" />
-      <point x="36.25" y="15.0" />
+      <point x="135.4999999999999" y="50.0" />
+      <point x="549.7499999999999" y="50.0" />
+      <point x="-36.25" y="15.0" />
     </edge>
     <edge source="model.data.Statement" target="model.data.Value">
       <point x="0.0" y="-15.0" />
-      <point x="540.7500000000001" y="60.0" />
-      <point x="745.0000000000001" y="60.0" />
-      <point x="-21.75" y="15.0" />
+      <point x="1138.5" y="50.0" />
+      <point x="622.2499999999999" y="50.0" />
+      <point x="36.25" y="15.0" />
     </edge>
     <edge source="model.prefrences.PreferenceManager" target="ui.cli.MenuBarItem">
       <point x="0.0" y="-15.0" />
       <point x="672.5" y="390.0" />
-      <point x="504.16666666666663" y="390.0" />
+      <point x="539.6666666666666" y="390.0" />
       <point x="44.66666666666663" y="15.0" />
     </edge>
     <edge source="model.data.pages.language.Sense" target="model.data.Datum">
@@ -229,10 +229,8 @@
       <point x="0.0" y="15.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.91800878477306" x="673.0" y="450.0" />
-  <SelectedNodes>
-    <node>ui.cli.ItemViewController</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.9457013574660633" x="653.0" y="450.0" />
+  <SelectedNodes />
   <Categories>
     <Category>Inner Classes</Category>
   </Categories>

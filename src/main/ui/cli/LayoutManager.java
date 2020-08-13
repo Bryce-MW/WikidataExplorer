@@ -24,7 +24,7 @@ public class LayoutManager {
     /*
      * REQUIRES: width and height are positive and menuBar is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets up a new layout manager
      */
     public LayoutManager(int width, int height, MenuBar menuBar) {
         this.width = width;
@@ -36,7 +36,7 @@ public class LayoutManager {
     /*
      * REQUIRES: newView is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : adds a new controller to this manager
      */
     public void add(ItemViewController newView) {
         controllers.add(newView);
@@ -46,7 +46,7 @@ public class LayoutManager {
     /*
      * REQUIRES: index is positive or 0 and newView is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : adds a new controller at a specific index to this manager
      */
     public void add(int index, ItemViewController newView) {
         controllers.add(index, newView);
@@ -56,7 +56,7 @@ public class LayoutManager {
     /*
      * REQUIRES: toRemove is not null and is a member of this LayoutManager
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : removed a controller from this manager
      */
     public boolean remove(ItemViewController toRemove) { // true if ItemViewController is now empty
         controllers.remove(toRemove);
@@ -66,7 +66,7 @@ public class LayoutManager {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns true if there are no controllers
      */
     public boolean isEmpty() {
         return controllers.isEmpty();
@@ -75,7 +75,7 @@ public class LayoutManager {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the number of controller
      */
     public int size() {
         return controllers.size();
@@ -84,7 +84,7 @@ public class LayoutManager {
     /*
      * REQUIRES: sepWidth is not negative
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : sets the separation width between the CLI controllers
      */
     public void setSepWidth(int sepWidth) {
         separationWidth = sepWidth;
@@ -93,7 +93,7 @@ public class LayoutManager {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the CLI representation of this manager
      */
     private ArrayList<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(height);
@@ -125,7 +125,7 @@ public class LayoutManager {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : prints out this manager
      */
     public void print() {
         ArrayList<StringBuilder> result = toStringArray();
@@ -138,7 +138,7 @@ public class LayoutManager {
     /*
      * REQUIRES: instructions is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed to this manager
      */
     public Boolean parse(List<String> instructions) {
         ArrayList<ItemViewController> toCheck = new ArrayList<>(controllers);
@@ -148,7 +148,7 @@ public class LayoutManager {
     /*
      * REQUIRES: statement is not null, itemViewController is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : toggles a statement on the controller to the left of the one given
      */
     public boolean toggleLeft(Value statement, ItemViewController itemViewController) {
         int index = controllers.indexOf(itemViewController);
@@ -169,7 +169,7 @@ public class LayoutManager {
     /*
      * REQUIRES: statement is not null, itemViewController is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : toggles a statement on the controller to the right of the one given
      */
     public boolean toggleRight(Value statement, ItemViewController itemViewController) {
         int index = controllers.indexOf(itemViewController);

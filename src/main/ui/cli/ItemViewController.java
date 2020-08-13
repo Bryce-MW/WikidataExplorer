@@ -18,7 +18,7 @@ public class ItemViewController {
     /*
      * REQUIRES: initial is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new controller
      */
     public ItemViewController(ItemView initial) {
         items = new ArrayList<>(10);
@@ -29,7 +29,7 @@ public class ItemViewController {
     /*
      * REQUIRES: newView is not null and is not a member of this ItemViewController
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : adds an item view to this controller
      */
     public void add(ItemView newView) {
         items.add(newView);
@@ -39,7 +39,7 @@ public class ItemViewController {
     /*
      * REQUIRES: toRemove is not null and is a member of this ItemViewController
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : removes a view from this controller
      */
     public boolean remove(ItemView toRemove) { // true if ViewController is now empty
         items.remove(toRemove);
@@ -49,7 +49,7 @@ public class ItemViewController {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns true if there are no views in this controller
      */
     public boolean isEmpty() {
         return items.isEmpty();
@@ -58,7 +58,7 @@ public class ItemViewController {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the number of views
      */
     public int size() {
         return items.size();
@@ -67,7 +67,7 @@ public class ItemViewController {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the CLI representation of the controller
      */
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(10 * items.size());
@@ -78,7 +78,7 @@ public class ItemViewController {
     /*
      * REQUIRES: instructions is not null and contains at least one element
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed at this controller
      */
     public Boolean parse(List<String> instructions) {
         boolean found = false;
