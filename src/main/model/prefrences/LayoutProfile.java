@@ -14,7 +14,7 @@ public class LayoutProfile {
     /*
      * REQUIRES: name is not null, layout is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new layout profile
      */
     public LayoutProfile(String name, LayoutManager layout) {
         this.layout = layout;
@@ -24,7 +24,7 @@ public class LayoutProfile {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the layout that this profile is associated with
      */
     public LayoutManager getLayout() {
         return layout;
@@ -33,7 +33,7 @@ public class LayoutProfile {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the name of this profile
      */
     public String getName() {
         return name;
@@ -42,7 +42,7 @@ public class LayoutProfile {
     /*
      * REQUIRES: name is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : changes the name of this profile
      */
     public void setName(String name) {
         this.name = name;

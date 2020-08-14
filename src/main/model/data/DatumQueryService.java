@@ -17,7 +17,7 @@ public class DatumQueryService {
     /*
      * REQUIRES: collector is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new query service
      */
     public DatumQueryService(Collector collector) {
         this.collector = collector;
@@ -26,7 +26,7 @@ public class DatumQueryService {
     /*
      * REQUIRES: item is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the scoped search for a specific item
      */
     public ScopedSearch getScopedSearch(Value item) {
         return new ScopedSearch(item, this);
@@ -35,7 +35,7 @@ public class DatumQueryService {
     /*
      * REQUIRES: property is not null and is a valid Wikidata ID
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the name of an entity by its ID
      */
     public String getNameByID(String property) throws NotFoundException {
         return collector.getEntityName(property);
@@ -44,7 +44,7 @@ public class DatumQueryService {
     /*
      * REQUIRES: property is a valid Wikidata ID and is a valid property for the given valid. Value is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the qualifiers by a property and value
      */
     public ArrayList<Qualifier> getQualifiersByStatement(Statement property, Value value) {
         ArrayList<String> tree = new ArrayList<>(3);
@@ -57,7 +57,7 @@ public class DatumQueryService {
     /*
      * REQUIRES: property is a valid Wikidata ID and is a valid property for the given valid. Value is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the references by a property and value
      */
     public ArrayList<Reference> getReferencesByStatement(Statement property, Value value) {
         ArrayList<String> tree = new ArrayList<>(3);
@@ -70,7 +70,7 @@ public class DatumQueryService {
     /*
      * REQUIRES: id is not null and is a valid Wikidata ID
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description for an entity by its ID
      */
     public String getDescriptionByID(String id) throws NotFoundException {
         return collector.getEntityDescription(id);
@@ -79,7 +79,7 @@ public class DatumQueryService {
     /*
      * REQUIRES: id is not null and is a valid Wikidata Id
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the statements for an entity by its Id
      */
     public ArrayList<String> getStatementListByID(String id) {
         try {
@@ -93,7 +93,7 @@ public class DatumQueryService {
     /*
      * REQUIRES: tree is a valid tree of IDs and item is a valid item
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets a specific statement by an ID tree
      */
     public Value getStatementByTree(ArrayList<String> tree, Datum item) throws NotFoundException {
         return collector.getSingleStatement(tree, item, this);
@@ -102,7 +102,7 @@ public class DatumQueryService {
     /*
      * REQUIRES: property is a valid and not null statement
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets a specific DatumLink by a statement
      */
     public ArrayList<Value> getDatumLinkListByStatement(Statement property) {
         ArrayList<String> tree = new ArrayList<>(3);
@@ -114,7 +114,7 @@ public class DatumQueryService {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : triggers a save to the cache file
      */
     public Boolean triggerSave() {
         return collector.triggerSave();
@@ -123,7 +123,7 @@ public class DatumQueryService {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : triggers a load from the cache file
      */
     public boolean triggerLoad() {
         return collector.triggerLoad();

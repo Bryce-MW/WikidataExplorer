@@ -18,7 +18,7 @@ public class Sense extends Datum {
     /*
      * REQUIRES: id is a valid Wikidata sense id, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new sense from the given ID
      */
     public Sense(String id, DatumQueryService queryService) throws NotFoundException {
         super(queryService, id);
@@ -29,7 +29,7 @@ public class Sense extends Datum {
     /*
      * REQUIRES: data is valid EntityData for a sense, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new sense from the given entity data
      */
     public Sense(EntityData data, DatumQueryService queryService) throws NotFoundException {
         this(data.id, queryService);
@@ -38,7 +38,7 @@ public class Sense extends Datum {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the title to be displayed
      */
     @Override
     public String getTitle() {
@@ -48,7 +48,7 @@ public class Sense extends Datum {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description to be displayed
      */
     @Override
     public String getDescription() {

@@ -18,7 +18,7 @@ public class Quantity extends AbstractAdditional {
     /*
      * REQUIRES: quantityValue is valid QuantityData, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new quantity from the given quantity data
      */
     public Quantity(QuantityData quantityValue, DatumQueryService queryService) {
         super(queryService);
@@ -41,7 +41,7 @@ public class Quantity extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the title to be displayed
      */
     @Override
     public String getTitle() {
@@ -51,7 +51,7 @@ public class Quantity extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description to be displayed
      */
     @Override
     public String getDescription() {
@@ -61,7 +61,7 @@ public class Quantity extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the ID (just the amount)
      */
     @Override
     public String getID() {
@@ -71,7 +71,7 @@ public class Quantity extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns null as quantities have no statements
      */
     @Override
     public StatementList getStatements() {

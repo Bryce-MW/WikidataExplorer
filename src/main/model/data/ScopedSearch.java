@@ -21,7 +21,7 @@ public class ScopedSearch {
     /*
      * REQUIRES: queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : created a new scoped search
      */
     public ScopedSearch(Value item, DatumQueryService queryService) {
         this.queryService = queryService;
@@ -31,7 +31,7 @@ public class ScopedSearch {
     /*
      * REQUIRES: queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new scoped search but for no specific item
      */
     public ScopedSearch(ItemViewController controller, DatumQueryService queryService) {
         this.controller = controller;
@@ -41,7 +41,7 @@ public class ScopedSearch {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the item (if there is one) that this search is targeting
      */
     public Value getItem() {
         return item;
@@ -50,7 +50,7 @@ public class ScopedSearch {
     /*
      * REQUIRES: values is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : adds a list of values which were found
      */
     public void add(List<Value> values) {
         if (controller != null) {
@@ -67,7 +67,7 @@ public class ScopedSearch {
     /*
      * REQUIRES: query is not null and is a valid search query for the item or for an ID overall if no item
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : finds the specific element specified by the query
      */
     public List<Value> findElement(String query) {
         if (controller != null) {
@@ -94,7 +94,7 @@ public class ScopedSearch {
     /*
      * REQUIRES: query is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : does some specific actions if the item is null
      */
     @NotNull
     private ArrayList<Value> itemIsNull(String query) {
@@ -115,7 +115,7 @@ public class ScopedSearch {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the controller (if there is one) that this search is bound to
      */
     public ItemViewController getController() {
         return controller;

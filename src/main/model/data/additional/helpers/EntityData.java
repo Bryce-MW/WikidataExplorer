@@ -30,7 +30,7 @@ public class EntityData {
     /*
      * REQUIRES: value is valid entity data in the format specified above
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : craetes entity data from the given JSOP map
      */
     public EntityData(Map<String, Object> value) {
         entityType = (String) value.get("entity-type");

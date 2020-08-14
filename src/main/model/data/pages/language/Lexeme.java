@@ -23,7 +23,7 @@ public class Lexeme extends Datum {
     /*
      * REQUIRES: id is a valid Wikidata lexeme ID, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new lexeme from the given ID
      */
     public Lexeme(String id, DatumQueryService queryService) throws NotFoundException {
         super(queryService, id);
@@ -34,7 +34,7 @@ public class Lexeme extends Datum {
     /*
      * REQUIRES: data is valid EntityData for a Lexeme, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new lexeme from the entity data
      */
     public Lexeme(EntityData data, DatumQueryService queryService) throws NotFoundException {
         this(data.id, queryService);
@@ -43,7 +43,7 @@ public class Lexeme extends Datum {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the title to be displayed
      */
     @Override
     public String getTitle() {
@@ -53,7 +53,7 @@ public class Lexeme extends Datum {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description to be displayed
      */
     @Override
     public String getDescription() {

@@ -18,7 +18,7 @@ public class Time extends AbstractAdditional {
     /*
      * REQUIRES: time is valid time data, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new time from the given time string
      */
     public Time(String time, DatumQueryService queryService) {
         super(queryService);
@@ -28,7 +28,7 @@ public class Time extends AbstractAdditional {
     /*
      * REQUIRES: timeValue is valid TimeData, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new time from the given time data
      */
     public Time(TimeData timeValue, DatumQueryService queryService) {
         super(queryService);
@@ -38,7 +38,7 @@ public class Time extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the title to be displayed
      */
     @Override
     public String getTitle() {
@@ -48,7 +48,7 @@ public class Time extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description to be displayed
      */
     @Override
     public String getDescription() {
@@ -58,7 +58,7 @@ public class Time extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the ID of this time (just the time string)
      */
     @Override
     public String getID() {
@@ -68,7 +68,7 @@ public class Time extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns null as time has no statements
      */
     @Override
     public StatementList getStatements() {

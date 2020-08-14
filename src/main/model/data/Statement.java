@@ -28,7 +28,7 @@ public class Statement extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : finds teh list of statements about this statement (that makes no sense haha)
      */
     private ArrayList<Value> findStatements() {
         return queryService.getDatumLinkListByStatement(this);
@@ -37,7 +37,7 @@ public class Statement extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns teh image for this statement if there is one
      */
     @Override
     public String getImage() {
@@ -47,7 +47,7 @@ public class Statement extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the title to be printed
      */
     @Override
     public String getTitle() {
@@ -57,7 +57,7 @@ public class Statement extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the description to be printed
      */
     @Override
     public String getDescription() {
@@ -67,7 +67,7 @@ public class Statement extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : returns the statements which this statement has (again, what . . . I need better terminology)
      */
     @Override
     public StatementList getStatements() {
@@ -80,7 +80,7 @@ public class Statement extends Value {
     /*
      * REQUIRES: subList is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed at this statement
      */
     @Override
     public Boolean parse(List<String> subList) {
@@ -93,7 +93,7 @@ public class Statement extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the ID of the item which this statement is about
      */
     public String getParentID() {
         return about.getID();

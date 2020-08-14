@@ -19,7 +19,7 @@ public abstract class AbstractAdditional extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed at this additional datatype
      */
     @Override
     public Boolean parse(List<String> subList) {

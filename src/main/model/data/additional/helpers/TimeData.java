@@ -31,7 +31,7 @@ public class TimeData {
     /*
      * REQUIRES: value is valid time data in the format specified above
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates time data from the JSON map
      */
     public TimeData(Map<String, Object> value) {
         time = (String) value.get("time");

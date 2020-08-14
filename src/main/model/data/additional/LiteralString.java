@@ -13,7 +13,7 @@ public class LiteralString extends AbstractAdditional {
     /*
      * REQUIRES: value is not null, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new literal string from the given value
      */
     public LiteralString(String value, DatumQueryService queryService) {
         super(queryService);
@@ -23,7 +23,7 @@ public class LiteralString extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the title to be displayed
      */
     @Override
     public String getTitle() {
@@ -33,7 +33,7 @@ public class LiteralString extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the description to be displayed
      */
     @Override
     public String getDescription() {
@@ -43,7 +43,7 @@ public class LiteralString extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the ID (just the value)
      */
     @Override
     public String getID() {
@@ -53,7 +53,7 @@ public class LiteralString extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns null as text has no statements
      */
     @Override
     public StatementList getStatements() {

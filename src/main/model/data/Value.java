@@ -37,7 +37,7 @@ public abstract class Value extends JPanel {
     /*
      * REQUIRES: queryService is not null, id is a valid Wikidata ID
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets up fields which are common to all Values
      */
     protected Value(DatumQueryService queryService, String id) {
         this.id = id;
@@ -51,7 +51,7 @@ public abstract class Value extends JPanel {
      * REQUIRES: dataType is a valid Wikidata datatype which has LiteralString as its backing, queryService is not
      * null, stringValue is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : interprets a literal string and returns the specific type of value which it corresponds to
      */
     private static LiteralString getLiteralString(String dataType, DatumQueryService queryService, String stringValue) {
         switch (dataType) {
@@ -79,7 +79,7 @@ public abstract class Value extends JPanel {
      * REQUIRES: value is a valid Wikidata datatype, value is a valid DataValue corresponding to the datatype,
      * queryService is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : parses snak data into the specific type of Value which it represents
      */
     public static Value parseData(DataValue value, String dataType, DatumQueryService queryService) {
         switch (value.type) {
@@ -110,7 +110,7 @@ public abstract class Value extends JPanel {
      * REQUIRES: dataType is a valid Wikidata datatype with an item as its backing, queryService is not null,
      * entityValue is not a valid EntityData corresponding to the dataType given
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : parses snak item data to return the specific type of Datum which this Item is
      */
     private static Datum getDatum(String dataType, DatumQueryService queryService, EntityData entityValue) {
         try {
@@ -135,7 +135,8 @@ public abstract class Value extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : finishes initializing the GUI components after it is added to another component (to allow for the
+     * subclasses to finish initializing first)
      */
     @Override
     public void addNotify() {
@@ -167,21 +168,21 @@ public abstract class Value extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the title to be displayed
      */
     public abstract String getTitle();
 
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description to be displayed
      */
     public abstract String getDescription();
 
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the id if this Value (if there is one, often returns the title otherwise)
      */
     public String getID() {
         return id;
@@ -190,21 +191,21 @@ public abstract class Value extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the list of statements associated with this Value
      */
     public abstract StatementList getStatements();
 
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed at this Value
      */
     public abstract Boolean parse(List<String> subList);
 
     /*
      * REQUIRES: view is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets of the ItemView which contains this Value
      */
     public void setView(ItemView view) {
         this.view = view;
@@ -213,7 +214,7 @@ public abstract class Value extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns if an ItemView needs to include a search bar
      */
     public boolean needsSearchBar() {
         return false;
@@ -222,7 +223,7 @@ public abstract class Value extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns if an ItemView needs a right arrow
      */
     public boolean needsRightArrow() {
         return true;
@@ -231,7 +232,7 @@ public abstract class Value extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the query service that this Value uses
      */
     public DatumQueryService getQuery() {
         return queryService;
@@ -240,7 +241,7 @@ public abstract class Value extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns true if this object has the same ID as another
      */
     @Override
     public boolean equals(Object o) {
@@ -259,7 +260,7 @@ public abstract class Value extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the hashcode of the description
      */
     @Override
     public int hashCode() {
@@ -270,8 +271,8 @@ public abstract class Value extends JPanel {
 
     /*
      * REQUIRES: value is not null
-     * MODIFIES:
-     * EFFECTS :
+     * MODIFIES: this
+     * EFFECTS : toggles the value in the controller to the left
      */
     protected Boolean toggleLeft(Value value) {
         if (this.view == null) {
@@ -282,8 +283,8 @@ public abstract class Value extends JPanel {
 
     /*
      * REQUIRES: value is not null and does not already exist
-     * MODIFIES:
-     * EFFECTS :
+     * MODIFIES: this
+     * EFFECTS : adds a statement to this statement list
      */
     public void addStatement(Value value) {
         getStatements().add(value);
@@ -291,8 +292,8 @@ public abstract class Value extends JPanel {
 
     /*
      * REQUIRES: none
-     * MODIFIES:
-     * EFFECTS :
+     * MODIFIES: none
+     * EFFECTS : returns the image name or an empty string if there is no image
      */
     public String getImage() {
         return "";

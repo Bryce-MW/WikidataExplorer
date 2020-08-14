@@ -16,7 +16,7 @@ public class PreferenceManager extends MenuBarItem {
     /*
      * REQUIRES: preferences is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new preference manager
      */
     public PreferenceManager(List<UserPreference> preferences) {
         this.preferences = new ArrayList<>(preferences.size());
@@ -26,7 +26,7 @@ public class PreferenceManager extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the list of prefrences
      */
     public List<UserPreference> getPreferences() {
         return preferences;
@@ -36,7 +36,7 @@ public class PreferenceManager extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the CLI representation of this manager
      */
     @Override
     public String toString() {
@@ -46,7 +46,7 @@ public class PreferenceManager extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the string which is used in the CLI to send commands to the prefrence manager
      */
     @Override
     public String getCommandString() {
@@ -56,7 +56,7 @@ public class PreferenceManager extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed to this manager
      */
     @Override
     public Boolean parse(List<String> subList) {

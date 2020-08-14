@@ -11,7 +11,7 @@ public class MathematicalExpression extends LiteralString {
     /*
      * REQUIRES: value is valid LaTeX, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new mathematical expression from the given value
      */
     public MathematicalExpression(String value, DatumQueryService queryService) {
         super(value, queryService);

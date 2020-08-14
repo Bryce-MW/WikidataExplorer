@@ -28,7 +28,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: repository is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new web collector
      */
     public WebCollector(LocalRepository repository) {
         super(repository);
@@ -38,7 +38,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: ID is a valid Wikidata ID
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : formats an ID into a URL
      */
     private static String formatURL(String id) {
         return "https://www.wikidata.org/wiki/Special:EntityData/" + id + ".json";
@@ -47,7 +47,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: property is a valid Wikidata ID
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the name of an entity by its ID
      */
     @Override
     public String getEntityName(String property) throws NotFoundException {
@@ -68,7 +68,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: tree is of size at least 3 and contains a valid tree of IDs, qualifierQuery is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the qualifiers of a statement by the tree to obtain the statement
      */
     @Override
     public ArrayList<Qualifier> getQualifiers(List<String> tree, DatumQueryService qualifierQuery) {
@@ -102,7 +102,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: qualifierQuery is not null, id, claim, and item are a valid tree of Wikidata IDs
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : attempts to get qualifiers
      */
     private Map<String, List<model.data.source.template.Qualifier>> tryGetQualifiers(DatumQueryService qualifierQuery,
                                                                                      String id,
@@ -122,7 +122,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: tree is a valid length three tree of Wikidata IDs. refQueryService is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the references for a statement by its tree
      */
     @Override
     public ArrayList<Reference> getReferences(List<String> tree, DatumQueryService refQueryService) {
@@ -156,7 +156,7 @@ public class WebCollector extends Collector {
      * REQUIRES: refQueryService is not null, reference is a valid Reference, s is in the keys of the Map
      * reference.snaks
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : iterates over snaks to obtain references
      */
     private ArrayList<Reference> iterateSnaks(DatumQueryService refQueryService,
                                               model.data.source.template.Reference reference, String s) {
@@ -176,7 +176,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: id is a valid Wikidata ID
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the description of an entity by its ID
      */
     @Override
     public String getEntityDescription(String id) throws NotFoundException {
@@ -198,7 +198,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: id is a valid Wikidata ID
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the list of statements for a given entity by its ID
      */
     @Override
     public ArrayList<String> getStatementList(String id) throws NotFoundException {
@@ -212,7 +212,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: tree is a valid length 2 Wikidata tree starting at item, statementService is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets a single statement by the tree and item for it
      */
     @Override
     public Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService)
@@ -224,7 +224,7 @@ public class WebCollector extends Collector {
      * REQUIRES: tree is a valid length 2 Wikidata tree, about is a valid Statement which this tree is about,
      * queryService is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets a specific DatumLink by the tree to get it and the statement it is about
      */
     @Override
     public ArrayList<Value> getDatumLinkListByTree(ArrayList<String> tree,
@@ -247,7 +247,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : triggers a save to the local cache
      */
     @Override
     public Boolean triggerSave() {
@@ -264,7 +264,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : triggers a load from the local cache
      */
     @Override
     public Boolean triggerLoad() {
@@ -275,7 +275,7 @@ public class WebCollector extends Collector {
     /*
      * REQUIRES: urlString is a valid Wikidata ID
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : gets the entities value for a given ID
      */
     protected Entities getJson(String urlStr) throws NotFoundException {
         for (Entities entities : seen) {

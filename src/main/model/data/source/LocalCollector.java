@@ -19,7 +19,7 @@ public class LocalCollector extends WebCollector {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns false since a local collector will never have anything new to save to a cache
      */
     @Override
     public Boolean triggerSave() {
@@ -29,7 +29,7 @@ public class LocalCollector extends WebCollector {
     /*
      * REQUIRES: uslStr is a valid Wikidata ID
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the entities for a specific ID
      */
     @Override
     protected Entities getJson(String urlStr) throws NotFoundException {

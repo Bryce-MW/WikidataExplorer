@@ -27,7 +27,7 @@ public class QuantityData {
     /*
      * REQUIRES: value is valid quantity data in the format specified above
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates quantity data from the JSON map
      */
     public QuantityData(Map<String, String> value) {
         amount = value.get("amount");

@@ -15,7 +15,7 @@ public class NotFoundException extends Exception {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new exception for the specific item
      */
     public NotFoundException(String urlStr) {
         super("Entity not found: " + urlStr);
@@ -24,7 +24,7 @@ public class NotFoundException extends Exception {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new exception for a tree which could not be found
      */
     public NotFoundException(String... tree) {
         super(buildErrorString(tree));
@@ -33,7 +33,7 @@ public class NotFoundException extends Exception {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : builds the error string for when a tree could not be found
      */
     private static String buildErrorString(String[] tree) {
         StringBuilder errorString = new StringBuilder(tree.length * 5 + 28);

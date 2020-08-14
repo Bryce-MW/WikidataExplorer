@@ -15,7 +15,7 @@ public class MonolingualTextData {
     /*
      * REQUIRES: value is valid monolingual text data in the format specified above
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates text data from the given JSON map
      */
     public MonolingualTextData(Map<String, String> value) {
         language = value.get("language");

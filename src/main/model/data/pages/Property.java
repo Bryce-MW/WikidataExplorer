@@ -18,7 +18,7 @@ public class Property extends Datum {
     /*
      * REQUIRES: id is a valid Wikidata ID, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new property from the given ID
      */
     public Property(String id, DatumQueryService queryService) throws NotFoundException {
         super(queryService, id);
@@ -29,7 +29,7 @@ public class Property extends Datum {
     /*
      * REQUIRES: data is valid EntityData, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new property form the given entity data
      */
     public Property(EntityData data, DatumQueryService queryService) throws NotFoundException {
         this(data.id, queryService);
@@ -38,7 +38,7 @@ public class Property extends Datum {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the title to be displayed
      */
     @Override
     public String getTitle() {
@@ -48,7 +48,7 @@ public class Property extends Datum {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description to be displayed
      */
     @Override
     public String getDescription() {

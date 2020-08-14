@@ -17,7 +17,7 @@ public class LayoutProfileManager extends MenuBarItem {
     /*
      * REQUIRES: defaultProfile is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new profile manager
      */
     public LayoutProfileManager(LayoutProfile defaultProfile) {
         profiles = new ArrayList<>(5);
@@ -28,7 +28,7 @@ public class LayoutProfileManager extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the list of profiles which this manager manages
      */
     public ArrayList<LayoutProfile> getProfiles() {
         return profiles;
@@ -37,7 +37,7 @@ public class LayoutProfileManager extends MenuBarItem {
     /*
      * REQUIRES: profile is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : adds a profile to this manager
      */
     public void addProfile(LayoutProfile profile) {
         profiles.add(profile);
@@ -47,7 +47,7 @@ public class LayoutProfileManager extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the CLI representation of the profile manager
      */
     @Override
     public String toString() {
@@ -57,7 +57,7 @@ public class LayoutProfileManager extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the string which is used by the CLI to direct commands to this manager
      */
     @Override
     public String getCommandString() {
@@ -67,7 +67,7 @@ public class LayoutProfileManager extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed to this manager
      */
     @Override
     public Boolean parse(List<String> subList) {

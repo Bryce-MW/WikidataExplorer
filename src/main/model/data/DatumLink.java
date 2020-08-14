@@ -22,7 +22,7 @@ public class DatumLink extends Value {
     /*
      * REQUIRES: queryService is not null, property is not null, value is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new datum link
      */
     public DatumLink(DatumQueryService queryService, Statement property, Value value) {
         super(queryService, value.getID());
@@ -37,7 +37,7 @@ public class DatumLink extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the image for this datum link if there is one
      */
     @Override
     public String getImage() {
@@ -47,7 +47,7 @@ public class DatumLink extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the title to be displayed
      */
     @Override
     public String getTitle() {
@@ -57,7 +57,7 @@ public class DatumLink extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description to be displayed
      */
     @Override
     public String getDescription() {
@@ -67,7 +67,7 @@ public class DatumLink extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the list of statements for this datum link
      */
     @Override
     public StatementList getStatements() {
@@ -83,7 +83,7 @@ public class DatumLink extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed at this datum link
      */
     @Override
     public Boolean parse(List<String> subList) {

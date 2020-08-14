@@ -16,7 +16,7 @@ public abstract class Collector {
     /*
      * REQUIRES: repository is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creats a new collector
      */
     public Collector(LocalRepository repository) {
         this.repository = repository;
@@ -25,42 +25,42 @@ public abstract class Collector {
     /*
      * REQUIRES: property is a valid Wikidata ID
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the name of an entity by its ID
      */
     public abstract String getEntityName(String property) throws NotFoundException;
 
     /*
      * REQUIRES: tree is a valid Wikidata tree, qualifierQuery is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the qualifiers for a statement by its tree
      */
     public abstract ArrayList<Qualifier> getQualifiers(List<String> tree, DatumQueryService qualifierQuery);
 
     /*
      * REQUIRES: tree is a valid Wikidata tree, qualifierQuery is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the references for a statement by its tree
      */
     public abstract ArrayList<Reference> getReferences(List<String> tree, DatumQueryService refQueryService);
 
     /*
      * REQUIRES: id is a valid Wikidata ID
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description for an entity by its ID
      */
     public abstract String getEntityDescription(String id) throws NotFoundException;
 
     /*
      * REQUIRES: id is a valid Wikidata ID
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets a list of statements for an ID
      */
     public abstract ArrayList<String> getStatementList(String id) throws NotFoundException;
 
     /*
      * REQUIRES: tree is a valid Wikidata tree about item, statementService is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets a single statement by the tree and the item it is about
      */
     public abstract Value getSingleStatement(ArrayList<String> tree, Datum item, DatumQueryService statementService)
             throws NotFoundException;
@@ -68,7 +68,7 @@ public abstract class Collector {
     /*
      * REQUIRES: tree is a valid Wikidata tree about about, statementService is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets a single datum link by its tree and the statement which it is about
      */
     public abstract ArrayList<Value> getDatumLinkListByTree(ArrayList<String> tree, Statement about,
                                                             DatumQueryService queryService);
@@ -76,14 +76,14 @@ public abstract class Collector {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : triggers a save to the local cache
      */
     public abstract Boolean triggerSave();
 
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : triggers a load from the local cache
      */
     public abstract Boolean triggerLoad();
 }

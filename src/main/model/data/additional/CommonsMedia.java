@@ -17,7 +17,7 @@ public class CommonsMedia extends LiteralString {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the URl for the image that this media represents.
      */
     @Override
     public String getImage() {

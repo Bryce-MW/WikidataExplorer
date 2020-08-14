@@ -26,7 +26,7 @@ public class Entity implements Serializable {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns a string for debugging purposes
      */
     @Override
     public String toString() {

@@ -20,7 +20,7 @@ public class Qualifier extends Value {
     /*
      * REQUIRES: property is not null, value is not null, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new qualifier
      */
     public Qualifier(Property property, Value value, DatumQueryService queryService) {
         super(queryService, property.getID());
@@ -31,7 +31,7 @@ public class Qualifier extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : finalizes the GUI after the superclass has finished
      */
     @Override
     public void addNotify() {
@@ -42,7 +42,7 @@ public class Qualifier extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the property that this qualifier is about
      */
     public Property getProperty() {
         return property;
@@ -51,7 +51,7 @@ public class Qualifier extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the value that this qualifier represents
      */
     public Value getValue() {
         return value;
@@ -60,7 +60,7 @@ public class Qualifier extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the title of this qualifier to be displayed
      */
     @Override
     public String getTitle() {
@@ -70,7 +70,7 @@ public class Qualifier extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description of this qualifier to be displayed
      */
     @Override
     public String getDescription() {
@@ -80,7 +80,7 @@ public class Qualifier extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns null as there are no statements
      */
     @Override
     public StatementList getStatements() {
@@ -90,7 +90,7 @@ public class Qualifier extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed at this qualifier
      */
     @Override
     public Boolean parse(List<String> subList) {

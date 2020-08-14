@@ -20,7 +20,7 @@ public class LocalRepository {
     /*
      * REQUIRES: fileName is the name of a Wikidata formatted JSON file which exists on the filesystem.
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new local repository
      */
     public LocalRepository(String fileName) {
         this.file = new File("./data/" + fileName);
@@ -29,7 +29,7 @@ public class LocalRepository {
     /*
      * REQUIRES: entities is a valid Entities, gson is not null
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : saves entities to the local cache
      */
     public Boolean save(Entities entities, Gson gson) {
         Entities toSave = new Entities();
@@ -55,7 +55,7 @@ public class LocalRepository {
     /*
      * REQUIRES: gson is valid
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : loades entities from the local cache
      */
     public Entities load(Gson gson) {
         try (FileReader reader = new FileReader(file)) {

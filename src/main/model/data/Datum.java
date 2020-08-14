@@ -18,7 +18,7 @@ public abstract class Datum extends Value {
     /*
      * REQUIRES: queryService is not null, ID is a valid Wikidata ID
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets up the fields which are relevant to all Datum
      */
     protected Datum(DatumQueryService queryService, String id) {
         super(queryService, id);
@@ -28,7 +28,7 @@ public abstract class Datum extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : finds the statements for this Datum
      */
     protected ArrayList<Value> findStatements() {
         ArrayList<String> statementNames = queryService.getStatementListByID(getID());
@@ -54,7 +54,7 @@ public abstract class Datum extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed at this datum
      */
     @Override
     public Boolean parse(List<String> subList) {
@@ -64,7 +64,7 @@ public abstract class Datum extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the statements about this datum
      */
     @Override
     public StatementList getStatements() {
@@ -74,7 +74,7 @@ public abstract class Datum extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns if this datum needs a search bar
      */
     @Override
     public boolean needsSearchBar() {
@@ -84,7 +84,7 @@ public abstract class Datum extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns if this datum needs a right arrow
      */
     @Override
     public boolean needsRightArrow() {

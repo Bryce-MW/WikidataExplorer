@@ -37,7 +37,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: value is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new item view with the given value
      */
     public ItemView(Value value) {
         this.item = value;
@@ -54,7 +54,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : configures the graphical part of this item view
      */
     private void configureView() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -86,7 +86,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : Add buttons to the GUI
      */
     private void addButtons() {
         JButton button = new JButton("X");
@@ -107,7 +107,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : add the right button to the GUI
      */
     private void addRightButton() {
         JButton button;
@@ -132,7 +132,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: language is a valid language code according to ISO something or other
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : changes the display language to the one given
      */
     public void updateLanguage(String lang) {
     } // TODO: Languages!
@@ -140,7 +140,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : returns the item which this view is showing
      */
     public Value getItem() {
         return item;
@@ -149,7 +149,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the CLI representation of this item view
      */
     public List<StringBuilder> toStringArray() {
         ArrayList<StringBuilder> result = new ArrayList<>(16);
@@ -183,7 +183,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: result is not null and contains at least one element
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : adds the necessary lines to the result
      */
     private void addLines(ArrayList<StringBuilder> result) {
         int maxLength = result.get(0).length();
@@ -212,7 +212,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: subList is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : parses a REPL command sent to this item view
      */
     public boolean parse(List<String> subList) {
         ArrayList<String> command = new ArrayList<>(subList);
@@ -237,7 +237,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: statement is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : toggles the given item on the controller to the left
      */
     public boolean toggleLeft(Value statement) {
         if (controller == null) {
@@ -249,7 +249,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets the controller that this is a part of
      */
     public void setController(ItemViewController controller) {
         this.controller = controller;
@@ -258,7 +258,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: value is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : toggles a value in the GUI
      */
     public void toggle(ItemView value) {
         Container parent = getParent();
@@ -271,7 +271,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns true if this object has the same item as another
      */
     @Override
     public boolean equals(Object o) {
@@ -290,7 +290,7 @@ public class ItemView extends JPanel {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the hashcode for the item which this view contains
      */
     @Override
     public int hashCode() {

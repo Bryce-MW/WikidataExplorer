@@ -28,7 +28,7 @@ public class GlobeCoordinateData {
     /*
      * REQUIRES: value is valid globe coordinate data in the format specified above
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates position data from the given JSON map
      */
     public GlobeCoordinateData(Map<String, Object> value) {
         latitude = (double) value.get("latitude");

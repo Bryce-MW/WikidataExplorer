@@ -20,7 +20,7 @@ public class UserProfile extends MenuBarItem {
     /*
      * REQUIRES: name is not null, defaultLayout is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new user profile
      */
     public UserProfile(String name, LayoutManager defaultLayout) {
         preferences = new PreferenceManager(new ArrayList<>(1)); // For now, there are no preferences.
@@ -32,7 +32,7 @@ public class UserProfile extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the list of preferences for this profile
      */
     public PreferenceManager getPreferences() {
         return preferences;
@@ -41,7 +41,7 @@ public class UserProfile extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the list of layout profiles for this profile
      */
     public LayoutProfileManager getLayoutProfileManager() {
         return layout;
@@ -51,7 +51,7 @@ public class UserProfile extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the string for displaying in the CLI
      */
     @Override
     public String toString() {
@@ -61,7 +61,7 @@ public class UserProfile extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns the command string which is used to send commands to this item in the CLI
      */
     @Override
     public String getCommandString() {
@@ -71,7 +71,7 @@ public class UserProfile extends MenuBarItem {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed at this item
      */
     @Override
     public Boolean parse(List<String> subList) {

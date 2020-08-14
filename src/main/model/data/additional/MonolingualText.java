@@ -15,7 +15,7 @@ public class MonolingualText extends AbstractAdditional {
     /*
      * REQUIRES: text is not null, language is a valid ISO something language ID. queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates monolingual text from the given text and language
      */
     public MonolingualText(String text, String language, DatumQueryService queryService) {
         super(queryService);
@@ -26,7 +26,7 @@ public class MonolingualText extends AbstractAdditional {
     /*
      * REQUIRES: monolingualTextValue is valid MonolingualTextData, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates monolingual text from from the data
      */
     public MonolingualText(MonolingualTextData monolingualTextValue, DatumQueryService queryService) {
         super(queryService);
@@ -38,7 +38,7 @@ public class MonolingualText extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the title to be displayed
      */
     @Override
     public String getTitle() {
@@ -48,7 +48,7 @@ public class MonolingualText extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description to be displayed
      */
     @Override
     public String getDescription() {
@@ -58,7 +58,7 @@ public class MonolingualText extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the ID (just the text)
      */
     @Override
     public String getID() {
@@ -68,7 +68,7 @@ public class MonolingualText extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns null as text has no statements
      */
     @Override
     public StatementList getStatements() {

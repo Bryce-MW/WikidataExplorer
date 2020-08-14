@@ -95,7 +95,7 @@ public class ItemViewController {
     /*
      * REQUIRES: statement is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : toggles statement on the controller to the left
      */
     public boolean toggleLeft(Value statement) {
         if (manager == null) {
@@ -107,7 +107,7 @@ public class ItemViewController {
     /*
      * REQUIRES: statement is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : toggles statement on the controller to the right
      */
     public boolean toggleRight(Value statement) {
         if (manager == null) {
@@ -119,7 +119,7 @@ public class ItemViewController {
     /*
      * REQUIRES: manager is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : sets the manager containing this controller
      */
     public void setManager(LayoutManager manager) {
         this.manager = manager;
@@ -128,7 +128,7 @@ public class ItemViewController {
     /*
      * REQUIRES: statement is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : toggles the statement on this controller
      */
     public boolean toggle(Value statement) {
         if (items.stream().anyMatch((i) -> i.getItem().equals(statement))) {

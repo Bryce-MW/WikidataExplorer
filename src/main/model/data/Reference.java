@@ -18,7 +18,7 @@ public class Reference extends Value {
     /*
      * REQUIRES: property is not null, value is not null, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates this specific refrence
      */
     public Reference(Property property, Value value, DatumQueryService queryService) {
         super(queryService, property.getID());
@@ -29,7 +29,7 @@ public class Reference extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : finalizes the UI after it has been initialized
      */
     @Override
     public void addNotify() {
@@ -40,7 +40,7 @@ public class Reference extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the property that this reference is using
      */
     public Property getProperty() {
         return property;
@@ -49,7 +49,7 @@ public class Reference extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : get the value that this reference represents
      */
     public Value getValue() {
         return value;
@@ -58,7 +58,7 @@ public class Reference extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the title of this reference to be displayed
      */
     @Override
     public String getTitle() {
@@ -68,7 +68,7 @@ public class Reference extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description of this reference which is to be displayed
      */
     @Override
     public String getDescription() {
@@ -78,7 +78,7 @@ public class Reference extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns null as a reference has no statements
      */
     @Override
     public StatementList getStatements() {
@@ -88,7 +88,7 @@ public class Reference extends Value {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : parses a REPL command directed to this statement
      */
     @Override
     public Boolean parse(List<String> subList) {

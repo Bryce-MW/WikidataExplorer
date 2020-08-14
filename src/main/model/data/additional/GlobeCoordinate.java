@@ -16,7 +16,7 @@ public class GlobeCoordinate extends AbstractAdditional {
     /*
      * REQUIRES: posLat and posLong are positions on Earth (or other globe), queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new globe coordinate from the given position data
      */
     public GlobeCoordinate(double posLat, double posLong, DatumQueryService queryService) {
         super(queryService);
@@ -27,7 +27,7 @@ public class GlobeCoordinate extends AbstractAdditional {
     /*
      * REQUIRES: globeCoordinateValue is valid GlobeCoordinateData, queryService is not null
      * MODIFIES: this
-     * EFFECTS :
+     * EFFECTS : creates a new globe coordinate from the given position data
      */
     public GlobeCoordinate(GlobeCoordinateData globeCoordinateValue, DatumQueryService queryService) {
         super(queryService);
@@ -38,7 +38,7 @@ public class GlobeCoordinate extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the title to be displayed
      */
     @Override
     public String getTitle() {
@@ -48,7 +48,7 @@ public class GlobeCoordinate extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : gets the description to be displayed
      */
     @Override
     public String getDescription() {
@@ -58,7 +58,7 @@ public class GlobeCoordinate extends AbstractAdditional {
     /*
      * REQUIRES: none
      * MODIFIES: none
-     * EFFECTS :
+     * EFFECTS : returns null as positions have no statements
      */
     @Override
     public StatementList getStatements() {
