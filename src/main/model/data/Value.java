@@ -152,6 +152,8 @@ public abstract class Value extends JPanel {
                     guInterface.toggle(new ItemView(thisValue));
                 }
             });
+            button.setMargin(new Insets(0, 0, 0, 0));
+            button.setMaximumSize(button.getMinimumSize());
             add(button);
             JLabel idComp = new JLabel(getID());
             idComp.setForeground(Color.WHITE);
