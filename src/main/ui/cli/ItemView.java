@@ -91,17 +91,30 @@ public class ItemView extends JPanel {
     private void addButtons() {
         JButton button = new JButton("X");
         int size = (int) button.getMaximumSize().getHeight();
-        button.setMaximumSize(new Dimension(size, size));
         button.setMargin(new Insets(0, 0, 0, 0));
         button.addActionListener(i -> {
             Container parent = this.getParent();
             parent.remove(this);
             parent.repaint();
         });
-        add(button);
+
+        JComponent buttons = new JPanel();
+        buttons.setLayout(new BoxLayout(buttons, BoxLayout.X_AXIS));
+        buttons.setMaximumSize(new Dimension(button.getMaximumSize().width * 2, button.getMaximumSize().height));
+        buttons.setBackground(GUInterface.midGray);
+        buttons.setAlignmentX(0);
+
+        buttons.add(button);
 
         if (item.needsRightArrow()) {
-            addRightButton();
+            JButton other = addRightButton();
+            buttons.add(other);
+            add(buttons);
+            button.setMaximumSize(new Dimension(size, size));
+            other.setMaximumSize(new Dimension(size, size));
+        } else {
+            add(buttons);
+            button.setMaximumSize(new Dimension(size, size));
         }
     }
 
@@ -110,7 +123,7 @@ public class ItemView extends JPanel {
      * MODIFIES: this
      * EFFECTS : add the right button to the GUI
      */
-    private void addRightButton() {
+    private JButton addRightButton() {
         JButton button;
         int size;
         button = new JButton("►");
@@ -128,7 +141,7 @@ public class ItemView extends JPanel {
                 }
             }
         });
-        add(button);
+        return button;
     }
 
     /*
