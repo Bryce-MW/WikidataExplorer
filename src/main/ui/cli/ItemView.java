@@ -92,6 +92,7 @@ public class ItemView extends JPanel {
         JButton button = new JButton("X");
         int size = (int) button.getMaximumSize().getHeight();
         button.setMaximumSize(new Dimension(size, size));
+        button.setMargin(new Insets(0, 0, 0, 0));
         button.addActionListener(i -> {
             Container parent = this.getParent();
             parent.remove(this);
@@ -115,6 +116,7 @@ public class ItemView extends JPanel {
         button = new JButton("►");
         size = (int) button.getMaximumSize().getHeight();
         button.setMaximumSize(new Dimension(size, size));
+        button.setMargin(new Insets(0, 0, 0, 0));
         button.addActionListener(i -> {
             Container parent = this.getParent();
             if (parent instanceof GUInterface) {

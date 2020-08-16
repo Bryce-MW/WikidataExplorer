@@ -7,6 +7,7 @@ import ui.GUInterface;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,6 +24,8 @@ public class SearchBar extends JPanel {
     private final ScopedSearch searchService;
     private final ArrayList<Value> results;
 
+    private boolean submitted;
+
     /*
      * REQUIRES: searchService is not null
      * MODIFIES: this
@@ -31,9 +34,15 @@ public class SearchBar extends JPanel {
     public SearchBar(ScopedSearch searchService) {
         this.searchService = searchService;
         results = new ArrayList<>(50);
+        submitted = true;
 
         JTextField textField = new JTextField("Search");
-        textField.addActionListener((i) -> parse(Collections.singletonList(textField.getText())));
+        textField.addActionListener((i) -> {
+            submitted = true;
+            parse(Collections.singletonList(textField.getText()));
+        });
+        textField.addMouseListener(new SearchMouseAdapter(this));
+        textField.addKeyListener(new SearchKeyAdapter(this));
         this.setLayout(new GridLayout());
         add(textField);
         textField.setBackground(GUInterface.brightGray);
@@ -107,5 +116,33 @@ public class SearchBar extends JPanel {
      */
     public Function<List<String>, Boolean> getParser() {
         return this::parse;
+    }
+
+    class SearchMouseAdapter extends MouseAdapter {
+        SearchBar bar;
+
+        public SearchMouseAdapter(SearchBar bar) {
+            this.bar = bar;
+        }
+
+        public void mousePressed(MouseEvent e) {
+            if (bar.submitted) {
+                JTextField field = (JTextField) e.getSource();
+                field.selectAll();
+            }
+        }
+    }
+
+    class SearchKeyAdapter extends KeyAdapter {
+        SearchBar bar;
+
+        public SearchKeyAdapter(SearchBar bar) {
+            this.bar = bar;
+        }
+
+        @Override
+        public void keyPressed(KeyEvent keyEvent) {
+            bar.submitted = false;
+        }
     }
 }
