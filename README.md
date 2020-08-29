@@ -7,6 +7,7 @@ This application was made for a UBC CPSC 210 project so don't expect it to be we
 
 ## Video Demonstration
 Click the photo to go to the video. The video does not exlain much about what is actually going on so you may want to read the introduction first.
+
 [![Video Demo](http://img.youtube.com/vi/K4cFTzeMygQ/0.jpg)](http://www.youtube.com/watch?v=K4cFTzeMygQ "Video Demo")
 
 ## Introduction
