@@ -5,6 +5,10 @@ structured data and knowledge graphs.
 
 This application was made for a UBC CPSC 210 project so don't expect it to be well coded. That's also why many things may seem odd because they were requirements for the class project which I could not change. Feel free to use it however you wish!
 
+## Video Demonstration
+Click the photo to go to the video. The video does not exlain much about what is actually going on so you may want to read the introduction first.
+[![Video Demo](http://img.youtube.com/vi/K4cFTzeMygQ/0.jpg)](http://www.youtube.com/watch?v=K4cFTzeMygQ "Video Demo")
+
 ## Introduction
 
 *Wikidata* Explorer allows the user to see the relationships
