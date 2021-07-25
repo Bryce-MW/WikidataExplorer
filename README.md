@@ -12,33 +12,11 @@ Click the photo to go to the video. The video does not exlain much about what is
 
 ## Introduction
 
-*Wikidata* Explorer allows the user to see the relationships
-between information about the world. The application is rather
-simple, You can select a concept, property, etc. to start with
-(or use the default concept). From there, basic information is
-shown along with important properties. You can also expand the
-properties list to show all of them or search for a specific
-one. If a property interests you, then you can pull its card
-out to the side and explore additional information.
+*Wikidata* Explorer allows the user to see the relationships between information about the world. The application is rather simple, You can select a concept, property, etc. to start with (or use the default concept). From there, basic information is shown along with important properties. You can also expand the properties list to show all of them or search for a specific one. If a property interests you, then you can pull its card out to the side and explore additional information.
 
-This application is of interest to anyone interested in
-structured data, computational intelligence, or just finds the
-relationships between things fascinating. This application
-provides an overview of *Wikidata* that allows a better
-understanding of the relationships which are the core of
-*Wikidata*. It's helpful for those interested in using the
-*Wikidata* API as it allows you to take a glimpse into the
-the structure which makes it much easier to determine how to best
-utilize the data.
+This application is of interest to anyone interested in structured data, computational intelligence, or just finds the relationships between things fascinating. This application provides an overview of *Wikidata* that allows a better understanding of the relationships which are the core of *Wikidata*. It's helpful for those interested in using the *Wikidata* API as it allows you to take a glimpse into the structure which makes it much easier to determine how to best utilize the data.
 
-I have been fascinated with *Wikidata* for a long time. It is incredibly interesting how concepts,
-properties, lexemes, and other data-types are related to
-each other. I keep a list of ideas for coding projects on my
-phone so that I always have once when I need it. Many of the
-ideas don't work in Java or don't fit the requirements of this
-project (I mostly make CLI tools). It just happened that
-this one (item number 10 on my list) does work which is why I
-decided to work on it this time.
+I have been fascinated with *Wikidata* for a long time. It is incredibly interesting how concepts, properties, lexemes, and other data types are related to each other. I keep a list of ideas for coding projects on my phone so that I always have one when I need it. Many of the ideas don't work in Java or don't fit the requirements of this project (I mostly make CLI tools). It just happened that this one (item number 10 on my list) does work which is why I decided to work on it this time.
 
 ## *Wikidata* Basics
 *Wikidata* stores a collection of structured data, that means that every piece
